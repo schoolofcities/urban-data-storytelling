@@ -38,10 +38,10 @@ e.g. in the map below (a screenshot of OpenStreetMap) lines are used to represen
 
 Spatial data can be stored as columns in traditional table-based formats (e.g. .csv), but there are also a wide range of data formats specific to spatial data. These are some of the most common:
 
-- GeoJSON `.geojson`
-- GeoPacakge `.gpkg`
-- ShapeFile `.shapfile`
-- GeoDataBase `.gdb`
+- [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) `.geojson`
+- [GeoPacakge](https://en.wikipedia.org/wiki/GeoPackage) `.gpkg`
+- [Shapefile](https://en.wikipedia.org/wiki/Shapefile) `.shapfile`
+- [Geodatabase](https://en.wikipedia.org/wiki/Geodatabase_(Esri)) `.gdb`
 
 Here is an example of a single point location of a city stored in a `.geojson` file. `.geojson` is a standardized data schema `.json` format for spatial data.
 
