@@ -5,6 +5,10 @@ A lot of urban datasets are directly linked to specific places, e.g. addresses, 
 
 Data that include place-based information are often called *spatial*, *geographic*, or *geospatial* data.
 
+Geographic Information Systems (GIS) are tools and software for analyzing, processing, and visualizing spatial data.
+
+This page will cover the basics of spatial data and how we can view and interact with this data in the software [QGIS](https://qgis.org) (you will need to download QGIS to work on the hands-on part of this tutorial).
+
 
 ## Spatial data
 
@@ -88,20 +92,50 @@ The power of GIS software and tools is the ability to work with data stored in d
 
 GIS software usually links to data stored elsewhere on a computer, rather than in a project file. If the source location of the data (i.e. which folder it's in) changes, then this will have to be updated in the GIS project. If data are edited in GIS, it will update the data in its source location.
 
-The open-source QGIS and ESRI's ArcGIS are the two most used desktop GIS software. ESRI's suite of tools are often used by larger corporate and government organizations while QGIS is more used by small consultants and freelancers, non-profits, and academia. 
+The open-source QGIS and the proprietary ESRI ArcGIS are the two most used desktop GIS software. ESRI's suite of tools are often used by larger corporate and government organizations while QGIS is more used by small consultants and freelancers, non-profits, and academia. Many spatial data processing, visualization, and analyses steps also have equivalents in `Python`, `R`, `SQL` and other programming languages via specific libraries
 
-Many spatial data processing and analyses steps also have equivalents in `Python`, `R`, `SQL` and other programming languages via specific libraries
+We'll be working with QGIS and Python, because they free and work across multiple operating systems, and are commonly used across different areas of work and research. But pretty much everything we'll show can be accomplished across different software options, the buttons and steps will just be a bit different. 
 
-We'll be working with QGIS and Python, because they free and works across multiple operating systems, and are commonly used in different industries. But pretty much everything we'll show can be done in across different software options, the buttons and steps will just be a bit different.  Learning the core analytical and visualization concepts and ideas are much more important than exactly where to click or what specific functions to run.
+Learning the core analytical and visualization concepts and ideas are much more important than exactly where to click or what specific functions to run.
+
+
+## Coordinate Reference Systems (CRS) and map projections
+
+A [CRS](https://en.wikipedia.org/wiki/Spatial_reference_system) is a framework for describing the geographic position of location-based data. It tells your GIS software where your data are located on the Earth. Without a CRS, your data would just be a bunch of numbers without an ability to place them on a map and relate them to other data.
+
+There are thousands of CRSs. Each CRS has specific attributes about its position and one main set of spatial units (e.g. a CRS will measure location in degrees longitude/latitude, metres, miles, etc.). 
+
+Probably the most common CRS is WGS84, which uses longitude/latitude to link data to the Earth's surface.
+
+When doing spatial analyses and processing where we are comparing two or more datasets to each other, it is important that they are in the same CRS.
+
+
+
+### Map projections
+
+CRS are often paired with map projections. This is sometimes called a *Projected CRS*.
+
+The earth is a 3D globe, but most maps are represented on 2D surfaces (e.g. on a screen, piece of paper). Map projections are mathematical model to flatten the earth to create a 2D view.
+
+Every projection distorts shape, area, distance, or direction in some way or another. Different map projections distort the Earth in different ways. Here are some examples! For more check out this [projection transition tool](https://www.jasondavies.com/maps/transition/)
+
+![QGIS screenshot without data](img/projections.png)
+
+For doing analysis and an urban scale, it is important that we choose a map projection that conserves area and distances in both X and Y directions (i.e. space is not being distorted in one particular direction more than others)
+
+For example, these are two aerial images of Toronto, the left uses a local Mercator projection which does not distort data at a local scale, while the right is a rectangular projection where degrees latitude are equal shown at the same scale as degrees longitude.
+
+A general recommendation for urban-scale analyses is to use a [Universal Transverse Mercator (UTM)](https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system) projected CRS, which conserves area, distance, and direction along bands of the earth. This is a good [tool for finding](https://mangomap.com/robertyoung/maps/69585/what-utm-zone-am-i-in-#) which UTM zone your region is in.
+
 
 
 ## Working with spatial data in QGIS
 
-Let's use QGIS to quickly view a few spatial dataset. When you open up QGIS, it should look something like this:
+Let's use QGIS to quickly view a few spatial datasets. When you open up QGIS, it should look something like this:
 
 ![QGIS screenshot without data](img/qgis-blank.png)
 
-The buttons at the top are for . The *Browser* panel is used for finding and loading data on your computer or from external sources, each line and symbol is for a different data source. The *Layer* panel will list all the datasets that are loaded into your project. And the big white space will populate with data once it is loaded.
+The *Browser* panel is used for finding and loading data on your computer or from external sources, each line and symbol is for a different data source. The *Layer* panel will list all the datasets that are loaded into your project. The big white space will populate with data once it is loaded. The buttons at the top include a variety of options for loading data, saving your project, exploring your map, and various common processing and analytical tools.
 
 
 ### Loading data
@@ -124,7 +158,7 @@ Let's now add some vector data to the map. We've pre-downloaded two datasets fro
 - City Wards (polygons)
 - Library Locations (points)
 
-These can be added via the *Data Source Manager - Vector*, or simply via drag-and-drop from the folder of where they are located on your computer.
+These can be added via the *Data Source Manager* - *Vector*, or simply via drag-and-drop from the folder of where they are located on your computer.
 
 ![QGIS with Toronto data](img/qgis-toronto-data.png)
 
@@ -135,7 +169,7 @@ The data added to the project will be listed in the *Layers* panel. The order of
 
 To change the layer order, you can drag individual layers to be above or below any other layer in the *Layers* panel.
 
-Most vector data has associated attribute data, e.g. the number of a ward, the name of a library, etc. To view this data, right-click on a layer and then click on *Open Attribute Table*. 
+Most vector data has associated attribute data, e.g. the number of a ward, the name of a library, etc. To view this data, right-click on a layer and then click on *Open Attribute Table*. In GIS, column names are often called "Fields"
 
 
 ### Styling data
@@ -157,26 +191,27 @@ Tip! you get extra options if you click on the sub-component of the symbol. e.g.
 We'll explore data-driven styling, where colours or other style options are based on data values, in a future tutorial.
 
 
-### Saving a project
-
-Saving a project
-
-
-
-## Coordinate Reference Systems (CRS) and map projections
-
-Longitude and latitude ...
-
-
-
-
-For doing analysis and an urban scale, it is important that we choose a map projection that conserves area and distances in both X and Y directions (i.e. the space is not being distorted)
-
-For example, these are two aerial images of Toronto, the left uses a local Mercator projection which does not distort data at a local scale, while the right is a 
-
-
-
-
 ### Changing projections and CRS in QGIS
 
-You can change the project CRS in QGIS 
+You can change the project CRS in QGIS by going to *Project* - *Properties* - *CRS*. 
+
+
+### Exporting data
+
+You can export and create copies of any of your data layers. This may be useful if you want to change the file format, the CRS, subset the attribute table, or simply just make a copy of the data.  
+
+To do this, go to *Export* - *Save Features As*, and you can adjust the *Format*, *CRS*, and other options as needed.
+
+
+### Saving a QGIS project
+
+You can save a project in QGIS by going to *Project* and then *Save* or *Save As*.
+
+It will get saved to a `.qgis` file. These files save styling, filters, layer orders, map scale and location, and layout settings. 
+
+However, `.qgis` files do not save datasets directly in the file, only paths and links to where the data is stored, either on your computer or from a URL like the OpenStreetMap basemap. Saving only links to data is common in other tools and software. 
+
+Therefore, if you share your project, you’ll need to also share any local datasets it is linking to.
+
+
+
