@@ -1,0 +1,19 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "<img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg'  style='height:auto;width:220px'></img><br>Urban Data Storytelling 📊 📈 🏙️ "
+  sidebar:
+    style: floating
+    contents: 
+      - section: "Urban Data Analysis"
+        contents:
+          - notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.ipynb
+          - notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.md
+          - notebooks/urban-data-analytics/canadian-census-data/index.md
+format:
+  html:
+    theme: lumen
+    toc: true
+    toc-depth: 3
