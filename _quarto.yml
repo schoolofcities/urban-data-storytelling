@@ -1,19 +1,23 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - notebooks/**/*
 
 website:
-  title: "<img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg'  style='height:auto;width:220px'></img><br>Urban Data Storytelling 📊 📈 🏙️ "
+  title: "<img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg'  style='height:auto;width:220px'></img><br>Urban Data Analytics & Visualization 📊📈🏙️"
   sidebar:
     style: floating
     contents: 
-      - section: "Urban Data Analysis"
+      - section: "Urban Data Analytics"
         contents:
           - notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.ipynb
           - notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.md
-          - notebooks/urban-data-analytics/canadian-census-data/index.md
+          - notebooks/urban-data-analytics/canadian-census-data/canadian-census-data.md
+      - section: "Urban Data Visualization"
 format:
   html:
     theme: lumen
+    css: assets/styles.css
     toc: true
-    toc-depth: 3
+    toc-depth: 2

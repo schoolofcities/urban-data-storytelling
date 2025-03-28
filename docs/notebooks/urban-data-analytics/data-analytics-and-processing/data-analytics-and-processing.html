@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Processing and analyzing data – Urban Data Storytelling 📊 📈 🏙️</title>
+<title>data-analytics-and-processing – &lt;img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg'  style='height:auto;width:220px'&gt;&lt;/img&gt;&lt;br&gt;Urban Data Analytics &amp; Visualization 📊📈🏙️</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,6 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
+<link rel="stylesheet" href="../../../assets/styles.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -116,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html">Urban Data Analysis</a></li><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html">Processing and analyzing data</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html">Urban Data Analytics</a></li><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html">Processing and analyzing data</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -131,7 +132,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../../">Urban Data Storytelling 📊 📈 🏙️</a> 
+      <a href="../../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;width:220px"><br>Urban Data Analytics &amp; Visualization 📊📈🏙️</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -144,7 +145,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Urban Data Analysis</span></a>
+ <span class="menu-text">Urban Data Analytics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -164,11 +165,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../notebooks/urban-data-analytics/canadian-census-data/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../notebooks/urban-data-analytics/canadian-census-data/canadian-census-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Canadian census data</span></a>
   </div>
 </li>
       </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Urban Data Visualization</span></span>
   </li>
     </ul>
     </div>
@@ -179,53 +184,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#tables-dataframes" id="toc-tables-dataframes" class="nav-link active" data-scroll-target="#tables-dataframes">Tables &amp; DataFrames</a></li>
+  <ul class="collapse">
+  <li><a href="#processing-and-analyzing-data" id="toc-processing-and-analyzing-data" class="nav-link active" data-scroll-target="#processing-and-analyzing-data">Processing and analyzing data</a>
+  <ul class="collapse">
+  <li><a href="#tables-dataframes" id="toc-tables-dataframes" class="nav-link" data-scroll-target="#tables-dataframes">Tables &amp; DataFrames</a></li>
   <li><a href="#viewing-data" id="toc-viewing-data" class="nav-link" data-scroll-target="#viewing-data">Viewing data</a></li>
   <li><a href="#filtering-data" id="toc-filtering-data" class="nav-link" data-scroll-target="#filtering-data">Filtering data</a></li>
   <li><a href="#sorting-data" id="toc-sorting-data" class="nav-link" data-scroll-target="#sorting-data">Sorting data</a></li>
   <li><a href="#exporting-data" id="toc-exporting-data" class="nav-link" data-scroll-target="#exporting-data">Exporting data</a></li>
   <li><a href="#updating-and-renaming-columns" id="toc-updating-and-renaming-columns" class="nav-link" data-scroll-target="#updating-and-renaming-columns">Updating and renaming columns</a></li>
-  <li><a href="#handling-missing-data" id="toc-handling-missing-data" class="nav-link" data-scroll-target="#handling-missing-data">Handling missing data</a>
-  <ul class="collapse">
-  <li><a href="#creating-new-columns" id="toc-creating-new-columns" class="nav-link" data-scroll-target="#creating-new-columns">Creating new columns</a></li>
-  <li><a href="#concatenating-and-joining-tables" id="toc-concatenating-and-joining-tables" class="nav-link" data-scroll-target="#concatenating-and-joining-tables">Concatenating and joining tables</a></li>
-  </ul></li>
-  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary statistics</a>
-  <ul class="collapse">
+  <li><a href="#handling-missing-data" id="toc-handling-missing-data" class="nav-link" data-scroll-target="#handling-missing-data">Handling missing data</a></li>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary statistics</a></li>
   <li><a href="#cross-tabulations-and-pivot-tables" id="toc-cross-tabulations-and-pivot-tables" class="nav-link" data-scroll-target="#cross-tabulations-and-pivot-tables">Cross tabulations and pivot tables</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html">Urban Data Analysis</a></li><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html">Processing and analyzing data</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Processing and analyzing data</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html">Urban Data Analytics</a></li><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html">Processing and analyzing data</a></li></ol></nav></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>This notebook provides an introduction for analyzing urban data. We’ll be learning the following - Exploring, filtering, and sorting data - Cleaning data and removing missing data - Creating new columns from existing data - Joining data from multiple tables - Computing descriptive statistics (sum, mean, etc.) - Aggregating data via cross-tabulations and pivot tables</p>
-<p>To do this, we’ll primarily be using <a href="https://pandas.pydata.org/">pandas</a>, a Python library for analyzing and organizing tabular data. <code>pandas</code> is probably the most common library for working with both big and small datasets in Python, and is the basis for working with more analytical packages (e.g.&nbsp;<code>numpy</code>, <code>scipy</code>, <code>scikit-learn</code>) and analyzing geographic data (e.g.&nbsp;<code>geopandas</code>)</p>
-<p>For each section, we’ll also link to relevant documentation for doing similar tasks in Microsoft Excel and Google Sheets.</p>
+<section id="processing-and-analyzing-data" class="level1">
+<h1>Processing and analyzing data</h1>
+<p>This notebook provides an introduction for analyzing urban data. It will cover …</p>
+<ul>
+<li>Exploring, filtering, and sorting data</li>
+<li>Cleaning data and removing missing data</li>
+<li>Creating new columns from existing data</li>
+<li>Joining data from multiple tables</li>
+<li>Computing descriptive statistics (sum, mean, etc.)</li>
+<li>Aggregating data via cross-tabulations and pivot tables</li>
+</ul>
+<p>To do this, we’ll primarily be using <a href="https://pandas.pydata.org/">pandas</a>, a Python library for analyzing and organizing tabular data.</p>
 <div id="1123b26f-d663-411d-a5e6-aa6e6433a265" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><code>pandas</code> is probably the most common library for working with both big and small datasets in Python, and is the basis for working with more analytical packages (e.g.&nbsp;<code>numpy</code>, <code>scipy</code>, <code>scikit-learn</code>) and analyzing geographic data (e.g.&nbsp;<code>geopandas</code>). For each section, we’ll also link to relevant documentation for doing similar tasks in Microsoft Excel and Google Sheets.</p>
+<p>Here are download links to this notebook and example datasets.</p>
+<ul>
+<li><a href="../../../notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html" download="">Download Notebook</a><br>
+</li>
+<li><a href="data/cities.csv" download="">cities.csv</a><br>
+</li>
+<li><a href="data/cities.csv" download="">capitals.csv</a><br>
+</li>
+<li><a href="data/cities.csv" download="">new_york_cities.csv</a></li>
+</ul>
 <section id="tables-dataframes" class="level2">
 <h2 class="anchored" data-anchor-id="tables-dataframes">Tables &amp; DataFrames</h2>
 <p>A very common way of structuring and analyzing a dataset is in a 2-dimensional table format, where rows are individual records or observations, while columns are attributes (often called variables) about those observations. For example, rows could each be a city and columns could indicate the population for different time periods. Data stored in spreadsheets often take this format.</p>
@@ -467,7 +473,11 @@ Name: Prov/terr, dtype: object</code></pre>
 <section id="filtering-data" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-data">Filtering data</h2>
 <p>We often want to look at only a portion of our data that fit some set of conditions (e.g.&nbsp;all cities in a province that have a population more than 100,000). This is often called filtering, querying, or subsetting a dataset.</p>
-<p>Let’s try to do some filtering in <code>pandas</code> with our data of Canadian cities. Check out these links for filtering and sorting in spreadsheet software: - <a href="https://support.microsoft.com/en-us/office/filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e">Filtering in Excel</a> - <a href="https://support.google.com/docs/answer/3540681?hl=en&amp;co=GENIE.Platform%3DDesktop">Filtering in Google Sheets</a></p>
+<p>Let’s try to do some filtering in <code>pandas</code> with our data of Canadian cities. Check out these links for filtering and sorting in spreadsheet software:</p>
+<ul>
+<li><a href="https://support.microsoft.com/en-us/office/filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e">Filtering in Excel</a></li>
+<li><a href="https://support.google.com/docs/answer/3540681?hl=en&amp;co=GENIE.Platform%3DDesktop">Filtering in Google Sheets</a></li>
+</ul>
 <p>We can use the columns to identify data that we might want to filter by. The line below shows data only for Ontario, <strong>but see if you can filter for another province or territory</strong>.</p>
 <div id="3d291a78-7d41-4e76-bddc-4f3c72484642" class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.loc[df[<span class="st">'Prov/terr'</span>] <span class="op">==</span> <span class="st">'Ont.'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1533,12 +1543,13 @@ Name: Population, 2021, dtype: float64</code></pre>
 <div id="fafec74a-ffa8-4c19-8e85-a378f7195cf8" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Percent_Growth'</span>] <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> (df[<span class="st">'Population, 2021'</span>] <span class="op">-</span> df[<span class="st">'Population, 2016'</span>]) <span class="op">/</span> df[<span class="st">'Population, 2016'</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="cross-tabulations-and-pivot-tables" class="level3">
-<h3 class="anchored" data-anchor-id="cross-tabulations-and-pivot-tables">Cross tabulations and pivot tables</h3>
+</section>
+<section id="cross-tabulations-and-pivot-tables" class="level2">
+<h2 class="anchored" data-anchor-id="cross-tabulations-and-pivot-tables">Cross tabulations and pivot tables</h2>
 <p>A <em>cross tabulation</em>, also called a <em>frequency table</em> or a <em>contingency table</em>, is a table that shows the summarizes two categorical variables by displaying the number of occurrences in each pair of categories.</p>
 <p>Let’s show an example by counting the number of cities in each province by a categorization of city size.</p>
 <p>We will need two tools to do this: - <a href="https://pandas.pydata.org/docs/reference/api/pandas.cut.html">cut</a>, which bins continuous numbers (like population) into categories (e.g., “Small”/“Medium”/“Large”), turning numbers into meaningful groups. - <a href="https://pandas.pydata.org/docs/reference/api/pandas.crosstab.html">crosstab</a>, which counts how often these groups appear together—like how many “Medium” cities exist per province—revealing patterns that raw numbers hide.</p>
-<div id="28f378e8-5684-4f4b-9a65-6b2ca7e38e4c" class="cell" data-execution_count="34">
+<div id="28f378e8-5684-4f4b-9a65-6b2ca7e38e4c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a size category column</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Size'</span>] <span class="op">=</span> pd.cut(df[<span class="st">'Population, 2021'</span>],</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>                    bins<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">50000</span>, <span class="dv">200000</span>, <span class="bu">float</span>(<span class="st">'inf'</span>)],</span>
@@ -1547,115 +1558,19 @@ Name: Population, 2021, dtype: float64</code></pre>
 <span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Cross-tab: Province vs. Size</span></span>
 <span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>size_table <span class="op">=</span> pd.crosstab(df[<span class="st">'Prov/terr'</span>], df[<span class="st">'Size'</span>], margins<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>size_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="34">
-<div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[1], line 2</span>
+<span class="ansi-green-fg ansi-bold">      1</span> <span style="font-style:italic;color:rgb(95,135,135)"># Create a size category column</span>
+<span class="ansi-green-fg">----&gt; 2</span> df[<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Size</span><span style="color:rgb(175,0,0)">'</span>] <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">pd</span><span style="color:rgb(98,98,98)">.</span>cut(df[<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Population, 2021</span><span style="color:rgb(175,0,0)">'</span>],
+<span class="ansi-green-fg ansi-bold">      3</span>                     bins<span style="color:rgb(98,98,98)">=</span>[<span style="color:rgb(98,98,98)">0</span>, <span style="color:rgb(98,98,98)">50000</span>, <span style="color:rgb(98,98,98)">200000</span>, <span style="color:rgb(0,135,0)">float</span>(<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">inf</span><span style="color:rgb(175,0,0)">'</span>)],
+<span class="ansi-green-fg ansi-bold">      4</span>                     labels<span style="color:rgb(98,98,98)">=</span>[<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Small</span><span style="color:rgb(175,0,0)">'</span>, <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Medium</span><span style="color:rgb(175,0,0)">'</span>, <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Large</span><span style="color:rgb(175,0,0)">'</span>])
+<span class="ansi-green-fg ansi-bold">      6</span> <span style="font-style:italic;color:rgb(95,135,135)"># Cross-tab: Province vs. Size</span>
+<span class="ansi-green-fg ansi-bold">      7</span> size_table <span style="color:rgb(98,98,98)">=</span> pd<span style="color:rgb(98,98,98)">.</span>crosstab(df[<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Prov/terr</span><span style="color:rgb(175,0,0)">'</span>], df[<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Size</span><span style="color:rgb(175,0,0)">'</span>], margins<span style="color:rgb(98,98,98)">=</span><span style="font-weight:bold;color:rgb(0,135,0)">True</span>)
 
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th">Size</th>
-<th data-quarto-table-cell-role="th">Small</th>
-<th data-quarto-table-cell-role="th">Medium</th>
-<th data-quarto-table-cell-role="th">Large</th>
-<th data-quarto-table-cell-role="th">All</th>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">Prov/terr</th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Alta.</td>
-<td>7</td>
-<td>8</td>
-<td>2</td>
-<td>17</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">B.C.</td>
-<td>9</td>
-<td>16</td>
-<td>4</td>
-<td>29</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Man.</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">N.B.</td>
-<td>1</td>
-<td>3</td>
-<td>0</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">N.L.</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">N.S.</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Ont.</td>
-<td>25</td>
-<td>27</td>
-<td>12</td>
-<td>64</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">P.E.I.</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Que.</td>
-<td>22</td>
-<td>14</td>
-<td>5</td>
-<td>41</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">Sask.</td>
-<td>2</td>
-<td>0</td>
-<td>2</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Y.T.</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">All</td>
-<td>69</td>
-<td>71</td>
-<td>27</td>
-<td>167</td>
-</tr>
-</tbody>
-</table>
-
+<span class="ansi-red-fg">NameError</span>: name 'pd' is not defined</pre>
 </div>
 </div>
 </div>

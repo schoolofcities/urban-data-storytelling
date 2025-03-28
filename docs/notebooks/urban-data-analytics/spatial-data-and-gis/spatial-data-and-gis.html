@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>spatial-data-and-gis – &lt;img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg'  style='height:auto;width:220px'&gt;&lt;/img&gt;&lt;br&gt;Urban Data Storytelling 📊 📈 🏙️ </title>
+<title>spatial-data-and-gis – &lt;img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg'  style='height:auto;width:220px'&gt;&lt;/img&gt;&lt;br&gt;Urban Data Analytics &amp; Visualization 📊📈🏙️</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,6 +102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
+<link rel="stylesheet" href="../../../assets/styles.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -113,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html">Urban Data Analysis</a></li><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">Spatial data &amp; GIS</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html">Urban Data Analytics</a></li><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">Spatial data &amp; GIS</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -128,7 +129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;width:220px"><br>Urban Data Storytelling 📊 📈 🏙️</a> 
+      <a href="../../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;width:220px"><br>Urban Data Analytics &amp; Visualization 📊📈🏙️</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -141,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Urban Data Analysis</span></a>
+ <span class="menu-text">Urban Data Analytics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -161,11 +162,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../notebooks/urban-data-analytics/canadian-census-data/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../notebooks/urban-data-analytics/canadian-census-data/canadian-census-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Canadian census data</span></a>
   </div>
 </li>
       </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Urban Data Visualization</span></span>
   </li>
     </ul>
     </div>
@@ -176,34 +181,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="collapse">
   <li><a href="#spatial-data-gis" id="toc-spatial-data-gis" class="nav-link active" data-scroll-target="#spatial-data-gis">Spatial data &amp; GIS</a>
   <ul class="collapse">
-  <li><a href="#spatial-data" id="toc-spatial-data" class="nav-link" data-scroll-target="#spatial-data">Spatial data</a>
-  <ul class="collapse">
-  <li><a href="#vector-data" id="toc-vector-data" class="nav-link" data-scroll-target="#vector-data">Vector data</a></li>
-  <li><a href="#raster-data" id="toc-raster-data" class="nav-link" data-scroll-target="#raster-data">Raster data</a></li>
-  </ul></li>
+  <li><a href="#spatial-data" id="toc-spatial-data" class="nav-link" data-scroll-target="#spatial-data">Spatial data</a></li>
   <li><a href="#geographic-information-systems-gis" id="toc-geographic-information-systems-gis" class="nav-link" data-scroll-target="#geographic-information-systems-gis">Geographic Information Systems (GIS)</a></li>
-  <li><a href="#coordinate-reference-systems-crs-and-map-projections" id="toc-coordinate-reference-systems-crs-and-map-projections" class="nav-link" data-scroll-target="#coordinate-reference-systems-crs-and-map-projections">Coordinate Reference Systems (CRS) and map projections</a>
-  <ul class="collapse">
-  <li><a href="#map-projections" id="toc-map-projections" class="nav-link" data-scroll-target="#map-projections">Map projections</a></li>
-  </ul></li>
-  <li><a href="#working-with-spatial-data-in-qgis" id="toc-working-with-spatial-data-in-qgis" class="nav-link" data-scroll-target="#working-with-spatial-data-in-qgis">Working with spatial data in QGIS</a>
-  <ul class="collapse">
-  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data">Loading data</a></li>
-  <li><a href="#working-with-layers" id="toc-working-with-layers" class="nav-link" data-scroll-target="#working-with-layers">Working with layers</a></li>
-  <li><a href="#styling-data" id="toc-styling-data" class="nav-link" data-scroll-target="#styling-data">Styling data</a></li>
-  <li><a href="#changing-projections-and-crs-in-qgis" id="toc-changing-projections-and-crs-in-qgis" class="nav-link" data-scroll-target="#changing-projections-and-crs-in-qgis">Changing projections and CRS in QGIS</a></li>
-  <li><a href="#exporting-data" id="toc-exporting-data" class="nav-link" data-scroll-target="#exporting-data">Exporting data</a></li>
-  <li><a href="#saving-a-qgis-project" id="toc-saving-a-qgis-project" class="nav-link" data-scroll-target="#saving-a-qgis-project">Saving a QGIS project</a></li>
-  </ul></li>
+  <li><a href="#coordinate-reference-systems-crs-and-map-projections" id="toc-coordinate-reference-systems-crs-and-map-projections" class="nav-link" data-scroll-target="#coordinate-reference-systems-crs-and-map-projections">Coordinate Reference Systems (CRS) and map projections</a></li>
+  <li><a href="#working-with-spatial-data-in-qgis" id="toc-working-with-spatial-data-in-qgis" class="nav-link" data-scroll-target="#working-with-spatial-data-in-qgis">Working with spatial data in QGIS</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html">Urban Data Analysis</a></li><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">Spatial data &amp; GIS</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html">Urban Data Analytics</a></li><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">Spatial data &amp; GIS</a></li></ol></nav></header>
 
 
 

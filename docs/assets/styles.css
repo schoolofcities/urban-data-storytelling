@@ -1,0 +1,30 @@
+@font-face {
+	font-family: 'TradeGothicBold';
+	src: url('Trade Gothic LT Bold.ttf') format('truetype');
+  }
+
+h1, h2, h3, h4, h5 {
+	font-family: TradeGothicBold, sans-serif;
+	color: #1E3765;
+}
+
+h1 {
+	padding-top: 50px;
+	text-decoration: underline;
+}
+
+figcaption {
+	opacity: 1;
+	font-size: 15px;
+	font-style: italic;
+	text-align: center;
+}
+
+em {
+	background-color: #f1c50080;
+}
+
+strong {
+	background-color: #8DBF2E80;
+	opacity: 0.9;
+}
