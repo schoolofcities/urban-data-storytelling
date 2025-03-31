@@ -250,5 +250,217 @@
       "Urban Data Analytics",
       "Processing and analyzing data"
     ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/spatial-data-visualization/spatial-data-visualization.html",
+    "href": "notebooks/urban-data-visualization/spatial-data-visualization/spatial-data-visualization.html",
+    "title": "Maps & Spatial Data Visualization",
+    "section": "",
+    "text": "What is a map?\nReference maps vs thematic maps\nMaps always abstractions - l - we can’t show everything - we have to choose\n\n\n\n\n\n\n\n\n\n\n\nVisual variables often used for map data\nSingle rule\nStyle via data values - categorical example - e.g.  - numeric example - e.g.  — link to choropleth and prop symbol?",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Spatial Data Visualization"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/spatial-data-visualization/spatial-data-visualization.html#simplification",
+    "href": "notebooks/urban-data-visualization/spatial-data-visualization/spatial-data-visualization.html#simplification",
+    "title": "Maps & Spatial Data Visualization",
+    "section": "",
+    "text": "Symbology\nVisual variables often used for map data\nReference maps vs thematic maps",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Spatial Data Visualization"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/spatial-data-visualization/spatial-data-visualization.html#symbology",
+    "href": "notebooks/urban-data-visualization/spatial-data-visualization/spatial-data-visualization.html#symbology",
+    "title": "Maps & Spatial Data Visualization",
+    "section": "",
+    "text": "Visual variables often used for map data\nSingle rule\nStyle via data values - categorical example - e.g.  - numeric example - e.g.  — link to choropleth and prop symbol?",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Spatial Data Visualization"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/spatial-data-visualization/maps-and-spatial-data-visualization.html",
+    "href": "notebooks/urban-data-visualization/spatial-data-visualization/maps-and-spatial-data-visualization.html",
+    "title": "Maps & Spatial Data Visualization",
+    "section": "",
+    "text": "What is a map?\nReference maps vs thematic maps\nMaps always abstractions - l - we can’t show everything - we have to choose\n\n\n\n\n\n\n\n\n\n\n\nVisual variables often used for map data\nSingle rule\nStyle via data values - categorical example - e.g.  - numeric example - e.g.  — link to choropleth and prop symbol?"
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/spatial-data-visualization/maps-and-spatial-data-visualization.html#symbology",
+    "href": "notebooks/urban-data-visualization/spatial-data-visualization/maps-and-spatial-data-visualization.html#symbology",
+    "title": "Maps & Spatial Data Visualization",
+    "section": "",
+    "text": "Visual variables often used for map data\nSingle rule\nStyle via data values - categorical example - e.g.  - numeric example - e.g.  — link to choropleth and prop symbol?"
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "What is a map?\nCartography\nReference (what is where, navigation) or thematic (show specific data, visualization for a story, etc.)\n\n\nExamples of reference maps - old and new\nMaps - Google Maps, for example, is probably the most viewed map in human history now.\nReference maps are often used as base maps for thematic maps and geo-visualizations.\n\n\n\n\n\n\n\n\n\nStatic (varying sizes) or dynamic/interactive (dashboard or story)\nGenerally - start with static - do we need dynamic/interactive? takes more work\n\n\n\nMaps always abstractions of reality. It is impossible tosdfgase can’t show everything, nor would we want to, we usually want to focus our reader’s attention on specific data, trend, or story.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVisual variables often used for map data\nSingle rule\nStyle via data values - categorical example - e.g.  - numeric example - e.g.  — link to choropleth and prop symbol?",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#symbology",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#symbology",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Visual variables often used for map data\nSingle rule\nStyle via data values - categorical example - e.g.  - numeric example - e.g.  — link to choropleth and prop symbol?",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#examples-of-thematic-maps",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#examples-of-thematic-maps",
+    "title": "Maps & Spatial Data Visualization",
+    "section": "",
+    "text": "Static or interactive.\nMaps always abstractions - l - we can’t show everything - we have to choose",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Spatial Data Visualization"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#examples-of-thematic-maps---geo-vi",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#examples-of-thematic-maps---geo-vi",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Static or interactive.\nMaps always abstractions - l - we can’t show everything - we have to choose",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#examples-of-thematic-maps---geo-visualization---spatial-data-visualization",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#examples-of-thematic-maps---geo-visualization---spatial-data-visualization",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Maps always abstractions - l - we can’t show everything - we have to choose",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#selection",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#selection",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "Selection",
+    "text": "Selection",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#generalization",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#generalization",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "Generalization",
+    "text": "Generalization",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#simplification",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#simplification",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "Simplification",
+    "text": "Simplification",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#map-layouts",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#map-layouts",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "Map layouts",
+    "text": "Map layouts",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#reference-maps",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#reference-maps",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Examples of reference maps - old and new\nMaps - Google Maps, for example, is probably the most viewed map in human history now.\nReference maps are often used as base maps for thematic maps and geo-visualizations.",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#decisions",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#decisions",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Maps always abstractions - l - we can’t show everything - we have to choose",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#symbology-1",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#symbology-1",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Visual variables often used for map data\nSingle rule\nStyle via data values - categorical example - e.g.  - numeric example - e.g.  — link to choropleth and prop symbol?",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#static-interactive-maps",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#static-interactive-maps",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Static (varying sizes) or interactive (dashboard or story)",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#static-dynamic-maps",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#static-dynamic-maps",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Static (varying sizes) or dynamic/interactive (dashboard or story)\nGenerally - start with static - do we need dynamic/interactive? takes more work",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#whats-on-the-map",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#whats-on-the-map",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Maps always abstractions of reality. It is impossible tosdfgase can’t show everything, nor would we want to, we usually want to focus our reader’s attention on specific data, trend, or story.",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
   }
 ]
