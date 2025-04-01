@@ -26,3 +26,4 @@ format:
     css: assets/styles.css
     toc: true
     toc-depth: 3
+    toc-expand: true

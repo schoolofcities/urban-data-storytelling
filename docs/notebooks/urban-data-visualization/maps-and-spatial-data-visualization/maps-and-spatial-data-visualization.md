@@ -1,6 +1,10 @@
 # Maps & Visualizing Spatial Data
 
-What is a map?
+<br>
+
+![](img/maps-mini-examples.png)
+
+## Overview
 
 Cartography
 
@@ -12,12 +16,23 @@ Reference (what is where, navigation) or thematic (show specific data, visualiza
 
 Static and interactive.
 
+1. **selection** of data to include on the map
+2. **generalization** of data to reduce complexity and clutter
+3. how we want to **style** and **symbolize** our data
+4. how to order and **layer data**
+5. what other **map layout elements** to include (e.g. title, legend, north arrow), as well as how to design these to make a map easy to understand
+
+
 This page will cover the basics of making maps and spatial data visualizations. The last part of this notebook shows an example in QGIS. If you are interested in creating specific types of maps, check out the following notebooks:
 - Choropleth maps
 - Proportional symbol maps
 - Mapping point density
 
-## Reference Maps
+
+## Categories of maps
+
+
+### Reference or thematic
 
 Examples of reference maps 
 - old and new
@@ -28,8 +43,6 @@ Reference maps are often used as *base maps* for thematic maps and visualizing s
 
 
 
-## Thematic Maps
-
 
 Examples of thematic maps - geo-visualization - spatial data visualization
 
@@ -37,7 +50,7 @@ These types of maps can be super useful for exploratory data analysis during the
 
 
 
-## Static & Dynamic maps
+### Static or dynamic
 
 Static (varying sizes)
 
@@ -50,18 +63,12 @@ Dynamic and interactive maps typically take more work to create as they include 
 
 ## What's on the map?
 
-Maps always abstractions of reality. It is impossible to show everything in the world on a piece of paper or a screen - nor would we want to, we usually want to focus our reader's attention on specific data, trend, or story. Making maps and spatial data visualizations therefore often involve various decisions on ...
+Maps always abstractions of reality. It is impossible to show everything in the world on a piece of paper or a screen - nor would we want to, we usually want to focus our reader's attention on specific data, trend, or story. 
 
-1. ***selection*** of data to include on the map
-2. ***generalization*** of data to reduce the complexity of the data to make it easier to view
-3. how we want to ***style*** and ***symbolize*** our data
-4. how to order and ***layer data***
-5. what other ***map layout elements*** to include (e.g. title, legend, north arrow), as well as how to design these to make a map easy to understand
-
-POLITICS?
+Making maps and spatial data visualizations therefore often involve various decisions on *selection* and *generalization* of spatial data to reduce visual clutter to focus on specific data points.
 
 
-## Cartographic Selection
+### Cartographic selection
 
 Cartographic selection is about picking the most important things to draw on a map so it's not too crowded. Imagine drawing a treasure map — you’d likely want to show big landmarks like mountains or forests, but leave out tiny rocks or every individual tree. 
 
@@ -72,16 +79,18 @@ For example, you may want to include a dataset of public transit lines as a refe
 The process of selecting some, but not all of the data that you have available, reduces clutter on your maps and can make them easier to read. What data to include depends on your objectives, audience, and story.
 
 
-## Cartographic Generalization
+### Cartographic generalization
 
 Similar to selection is cartographic generalization, this is when mapmakers simplify real-world details to make maps clearer and less cluttered, especially at smaller scales. 
 
 For example, a coastline with tons of tiny twists and inlets might get smoothed out—keeping the overall shape but removing unnecessary complexity. This helps the map stay readable without losing its key features. It’s like sketching a quick but accurate version of a photo instead of drawing every single pixel.
 
+[SHORELINE EXAMPLE]
+
 Another example would be that if you had a dataset of sports and recreation facilities in a city with data on the type of activity each is predominately used by (e.g. baseball, football, tennis, etc.). We can choose to have a different colour or symbol for each of these types, or generalize these to have them all look the same (e.g. the same shade of green). 
 
 
-## Symbols & Layer Styling
+## Symbols and layer styling
 
 Once we've decided what we want to include on our map, we have to decide how we want to style each layer. In some mapping tools, like QGIS, style options are often called *Symbology*
 
