@@ -164,10 +164,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#maps-visualizing-spatial-data" id="toc-maps-visualizing-spatial-data" class="nav-link active" data-scroll-target="#maps-visualizing-spatial-data">Maps &amp; Visualizing Spatial Data</a>
   <ul class="collapse">
   <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#categories-of-maps" id="toc-categories-of-maps" class="nav-link" data-scroll-target="#categories-of-maps">Categories of maps</a>
+  <li><a href="#types-of-maps" id="toc-types-of-maps" class="nav-link" data-scroll-target="#types-of-maps">Types of maps</a>
   <ul class="collapse">
-  <li><a href="#reference-or-thematic" id="toc-reference-or-thematic" class="nav-link" data-scroll-target="#reference-or-thematic">Reference or thematic</a></li>
-  <li><a href="#static-or-dynamic" id="toc-static-or-dynamic" class="nav-link" data-scroll-target="#static-or-dynamic">Static or dynamic</a></li>
+  <li><a href="#reference-thematic" id="toc-reference-thematic" class="nav-link" data-scroll-target="#reference-thematic">Reference &amp; thematic</a></li>
+  <li><a href="#static-interactive" id="toc-static-interactive" class="nav-link" data-scroll-target="#static-interactive">Static &amp; interactive</a></li>
   </ul></li>
   <li><a href="#whats-on-the-map" id="toc-whats-on-the-map" class="nav-link" data-scroll-target="#whats-on-the-map">What’s on the map?</a>
   <ul class="collapse">
@@ -196,11 +196,8 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="img/maps-mini-examples.png" class="img-fluid"></p>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>Cartography</p>
-<p>For research, for communication</p>
-<p>Decisions, heirarchy</p>
-<p>Reference (what is where, navigation) or thematic (show specific data, visualization for a story, etc.)</p>
-<p>Static and interactive.</p>
+<p>Maps and spatial data visualizations can either created be at the research stage where we are trying to uncover patterns in the data, or as polished communication visuals where we want to convey patterns in the data to a our intended audience.</p>
+<p><em>Cartography</em> is often defined as the science and art of creating maps. It often involves decisions about …</p>
 <ol type="1">
 <li><strong>selection</strong> of data to include on the map</li>
 <li><strong>generalization</strong> of data to reduce complexity and clutter</li>
@@ -208,36 +205,57 @@ ul.task-list li input[type="checkbox"] {
 <li>how to order and <strong>layer data</strong></li>
 <li>what other <strong>map layout elements</strong> to include (e.g.&nbsp;title, legend, north arrow), as well as how to design these to make a map easy to understand</li>
 </ol>
-<p>This page will cover the basics of making maps and spatial data visualizations. The last part of this notebook shows an example in QGIS. If you are interested in creating specific types of maps, check out the following notebooks: - Choropleth maps - Proportional symbol maps - Mapping point density</p>
+<p>This page will cover the basics of what goes into making maps and spatial data visualizations, following each of these steps.</p>
+<p>The last part of this notebook shows an example in QGIS for making a simple map …………. The</p>
+<p>If you are interested in creating specific types of maps, check out the following notebooks:</p>
+<ul>
+<li>Choropleth maps</li>
+<li>Proportional symbol maps</li>
+<li>Mapping point density (dot maps, grid maps, heat maps)</li>
+</ul>
 </section>
-<section id="categories-of-maps" class="level2">
-<h2 class="anchored" data-anchor-id="categories-of-maps">Categories of maps</h2>
-<section id="reference-or-thematic" class="level3">
-<h3 class="anchored" data-anchor-id="reference-or-thematic">Reference or thematic</h3>
-<p>Examples of reference maps - old and new</p>
-<p>Maps - Google Maps, for example, is probably the most viewed map in human history now.</p>
-<p>Reference maps are often used as <em>base maps</em> for thematic maps and visualizing spatial data.</p>
-<p>Examples of thematic maps - geo-visualization - spatial data visualization</p>
-<p>These types of maps can be super useful for exploratory data analysis during the research process.</p>
+<section id="types-of-maps" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-maps">Types of maps</h2>
+<section id="reference-thematic" class="level3">
+<h3 class="anchored" data-anchor-id="reference-thematic">Reference &amp; thematic</h3>
+<p>Almost all maps can be thought of as either</p>
+<ul>
+<li><em>Reference maps</em>, which provide base geographic information (e.g.&nbsp;streets, land forms, water, etc.) often for locating places or for navigation. Google Maps is probably the most well-used example.</li>
+<li><em>Thematic maps</em>, also called <em>geographic</em> or <em>spatial</em> <em>data visualizations</em>, emphasize patterns or trends tied to a specific theme (e.g., population density, election results, air pollution, etc.).</li>
+</ul>
+<p>Reference maps are often used as base layers for thematic maps.</p>
+<p>For example, if we’ve collected a dataset about the location of public washrooms in a city, the first thing we might want to do is simply see where they are located by overlaying them onto a base map in GIS. This would be an example of a simple thematic map.</p>
+<p>Here are a few examples of thematic maps that we’ve created</p>
+<p>[3 EXAMPLES]</p>
 </section>
-<section id="static-or-dynamic" class="level3">
-<h3 class="anchored" data-anchor-id="static-or-dynamic">Static or dynamic</h3>
-<p>Static (varying sizes)</p>
-<p>Dynamic/interactive (dashboard or story)</p>
-<p>Generally - start with static</p>
-<p>Dynamic and interactive maps typically take more work to create as they include all the design thinking in a static map, plus additional thinking about motion and how a reader would interact with it.</p>
+<section id="static-interactive" class="level3">
+<h3 class="anchored" data-anchor-id="static-interactive">Static &amp; interactive</h3>
+<p><em>Static maps</em> are fixed, pre-generated images that display geographic information in a single, unchangeable format. They are ideal for simple visualization, printing, or when interactivity isn’t needed—such as in posters, reports, or static web images.</p>
+<p>Static maps can vary in size from just a few dozen pixels on a screen or a small figure in a report to large maps printed as posters or dozens of maps as part of a series, like in an atlas. The three maps shown above are examples of static maps.</p>
+<p><em>Interactive maps</em> are digital and allow users to engage with the content by zooming, panning, clicking for details, or filtering data. They are best for exploration, real-time applications, user-driven analysis, or providing increased engagement via animation in a data-story. Here are a few examples that we’ve developed at the School of Cities”</p>
+<ul>
+<li><a href="https://schoolofcities.github.io/urban-activity-atlas/">Urban Activity Atlas</a></li>
+<li><a href="https://schoolofcities.github.io/heat-vulnerability-toronto/">Heat Vulnerability in Toronto</a></li>
+<li><a href="https://schoolofcities.github.io/gtha-language-map/">Knowledge of Languages in the Greater Toronto &amp; Hamilton Area</a></li>
+</ul>
+<p>While static maps offer simplicity, interactive maps can provide flexibility and deeper engagement with spatial data.</p>
+<p>However, interactive maps typically take much more work to create than a static map as they include all the design thinking in a static map, plus additional thinking about how users interact with them and how the maps respond to user inputs.</p>
+<p>Our general recommendation is to always start with creating static maps, and then move on to creating an interactive version only if static version are insufficient at conveying the story in your data that you want to convey.</p>
+<p>If designed well, static maps can be super effective at highlighting key trends and stories in spatial data in a quick and easy to read way.</p>
 </section>
 </section>
 <section id="whats-on-the-map" class="level2">
 <h2 class="anchored" data-anchor-id="whats-on-the-map">What’s on the map?</h2>
-<p>Maps always abstractions of reality. It is impossible to show everything in the world on a piece of paper or a screen - nor would we want to, we usually want to focus our reader’s attention on specific data, trend, or story.</p>
+<p>How do we decide what were are going to include on our map? Sometimes this may seem obvious, the key dataset(s) that we want to visualize should be there, but particularly with our reference layers, this can often require a lot of little subtle choices.</p>
+<p>This is because maps always abstractions of reality. It is impossible to show everything in the world on a piece of paper or a screen - nor would we want to, as we usually want to focus our reader’s attention on specific data point(s), trend(s), or story.</p>
 <p>Making maps and spatial data visualizations therefore often involve various decisions on <em>selection</em> and <em>generalization</em> of spatial data to reduce visual clutter to focus on specific data points.</p>
 <section id="cartographic-selection" class="level3">
 <h3 class="anchored" data-anchor-id="cartographic-selection">Cartographic selection</h3>
 <p>Cartographic selection is about picking the most important things to draw on a map so it’s not too crowded. Imagine drawing a treasure map — you’d likely want to show big landmarks like mountains or forests, but leave out tiny rocks or every individual tree.</p>
 <p>In practice, this can include deciding about whether or not to include a dataset at all when creating a map (e.g.&nbsp;in GIS or Python or other map-making software), or if we do include the dataset, if we want to filter it to only show certain features.</p>
 <p>For example, you may want to include a dataset of public transit lines as a reference layer for a map of your city. However, you may not want to include every single transit route. An example of cartographic selection would be to only show major transit lines by pre-filtering the data by mode (e.g.&nbsp;only show metro/subway) or frequency (e.g.&nbsp;only show routes where a bus or train comes every 10 minutes or less). Now of course if the goal of your map and research is specifically about public transit, you may want to include all the routes.</p>
-<p>The process of selecting some, but not all of the data that you have available, reduces clutter on your maps and can make them easier to read. What data to include depends on your objectives, audience, and story.</p>
+<p>The process of selecting some, but not all of the data that you have available, reduces clutter on your maps and can make them easier to read.</p>
+<p>What data to include depends on your objectives, audience, and story.</p>
 </section>
 <section id="cartographic-generalization" class="level3">
 <h3 class="anchored" data-anchor-id="cartographic-generalization">Cartographic generalization</h3>
@@ -281,7 +299,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="single-rule-styling">Single-rule styling</h3>
 <p>Single-rule styling is when we want all features in a dataset to look the same, regardless of how they may different in terms of their attributes</p>
 <p>In the example in <a href="../../../notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">our notebook on introducing spatial data and GIS</a>, we created a simple map of Toronto where we had two vector datasets 1) ward administrative boundaries (polygons) and 2) public libraries (points).</p>
-<p>Each of these layers is styled via a single rule. For example, all libraries are blue squares, even though some libraries may be larger than others or have longer opening hours.</p>
+<p>Each of these layers is styled via a single rule. For example, all public libraries are shown as blue squares, even though some libraries may be larger than others or have longer opening hours.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/qgis-toronto-data-2.png" class="img-fluid figure-img"></p>
@@ -292,11 +310,13 @@ ul.task-list li input[type="checkbox"] {
 <section id="data-defined-styling" class="level3">
 <h3 class="anchored" data-anchor-id="data-defined-styling">Data-defined styling</h3>
 <p>Visual variables often used for map data?</p>
+<p>We can think of these as</p>
 <p>Style via data values - categorical example - e.g.&nbsp; - numeric example - e.g.&nbsp; — link to choropleth and prop symbol?</p>
 </section>
 </section>
 <section id="layers-layouts-putting-it-all-together" class="level2">
 <h2 class="anchored" data-anchor-id="layers-layouts-putting-it-all-together">Layers &amp; Layouts: Putting it all together</h2>
+<p>Well designed maps often have a <em>visual hierarchy</em> of background and foreground that guide some of these decisions, where the background provides geographic reference (e.g.&nbsp;streets, bodies of water), while the foreground are the key data that we want to show.</p>
 
 
 </section>
