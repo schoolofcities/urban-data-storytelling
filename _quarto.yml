@@ -11,6 +11,7 @@ website:
     contents: 
       - section: "Urban Data Analytics"
         contents:
+          - notebooks/urban-data-analytics/1-what-and-where-of-data/what-and-where-of-data.md
           - notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.ipynb
           - notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.ipynb
           - notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.md
