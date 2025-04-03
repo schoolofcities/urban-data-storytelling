@@ -73,7 +73,7 @@ In this course, we will focus on *open source* software because it is free and a
 
 ## Data analysis process
 
-While is no set of specific step-by-step instructions for data analysis -- each project requires unique data sources, variables, methodologies, and outputs -- there is a general [framework](https://www.geeksforgeeks.org/six-steps-of-data-analysis-process/) you should follow:
+While is no set of specific step-by-step instructions for data analysis -- each project involves unique data sources, variables, methodologies, and outputs -- there is a general [framework](https://www.geeksforgeeks.org/six-steps-of-data-analysis-process/) you should follow.
 
 1. **Define the problem or research question.** What question are you trying to answer with data? Is data analysis the best way to answer that question? Who is the audience for your data analysis, and what do they want to know?
 2. **Collect data.** What kind of data do you need to answer your research question, and where can you find it? Does it exist? In what format?
@@ -81,6 +81,8 @@ While is no set of specific step-by-step instructions for data analysis -- each 
 4. **Analyze data.** Start by exploring the data to understand its structure and any statistical patterns. Then perform your analysis -- for example, are you trying to uncover trends, or measure the relationship among variables?
 5. **Visualize data.** Create plots, maps, or other visual representations that illustrate the structure, trends, or relationships present in your data.
 6. **Present data.** Clearly communicate your results to your intended audience. This could involve writing a report, or creating a presentation or interactive dashboard. Whatever gets your message across!
+
+It is important to iterate through some of these steps and make updates as needed. For example, if step 5 (visualize your data) reveals that you have an imbalanced dataset, you may need to go back to step 3 or 4 to address this.
 
 ## Getting help
 
