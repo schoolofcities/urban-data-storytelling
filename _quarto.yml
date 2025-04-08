@@ -18,6 +18,8 @@ website:
           - notebooks/urban-data-analytics/7-measuring-the-city/measuring-the-city.md
           - notebooks/urban-data-analytics/canadian-census-data/canadian-census-data.md
       - section: "Urban Data Visualization"
+        contents:
+          - notebooks/urban-data-visualization/2-exploratory-data-visualization-python/exploratory-data-visualization-python.ipynb
 format:
   html:
     theme: lumen

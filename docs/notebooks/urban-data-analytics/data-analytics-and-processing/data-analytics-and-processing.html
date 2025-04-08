@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -100,9 +100,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../../assets/styles.css">
@@ -190,8 +187,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Urban Data Visualization</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-visualization/2-exploratory-data-visualization-python/exploratory-data-visualization-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploratory Data Analysis and Visualization in pandas</span></a>
+  </div>
+</li>
+      </ul>
   </li>
     </ul>
     </div>
@@ -236,8 +246,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Aggregating data via cross-tabulations and pivot tables</li>
 </ul>
 <p>To do this, we’ll primarily be using <a href="https://pandas.pydata.org/">pandas</a>, a Python library for analyzing and organizing tabular data.</p>
-<div id="1123b26f-d663-411d-a5e6-aa6e6433a265" class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When using external libraries like <code>pandas</code>, we need to <em>install</em> the library before we can <em>import</em> and then use it. In Jupyter Notebook, we can do this by running <code>!pip install [name of library]</code>.</p>
+<p>If you don’t already have <code>pip</code> installed on your computer, follow <a href="https://pip.pypa.io/en/stable/installation/">these instructions</a>. If you’re still having trouble, try Googling your specific questions or asking a chatbot for step-by-step instructions!</p>
+<div id="23431636" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install pandas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, let’s import the <code>pandas</code> library using the <code>pd</code> alias. An <em>alias</em> in Python is an alternate name for a library that’s typically shorter and easier to reference in the code later on.</p>
+<div id="1123b26f-d663-411d-a5e6-aa6e6433a265" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>pandas</code> is probably the most common library for working with both big and small datasets in Python, and is the basis for working with more analytical packages (e.g.&nbsp;<code>numpy</code>, <code>scipy</code>, <code>scikit-learn</code>) and analyzing geographic data (e.g.&nbsp;<code>geopandas</code>). For each section, we’ll also link to relevant documentation for doing similar tasks in Microsoft Excel and Google Sheets.</p>
 <p>Here are download links to this notebook and example datasets.</p>
@@ -256,8 +272,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In <code>pandas</code>, a <code>DataFrame</code> is a tabular data structure similar to a spreadsheet, where data is organized in rows and columns. Columns can contain different kinds of data, such as numbers, strings, dates, and so on. When we load data in <code>pandas</code>, we typically load it into the structure of a <code>DataFrame</code>.</p>
 <p>Let’s first take a look at a small dataset, Canadian municipalities and their population in 2021 and 2016, based on Census data. In Statistics Canada lingo, these are called <a href="https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo012">Census Subdivisions</a>. This dataset only includes municipalities with a population greater than 25,000 in 2021.</p>
 <p>The main method for loading csv data is to use the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">read_csv</a> function, but pandas can also read and write <a href="https://pandas.pydata.org/pandas-docs/stable/reference/io.html">many other</a> data formats.</p>
-<div id="9113af00-ba82-4adc-83d5-812caf09d720" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/cities.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9113af00-ba82-4adc-83d5-812caf09d720" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/cities.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Great! Now our data is stored in the variable <code>df</code> in the structure of a <code>DataFrame</code>.</p>
 </section>
@@ -265,227 +281,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="viewing-data">Viewing data</h2>
 <p>In spreadsheet software, when we open a data file, we will see the top rows of the data right away.</p>
 <p>In <code>pandas</code>, we can simply type the name of the <code>DataFrame</code>, in this case <code>df</code>, in the cell to view it. By default, it will print the top and bottom rows in the <code>DataFrame</code></p>
-<div id="b24ce3be" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Prov/terr</th>
-<th data-quarto-table-cell-role="th">Population, 2021</th>
-<th data-quarto-table-cell-role="th">Population, 2016</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Abbotsford</td>
-<td>B.C.</td>
-<td>153524.0</td>
-<td>141397.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Airdrie</td>
-<td>Alta.</td>
-<td>74100.0</td>
-<td>61581.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Ajax</td>
-<td>Ont.</td>
-<td>126666.0</td>
-<td>119677.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Alma</td>
-<td>Que.</td>
-<td>30331.0</td>
-<td>30771.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Aurora</td>
-<td>Ont.</td>
-<td>62057.0</td>
-<td>55445.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">174</td>
-<td>Windsor</td>
-<td>Ont.</td>
-<td>229660.0</td>
-<td>217188.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">175</td>
-<td>Winnipeg</td>
-<td>Man.</td>
-<td>749607.0</td>
-<td>705244.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">176</td>
-<td>Wood Buffalo</td>
-<td>Alta.</td>
-<td>72326.0</td>
-<td>71594.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">177</td>
-<td>Woodstock</td>
-<td>Ont.</td>
-<td>46705.0</td>
-<td>41098.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">178</td>
-<td>Woolwich</td>
-<td>Ont.</td>
-<td>26999.0</td>
-<td>25006.0</td>
-</tr>
-</tbody>
-</table>
-
-<p>179 rows × 4 columns</p>
-</div>
-</div>
+<div id="b24ce3be" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can specify which rows we want to view.</p>
 <p>Let’s explore what this data frame looks like. Adding the function <code>.head(N)</code> or <code>.tail(N)</code> prints the top or bottom <code>N</code> rows of the DataFrame. The following prints the first 10 rows.</p>
 <p><strong>Try to edit this to print the bottom 10 rows or a different number of rows</strong>.</p>
 <div id="b9a1124a-1e2b-4bf1-a621-194704815820" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Prov/terr</th>
-<th data-quarto-table-cell-role="th">Population, 2021</th>
-<th data-quarto-table-cell-role="th">Population, 2016</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Abbotsford</td>
-<td>B.C.</td>
-<td>153524.0</td>
-<td>141397.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Airdrie</td>
-<td>Alta.</td>
-<td>74100.0</td>
-<td>61581.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Ajax</td>
-<td>Ont.</td>
-<td>126666.0</td>
-<td>119677.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Alma</td>
-<td>Que.</td>
-<td>30331.0</td>
-<td>30771.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Aurora</td>
-<td>Ont.</td>
-<td>62057.0</td>
-<td>55445.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>Barrie</td>
-<td>Ont.</td>
-<td>147829.0</td>
-<td>141434.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>Belleville</td>
-<td>Ont.</td>
-<td>55071.0</td>
-<td>50716.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>Blainville</td>
-<td>Que.</td>
-<td>59819.0</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>Boisbriand</td>
-<td>Que.</td>
-<td>28308.0</td>
-<td>26884.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>Boucherville</td>
-<td>Que.</td>
-<td>41743.0</td>
-<td>41671.0</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Notice that each column has a unique name. We can view the data of this column alone by using that name, and see what unique values exist using <code>.unique()</code>.</p>
 <p><strong>Try viewing the data of another column. Beware of upper and lower case – exact names matter!</strong></p>
 <div id="ce82ad67-e44e-4a8d-ae25-5d5bd73a11cc" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Prov/terr'</span>].head(<span class="dv">10</span>)  <span class="co"># Top 10 only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>0     B.C.
-1    Alta.
-2     Ont.
-3     Que.
-4     Ont.
-5     Ont.
-6     Ont.
-7     Que.
-8     Que.
-9     Que.
-Name: Prov/terr, dtype: object</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Prov/terr'</span>].head(<span class="dv">10</span>)  <span class="co"># Top 10 only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="3c75d9c6-ad34-463d-94dc-824d82ad52cb" class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Prov/terr'</span>].unique()  <span class="co"># Unique values for the *full* dataset - what happens if you do df['Prov/terr'].head(10).unique()?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>array(['B.C.', 'Alta.', 'Ont.', 'Que.', 'Man.', nan, 'N.S.', 'P.E.I.',
-       'N.L.', 'N.B.', 'Sask.', 'Y.T.'], dtype=object)</code></pre>
-</div>
 </div>
 </section>
 <section id="filtering-data" class="level2">
@@ -498,105 +309,7 @@ Name: Prov/terr, dtype: object</code></pre>
 </ul>
 <p>We can use the columns to identify data that we might want to filter by. The line below shows data only for Ontario, <strong>but see if you can filter for another province or territory</strong>.</p>
 <div id="3d291a78-7d41-4e76-bddc-4f3c72484642" class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.loc[df[<span class="st">'Prov/terr'</span>] <span class="op">==</span> <span class="st">'Ont.'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Prov/terr</th>
-<th data-quarto-table-cell-role="th">Population, 2021</th>
-<th data-quarto-table-cell-role="th">Population, 2016</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Ajax</td>
-<td>Ont.</td>
-<td>126666.0</td>
-<td>119677.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Aurora</td>
-<td>Ont.</td>
-<td>62057.0</td>
-<td>55445.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">5</td>
-<td>Barrie</td>
-<td>Ont.</td>
-<td>147829.0</td>
-<td>141434.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">6</td>
-<td>Belleville</td>
-<td>Ont.</td>
-<td>55071.0</td>
-<td>50716.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>Bradford West Gwillimbury</td>
-<td>Ont.</td>
-<td>42880.0</td>
-<td>35325.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">171</td>
-<td>Whitby</td>
-<td>Ont.</td>
-<td>138501.0</td>
-<td>128377.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">172</td>
-<td>Whitchurch-Stouffville</td>
-<td>Ont.</td>
-<td>49864.0</td>
-<td>45837.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">174</td>
-<td>Windsor</td>
-<td>Ont.</td>
-<td>229660.0</td>
-<td>217188.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">177</td>
-<td>Woodstock</td>
-<td>Ont.</td>
-<td>46705.0</td>
-<td>41098.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">178</td>
-<td>Woolwich</td>
-<td>Ont.</td>
-<td>26999.0</td>
-<td>25006.0</td>
-</tr>
-</tbody>
-</table>
-
-<p>67 rows × 4 columns</p>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.loc[df[<span class="st">'Prov/terr'</span>] <span class="op">==</span> <span class="st">'Ont.'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Pandas allows us to use other similar mathematical concepts filter for data. Previously, we asked for all data in Ontario.</p>
 <p><strong>Now, filter for all cities which had a population of at least 100,000 in 2021</strong>.</p>
@@ -604,18 +317,11 @@ Name: Prov/terr, dtype: object</code></pre>
 <p>Pandas also allows us to combine filtering conditions.</p>
 <p><strong>Use the template below to select for all cities in Ontario with a population of over 100,000 in 2021</strong>.</p>
 <div id="2a8d8d8d-56c3-41f2-bc0d-fb83d7dde541" class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.loc[(df[<span class="st">"Prov/terr"</span>] <span class="op">==</span> <span class="st">"Ont."</span>) <span class="op">&amp;</span> (YOUR CONDITION HERE)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.loc[(df[<span class="st">"Prov/terr"</span>] <span class="op">==</span> <span class="st">"Ont."</span>) <span class="op">&amp;</span> (YOUR CONDITION HERE)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now let’s count how many cities actually meet these conditions. Run the line below to see how many cities there are in this data set in Ontario.</p>
 <div id="7bb688d2-4188-4fe9-ac30-88029e5efbb8" class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df.loc[df[<span class="st">'Prov/terr'</span>] <span class="op">==</span> <span class="st">'Ont.'</span>].count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>Name                66
-Prov/terr           67
-Population, 2021    66
-Population, 2016    65
-dtype: int64</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.loc[df[<span class="st">'Prov/terr'</span>] <span class="op">==</span> <span class="st">'Ont.'</span>].count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The function <code>.count()</code> tells us how much data there is for each column - but if we wanted to just see one column, we could also filter for that individual column using <code>df[COL_NAME]</code>.</p>
 <p><strong>Try a different condition and count the amount of data for it</strong>.</p>
@@ -624,105 +330,7 @@ dtype: int64</code></pre>
 <h2 class="anchored" data-anchor-id="sorting-data">Sorting data</h2>
 <p>You might have noticed that these cities are in alphabetical order - what if we wanted to see them in the order of population? In pandas, we do this using the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html">sort_values</a> function. The default is to sort in ascending order, so we set this to be <code>False</code> (i.e.&nbsp;descending) so the most populous cities are at the top.</p>
 <div id="b287a54b-b162-4fd5-9b84-7100f148e2ac" class="cell" data-scrolled="true">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df.sort_values(by<span class="op">=</span><span class="st">'Population, 2021'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Prov/terr</th>
-<th data-quarto-table-cell-role="th">Population, 2021</th>
-<th data-quarto-table-cell-role="th">Population, 2016</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">158</td>
-<td>Toronto</td>
-<td>Ont.</td>
-<td>2794356.0</td>
-<td>2731571.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">89</td>
-<td>Montréal</td>
-<td>Que.</td>
-<td>1762949.0</td>
-<td>1704694.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">19</td>
-<td>Calgary</td>
-<td>Alta.</td>
-<td>1306784.0</td>
-<td>1239220.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">106</td>
-<td>Ottawa</td>
-<td>Ont.</td>
-<td>1017449.0</td>
-<td>934243.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">42</td>
-<td>Edmonton</td>
-<td>Alta.</td>
-<td>1010899.0</td>
-<td>933088.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">115</td>
-<td>Prince Edward County</td>
-<td>Ont.</td>
-<td>25704.0</td>
-<td>24735.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">78</td>
-<td>NaN</td>
-<td>N.S.</td>
-<td>25545.0</td>
-<td>24863.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">40</td>
-<td>Drummondville</td>
-<td>Que.</td>
-<td>NaN</td>
-<td>75423.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">109</td>
-<td>Peterborough</td>
-<td>Ont.</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">169</td>
-<td>West Kelowna</td>
-<td>B.C.</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-</tbody>
-</table>
-
-<p>179 rows × 4 columns</p>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df.sort_values(by<span class="op">=</span><span class="st">'Population, 2021'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s put some in this together now.</p>
 <p><strong>Filter the data to show all cities which are in the province of Quebec with at least a population of 50,000 in 2016, and then try to sort the cities by their 2016 population</strong>.</p>
@@ -732,119 +340,21 @@ dtype: int64</code></pre>
 <h2 class="anchored" data-anchor-id="exporting-data">Exporting data</h2>
 <p>Once we have processed and analyzed our data, we may want to save it for future use or share it with others. <code>pandas</code> makes it easy to export data to various formats, such as CSV or Excel files.</p>
 <p>Below, we demonstrate how to export a <code>DataFrame</code> to both CSV and Excel formats. This is particularly useful for sharing results or viewing the data in other tools like spreadsheet software.</p>
-<div id="cell-34" class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to CSV</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df_filtered.to_csv(<span class="st">'df_filtered.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to Excel</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>df_filtered.to_excel(<span class="st">'df_filtered.xlsx'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-37" class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to CSV</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df_filtered.to_csv(<span class="st">'df_filtered.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to Excel</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>df_filtered.to_excel(<span class="st">'df_filtered.xlsx'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="updating-and-renaming-columns" class="level2">
 <h2 class="anchored" data-anchor-id="updating-and-renaming-columns">Updating and renaming columns</h2>
 <p>Often, the data we have might not be in the condition want it to be in. Some data might be missing, and other data might have odd naming conventions.</p>
 <p>A simple example is that we might want all city names to be lowercase - which is what the code below does.</p>
-<div id="8b5a6d07-f1c7-4967-98d8-89838a4801c8" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Name'</span>] <span class="op">=</span> df[<span class="st">'Name'</span>].<span class="bu">str</span>.lower()</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Prov/terr</th>
-<th data-quarto-table-cell-role="th">Population, 2021</th>
-<th data-quarto-table-cell-role="th">Population, 2016</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>abbotsford</td>
-<td>B.C.</td>
-<td>153524.0</td>
-<td>141397.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>airdrie</td>
-<td>Alta.</td>
-<td>74100.0</td>
-<td>61581.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>ajax</td>
-<td>Ont.</td>
-<td>126666.0</td>
-<td>119677.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>alma</td>
-<td>Que.</td>
-<td>30331.0</td>
-<td>30771.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>aurora</td>
-<td>Ont.</td>
-<td>62057.0</td>
-<td>55445.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">174</td>
-<td>windsor</td>
-<td>Ont.</td>
-<td>229660.0</td>
-<td>217188.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">175</td>
-<td>winnipeg</td>
-<td>Man.</td>
-<td>749607.0</td>
-<td>705244.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">176</td>
-<td>wood buffalo</td>
-<td>Alta.</td>
-<td>72326.0</td>
-<td>71594.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">177</td>
-<td>woodstock</td>
-<td>Ont.</td>
-<td>46705.0</td>
-<td>41098.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">178</td>
-<td>woolwich</td>
-<td>Ont.</td>
-<td>26999.0</td>
-<td>25006.0</td>
-</tr>
-</tbody>
-</table>
-
-<p>179 rows × 4 columns</p>
-</div>
-</div>
+<div id="8b5a6d07-f1c7-4967-98d8-89838a4801c8" class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Name'</span>] <span class="op">=</span> df[<span class="st">'Name'</span>].<span class="bu">str</span>.lower()</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>pandas</code> has a number of methods like <code>str.lower()</code> to alter data (see the <a href="https://pandas.pydata.org/docs/reference/index.html">full API</a>). But the important thing to note here is that we directly modified the existing values of a column. We might not always want to do this, but often it is a good way of saving memory and shows that data frames are not just static forms but modifiable.</p>
 <p>Likewise, we might want better names for the columns we have. <strong>Take a look at the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rename.html">API for <code>.rename()</code></a> and modify the data frame <code>df</code> such that we rename the column <code>Name</code> to <code>City</code></strong>. Pandas has more methods than we could ever remember - so learning to navigate the API is a crucial part of using the library.</p>
@@ -853,231 +363,39 @@ dtype: int64</code></pre>
 <section id="handling-missing-data" class="level2">
 <h2 class="anchored" data-anchor-id="handling-missing-data">Handling missing data</h2>
 <p>Unfortunately, it is pretty common that dataset we work with will be missing data values for some rows and columns. This can create complications when we want to produce summary statistics or visualizations. There are different strategies for dealing with this (i.e., imputing data), but the easiest is just to remove them. But first come out let’s check how much data is missing.</p>
-<div id="6107e955-fdb9-458e-a4a2-ed614b8f9c6b" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>Name                3
-Prov/terr           4
-Population, 2021    3
-Population, 2016    4
-dtype: int64</code></pre>
-</div>
+<div id="6107e955-fdb9-458e-a4a2-ed614b8f9c6b" class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It seems that each column has a couple of data points missing. Let’s take a look at which rows these occur in. Similar to how we created a condition to filter for certain data, the code below creates a condition to filter for rows with missing data.</p>
-<div id="b67e69d4-22ce-47b6-9f8c-8f983e1e4d86" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df.loc[df.isnull().<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Prov/terr</th>
-<th data-quarto-table-cell-role="th">Population, 2021</th>
-<th data-quarto-table-cell-role="th">Population, 2016</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">7</td>
-<td>blainville</td>
-<td>Que.</td>
-<td>59819.0</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">18</td>
-<td>caledon</td>
-<td>NaN</td>
-<td>76581.0</td>
-<td>66502.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">30</td>
-<td>NaN</td>
-<td>Ont.</td>
-<td>101427.0</td>
-<td>92013.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">40</td>
-<td>drummondville</td>
-<td>Que.</td>
-<td>NaN</td>
-<td>75423.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">51</td>
-<td>grimsby</td>
-<td>Ont.</td>
-<td>28883.0</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">64</td>
-<td>la prairie</td>
-<td>NaN</td>
-<td>26406.0</td>
-<td>24110.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">78</td>
-<td>NaN</td>
-<td>N.S.</td>
-<td>25545.0</td>
-<td>24863.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">86</td>
-<td>mission</td>
-<td>NaN</td>
-<td>41519.0</td>
-<td>38554.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">109</td>
-<td>peterborough</td>
-<td>Ont.</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">131</td>
-<td>NaN</td>
-<td>Que.</td>
-<td>29954.0</td>
-<td>27359.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">157</td>
-<td>timmins</td>
-<td>NaN</td>
-<td>41145.0</td>
-<td>41788.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">169</td>
-<td>west kelowna</td>
-<td>B.C.</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
+<div id="b67e69d4-22ce-47b6-9f8c-8f983e1e4d86" class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df.loc[df.isnull().<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can see that some rows are missing multiple values, While others are just missing one. We can remove rows which have missing data using the function <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html">dropna</a> and assign it to <code>df</code> so we’re working with complete data only going forward. <strong>Try to modify the code below to drop rows whose empty values are in one of the two population columns - that is, if the name or province is missing, we want to keep that row still</strong>. Look at the API to figure this out, specifically the argument <code>subset</code> for <code>.dropna()</code></p>
-<div id="064cd644-4e56-4c2c-8479-68de04c28a3a" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="064cd644-4e56-4c2c-8479-68de04c28a3a" class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="57e063a2-bbbe-4ad2-86c0-558c42e36145" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df.loc[df.isnull().<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Prov/terr</th>
-<th data-quarto-table-cell-role="th">Population, 2021</th>
-<th data-quarto-table-cell-role="th">Population, 2016</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-
-</div>
-</div>
+<div id="57e063a2-bbbe-4ad2-86c0-558c42e36145" class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df.loc[df.isnull().<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Great. Now let’s reset to our original data frame and exclude any rows with missing values.</p>
-<div id="dcf9e83d-59b2-47f9-ae25-56cc4632732d" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/cities.csv"</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="dcf9e83d-59b2-47f9-ae25-56cc4632732d" class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/cities.csv"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Instead of dropping (i.e.&nbsp;removing) rows with missing values, we can instead replace them with specific values with <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html">fillna</a>. For example, <code>df.fillna(0)</code> would replace all missing data values with a <code>0</code>. This wouldn’t make sense in our data of Canadian cities, but can be useful in other contexts.</p>
 <p>Similarly we can promgramatically find and replace data in any other column or across our dataset. For example, if we wanted to rename <code>'Y.T.'</code> to <code>'Yukon'</code> we would run the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.replace.html#pandas.DataFrame.replace">replace</a> function as so <code>df = df.replace('Y.T.', 'Yukon')</code></p>
 <section id="creating-new-columns" class="level3">
 <h3 class="anchored" data-anchor-id="creating-new-columns">Creating new columns</h3>
 <p>We can add or delete columns as needed. Let’s first add a column which shows the change in population between 2021 and 2016 and then sort by the cities that lost the most people. We can calculate that via a simple subtraction as follows.</p>
-<div id="91f7bffb-dc82-49bb-b10d-a21382d192d3" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"pop_change"</span>] <span class="op">=</span> df[<span class="st">"Population, 2021"</span>] <span class="op">-</span> df[<span class="st">"Population, 2016"</span>]</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df.sort_values(<span class="st">"pop_change"</span>, ascending <span class="op">=</span> <span class="va">False</span>).head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Prov/terr</th>
-<th data-quarto-table-cell-role="th">Population, 2021</th>
-<th data-quarto-table-cell-role="th">Population, 2016</th>
-<th data-quarto-table-cell-role="th">pop_change</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">106</td>
-<td>Ottawa</td>
-<td>Ont.</td>
-<td>1017449.0</td>
-<td>934243.0</td>
-<td>83206.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">42</td>
-<td>Edmonton</td>
-<td>Alta.</td>
-<td>1010899.0</td>
-<td>933088.0</td>
-<td>77811.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">19</td>
-<td>Calgary</td>
-<td>Alta.</td>
-<td>1306784.0</td>
-<td>1239220.0</td>
-<td>67564.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">11</td>
-<td>Brampton</td>
-<td>Ont.</td>
-<td>656480.0</td>
-<td>593638.0</td>
-<td>62842.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">158</td>
-<td>Toronto</td>
-<td>Ont.</td>
-<td>2794356.0</td>
-<td>2731571.0</td>
-<td>62785.0</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
+<div id="91f7bffb-dc82-49bb-b10d-a21382d192d3" class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"pop_change"</span>] <span class="op">=</span> df[<span class="st">"Population, 2021"</span>] <span class="op">-</span> df[<span class="st">"Population, 2016"</span>]</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df.sort_values(<span class="st">"pop_change"</span>, ascending <span class="op">=</span> <span class="va">False</span>).head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Pandas supports mathematical equations between columns, just like the subtraction we did above. <strong>Create a new column called <code>pct_pop_change</code> that computes the percentage change in population between 2016 and 2021, and sort by the cities with the greatest increase</strong>.</p>
 <p>HINT: the way to compute percent change is <code>100 * (Y - X) / X</code>.</p>
 <p>Now let’s clear these new columns out using <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop.html">drop</a> to return to what we had originally.</p>
 <div id="2599339d" class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop(columns<span class="op">=</span>[<span class="st">'pop_change'</span>, <span class="st">'pct_pop_change'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop(columns<span class="op">=</span>[<span class="st">'pop_change'</span>, <span class="st">'pct_pop_change'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="concatenating-and-joining-tables" class="level3">
@@ -1085,275 +403,32 @@ dtype: int64</code></pre>
 <p>Much of the time, we are working with multiple sets of data which may overlap in key ways. Perhaps we want to include measures of income in cities, or look at voting patterns - this may require us to combine multiple data frames so we can analyze them.</p>
 <p>Pandas methods to combine data frames are quite similar to that of database operations - if you’ve worked with SQL before, this will come very easily to you. There’s an <a href="https://pandas.pydata.org/docs/user_guide/merging.html#concat">extensive tutorial</a> on this topic, but we’ll focus on simple cases of <code>pd.concat()</code> and <code>pd.merge()</code>. If you are curious about how to do this in spreadsheet software like <a href="https://www.exceldemy.com/merge-two-tables-in-excel/">Excel, check out this tutorial</a></p>
 <p>First, we can use <code>pd.concat()</code> to stack DataFrames vertically when new data has the same columns but additional rows (e.g., adding cities from another region). This is like adding new entries to a database table.</p>
-<div id="61bb34fc-71a8-4f27-a4e4-8997d6fd7891" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df_ny_cities <span class="op">=</span> pd.read_csv(<span class="st">"./data/new_york_cities.csv"</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.concat([df, df_ny_cities], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Original rows:"</span>, <span class="bu">len</span>(df), <span class="st">"| After append:"</span>, <span class="bu">len</span>(combined))</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>display(combined.tail(<span class="dv">5</span>))  <span class="co"># Show new rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Original rows: 167 | After append: 169</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Prov/terr</th>
-<th data-quarto-table-cell-role="th">Population, 2021</th>
-<th data-quarto-table-cell-role="th">Population, 2016</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">164</td>
-<td>Wood Buffalo</td>
-<td>Alta.</td>
-<td>72326.0</td>
-<td>71594.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">165</td>
-<td>Woodstock</td>
-<td>Ont.</td>
-<td>46705.0</td>
-<td>41098.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">166</td>
-<td>Woolwich</td>
-<td>Ont.</td>
-<td>26999.0</td>
-<td>25006.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">167</td>
-<td>New York City</td>
-<td>N.Y.</td>
-<td>8804190.0</td>
-<td>8537673.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">168</td>
-<td>Buffalo</td>
-<td>N.Y.</td>
-<td>278349.0</td>
-<td>258071.0</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
+<div id="61bb34fc-71a8-4f27-a4e4-8997d6fd7891" class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df_ny_cities <span class="op">=</span> pd.read_csv(<span class="st">"./data/new_york_cities.csv"</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.concat([df, df_ny_cities], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Original rows:"</span>, <span class="bu">len</span>(df), <span class="st">"| After append:"</span>, <span class="bu">len</span>(combined))</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>display(combined.tail(<span class="dv">5</span>))  <span class="co"># Show new rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Second, we can use <code>pd_merge()</code> (or <code>pd.concat(axis=1)</code>) to combine DataFrames side-by-side when they share a key column (e.g., city names). Here, we’ll a column denoting whether the city is a provincial capital by matching city names.</p>
 <p>Let’s first load this data:</p>
-<div id="498f7305-2d5e-4a31-9d64-7b47819a23bb" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df_capitals <span class="op">=</span> pd.read_csv(<span class="st">'./data/capitals.csv'</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df_capitals</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Is_Capital</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>Toronto</td>
-<td>True</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Québec</td>
-<td>True</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Victoria</td>
-<td>True</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Edmonton</td>
-<td>True</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Winnipeg</td>
-<td>True</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>Fredericton</td>
-<td>True</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>Halifax</td>
-<td>True</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>Charlottetown</td>
-<td>True</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>St. John's</td>
-<td>True</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>Regina</td>
-<td>True</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>Whitehorse</td>
-<td>True</td>
-</tr>
-</tbody>
-</table>
-
+<div id="498f7305-2d5e-4a31-9d64-7b47819a23bb" class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df_capitals <span class="op">=</span> pd.read_csv(<span class="st">'./data/capitals.csv'</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df_capitals</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-<div id="e3047f02-f5e4-40a7-bf52-f9a4e3ecc475" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df_with_capitals <span class="op">=</span> pd.merge(</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    df,  <span class="co"># Original data</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    df_capitals,  <span class="co"># New data</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span><span class="st">"Name"</span>,  <span class="co"># The same column </span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">"left"</span>  <span class="co"># Keep all data from the "left", ie. original</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Set non-capitals to False</span></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>df_with_capitals[<span class="st">"Is_Capital"</span>] <span class="op">=</span> df_with_capitals[<span class="st">"Is_Capital"</span>].astype(<span class="st">'boolean'</span>).fillna(<span class="va">False</span>)</span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify: Show capitals and counts</span></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Found </span><span class="sc">{</span>df_with_capitals[<span class="st">'Is_Capital'</span>]<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss"> capitals:"</span>)</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>df_with_capitals[df_with_capitals[<span class="st">"Is_Capital"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Found 11 capitals:</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="17">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Prov/terr</th>
-<th data-quarto-table-cell-role="th">Population, 2021</th>
-<th data-quarto-table-cell-role="th">Population, 2016</th>
-<th data-quarto-table-cell-role="th">Is_Capital</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">23</td>
-<td>Charlottetown</td>
-<td>P.E.I.</td>
-<td>38809.0</td>
-<td>36094.0</td>
-<td>True</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">38</td>
-<td>Edmonton</td>
-<td>Alta.</td>
-<td>1010899.0</td>
-<td>933088.0</td>
-<td>True</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">41</td>
-<td>Fredericton</td>
-<td>N.B.</td>
-<td>63116.0</td>
-<td>58721.0</td>
-<td>True</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">49</td>
-<td>Halifax</td>
-<td>N.S.</td>
-<td>439819.0</td>
-<td>403131.0</td>
-<td>True</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">108</td>
-<td>Québec</td>
-<td>Que.</td>
-<td>549459.0</td>
-<td>531902.0</td>
-<td>True</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">111</td>
-<td>Regina</td>
-<td>Sask.</td>
-<td>226404.0</td>
-<td>215106.0</td>
-<td>True</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">139</td>
-<td>St. John's</td>
-<td>N.L.</td>
-<td>110525.0</td>
-<td>108860.0</td>
-<td>True</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">147</td>
-<td>Toronto</td>
-<td>Ont.</td>
-<td>2794356.0</td>
-<td>2731571.0</td>
-<td>True</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">154</td>
-<td>Victoria</td>
-<td>B.C.</td>
-<td>91867.0</td>
-<td>85792.0</td>
-<td>True</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">161</td>
-<td>Whitehorse</td>
-<td>Y.T.</td>
-<td>28201.0</td>
-<td>25085.0</td>
-<td>True</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">163</td>
-<td>Winnipeg</td>
-<td>Man.</td>
-<td>749607.0</td>
-<td>705244.0</td>
-<td>True</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
+<div id="e3047f02-f5e4-40a7-bf52-f9a4e3ecc475" class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df_with_capitals <span class="op">=</span> pd.merge(</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    df,  <span class="co"># Original data</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    df_capitals,  <span class="co"># New data</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span><span class="st">"Name"</span>,  <span class="co"># The same column </span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">"left"</span>  <span class="co"># Keep all data from the "left", ie. original</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Set non-capitals to False</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>df_with_capitals[<span class="st">"Is_Capital"</span>] <span class="op">=</span> df_with_capitals[<span class="st">"Is_Capital"</span>].astype(<span class="st">'boolean'</span>).fillna(<span class="va">False</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify: Show capitals and counts</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Found </span><span class="sc">{</span>df_with_capitals[<span class="st">'Is_Capital'</span>]<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">}</span><span class="ss"> capitals:"</span>)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>df_with_capitals[df_with_capitals[<span class="st">"Is_Capital"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -1362,204 +437,24 @@ dtype: int64</code></pre>
 <p>The data we have is only as good as we understand what’s going on. There’s some basic methods in <code>pandas</code> we can use to get an idea of what the data says.</p>
 <p>The most basic function you can use to get an idea of what’s going on is <code>.describe()</code>. It shows you how much data there is, and a number of summary statistics.</p>
 <p><strong>Modify the code below to report summary statistics for cities in Quebec only</strong>.</p>
-<div id="a93bcfd5-c554-4297-9e03-45dee67e0c6b" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Population, 2021</th>
-<th data-quarto-table-cell-role="th">Population, 2016</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">count</td>
-<td>1.670000e+02</td>
-<td>1.670000e+02</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">mean</td>
-<td>1.573169e+05</td>
-<td>1.487358e+05</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">std</td>
-<td>3.074452e+05</td>
-<td>2.959960e+05</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">min</td>
-<td>2.570400e+04</td>
-<td>2.378700e+04</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">25%</td>
-<td>3.770050e+04</td>
-<td>3.449850e+04</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">50%</td>
-<td>6.414100e+04</td>
-<td>6.316600e+04</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">75%</td>
-<td>1.348910e+05</td>
-<td>1.255940e+05</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">max</td>
-<td>2.794356e+06</td>
-<td>2.731571e+06</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
+<div id="a93bcfd5-c554-4297-9e03-45dee67e0c6b" class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Instead of picking out an examining a subset of the data one by one, we can use the function <code>.groupby()</code>. Given a column name, it will group rows which have the same value. In the example below, that means grouping every row which has the same province name. We can then apply a function to this (or multiple functions using <code>.agg()</code>) to examine different aspects of the data.</p>
 <div id="14c52919-3d19-4143-b50e-d95966ddae41" class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group by province and calculate total population</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>province_pop <span class="op">=</span> df.groupby(<span class="st">'Prov/terr'</span>)[<span class="st">'Population, 2021'</span>].<span class="bu">sum</span>()</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total population by province:"</span>)</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>province_pop.sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Total population by province:</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="20">
-<pre><code>Prov/terr
-Ont.      11598308.0
-Que.       5474109.0
-B.C.       3662922.0
-Alta.      3192892.0
-Man.        800920.0
-Sask.       563966.0
-N.S.        533513.0
-N.B.        240595.0
-N.L.        137693.0
-P.E.I.       38809.0
-Y.T.         28201.0
-Name: Population, 2021, dtype: float64</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group by province and calculate total population</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>province_pop <span class="op">=</span> df.groupby(<span class="st">'Prov/terr'</span>)[<span class="st">'Population, 2021'</span>].<span class="bu">sum</span>()</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total population by province:"</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>province_pop.sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="859ef590-48e6-413f-9009-d9ae201fa67a" class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiple aggregation statistics</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>stats <span class="op">=</span> df.groupby(<span class="st">'Prov/terr'</span>)[<span class="st">'Population, 2021'</span>].agg([<span class="st">'count'</span>, <span class="st">'mean'</span>, <span class="st">'max'</span>, <span class="st">'sum'</span>])</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">count</th>
-<th data-quarto-table-cell-role="th">mean</th>
-<th data-quarto-table-cell-role="th">max</th>
-<th data-quarto-table-cell-role="th">sum</th>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">Prov/terr</th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Alta.</td>
-<td>17</td>
-<td>187817.176471</td>
-<td>1306784.0</td>
-<td>3192892.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">B.C.</td>
-<td>29</td>
-<td>126307.655172</td>
-<td>662248.0</td>
-<td>3662922.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Man.</td>
-<td>2</td>
-<td>400460.000000</td>
-<td>749607.0</td>
-<td>800920.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">N.B.</td>
-<td>4</td>
-<td>60148.750000</td>
-<td>79470.0</td>
-<td>240595.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">N.L.</td>
-<td>2</td>
-<td>68846.500000</td>
-<td>110525.0</td>
-<td>137693.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">N.S.</td>
-<td>2</td>
-<td>266756.500000</td>
-<td>439819.0</td>
-<td>533513.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Ont.</td>
-<td>64</td>
-<td>181223.562500</td>
-<td>2794356.0</td>
-<td>11598308.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">P.E.I.</td>
-<td>1</td>
-<td>38809.000000</td>
-<td>38809.0</td>
-<td>38809.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Que.</td>
-<td>41</td>
-<td>133514.853659</td>
-<td>1762949.0</td>
-<td>5474109.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">Sask.</td>
-<td>4</td>
-<td>140991.500000</td>
-<td>266141.0</td>
-<td>563966.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Y.T.</td>
-<td>1</td>
-<td>28201.000000</td>
-<td>28201.0</td>
-<td>28201.0</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiple aggregation statistics</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>stats <span class="op">=</span> df.groupby(<span class="st">'Prov/terr'</span>)[<span class="st">'Population, 2021'</span>].agg([<span class="st">'count'</span>, <span class="st">'mean'</span>, <span class="st">'max'</span>, <span class="st">'sum'</span>])</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Below, we’ve added a column which shows the percent growth for each city. <strong>Use <code>.groupby('Prov/terr')</code> and use the function <code>.median()</code> (just as we used <code>.sum()</code> above) to observe the median growth rate per province or territory</strong>. Make sure to use <code>sort_values()</code> and set ascending to <code>False</code>.</p>
-<div id="fafec74a-ffa8-4c19-8e85-a378f7195cf8" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Percent_Growth'</span>] <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> (df[<span class="st">'Population, 2021'</span>] <span class="op">-</span> df[<span class="st">'Population, 2016'</span>]) <span class="op">/</span> df[<span class="st">'Population, 2016'</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fafec74a-ffa8-4c19-8e85-a378f7195cf8" class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Percent_Growth'</span>] <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> (df[<span class="st">'Population, 2021'</span>] <span class="op">-</span> df[<span class="st">'Population, 2016'</span>]) <span class="op">/</span> df[<span class="st">'Population, 2016'</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="cross-tabulations-and-pivot-tables" class="level2">
@@ -1567,30 +462,15 @@ Name: Population, 2021, dtype: float64</code></pre>
 <p>A <em>cross tabulation</em>, also called a <em>frequency table</em> or a <em>contingency table</em>, is a table that shows the summarizes two categorical variables by displaying the number of occurrences in each pair of categories.</p>
 <p>Let’s show an example by counting the number of cities in each province by a categorization of city size.</p>
 <p>We will need two tools to do this: - <a href="https://pandas.pydata.org/docs/reference/api/pandas.cut.html">cut</a>, which bins continuous numbers (like population) into categories (e.g., “Small”/“Medium”/“Large”), turning numbers into meaningful groups. - <a href="https://pandas.pydata.org/docs/reference/api/pandas.crosstab.html">crosstab</a>, which counts how often these groups appear together—like how many “Medium” cities exist per province—revealing patterns that raw numbers hide.</p>
-<div id="28f378e8-5684-4f4b-9a65-6b2ca7e38e4c" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a size category column</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Size'</span>] <span class="op">=</span> pd.cut(df[<span class="st">'Population, 2021'</span>],</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>                    bins<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">50000</span>, <span class="dv">200000</span>, <span class="bu">float</span>(<span class="st">'inf'</span>)],</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>                    labels<span class="op">=</span>[<span class="st">'Small'</span>, <span class="st">'Medium'</span>, <span class="st">'Large'</span>])</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Cross-tab: Province vs. Size</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>size_table <span class="op">=</span> pd.crosstab(df[<span class="st">'Prov/terr'</span>], df[<span class="st">'Size'</span>], margins<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>size_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[1], line 2</span>
-<span class="ansi-green-fg ansi-bold">      1</span> <span style="font-style:italic;color:rgb(95,135,135)"># Create a size category column</span>
-<span class="ansi-green-fg">----&gt; 2</span> df[<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Size</span><span style="color:rgb(175,0,0)">'</span>] <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">pd</span><span style="color:rgb(98,98,98)">.</span>cut(df[<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Population, 2021</span><span style="color:rgb(175,0,0)">'</span>],
-<span class="ansi-green-fg ansi-bold">      3</span>                     bins<span style="color:rgb(98,98,98)">=</span>[<span style="color:rgb(98,98,98)">0</span>, <span style="color:rgb(98,98,98)">50000</span>, <span style="color:rgb(98,98,98)">200000</span>, <span style="color:rgb(0,135,0)">float</span>(<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">inf</span><span style="color:rgb(175,0,0)">'</span>)],
-<span class="ansi-green-fg ansi-bold">      4</span>                     labels<span style="color:rgb(98,98,98)">=</span>[<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Small</span><span style="color:rgb(175,0,0)">'</span>, <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Medium</span><span style="color:rgb(175,0,0)">'</span>, <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Large</span><span style="color:rgb(175,0,0)">'</span>])
-<span class="ansi-green-fg ansi-bold">      6</span> <span style="font-style:italic;color:rgb(95,135,135)"># Cross-tab: Province vs. Size</span>
-<span class="ansi-green-fg ansi-bold">      7</span> size_table <span style="color:rgb(98,98,98)">=</span> pd<span style="color:rgb(98,98,98)">.</span>crosstab(df[<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Prov/terr</span><span style="color:rgb(175,0,0)">'</span>], df[<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Size</span><span style="color:rgb(175,0,0)">'</span>], margins<span style="color:rgb(98,98,98)">=</span><span style="font-weight:bold;color:rgb(0,135,0)">True</span>)
-
-<span class="ansi-red-fg">NameError</span>: name 'pd' is not defined</pre>
-</div>
-</div>
+<div id="28f378e8-5684-4f4b-9a65-6b2ca7e38e4c" class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a size category column</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Size'</span>] <span class="op">=</span> pd.cut(df[<span class="st">'Population, 2021'</span>],</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>                    bins<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">50000</span>, <span class="dv">200000</span>, <span class="bu">float</span>(<span class="st">'inf'</span>)],</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>                    labels<span class="op">=</span>[<span class="st">'Small'</span>, <span class="st">'Medium'</span>, <span class="st">'Large'</span>])</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Cross-tab: Province vs. Size</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>size_table <span class="op">=</span> pd.crosstab(df[<span class="st">'Prov/terr'</span>], df[<span class="st">'Size'</span>], margins<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>size_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Recall that we just created the column <code>'Percent_Growth'</code> as well. <strong>Use these two functions to create different bins for different levels of growth and cross tabulate them</strong>.</p>
 <p>If you’ve worked with Excel or Google Sheets, this is very similar to doing a <a href="https://support.microsoft.com/en-us/office/create-a-pivottable-to-analyze-worksheet-data-a9a84538-bfe9-40a9-a8e9-f99134456576">Pivot Table</a>.</p>
@@ -1598,273 +478,12 @@ Cell <span class="ansi-green-fg">In[1], line 2</span>
 <p>The <a href="https://pandas.pydata.org/docs/reference/api/pandas.pivot_table.html">pivot_table</a> function in <code>pandas</code> to aggregate data, and has more options than the <a href="https://pandas.pydata.org/docs/reference/api/pandas.crosstab.html">crosstab</a> function. Both are quite similar though. Here’s an example where we are using <code>pivot_table</code> to sum the population in each province by the 3 size groups.</p>
 <p><strong>Try to edit this to compute the mean or median city <code>Percent_Growth</code></strong></p>
 <div id="041ed39f" class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>pd.pivot_table(data <span class="op">=</span> df, values <span class="op">=</span> [<span class="st">'Population, 2021'</span>], index <span class="op">=</span> [<span class="st">'Prov/terr'</span>], columns <span class="op">=</span> [<span class="st">'Size'</span>], aggfunc <span class="op">=</span> <span class="st">'sum'</span>, observed<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="39">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th colspan="3" data-quarto-table-cell-role="th" data-halign="left">Population, 2021</th>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">Size</th>
-<th data-quarto-table-cell-role="th">Small</th>
-<th data-quarto-table-cell-role="th">Medium</th>
-<th data-quarto-table-cell-role="th">Large</th>
-</tr>
-<tr class="header">
-<th data-quarto-table-cell-role="th">Prov/terr</th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Alta.</td>
-<td>234664.0</td>
-<td>640545.0</td>
-<td>2317683.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">B.C.</td>
-<td>330537.0</td>
-<td>1642753.0</td>
-<td>1689632.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Man.</td>
-<td>NaN</td>
-<td>51313.0</td>
-<td>749607.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">N.B.</td>
-<td>28114.0</td>
-<td>212481.0</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">N.L.</td>
-<td>27168.0</td>
-<td>110525.0</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">N.S.</td>
-<td>NaN</td>
-<td>93694.0</td>
-<td>439819.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Ont.</td>
-<td>930812.0</td>
-<td>2925641.0</td>
-<td>7741855.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">P.E.I.</td>
-<td>38809.0</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Que.</td>
-<td>806267.0</td>
-<td>1371544.0</td>
-<td>3296298.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">Sask.</td>
-<td>71421.0</td>
-<td>NaN</td>
-<td>492545.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Y.T.</td>
-<td>28201.0</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>pd.pivot_table(data <span class="op">=</span> df, values <span class="op">=</span> [<span class="st">'Population, 2021'</span>], index <span class="op">=</span> [<span class="st">'Prov/terr'</span>], columns <span class="op">=</span> [<span class="st">'Size'</span>], aggfunc <span class="op">=</span> <span class="st">'sum'</span>, observed<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>There are often multiple ways to achieve similar results. In the previous section we looked at the <code>groupby</code> function to summarize data by one column, while above we used <code>crosstab</code> or <code>pivot_table</code>. However, we could also use the <code>groupby</code> function for this purpose. Check out the example below.</p>
 <p>You should notice that it has created a long-table formate rather than a wide-table format. Both formats can be useful, wide-table formats are easier for viewing data for only 2 categories, while long-table formats are often used for inputting data into modelling or visualization libraries.</p>
 <div id="0e45ba49" class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>df.groupby([<span class="st">'Prov/terr'</span>, <span class="st">'Size'</span>], observed<span class="op">=</span><span class="va">False</span>)[<span class="st">'Population, 2021'</span>].agg([<span class="st">'sum'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="44">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">sum</th>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">Prov/terr</th>
-<th data-quarto-table-cell-role="th">Size</th>
-<th data-quarto-table-cell-role="th"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td rowspan="3" data-quarto-table-cell-role="th" data-valign="top">Alta.</td>
-<td data-quarto-table-cell-role="th">Small</td>
-<td>234664.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">Medium</td>
-<td>640545.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Large</td>
-<td>2317683.0</td>
-</tr>
-<tr class="even">
-<td rowspan="3" data-quarto-table-cell-role="th" data-valign="top">B.C.</td>
-<td data-quarto-table-cell-role="th">Small</td>
-<td>330537.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Medium</td>
-<td>1642753.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">Large</td>
-<td>1689632.0</td>
-</tr>
-<tr class="odd">
-<td rowspan="3" data-quarto-table-cell-role="th" data-valign="top">Man.</td>
-<td data-quarto-table-cell-role="th">Small</td>
-<td>0.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">Medium</td>
-<td>51313.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Large</td>
-<td>749607.0</td>
-</tr>
-<tr class="even">
-<td rowspan="3" data-quarto-table-cell-role="th" data-valign="top">N.B.</td>
-<td data-quarto-table-cell-role="th">Small</td>
-<td>28114.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Medium</td>
-<td>212481.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">Large</td>
-<td>0.0</td>
-</tr>
-<tr class="odd">
-<td rowspan="3" data-quarto-table-cell-role="th" data-valign="top">N.L.</td>
-<td data-quarto-table-cell-role="th">Small</td>
-<td>27168.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">Medium</td>
-<td>110525.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Large</td>
-<td>0.0</td>
-</tr>
-<tr class="even">
-<td rowspan="3" data-quarto-table-cell-role="th" data-valign="top">N.S.</td>
-<td data-quarto-table-cell-role="th">Small</td>
-<td>0.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Medium</td>
-<td>93694.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">Large</td>
-<td>439819.0</td>
-</tr>
-<tr class="odd">
-<td rowspan="3" data-quarto-table-cell-role="th" data-valign="top">Ont.</td>
-<td data-quarto-table-cell-role="th">Small</td>
-<td>930812.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">Medium</td>
-<td>2925641.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Large</td>
-<td>7741855.0</td>
-</tr>
-<tr class="even">
-<td rowspan="3" data-quarto-table-cell-role="th" data-valign="top">P.E.I.</td>
-<td data-quarto-table-cell-role="th">Small</td>
-<td>38809.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Medium</td>
-<td>0.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">Large</td>
-<td>0.0</td>
-</tr>
-<tr class="odd">
-<td rowspan="3" data-quarto-table-cell-role="th" data-valign="top">Que.</td>
-<td data-quarto-table-cell-role="th">Small</td>
-<td>806267.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">Medium</td>
-<td>1371544.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Large</td>
-<td>3296298.0</td>
-</tr>
-<tr class="even">
-<td rowspan="3" data-quarto-table-cell-role="th" data-valign="top">Sask.</td>
-<td data-quarto-table-cell-role="th">Small</td>
-<td>71421.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Medium</td>
-<td>0.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">Large</td>
-<td>492545.0</td>
-</tr>
-<tr class="odd">
-<td rowspan="3" data-quarto-table-cell-role="th" data-valign="top">Y.T.</td>
-<td data-quarto-table-cell-role="th">Small</td>
-<td>28201.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">Medium</td>
-<td>0.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">Large</td>
-<td>0.0</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df.groupby([<span class="st">'Prov/terr'</span>, <span class="st">'Size'</span>], observed<span class="op">=</span><span class="va">False</span>)[<span class="st">'Population, 2021'</span>].agg([<span class="st">'sum'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
