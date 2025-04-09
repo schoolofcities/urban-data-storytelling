@@ -1,5 +1,5 @@
 
-# Spatial data & GIS
+# Spatial data and GIS
 
 A lot of urban datasets are directly linked to specific places, e.g. addresses, streets, neighbourhoods, political or administrative boundaries, etc.
 

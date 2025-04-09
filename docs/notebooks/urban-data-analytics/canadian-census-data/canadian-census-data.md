@@ -1,11 +1,26 @@
 
-# Canadian census data
+# Overview of Canadian census data
+
+National censuses, like the Canadian census, are very common data sources analyzing demographic and socio-economic data pertaining to specific places.
 
 [Statistics Canada](https://www12.statcan.gc.ca/census-recensement/index-eng.cfm) conducts a national census of the population every five years, asking a range of demographic and socio-economic questions. The results paint a demographic portrait of the country at the time period the census was conducted.
 
-The most recent census at the time of writing was in 2021.
+The most recent census at the time of writing was in 2021. Lots of census data are publicly available for download, across the following topics:
 
-Lots of census data are publicly available for download. 
+- Age
+- Commuting to work
+- Education
+- Ethnocultural and religious diversity
+- Families, households, and marital status
+- Housing
+- Immigration, place of birth, and citizenship
+- Income
+- Indigenous peoples
+- Labour
+- Language and language of work
+- Mobility and migration
+- Population and dwelling counts
+- Types of dwellings
 
 Most data are pre-aggregated to a variety of geographic boundaries (e.g. provinces, cities, neighbourhoods, blocks, etc.), which allow for finding a variety of demographic and socio-economic statistics for specific places as well as for making a range of maps.
 
