@@ -482,6 +482,50 @@
     ]
   },
   {
+    "objectID": "notebooks/urban-data-analytics/7-measuring-the-city/measuring-the-city.html",
+    "href": "notebooks/urban-data-analytics/7-measuring-the-city/measuring-the-city.html",
+    "title": "Measuring the city: metrics and indicators",
+    "section": "",
+    "text": "In this module, we will explore how to measure urban phenomena using data, specifically focusing on:\n\nCommon spatial units and measures of aggregation\nCommon metrics and indicators used in urban analysis\nLimitations & potential errors in data collection\n\n\n\nWhen analyzing geospatial data, it is often necessary to select a spatial unit or unit of aggregation to define the boundaries of the areas you are representing. Below are some units of aggregation that are often used in urban analysis:\n\n\nBoundaries for spatial census data are either defined by federal or provincial/territorial governments or “according to a set of rules based on geographic attributes and one or more characteristics of the resident population” (Statistics Canada). See Canadian census data for more information.\n\n\n\nCommon census boundaries in Toronto\n\n\n\n\n\nPolitical boundaries delineate areas that are governed by different authorities, like countries or states. Canadian federal electoral districts, or ridings, are geographic constituencies that are each represented by a Member of Parliament. There are also provincial and territorial electoral districts, which are smaller.\n\n\n\nCanadian electoral districts (source)\n\n\n\n\n\nA grid is “a network of evenly spaced horizontal and vertical lines used to identify locations on a map” (source). Grids are used in spatial analysis when existing boundaries are unavailable, unsuitable, or when evenly sized, uniform areas are required. Geohashes – which uniquely identify specific regions according to their latitude and longitude everywhere on Earth – are one type of commonly used grid.\n\n\n\nGeohashes in Québec City (source)\n\n\n\n\n\nWhile streets are often added to maps to provide geographic context, streets can also be their own unit of analysis. For example, traffic flow could be measured on street segments throughout a city. In the image below, streets are categorized by how friendly they are to pedestrians and other forms of traffic.\n\n\n\nStreet types (source)\n\n\n\n\n\nSome urban data is\n\n\n\n\n\n\n\nTopic\nCommon metrics\n\n\n\n\nPeople / socioeconomics\n?\n\n\nHousing\n\n\n\nLand use\n\n\n\nEconomics / employment\n\n\n\nTransportation\n\n\n\nEnvironment\n\n\n\nHealth\n\n\n\n\n\n\n\nModifiable Areal Unit Problem (MAUP) Ecological fallacy",
+    "crumbs": [
+      "Urban Data Analytics",
+      "Measuring the city: metrics and indicators"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-analytics/7-measuring-the-city/measuring-the-city.html#common-metrics-and-indicators-for-urban-analyses",
+    "href": "notebooks/urban-data-analytics/7-measuring-the-city/measuring-the-city.html#common-metrics-and-indicators-for-urban-analyses",
+    "title": "Measuring the city: metrics and indicators",
+    "section": "",
+    "text": "Topic\nCommon metrics\n\n\n\n\nPeople / socioeconomics\n?\n\n\nHousing\n\n\n\nLand use\n\n\n\nEconomics / employment\n\n\n\nTransportation\n\n\n\nEnvironment\n\n\n\nHealth",
+    "crumbs": [
+      "Urban Data Analytics",
+      "Measuring the city: metrics and indicators"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-analytics/7-measuring-the-city/measuring-the-city.html#limitations-potential-errors-in-data-collection",
+    "href": "notebooks/urban-data-analytics/7-measuring-the-city/measuring-the-city.html#limitations-potential-errors-in-data-collection",
+    "title": "Measuring the city: metrics and indicators",
+    "section": "",
+    "text": "Modifiable Areal Unit Problem (MAUP) Ecological fallacy",
+    "crumbs": [
+      "Urban Data Analytics",
+      "Measuring the city: metrics and indicators"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-analytics/7-measuring-the-city/measuring-the-city.html#common-spatial-units-and-measures-of-aggregation",
+    "href": "notebooks/urban-data-analytics/7-measuring-the-city/measuring-the-city.html#common-spatial-units-and-measures-of-aggregation",
+    "title": "Measuring the city: metrics and indicators",
+    "section": "",
+    "text": "When analyzing geospatial data, it is often necessary to select a spatial unit or unit of aggregation to define the boundaries of the areas you are representing. Below are some units of aggregation that are often used in urban analysis:\n\n\nBoundaries for spatial census data are either defined by federal or provincial/territorial governments or “according to a set of rules based on geographic attributes and one or more characteristics of the resident population” (Statistics Canada). See Canadian census data for more information.\n\n\n\nCommon census boundaries in Toronto\n\n\n\n\n\nPolitical boundaries delineate areas that are governed by different authorities, like countries or states. Canadian federal electoral districts, or ridings, are geographic constituencies that are each represented by a Member of Parliament. There are also provincial and territorial electoral districts, which are smaller.\n\n\n\nCanadian electoral districts (source)\n\n\n\n\n\nA grid is “a network of evenly spaced horizontal and vertical lines used to identify locations on a map” (source). Grids are used in spatial analysis when existing boundaries are unavailable, unsuitable, or when evenly sized, uniform areas are required. Geohashes – which uniquely identify specific regions according to their latitude and longitude everywhere on Earth – are one type of commonly used grid.\n\n\n\nGeohashes in Québec City (source)\n\n\n\n\n\nWhile streets are often added to maps to provide geographic context, streets can also be their own unit of analysis. For example, traffic flow could be measured on street segments throughout a city. In the image below, streets are categorized by how friendly they are to pedestrians and other forms of traffic.\n\n\n\nStreet types (source)\n\n\n\n\n\nSome urban data is",
+    "crumbs": [
+      "Urban Data Analytics",
+      "Measuring the city: metrics and indicators"
+  ]
+  },
+  {
     "objectID": "notebooks/urban-data-visualization/spatial-data-visualization/spatial-data-visualization.html",
     "href": "notebooks/urban-data-visualization/spatial-data-visualization/spatial-data-visualization.html",
     "title": "Maps & Spatial Data Visualization",
