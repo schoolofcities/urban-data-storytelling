@@ -33,3 +33,18 @@ strong {
 	background-color: #8DBF2E50;
 	opacity: 0.9;
 }
+
+
+.sidebar-navigation .sidebar-item a {
+	color: black;
+}
+
+.sidebar-navigation .sidebar-item a:hover {
+	color: #007FA3 !important;
+  }
+
+  .sidebar-navigation .sidebar-item a.active {
+	color: black !important; /* Bootstrap's default blue */
+	font-weight: bold;
+  }
+  
