@@ -168,6 +168,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Foundations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Spatial data &amp; GIS</span></a>
   </div>
@@ -181,8 +187,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Urban Data Visualization</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Maps &amp; Visualizing Spatial Data</span></a>
+  </div>
+</li>
+      </ul>
   </li>
     </ul>
     </div>
@@ -190,16 +209,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
     <h2 id="toc-title">On this page</h2>
    
-  <ul class="collapse">
+  <ul>
   <li><a href="#spatial-data-gis" id="toc-spatial-data-gis" class="nav-link active" data-scroll-target="#spatial-data-gis">Spatial data &amp; GIS</a>
   <ul class="collapse">
-  <li><a href="#spatial-data" id="toc-spatial-data" class="nav-link" data-scroll-target="#spatial-data">Spatial data</a></li>
+  <li><a href="#spatial-data" id="toc-spatial-data" class="nav-link" data-scroll-target="#spatial-data">Spatial data</a>
+  <ul class="collapse">
+  <li><a href="#vector-data" id="toc-vector-data" class="nav-link" data-scroll-target="#vector-data">Vector data</a></li>
+  <li><a href="#raster-data" id="toc-raster-data" class="nav-link" data-scroll-target="#raster-data">Raster data</a></li>
+  </ul></li>
   <li><a href="#geographic-information-systems-gis" id="toc-geographic-information-systems-gis" class="nav-link" data-scroll-target="#geographic-information-systems-gis">Geographic Information Systems (GIS)</a></li>
-  <li><a href="#coordinate-reference-systems-crs-and-map-projections" id="toc-coordinate-reference-systems-crs-and-map-projections" class="nav-link" data-scroll-target="#coordinate-reference-systems-crs-and-map-projections">Coordinate Reference Systems (CRS) and map projections</a></li>
-  <li><a href="#working-with-spatial-data-in-qgis" id="toc-working-with-spatial-data-in-qgis" class="nav-link" data-scroll-target="#working-with-spatial-data-in-qgis">Working with spatial data in QGIS</a></li>
+  <li><a href="#coordinate-reference-systems-crs-and-map-projections" id="toc-coordinate-reference-systems-crs-and-map-projections" class="nav-link" data-scroll-target="#coordinate-reference-systems-crs-and-map-projections">Coordinate Reference Systems (CRS) and map projections</a>
+  <ul class="collapse">
+  <li><a href="#map-projections" id="toc-map-projections" class="nav-link" data-scroll-target="#map-projections">Map projections</a></li>
+  </ul></li>
+  <li><a href="#working-with-spatial-data-in-qgis" id="toc-working-with-spatial-data-in-qgis" class="nav-link" data-scroll-target="#working-with-spatial-data-in-qgis">Working with spatial data in QGIS</a>
+  <ul class="collapse">
+  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data">Loading data</a></li>
+  <li><a href="#working-with-layers" id="toc-working-with-layers" class="nav-link" data-scroll-target="#working-with-layers">Working with layers</a></li>
+  <li><a href="#styling-data" id="toc-styling-data" class="nav-link" data-scroll-target="#styling-data">Styling data</a></li>
+  <li><a href="#changing-projections-and-crs-in-qgis" id="toc-changing-projections-and-crs-in-qgis" class="nav-link" data-scroll-target="#changing-projections-and-crs-in-qgis">Changing projections and CRS in QGIS</a></li>
+  <li><a href="#exporting-data" id="toc-exporting-data" class="nav-link" data-scroll-target="#exporting-data">Exporting data</a></li>
+  <li><a href="#saving-a-qgis-project" id="toc-saving-a-qgis-project" class="nav-link" data-scroll-target="#saving-a-qgis-project">Saving a QGIS project</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -213,8 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="spatial-data-gis" class="level1">
 <h1>Spatial data &amp; GIS</h1>
 <p>A lot of urban datasets are directly linked to specific places, e.g.&nbsp;addresses, streets, neighbourhoods, political or administrative boundaries, etc.</p>
-<p>Data that include place-based information are often called <em>spatial</em>, <em>geographic</em>, or <em>geospatial</em> data.</p>
-<p>Geographic Information Systems (GIS) are tools and software for analyzing, processing, and visualizing spatial data.</p>
+<p>Data that include place-based information are often called <em>spatial</em>, <em>geographic</em>, or <em>geospatial</em> data <em>Geographic Information Systems (GIS)</em> are tools and software for analyzing, processing, and visualizing spatial data.</p>
 <p>This page will cover the basics of spatial data and how we can view and interact with this data in the software <a href="https://qgis.org">QGIS</a> (you will need to download QGIS to work on the hands-on part of this tutorial).</p>
 <section id="spatial-data" class="level2">
 <h2 class="anchored" data-anchor-id="spatial-data">Spatial data</h2>
