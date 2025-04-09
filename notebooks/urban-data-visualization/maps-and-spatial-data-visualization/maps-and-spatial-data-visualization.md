@@ -171,7 +171,7 @@ Style via data values
 
 ## Layers & Layouts: Putting it all together
 
-Well designed maps often have a *visual hierarchy* of background and foreground that guide some of these decisions, where the background provides geographic reference (e.g. streets, bodies of water), while the foreground are the key data that we want to show.
+Well designed maps often have a *visual hierarchy* of background and foreground - where the background provides geographic reference (e.g. streets, bodies of water), while the foreground are the key data that we want to show.
 
 
 
