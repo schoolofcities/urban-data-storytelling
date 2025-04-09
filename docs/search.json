@@ -194,7 +194,7 @@
     "href": "notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html",
     "title": "Spatial data & GIS",
     "section": "",
-    "text": "A lot of urban datasets are directly linked to specific places, e.g. addresses, streets, neighbourhoods, political or administrative boundaries, etc.\nData that include place-based information are often called spatial, geographic, or geospatial data.\nGeographic Information Systems (GIS) are tools and software for analyzing, processing, and visualizing spatial data.\nThis page will cover the basics of spatial data and how we can view and interact with this data in the software QGIS (you will need to download QGIS to work on the hands-on part of this tutorial).\n\n\nA spatial dataset is a combination of…\n\nattribute data (the what)\nlocation data and spatial dimensions (the where)\n\nSpatial data, this combination of attribute and location data, can be organized and represented in a number of different formats.\nFor example, a city can be represented on a map via a single point with a label (e.g. based on latitude and longitude coordinates). Or a city can be represented as a polygon, based on on it’s administrative boundary\nImportantly, there are always uncertainty about the level of accuracy, precision, and resolution of spatial data. Spatial data are abstractions of reality, and thus have some loss of information when used for visualization and analysis. Any analysis can only be as good as the available data.\nThe two most common forms of spatial data are vector data and raster data.\n\n\n\nExamples of spatial data\n\n\n\n\nVector data uses geographic coordinates, or a series of coordinates, to create points, lines, and polygons representing real-world features.\ne.g. in the map below (a screenshot of OpenStreetMap) lines are used to represent roads and rail, points for retail, polygons for parks and buildings, etc.\n\n\n\nScreenshot of OpenStreetMap\n\n\nSpatial data can be stored as columns in traditional table-based formats (e.g. .csv), but there are also a wide range of data formats specific to spatial data. These are some of the most common:\n\nGeoJSON .geojson\nGeoPacakge .gpkg\nShapefile .shapfile\nGeodatabase .gdb\n\nHere is an example of a single point location of a city stored in a .geojson file. .geojson is a standardized data schema .json format for spatial data.\n{\n    \"type\": \"FeatureCollection\",\n    \"features\": [\n        {\n            \"type\": \"Feature\",\n            \"geometry\": {\n                \"type\": \"Point\",\n                \"coordinates\": [-80.992, 46.490]\n            },\n            \"properties\": {\n                \"city_name\": \"Sudbury\"\n            }\n        }\n    ]\n}\n\n\n\nRaster data represents space as a continuous grid with equal cell sizes. Each cell contains a value pertaining to the type of feature it represents. These values can be quantitative (e.g. elevation) or categorical (e.g. type of land use). Common examples of raster data include Digital Elevation Models (DEMs), satellite imagery, and scanned images like historical maps.\ne.g. the map below shows a DEM for Toronto at two different scales.\n\n\n\nDEM of Toronto\n\n\n\n\n\n\nWe use Geographic Information Systems (GIS) to analyze, manipulate, and visualize spatial data.\nWhy is GIS useful?\n\nexplore spatial patterns and relationships in data\ncreate maps for publications\ngenerate new data, either “by hand” or via spatial relationships from other data (e.g. through spatial queries)\nperform spatial analysis (i.e. statistical methods applied to spatial data)\n\nGIS is often thought of as more than just a tool or piece of software. It can refer to all aspects of managing and analyzing digital spatially referenced data.\nThe power of GIS software and tools is the ability to work with data stored in different layers (e.g. a layer for roads, another for buildings, and so on) in conjunction with each other. These layers can be visualized and analyzed relative to each other based on their spatial relationships.\n\n\n\nSimple AI generated schematic of layers\n\n\nGIS software usually links to data stored elsewhere on a computer, rather than in a project file. If the source location of the data (i.e. which folder it’s in) changes, then this will have to be updated in the GIS project. If data are edited in GIS, it will update the data in its source location.\nThe open-source QGIS and the proprietary ESRI ArcGIS are the two most used desktop GIS software. ESRI’s suite of tools are often used by larger corporate and government organizations while QGIS is more used by small consultants and freelancers, non-profits, and academia. Many spatial data processing, visualization, and analyses steps also have equivalents in Python, R, SQL and other programming languages via specific libraries\nWe’ll be working with QGIS and Python, because they free and work across multiple operating systems, and are commonly used across different areas of work and research. But pretty much everything we’ll show can be accomplished across different software options, the buttons and steps will just be a bit different.\nLearning the core analytical and visualization concepts and ideas are much more important than exactly where to click or what specific functions to run.\n\n\n\nA CRS is a framework for describing the geographic position of location-based data. It tells your GIS software where your data are located on the Earth. Without a CRS, your data would just be a bunch of numbers without an ability to place them on a map and relate them to other data.\nThere are thousands of CRSs. Each CRS has specific attributes about its position and one main set of spatial units (e.g. a CRS will measure location in degrees longitude/latitude, metres, miles, etc.).\nProbably the most common CRS is WGS84, which uses longitude/latitude to link data to the Earth’s surface.\nWhen doing spatial analyses and processing where we are comparing two or more datasets to each other, it is important that they are in the same CRS.\n\n\nCRS are often paired with map projections. This is sometimes called a Projected CRS.\nThe earth is a 3D globe, but most maps are represented on 2D surfaces (e.g. on a screen, piece of paper). Map projections are mathematical model to flatten the earth to create a 2D view.\nEvery projection distorts shape, area, distance, or direction in some way or another. Different map projections distort the Earth in different ways. Here are some examples! For more check out this projection transition tool\n\n\n\nQGIS screenshot without data\n\n\nFor doing analysis and an urban scale, it is important that we choose a map projection that conserves area and distances in both X and Y directions (i.e. space is not being distorted in one particular direction more than others)\nFor example, these are two aerial images of Toronto, the left uses a local Mercator projection which does not distort data at a local scale, while the right is a rectangular projection where degrees latitude are equal shown at the same scale as degrees longitude.\nA general recommendation for urban-scale analyses is to use a Universal Transverse Mercator (UTM) projected CRS, which conserves area, distance, and direction along bands of the earth. This is a good tool for finding which UTM zone your region is in.\n\n\n\n\nLet’s use QGIS to quickly view a few spatial datasets. When you open up QGIS, it should look something like this:\n\n\n\nQGIS screenshot without data\n\n\nThe Browser panel is used for finding and loading data on your computer or from external sources, each line and symbol is for a different data source. The Layer panel will list all the datasets that are loaded into your project. The big white space will populate with data once it is loaded. The buttons at the top include a variety of options for loading data, saving your project, exploring your map, and various common processing and analytical tools.\n\n\nLet’s begin by adding in a basemap. Basemaps are often used to provide geographic reference for other data that we load into QGIS.\nWe’ll add a basemap of OpenStreetMap, a free crowd-sourced map of the world, available as XYZ raster tiles. To do this, go to Layer - Data Source Manager or simply click on the Data Source Manager button highlighted below. When you open the Data Source Manager you have options for a wide variety of data types to add to your map.\n\n\n\nData source manager location in QGIS\n\n\n\n\n\nAdding an XYZ tile\n\n\nHere is the URL to paste into QGIS for adding an OpenStreetMap basemap: https://tile.openstreetmap.org/{z}/{x}/{y}.png.\nWhen you click ‘Add’ it should be added to the map. You can use the navigation buttons or just scroll on your mouse to zoom to your city.\n\n\n\nQGIS with OpenStreetMap\n\n\nLet’s now add some vector data to the map. We’ve pre-downloaded two datasets from the City of Toronto’s Open Data Portal - City Wards (polygons) - Library Locations (points)\nThese can be added via the Data Source Manager - Vector, or simply via drag-and-drop from the folder of where they are located on your computer.\n\n\n\nQGIS with Toronto data\n\n\n\n\n\nThe data added to the project will be listed in the Layers panel. The order of the layers determine the order of which they stack on top of each other on the map. In the example above, the libraries are listed at the top of the other two layers, and it thus appears on top of the other two layers on the map.\nTo change the layer order, you can drag individual layers to be above or below any other layer in the Layers panel.\nMost vector data has associated attribute data, e.g. the number of a ward, the name of a library, etc. To view this data, right-click on a layer and then click on Open Attribute Table. In GIS, column names are often called “Fields”\n\n\n\nWhen you load vector data like this into QGIS, the layers have default styling (e.g. colours, sizes, line-widths, etc.).\nThere are tonnes of options in QGIS to change these initial styles. To do so, right-click on a layer, go to Properties, and then Symbology.\nThere are lots of options in here to change the colours, size, and symbols.\nFor example, in the screenshot below, the sizes of the libraries and the line-widths of the wards are increased a bit, the wards are given a transparent fill, and the library symbols are converted to squares.\n\n\n\nQGIS with Toronto data\n\n\nTip! you get extra options if you click on the sub-component of the symbol. e.g. in this example I clicked on Simple Fill to find additional styling options like pattern-based fill styles.\n\n\n\nQGIS symbology example\n\n\nWe’ll explore data-driven styling, where colours or other style options are based on data values, in a future tutorial.\n\n\n\nYou can change the project CRS in QGIS by going to Project - Properties - CRS.\n\n\n\nYou can export and create copies of any of your data layers. This may be useful if you want to change the file format, the CRS, subset the attribute table, or simply just make a copy of the data.\nTo do this, go to Export - Save Features As, and you can adjust the Format, CRS, and other options as needed.\n\n\n\nYou can save a project in QGIS by going to Project and then Save or Save As.\nIt will get saved to a .qgis file. These files save styling, filters, layer orders, map scale and location, and layout settings.\nHowever, .qgis files do not save datasets directly in the file, only paths and links to where the data is stored, either on your computer or from a URL like the OpenStreetMap basemap. Saving only links to data is common in other tools and software.\nTherefore, if you share your project, you’ll need to also share any local datasets it is linking to.",
+    "text": "A lot of urban datasets are directly linked to specific places, e.g. addresses, streets, neighbourhoods, political or administrative boundaries, etc.\nData that include place-based information are often called spatial, geographic, or geospatial data Geographic Information Systems (GIS) are tools and software for analyzing, processing, and visualizing spatial data.\nThis page will cover the basics of spatial data and how we can view and interact with this data in the software QGIS (you will need to download QGIS to work on the hands-on part of this tutorial).\n\n\nA spatial dataset is a combination of…\n\nattribute data (the what)\nlocation data and spatial dimensions (the where)\n\nSpatial data, this combination of attribute and location data, can be organized and represented in a number of different formats.\nFor example, a city can be represented on a map via a single point with a label (e.g. based on latitude and longitude coordinates). Or a city can be represented as a polygon, based on on it’s administrative boundary\nImportantly, there are always uncertainty about the level of accuracy, precision, and resolution of spatial data. Spatial data are abstractions of reality, and thus have some loss of information when used for visualization and analysis. Any analysis can only be as good as the available data.\nThe two most common forms of spatial data are vector data and raster data.\n\n\n\nExamples of spatial data\n\n\n\n\nVector data uses geographic coordinates, or a series of coordinates, to create points, lines, and polygons representing real-world features.\ne.g. in the map below (a screenshot of OpenStreetMap) lines are used to represent roads and rail, points for retail, polygons for parks and buildings, etc.\n\n\n\nScreenshot of OpenStreetMap\n\n\nSpatial data can be stored as columns in traditional table-based formats (e.g. .csv), but there are also a wide range of data formats specific to spatial data. These are some of the most common:\n\nGeoJSON .geojson\nGeoPacakge .gpkg\nShapefile .shapfile\nGeodatabase .gdb\n\nHere is an example of a single point location of a city stored in a .geojson file. .geojson is a standardized data schema .json format for spatial data.\n{\n    \"type\": \"FeatureCollection\",\n    \"features\": [\n        {\n            \"type\": \"Feature\",\n            \"geometry\": {\n                \"type\": \"Point\",\n                \"coordinates\": [-80.992, 46.490]\n            },\n            \"properties\": {\n                \"city_name\": \"Sudbury\"\n            }\n        }\n    ]\n}\n\n\n\nRaster data represents space as a continuous grid with equal cell sizes. Each cell contains a value pertaining to the type of feature it represents. These values can be quantitative (e.g. elevation) or categorical (e.g. type of land use). Common examples of raster data include Digital Elevation Models (DEMs), satellite imagery, and scanned images like historical maps.\ne.g. the map below shows a DEM for Toronto at two different scales.\n\n\n\nDEM of Toronto\n\n\n\n\n\n\nWe use Geographic Information Systems (GIS) to analyze, manipulate, and visualize spatial data.\nWhy is GIS useful?\n\nexplore spatial patterns and relationships in data\ncreate maps for publications\ngenerate new data, either “by hand” or via spatial relationships from other data (e.g. through spatial queries)\nperform spatial analysis (i.e. statistical methods applied to spatial data)\n\nGIS is often thought of as more than just a tool or piece of software. It can refer to all aspects of managing and analyzing digital spatially referenced data.\nThe power of GIS software and tools is the ability to work with data stored in different layers (e.g. a layer for roads, another for buildings, and so on) in conjunction with each other. These layers can be visualized and analyzed relative to each other based on their spatial relationships.\n\n\n\nSimple AI generated schematic of layers\n\n\nGIS software usually links to data stored elsewhere on a computer, rather than in a project file. If the source location of the data (i.e. which folder it’s in) changes, then this will have to be updated in the GIS project. If data are edited in GIS, it will update the data in its source location.\nThe open-source QGIS and the proprietary ESRI ArcGIS are the two most used desktop GIS software. ESRI’s suite of tools are often used by larger corporate and government organizations while QGIS is more used by small consultants and freelancers, non-profits, and academia. Many spatial data processing, visualization, and analyses steps also have equivalents in Python, R, SQL and other programming languages via specific libraries\nWe’ll be working with QGIS and Python, because they free and work across multiple operating systems, and are commonly used across different areas of work and research. But pretty much everything we’ll show can be accomplished across different software options, the buttons and steps will just be a bit different.\nLearning the core analytical and visualization concepts and ideas are much more important than exactly where to click or what specific functions to run.\n\n\n\nA CRS is a framework for describing the geographic position of location-based data. It tells your GIS software where your data are located on the Earth. Without a CRS, your data would just be a bunch of numbers without an ability to place them on a map and relate them to other data.\nThere are thousands of CRSs. Each CRS has specific attributes about its position and one main set of spatial units (e.g. a CRS will measure location in degrees longitude/latitude, metres, miles, etc.).\nProbably the most common CRS is WGS84, which uses longitude/latitude to link data to the Earth’s surface.\nWhen doing spatial analyses and processing where we are comparing two or more datasets to each other, it is important that they are in the same CRS.\n\n\nCRS are often paired with map projections. This is sometimes called a Projected CRS.\nThe earth is a 3D globe, but most maps are represented on 2D surfaces (e.g. on a screen, piece of paper). Map projections are mathematical model to flatten the earth to create a 2D view.\nEvery projection distorts shape, area, distance, or direction in some way or another. Different map projections distort the Earth in different ways. Here are some examples! For more check out this projection transition tool\n\n\n\nQGIS screenshot without data\n\n\nFor doing analysis and an urban scale, it is important that we choose a map projection that conserves area and distances in both X and Y directions (i.e. space is not being distorted in one particular direction more than others)\nFor example, these are two aerial images of Toronto, the left uses a local Mercator projection which does not distort data at a local scale, while the right is a rectangular projection where degrees latitude are equal shown at the same scale as degrees longitude.\nA general recommendation for urban-scale analyses is to use a Universal Transverse Mercator (UTM) projected CRS, which conserves area, distance, and direction along bands of the earth. This is a good tool for finding which UTM zone your region is in.\n\n\n\n\nLet’s use QGIS to quickly view a few spatial datasets. When you open up QGIS, it should look something like this:\n\n\n\nQGIS screenshot without data\n\n\nThe Browser panel is used for finding and loading data on your computer or from external sources, each line and symbol is for a different data source. The Layer panel will list all the datasets that are loaded into your project. The big white space will populate with data once it is loaded. The buttons at the top include a variety of options for loading data, saving your project, exploring your map, and various common processing and analytical tools.\n\n\nLet’s begin by adding in a basemap. Basemaps are often used to provide geographic reference for other data that we load into QGIS.\nWe’ll add a basemap of OpenStreetMap, a free crowd-sourced map of the world, available as XYZ raster tiles. To do this, go to Layer - Data Source Manager or simply click on the Data Source Manager button highlighted below. When you open the Data Source Manager you have options for a wide variety of data types to add to your map.\n\n\n\nData source manager location in QGIS\n\n\n\n\n\nAdding an XYZ tile\n\n\nHere is the URL to paste into QGIS for adding an OpenStreetMap basemap: https://tile.openstreetmap.org/{z}/{x}/{y}.png.\nWhen you click ‘Add’ it should be added to the map. You can use the navigation buttons or just scroll on your mouse to zoom to your city.\n\n\n\nQGIS with OpenStreetMap\n\n\nLet’s now add some vector data to the map. We’ve pre-downloaded two datasets from the City of Toronto’s Open Data Portal - City Wards (polygons) - Library Locations (points)\nThese can be added via the Data Source Manager - Vector, or simply via drag-and-drop from the folder of where they are located on your computer.\n\n\n\nQGIS with Toronto data\n\n\n\n\n\nThe data added to the project will be listed in the Layers panel. The order of the layers determine the order of which they stack on top of each other on the map. In the example above, the libraries are listed at the top of the other two layers, and it thus appears on top of the other two layers on the map.\nTo change the layer order, you can drag individual layers to be above or below any other layer in the Layers panel.\nMost vector data has associated attribute data, e.g. the number of a ward, the name of a library, etc. To view this data, right-click on a layer and then click on Open Attribute Table. In GIS, column names are often called “Fields”\n\n\n\nWhen you load vector data like this into QGIS, the layers have default styling (e.g. colours, sizes, line-widths, etc.).\nThere are tonnes of options in QGIS to change these initial styles. To do so, right-click on a layer, go to Properties, and then Symbology.\nThere are lots of options in here to change the colours, size, and symbols.\nFor example, in the screenshot below, the sizes of the libraries and the line-widths of the wards are increased a bit, the wards are given a transparent fill, and the library symbols are converted to squares.\n\n\n\nQGIS with Toronto data\n\n\nTip! you get extra options if you click on the sub-component of the symbol. e.g. in this example I clicked on Simple Fill to find additional styling options like pattern-based fill styles.\n\n\n\nQGIS symbology example\n\n\nWe’ll explore data-driven styling, where colours or other style options are based on data values, in a future tutorial.\n\n\n\nYou can change the project CRS in QGIS by going to Project - Properties - CRS.\n\n\n\nYou can export and create copies of any of your data layers. This may be useful if you want to change the file format, the CRS, subset the attribute table, or simply just make a copy of the data.\nTo do this, go to Export - Save Features As, and you can adjust the Format, CRS, and other options as needed.\n\n\n\nYou can save a project in QGIS by going to Project and then Save or Save As.\nIt will get saved to a .qgis file. These files save styling, filters, layer orders, map scale and location, and layout settings.\nHowever, .qgis files do not save datasets directly in the file, only paths and links to where the data is stored, either on your computer or from a URL like the OpenStreetMap basemap. Saving only links to data is common in other tools and software.\nTherefore, if you share your project, you’ll need to also share any local datasets it is linking to.",
     "crumbs": [
       "Urban Data Analytics",
       "Spatial data & GIS"
@@ -523,6 +523,449 @@
     "crumbs": [
       "Urban Data Analytics",
       "Measuring the city: metrics and indicators"
+  ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/spatial-data-visualization/spatial-data-visualization.html",
+    "href": "notebooks/urban-data-visualization/spatial-data-visualization/spatial-data-visualization.html",
+    "title": "Maps & Spatial Data Visualization",
+    "section": "",
+    "text": "What is a map?\nReference maps vs thematic maps\nMaps always abstractions - l - we can’t show everything - we have to choose\n\n\n\n\n\n\n\n\n\n\n\nVisual variables often used for map data\nSingle rule\nStyle via data values - categorical example - e.g.  - numeric example - e.g.  — link to choropleth and prop symbol?",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Spatial Data Visualization"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/spatial-data-visualization/spatial-data-visualization.html#simplification",
+    "href": "notebooks/urban-data-visualization/spatial-data-visualization/spatial-data-visualization.html#simplification",
+    "title": "Maps & Spatial Data Visualization",
+    "section": "",
+    "text": "Symbology\nVisual variables often used for map data\nReference maps vs thematic maps",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Spatial Data Visualization"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/spatial-data-visualization/spatial-data-visualization.html#symbology",
+    "href": "notebooks/urban-data-visualization/spatial-data-visualization/spatial-data-visualization.html#symbology",
+    "title": "Maps & Spatial Data Visualization",
+    "section": "",
+    "text": "Visual variables often used for map data\nSingle rule\nStyle via data values - categorical example - e.g.  - numeric example - e.g.  — link to choropleth and prop symbol?",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Spatial Data Visualization"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/spatial-data-visualization/maps-and-spatial-data-visualization.html",
+    "href": "notebooks/urban-data-visualization/spatial-data-visualization/maps-and-spatial-data-visualization.html",
+    "title": "Maps & Spatial Data Visualization",
+    "section": "",
+    "text": "What is a map?\nReference maps vs thematic maps\nMaps always abstractions - l - we can’t show everything - we have to choose\n\n\n\n\n\n\n\n\n\n\n\nVisual variables often used for map data\nSingle rule\nStyle via data values - categorical example - e.g.  - numeric example - e.g.  — link to choropleth and prop symbol?"
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/spatial-data-visualization/maps-and-spatial-data-visualization.html#symbology",
+    "href": "notebooks/urban-data-visualization/spatial-data-visualization/maps-and-spatial-data-visualization.html#symbology",
+    "title": "Maps & Spatial Data Visualization",
+    "section": "",
+    "text": "Visual variables often used for map data\nSingle rule\nStyle via data values - categorical example - e.g.  - numeric example - e.g.  — link to choropleth and prop symbol?"
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Maps and spatial data visualizations can either created be at the research stage where we are trying to uncover patterns in the data, or as polished communication visuals where we want to convey patterns in the data to a our intended audience.\nCartography is often defined as the science and art of creating maps. It often involves decisions about …\n\nselection of data to include on the map\ngeneralization of data to reduce complexity and clutter\nhow we want to style and symbolize our data\nhow to order and layer data\nwhat other map layout elements to include (e.g. title, legend, north arrow), as well as how to design these to make a map easy to understand\n\nThis page will cover the basics of what goes into making maps and spatial data visualizations, following each of these steps.\nThe last part of this notebook shows an example in QGIS for making a simple map …………. The\nIf you are interested in creating specific types of maps, check out the following notebooks:\n\nChoropleth maps\nProportional symbol maps\nMapping point density (dot maps, grid maps, heat maps)\n\n\n\n\n\n\nAlmost all maps can be thought of as either\n\nReference maps, which provide base geographic information (e.g. streets, land forms, water, etc.) often for locating places or for navigation. Google Maps is probably the most well-used example.\nThematic maps, also called geographic or spatial data visualizations, emphasize patterns or trends tied to a specific theme (e.g., population density, election results, air pollution, etc.).\n\nReference maps are often used as base layers for thematic maps.\nFor example, if we’ve collected a dataset about the location of public washrooms in a city, the first thing we might want to do is simply see where they are located by overlaying them onto a base map in GIS. This would be an example of a simple thematic map.\nHere are a few examples of thematic maps that we’ve created\n[3 EXAMPLES]\n\n\n\nStatic maps are fixed, pre-generated images that display geographic information in a single, unchangeable format. They are ideal for simple visualization, printing, or when interactivity isn’t needed—such as in posters, reports, or static web images.\nStatic maps can vary in size from just a few dozen pixels on a screen or a small figure in a report to large maps printed as posters or dozens of maps as part of a series, like in an atlas. The three maps shown above are examples of static maps.\nInteractive maps are digital and allow users to engage with the content by zooming, panning, clicking for details, or filtering data. They are best for exploration, real-time applications, user-driven analysis, or providing increased engagement via animation in a data-story. Here are a few examples that we’ve developed at the School of Cities”\n\nUrban Activity Atlas\nHeat Vulnerability in Toronto\nKnowledge of Languages in the Greater Toronto & Hamilton Area\n\nWhile static maps offer simplicity, interactive maps can provide flexibility and deeper engagement with spatial data.\nHowever, interactive maps typically take much more work to create than a static map as they include all the design thinking in a static map, plus additional thinking about how users interact with them and how the maps respond to user inputs.\nOur general recommendation is to always start with creating static maps, and then move on to creating an interactive version only if static version are insufficient at conveying the story in your data that you want to convey.\nIf designed well, static maps can be super effective at highlighting key trends and stories in spatial data in a quick and easy to read way.\n\n\n\n\nHow do we decide what were are going to include on our map? Sometimes this may seem obvious, the key dataset(s) that we want to visualize should be there, but particularly with our reference layers, this can often require a lot of little subtle choices.\nThis is because maps always abstractions of reality. It is impossible to show everything in the world on a piece of paper or a screen - nor would we want to, as we usually want to focus our reader’s attention on specific data point(s), trend(s), or story.\nMaking maps and spatial data visualizations therefore often involve various decisions on selection and generalization of spatial data to reduce visual clutter to focus on specific data points.\n\n\nCartographic selection is about picking the most important things to draw on a map so it’s not too crowded. Imagine drawing a treasure map — you’d likely want to show big landmarks like mountains or forests, but leave out tiny rocks or every individual tree.\nIn practice, this can include deciding about whether or not to include a dataset at all when creating a map (e.g. in GIS or Python or other map-making software), or if we do include the dataset, if we want to filter it to only show certain features.\nFor example, you may want to include a dataset of public transit lines as a reference layer for a map of your city. However, you may not want to include every single transit route. An example of cartographic selection would be to only show major transit lines by pre-filtering the data by mode (e.g. only show metro/subway) or frequency (e.g. only show routes where a bus or train comes every 10 minutes or less). Now of course if the goal of your map and research is specifically about public transit, you may want to include all the routes.\nThe process of selecting some, but not all of the data that you have available, reduces clutter on your maps and can make them easier to read.\nWhat data to include depends on your objectives, audience, and story.\n\n\n\nSimilar to selection is cartographic generalization, this is when mapmakers simplify real-world details to make maps clearer and less cluttered, especially at smaller scales.\nFor example, a coastline with tons of tiny twists and inlets might get smoothed out—keeping the overall shape but removing unnecessary complexity. This helps the map stay readable without losing its key features. It’s like sketching a quick but accurate version of a photo instead of drawing every single pixel.\n[SHORELINE EXAMPLE]\nAnother example would be that if you had a dataset of sports and recreation facilities in a city with data on the type of activity each is predominately used by (e.g. baseball, football, tennis, etc.). We can choose to have a different colour or symbol for each of these types, or generalize these to have them all look the same (e.g. the same shade of green).\n\n\n\n\nOnce we’ve decided what we want to include on our map, we have to decide how we want to style each layer. In some mapping tools, like QGIS, style options are often called Symbology\nThese are the common graphic styling options available for vector data layers. If you’ve worked with other design software, especially vector graphic software, many of these will be familiar.\nPoints:\n\nSymbol type (e.g. circle, square, etc.)\nSize\nFill colour\nStroke colour\nStroke width\nOpacity\n\nLines:\n\nWidth\nColour\nStroke style (e.g. solid, dashed, etc.)\nOpacity\n\nPolygons:\n\nFill colour\nFill pattern (solid, hatching, etc.)\nStroke colour\nStroke width\nStroke style (e.g. solid, dashed, etc.)\nOpacity\n\nNote that there are other options as well, the above are just the most commonly used.\n\n\nSingle-rule styling is when we want all features in a dataset to look the same, regardless of how they may different in terms of their attributes\nIn the example in our notebook on introducing spatial data and GIS, we created a simple map of Toronto where we had two vector datasets 1) ward administrative boundaries (polygons) and 2) public libraries (points).\nEach of these layers is styled via a single rule. For example, all public libraries are shown as blue squares, even though some libraries may be larger than others or have longer opening hours.\n\n\n\nScreenshot of QGIS with single-rule based styling for two layers\n\n\n\n\n\nVisual variables often used for map data?\nWe can think of these as\nStyle via data values - categorical example - e.g.  - numeric example - e.g.  — link to choropleth and prop symbol?\n\n\n\n\nWell designed maps often have a visual hierarchy of background and foreground that guide some of these decisions, where the background provides geographic reference (e.g. streets, bodies of water), while the foreground are the key data that we want to show.",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#symbology",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#symbology",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Visual variables often used for map data\nSingle rule\nIn the example in our notebook on introducing spatial data and GIS, we created a simple map of Toronto where we had two vector datasets 1) ward administrative boundaries (polygons) and 2) public libraries (points).\n\n\nStyle via data values - categorical example - e.g.  - numeric example - e.g.  — link to choropleth and prop symbol?",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#examples-of-thematic-maps",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#examples-of-thematic-maps",
+    "title": "Maps & Spatial Data Visualization",
+    "section": "",
+    "text": "Static or interactive.\nMaps always abstractions - l - we can’t show everything - we have to choose",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Spatial Data Visualization"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#examples-of-thematic-maps---geo-vi",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#examples-of-thematic-maps---geo-vi",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Static or interactive.\nMaps always abstractions - l - we can’t show everything - we have to choose",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#examples-of-thematic-maps---geo-visualization---spatial-data-visualization",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#examples-of-thematic-maps---geo-visualization---spatial-data-visualization",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Maps always abstractions - l - we can’t show everything - we have to choose",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#selection",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#selection",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "Selection",
+    "text": "Selection",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#generalization",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#generalization",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "Generalization",
+    "text": "Generalization",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#simplification",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#simplification",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "Simplification",
+    "text": "Simplification",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#map-layouts",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#map-layouts",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "Map layouts",
+    "text": "Map layouts",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#reference-maps",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#reference-maps",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Examples of reference maps - old and new\nMaps - Google Maps, for example, is probably the most viewed map in human history now.\nReference maps are often used as base maps for thematic maps and visualizing spatial data.",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#decisions",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#decisions",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Maps always abstractions - l - we can’t show everything - we have to choose",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#symbology-1",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#symbology-1",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Visual variables often used for map data\nSingle rule\nStyle via data values - categorical example - e.g.  - numeric example - e.g.  — link to choropleth and prop symbol?",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#static-interactive-maps",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#static-interactive-maps",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Static (varying sizes) or interactive (dashboard or story)",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#static-dynamic-maps",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#static-dynamic-maps",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Static (varying sizes)\nDynamic/interactive (dashboard or story)\nGenerally - start with static\nDynamic and interactive maps typically take more work to create as they include all the design thinking in a static map, plus additional thinking about motion and how a reader would interact with it.",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#whats-on-the-map",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#whats-on-the-map",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "How do we decide what were are going to include on our map? Sometimes this may seem obvious, the key dataset(s) that we want to visualize should be there, but particularly with our reference layers, this can often require a lot of little subtle choices.\nThis is because maps always abstractions of reality. It is impossible to show everything in the world on a piece of paper or a screen - nor would we want to, as we usually want to focus our reader’s attention on specific data point(s), trend(s), or story.\nMaking maps and spatial data visualizations therefore often involve various decisions on selection and generalization of spatial data to reduce visual clutter to focus on specific data points.\n\n\nCartographic selection is about picking the most important things to draw on a map so it’s not too crowded. Imagine drawing a treasure map — you’d likely want to show big landmarks like mountains or forests, but leave out tiny rocks or every individual tree.\nIn practice, this can include deciding about whether or not to include a dataset at all when creating a map (e.g. in GIS or Python or other map-making software), or if we do include the dataset, if we want to filter it to only show certain features.\nFor example, you may want to include a dataset of public transit lines as a reference layer for a map of your city. However, you may not want to include every single transit route. An example of cartographic selection would be to only show major transit lines by pre-filtering the data by mode (e.g. only show metro/subway) or frequency (e.g. only show routes where a bus or train comes every 10 minutes or less). Now of course if the goal of your map and research is specifically about public transit, you may want to include all the routes.\nThe process of selecting some, but not all of the data that you have available, reduces clutter on your maps and can make them easier to read.\nWhat data to include depends on your objectives, audience, and story.\n\n\n\nSimilar to selection is cartographic generalization, this is when mapmakers simplify real-world details to make maps clearer and less cluttered, especially at smaller scales.\nFor example, a coastline with tons of tiny twists and inlets might get smoothed out—keeping the overall shape but removing unnecessary complexity. This helps the map stay readable without losing its key features. It’s like sketching a quick but accurate version of a photo instead of drawing every single pixel.\n[SHORELINE EXAMPLE]\nAnother example would be that if you had a dataset of sports and recreation facilities in a city with data on the type of activity each is predominately used by (e.g. baseball, football, tennis, etc.). We can choose to have a different colour or symbol for each of these types, or generalize these to have them all look the same (e.g. the same shade of green).",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#cartographic-selection",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#cartographic-selection",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Cartographic selection is about picking the most important things to draw on a map so it’s not too crowded. Imagine drawing a treasure map — you’d likely want to show big landmarks like mountains or forests, but leave out tiny rocks or every individual tree.\nIn practice, this can include deciding about whether or not to include a dataset at all when creating a map (e.g. in GIS or Python or other map-making software), or if we do include the dataset, if we want to filter it to only show certain features.\nFor example, you may want to include a dataset of public transit lines as a reference layer for a map of your city. However, you may not want to include every single transit route. An example of cartographic selection would be to only show major transit lines by pre-filtering the data by mode (e.g. only show metro/subway) or frequency (e.g. only show routes where a bus or train comes every 10 minutes or less). Now of course if the goal of your map and research is specifically about public transit, you may want to include all the routes.\nThe process of selecting some, but not all of the data that you have available, reduces clutter on your maps and can make them easier to read. What data to include depends on your objectives, audience, and story.",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#cartographic-generalization",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#cartographic-generalization",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Similar to selection is cartographic generalization, this is when mapmakers simplify real-world details to make maps clearer and less cluttered, especially at smaller scales.\nFor example, a coastline with tons of tiny twists and inlets might get smoothed out—keeping the overall shape but removing unnecessary complexity. This helps the map stay readable without losing its key features. It’s like sketching a quick but accurate version of a photo instead of drawing every single pixel.\nAnother example would be that if you had a dataset of sports and recreation facilities in a city with data on the type of activity each is predominately used by (e.g. baseball, football, tennis, etc.). We can choose to have a different colour or symbol for each of these types, or generalize these to have them all look the same (e.g. the same shade of green).",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#thematic-maps",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#thematic-maps",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Examples of thematic maps - geo-visualization - spatial data visualization\nThese types of maps can be super useful for exploratory data analysis during the research process.",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#symbols-layer-styling",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#symbols-layer-styling",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Once we’ve decided what we want to include on our map, we have to decide how we want to style each layer. In some mapping tools, like QGIS, style options are often called Symbology\nThese are the common graphic styling options available for vector data layers. If you’ve worked with other design software, especially vector graphic software, many of these will be familiar.\nPoints:\n\nSymbol type (e.g. circle, square, etc.)\nSize\nFill colour\nStroke colour\nStroke width\nOpacity\n\nLines:\n\nWidth\nColour\nStroke style (e.g. solid, dashed, etc.)\nOpacity\n\nPolygons:\n\nFill colour\nFill pattern (solid, hatching, etc.)\nStroke colour\nStroke width\nStroke style (e.g. solid, dashed, etc.)\nOpacity\n\nNote that there are other options as well, the above are just the most commonly used.\n\n\nSingle-rule styling is when we want all features in a dataset to look the same, regardless of how they may different in terms of their attributes\nIn the example in our notebook on introducing spatial data and GIS, we created a simple map of Toronto where we had two vector datasets 1) ward administrative boundaries (polygons) and 2) public libraries (points).\nEach of these layers is styled via a single rule. For example, all libraries are blue squares, even though some libraries may be larger than others or have longer opening hours.\n\n\n\nScreenshot of QGIS with single-rule based styling for two layers\n\n\n\n\n\nVisual variables often used for map data?\nStyle via data values - categorical example - e.g.  - numeric example - e.g.  — link to choropleth and prop symbol?",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#categories-of-maps",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#categories-of-maps",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Examples of reference maps - old and new\nMaps - Google Maps, for example, is probably the most viewed map in human history now.\nReference maps are often used as base maps for thematic maps and visualizing spatial data.\nExamples of thematic maps - geo-visualization - spatial data visualization\nThese types of maps can be super useful for exploratory data analysis during the research process.\n\n\n\nStatic (varying sizes)\nDynamic/interactive (dashboard or story)\nGenerally - start with static\nDynamic and interactive maps typically take more work to create as they include all the design thinking in a static map, plus additional thinking about motion and how a reader would interact with it.",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#static-vs-dynamic-maps",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#static-vs-dynamic-maps",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Static (varying sizes)\nDynamic/interactive (dashboard or story)\nGenerally - start with static\nDynamic and interactive maps typically take more work to create as they include all the design thinking in a static map, plus additional thinking about motion and how a reader would interact with it.",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#what-is-a-map",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#what-is-a-map",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Cartography\nFor research, for communication\nDecisions, heirarchy\nReference (what is where, navigation) or thematic (show specific data, visualization for a story, etc.)\nStatic and interactive.\n\nselection of data to include on the map\ngeneralization of data to reduce the complexity of the data to make it easier to view\nhow we want to style and symbolize our data\nhow to order and layer data\nwhat other map layout elements to include (e.g. title, legend, north arrow), as well as how to design these to make a map easy to understand\n\nThis page will cover the basics of making maps and spatial data visualizations. The last part of this notebook shows an example in QGIS. If you are interested in creating specific types of maps, check out the following notebooks: - Choropleth maps - Proportional symbol maps - Mapping point density",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#overview",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#overview",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Maps and spatial data visualizations can either created be at the research stage where we are trying to uncover patterns in the data, or as polished communication visuals where we want to convey patterns in the data to a our intended audience.\nCartography is often defined as the science and art of creating maps. It often involves decisions about …\n\nselection of data to include on the map\ngeneralization of data to reduce complexity and clutter\nhow we want to style and symbolize our data\nhow to order and layer data\nwhat other map layout elements to include (e.g. title, legend, north arrow), as well as how to design these to make a map easy to understand\n\nThis page will cover the basics of what goes into making maps and spatial data visualizations, following each of these steps.\nThe last part of this notebook shows an example in QGIS for making a simple map …………. The\nIf you are interested in creating specific types of maps, check out the following notebooks:\n\nChoropleth maps\nProportional symbol maps\nMapping point density (dot maps, grid maps, heat maps)",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#symbols-and-layer-styling",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#symbols-and-layer-styling",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Once we’ve decided what we want to include on our map, we have to decide how we want to style each layer. In some mapping tools, like QGIS, style options are often called Symbology\nThese are the common graphic styling options available for vector data layers. If you’ve worked with other design software, especially vector graphic software, many of these will be familiar.\nPoints:\n\nSymbol type (e.g. circle, square, etc.)\nSize\nFill colour\nStroke colour\nStroke width\nOpacity\n\nLines:\n\nWidth\nColour\nStroke style (e.g. solid, dashed, etc.)\nOpacity\n\nPolygons:\n\nFill colour\nFill pattern (solid, hatching, etc.)\nStroke colour\nStroke width\nStroke style (e.g. solid, dashed, etc.)\nOpacity\n\nNote that there are other options as well, the above are just the most commonly used.\n\n\nSingle-rule styling is when we want all features in a dataset to look the same, regardless of how they may different in terms of their attributes\nIn the example in our notebook on introducing spatial data and GIS, we created a simple map of Toronto where we had two vector datasets 1) ward administrative boundaries (polygons) and 2) public libraries (points).\nEach of these layers is styled via a single rule. For example, all public libraries are shown as blue squares, even though some libraries may be larger than others or have longer opening hours.\n\n\n\nScreenshot of QGIS with single-rule based styling for two layers\n\n\n\n\n\nVisual variables often used for map data?\nWe can think of these as\nStyle via data values - categorical example - e.g.  - numeric example - e.g.  — link to choropleth and prop symbol?",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#types-of-maps",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#types-of-maps",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Almost all maps can be thought of as either\n\nReference maps, which provide base geographic information (e.g. streets, land forms, water, etc.) often for locating places or for navigation. Google Maps is probably the most well-used example.\nThematic maps, also called geographic or spatial data visualizations, emphasize patterns or trends tied to a specific theme (e.g., population density, election results, air pollution, etc.).\n\nReference maps are often used as base layers for thematic maps.\nFor example, if we’ve collected a dataset about the location of public washrooms in a city, the first thing we might want to do is simply see where they are located by overlaying them onto a base map in GIS. This would be an example of a simple thematic map.\nHere are a few examples of thematic maps that we’ve created\n[3 EXAMPLES]\n\n\n\nStatic maps are fixed, pre-generated images that display geographic information in a single, unchangeable format. They are ideal for simple visualization, printing, or when interactivity isn’t needed—such as in posters, reports, or static web images.\nStatic maps can vary in size from just a few dozen pixels on a screen or a small figure in a report to large maps printed as posters or dozens of maps as part of a series, like in an atlas. The three maps shown above are examples of static maps.\nInteractive maps are digital and allow users to engage with the content by zooming, panning, clicking for details, or filtering data. They are best for exploration, real-time applications, user-driven analysis, or providing increased engagement via animation in a data-story. Here are a few examples that we’ve developed at the School of Cities”\n\nUrban Activity Atlas\nHeat Vulnerability in Toronto\nKnowledge of Languages in the Greater Toronto & Hamilton Area\n\nWhile static maps offer simplicity, interactive maps can provide flexibility and deeper engagement with spatial data.\nHowever, interactive maps typically take much more work to create than a static map as they include all the design thinking in a static map, plus additional thinking about how users interact with them and how the maps respond to user inputs.\nOur general recommendation is to always start with creating static maps, and then move on to creating an interactive version only if static version are insufficient at conveying the story in your data that you want to convey.\nIf designed well, static maps can be super effective at highlighting key trends and stories in spatial data in a quick and easy to read way.",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#heirarchy",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#heirarchy",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Below are two examples of reference maps, the first an historical topographic map of Toronto from 1910 and the second a screenshot of Google Maps. (Google Maps is probably the most viewed map in human history).\n\nold and new examples\n\nReference maps are often used as base maps for exploratory data analysis. For example, if we’ve collected an urban dataset about the location of public washrooms in a city, the first thing we might want to do is simply see where they are located by overlaying them onto a base map in GIS.\nWhen we are\nGenerally these are maps about a specific theme, or , as part o. geo-visualization, spatial data visualization,\nMaps like these can either created be at the research stage where we are trying to uncover patterns in the data, or as communication visuals, where we want to communicate patterns in the data to a specific audience.\nThese maps can vary in their size, scope, and complexity, to showing the pattern of just a single dataset, to ____ to ____\n[3 EXAMPLES]",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#static-or-interactive",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#static-or-interactive",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Static maps are fixed, pre-generated images that display geographic information in a single, unchangeable format. They are ideal for simple visualization, printing, or when interactivity isn’t needed—such as in posters, reports, or static web images.\nStatic maps can vary in size from just a few dozen pixels on a screen or a small figure in a report to large maps printed as posters or dozens of maps as part of a series, like in an atlas. The three maps shown above are examples of static maps.\nInteractive maps are digital and allow users to engage with the content by zooming, panning, clicking for details, or filtering data. They are best for exploration, real-time applications, user-driven analysis, or providing increased engagement via animation in a data-story. Here are a few examples that we’ve developed at the School of Cities”\n\nUrban Activity Atlas\nHeat Vulnerability in Toronto\nKnowledge of Languages in the Greater Toronto & Hamilton Area\n\nWhile static maps offer simplicity, interactive maps can provide flexibility and deeper engagement with spatial data.\nHowever, interactive maps typically take much more work to create than a static map as they include all the design thinking in a static map, plus additional thinking about how users interact with them and how the maps respond to user inputs.\nOur general recommendation is to always start with creating static maps, and then move on to creating an interactive version only if static version are insufficient at conveying the story in your data that you want to convey.\nIf designed well, static maps can be super effective at highlighting key trends and stories in spatial data in a quick and easy to read way.",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#hierarchy",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#hierarchy",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Almost all maps can be thought of as either reference maps, which provide base geographic information (e.g. streets, land forms, water, etc.) or thematic maps, which emphasize patterns or trends tied to a specific theme (e.g., population density, election results, air pollution, etc.). Thematic maps can be thought of as geographic or spatial data visualizations focused on specific datasets or topics.\nImportant to note is that reference maps are often used as base maps for thematic maps. For example, if we’ve collected an urban dataset about the location of public washrooms in a city, the first thing we might want to do is simply see where they are located by overlaying them onto a base map in GIS. This would be a very simple thematic map.\nMaps like these can either created be at the research stage where we are trying to uncover patterns in the data, or as communication visuals, where we want to communicate patterns in the data to a specific audience.\nThese maps can vary in their size, scope, and complexity, to showing the pattern of just a single dataset, to ____ to ____\n[3 EXAMPLES]",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#thematic-maps-and-spatial-data-visualizations",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#thematic-maps-and-spatial-data-visualizations",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Almost all maps can be thought of as either\n\nReference maps, which provide base geographic information (e.g. streets, land forms, water, etc.). Google Maps is the most well-known example.\nThematic maps, also called geographic or spatial data visualizations, emphasize patterns or trends tied to a specific theme (e.g., population density, election results, air pollution, etc.).\n\nReference maps are often used as base layers for thematic maps.\nFor example, if we’ve collected a dataset about the location of public washrooms in a city, the first thing we might want to do is simply see where they are located by overlaying them onto a base map in GIS. This would be a very simple thematic map.\nThematic maps and spatial like these can either created be at the research stage where we are trying to uncover patterns in the data, or as communication visuals, where we want to communicate patterns in the data to a specific audience.\nThese maps can vary in their size, scope, and complexity, to showing the pattern of just a single dataset, to show correlation between multiple variables, to ____\n[3 EXAMPLES]",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#thematic-maps-spatial-data-visualizations",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#thematic-maps-spatial-data-visualizations",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Almost all maps can be thought of as either\n\nReference maps, which provide base geographic information (e.g. streets, land forms, water, etc.). Google Maps is the most well-known example.\nThematic maps, also called geographic or spatial data visualizations, emphasize patterns or trends tied to a specific theme (e.g., population density, election results, air pollution, etc.).\n\nReference maps are often used as base layers for thematic maps.\nFor example, if we’ve collected a dataset about the location of public washrooms in a city, the first thing we might want to do is simply see where they are located by overlaying them onto a base map in GIS. This would be an example of a simple thematic map.\n[3 EXAMPLES]",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#layers-layouts-putting-it-all-together",
+    "href": "notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html#layers-layouts-putting-it-all-together",
+    "title": "Maps & Visualizing Spatial Data",
+    "section": "",
+    "text": "Well designed maps often have a visual hierarchy of background and foreground that guide some of these decisions, where the background provides geographic reference (e.g. streets, bodies of water), while the foreground are the key data that we want to show.",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Maps & Visualizing Spatial Data"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html",
+    "href": "notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html",
+    "title": "Statistical Foundations",
+    "section": "",
+    "text": "So far, we’ve learned how to handle data - but we also need to know how to understand it and analyze it in convincing ways. Statistics is the core of this - it can reveal what is typical or an outlier, what relationships exist between different variables, and whether assumptions we have are likely or not.\nIn order to do this, we are going to use the Python libraries numpy and scipy. Both of these libraries offer greater mathematical precision and access to a wide variety of statistical methods and tests, which we can apply to a data set loaded in pandas. For the sake of this tutorial, we also use matplotlib to show some intuitive visualizations - but you don’t need to worry about tinkering with these yet.\n\nimport pandas as pd\nimport numpy as np\nfrom scipy import stats\nimport matplotlib.pyplot as plt\n\nFor this tutorial, we are going to use election and census data that was adapted for a project published by the School of Cities looking at immigrant vote patterns in the GTA. The data we are using is adapted from the 2025 Ontario election and the 2021 Canadian census. The data frame has the following columns: - riding_name: the name of the riding - num_pop_tot: the number of people in the riding - num_imm_tot: the number of immigrants in the riding - num_imm_new: the number of new immigrants in the riding - avg_hou_inc: the average household income in the riding - num_vm_tot: the number of visible minority individuals in the riding - cons_pct: the vote percent for the Progressive Conservative party - lib_pct: the vote percent for the Liberal Party - ndp_pct: the vote percent for the New Democratic Party (NDP) - oth_pct: the vote percent for other parties\n\ndf = pd.read_csv('./data/ont-ed_stats_2025.csv')\ndf.head()\n\n\n\n\n\n\n\n\nriding_name\nnum_pop_tot\nnum_imm_tot\nnum_imm_new\navg_hou_inc\nnum_vm_tot\ncons_pct\nlib_pct\nndp_pct\noth_pct\n\n\n\n\n0\nBrampton Centre\n102309.0\n48275.0\n14985.0\n103369.0\n68880.0\n51.85\n33.92\n8.77\n5.45\n\n\n1\nScarborough—Rouge Park\n102256.0\n52637.0\n8294.0\n120745.0\n77090.0\n52.98\n34.75\n10.38\n1.89\n\n\n2\nScarborough North\n94688.0\n60423.0\n11513.0\n103151.0\n87647.0\n52.98\n34.75\n10.38\n1.89\n\n\n3\nAjax\n115392.0\n47716.0\n8721.0\n137570.0\n74759.0\n44.16\n44.96\n7.01\n3.87\n\n\n4\nBeaches—East York\n106811.0\n33588.0\n9031.0\n129975.0\n39034.0\n21.38\n51.17\n22.94\n4.51",
+    "crumbs": [
+      "Urban Data Analytics",
+      "Statistical Foundations"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html#descriptive-statistics-the-shape-of-the-data",
+    "href": "notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html#descriptive-statistics-the-shape-of-the-data",
+    "title": "Statistical Foundations",
+    "section": "Descriptive statistics: the shape of the data",
+    "text": "Descriptive statistics: the shape of the data\n\nCentral tendency\nWhat is “typical” in a set of data? This is at the heart of the notion of the central tendency in statistics. There are three common ways to measure this, with a accompanying functions. - Mean (np.mean()): the average of all values - Median (np.median()): the “middle” value if you order them, ie. at the 50th percentile - Mode (stats.mode()): the most common value\nLet’s compute some of these central tendency statistics for the NDP, and compare them to the distribution of vote shares in all ridings.\n\nparty_var = 'ndp_pct'\n\nmean = np.mean(df[party_var])\nmedian = np.median(df[party_var])\nmode = stats.mode(df[party_var])\n\nprint(f\"Mean: {mean:.2f}\")\nprint(f\"Median: {median:.2f}\")\nprint(f\"Mode: {mode.mode} (appears {mode.count} times)\")\n\nMean: 14.11\nMedian: 6.88\nMode: 3.95 (appears 2 times)\n\n\n\nplt.figure(figsize=(8, 5))\nplt.hist(df[party_var], bins=20, color='orange', edgecolor='black')\n\nplt.axvline(mean, color='red', linestyle='--', linewidth=2, label=f'Mean: {mean:.2f}%')\nplt.axvline(median, color='blue', linestyle='--', linewidth=2, label=f'Median: {median:.2f}%')\nplt.axvline(mode.mode, color='green', linestyle='--', linewidth=2, label=f'Mode: {mode.mode:.2f}%')\n\nplt.title('Distribution of Vote Percentages by Riding')\nplt.xlabel('Vote Percentage (%)')\nplt.ylabel('Number of Ridings')\nplt.grid(axis='y', alpha=0.3)\nplt.legend()\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\nNotice the difference between the mean and the median. While the mean accounts for all of the data directly, it is also sensitive to outliers and can be pulled in one direction or another.\nTry setting the variable party_var to different parties to see how the matter of mean vs. median plays out for different distributions.\n\n\nDispersion\nSimilar to how we ask what is typical in a set of data, it’s also important to ask how that data varies. This is what we refer to when we talk about the dispersion of a distribution, and there are four common measures (with functions): - Standard deviation (np.std()): How spread out data points are from the mean, in the same units as the original data. - Variance (np.var()): The average squared deviation from the mean, representing how wildly individual values differ from the average or overall unevenness. - Range (np.max() - np.min()): The difference between the maximum and minimum values, showing the total spread of the dataset. - Interquartile range (np.percentile(..., [25, 75])): The range of the middle 50% of data (Q3–Q1), reducing sensitivity to outliers.\nLet’s take a look at how the number of immigrants across different ridings varies, and compare it with the mean and median.\n\ncol_var = 'num_imm_tot'\n\nmean = np.mean(df[col_var])\nmedian = np.median(df[col_var])\nstd_dev = np.std(df[col_var], ddof=1)\nvariance = np.var(df[col_var])\ndata_range = np.max(df[col_var]) - np.min(df[col_var])\nq1, q3 = np.percentile(df[col_var], [25, 75])\niqr = q3 - q1\n\nprint(f\"Mean: {mean:.2f}\")\nprint(f\"Median: {median:.2f}\")\nprint('===')\nprint(f\"Std Dev: {std_dev:.2f}\")\nprint(f\"Variance: {variance:.2f}\")\nprint(f\"Range: {data_range:.2f}\")\nprint(f\"IQR: {iqr:.2f}\")\n\nMean: 52330.33\nMedian: 54255.00\n===\nStd Dev: 13630.44\nVariance: 182348372.93\nRange: 62964.00\nIQR: 18211.50\n\n\n\nplt.figure(figsize=(10, 6))\nax = plt.gca()\n\n# Histogram\nn, bins, patches = plt.hist(df[col_var], bins=20, color='#2ca02c', edgecolor='black', alpha=0.7)\n\n# Central tendency and dispersion\nplt.axvline(mean, color='red', linestyle='--', linewidth=2, label=f'Mean: {mean:,.0f}')\nplt.axvline(median, color='blue', linestyle='--', linewidth=2, label=f'Median: {median:,.0f}')\n\nplt.axvspan(mean - std_dev, mean + std_dev, color='red', alpha=0.1, label=f'±1 Std Dev: {std_dev:,.0f}')\nplt.axvspan(q1, q3, color='blue', alpha=0.1, label=f'IQR: {iqr:,.0f}')\n\n# Annotations\nplt.title('Distribution of Immigrant Population by Riding', pad=20, fontsize=14)\nplt.xlabel('Number of Immigrants', fontsize=12)\nplt.ylabel('Number of Ridings', fontsize=12)\nplt.grid(axis='y', alpha=0.2)\n\nplt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0.)\n\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\nTake a look at how different measures of dispersion capture different parts of the data. Once again, set col_var to a different variable or two and examine the different measures of dispersion and how they play out.",
+    "crumbs": [
+      "Urban Data Analytics",
+      "Statistical Foundations"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html#bivariate-analysis-finding-similarities-in-the-data",
+    "href": "notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html#bivariate-analysis-finding-similarities-in-the-data",
+    "title": "Statistical Foundations",
+    "section": "Bivariate analysis: finding similarities in the data",
+    "text": "Bivariate analysis: finding similarities in the data\n\nCorrelation\nCorrelation measures how closely two variables move together, ranging from -1 (as X increases, Y decreases), to +1 (as X increases, Y increases). A value near 0 indicates no linear association. While it is acceptable to use the word ‘relationship’ here instead of ‘association’, it’s worth noting that a strong correlation is not enough to show causation – namely, if we had a correlation value of 1, we can’t definitively say that Y increases because X increases, only that they increase together.\nWe’ll be looking at a very common measure called Pearson correlation. It measures how closely two variables follow a straight-line relationship, ideal for normally distributed data with linear trends (e.g., height vs. weight). While we won’t look at it today, it’s worth independently looking into “Spearman Rank Correlation” as well - which can capture nonlinear trends.\nWe’ll look at the example of vote share for the Progressive Conservatives and the number of immigrants in a riding below. In the project that this data was drawn from, we used correlation to show how immigrant voters in the GTA are shifting conservative over time.\n\ncensus_var = 'num_imm_tot'\nparty_var = 'cons_pct'\n\nr, p_val = stats.pearsonr(df[census_var], df[party_var])\nprint(f\"Pearson corr: {r:.2f} (p-value: {p_val:.3f})\")\n\nPearson corr: 0.40 (p-value: 0.003)\n\n\nHere we can see a correlation between the two variables we have chosen. Try setting census_var and party_var to different column values and see if there is a correlation between those as well, or not!",
+    "crumbs": [
+      "Urban Data Analytics",
+      "Statistical Foundations"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html#linear-regression-relationships-between-variables",
+    "href": "notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html#linear-regression-relationships-between-variables",
+    "title": "Statistical Foundations",
+    "section": "Linear regression: relationships between variables",
+    "text": "Linear regression: relationships between variables\n\nSimple regression\nLinear Regression identifies the straight-line relationship between two variables, allowing you to predict outcomes (e.g., voting percentages) based on another factor (e.g., immigrant population). It calculates a “best-fit” line that minimizes the distance between all data points and the line itself, summarized by the equation y = slope  x + intercept*.\n\ncensus_var = 'num_imm_tot'\nparty_var = 'cons_pct'\n\nx = df[census_var].values  # Independent variable\ny = df[party_var].values     # Dependent variable\n\n# Fit regression\nslope, intercept, r_value, p_value, _ = stats.linregress(x, y)\nr_squared = r_value ** 2\n\n# Plot\nplt.figure(figsize=(10, 5))\nplt.scatter(x, y, color='blue', alpha=0.5, label='Actual Data')\nplt.plot(x, intercept + slope * x, 'r-', label=f'Regression Line: $R²$={r_squared:.2f}\\nslope={slope:.5f}')\nplt.xlabel('Immigrant Population')\nplt.ylabel('Conservative Vote %')\nplt.title('Predicting Votes from Demographics', pad=15)\nplt.legend()\nplt.grid(alpha=0.2)\nplt.show()\n\n\n\n\n\n\n\n\n\nprint(f\"Model Equation: {party_var} = {intercept:.2f} + {slope:.5f} * {census_var}\")\nprint(f\"R² = {r_squared:.3f} (Explains {r_squared*100:.1f}% of variance)\")\nprint(f\"p-value = {p_value:.4f} {'(Significant)' if p_value &lt; 0.05 else '(Not significant)'}\")\n\nModel Equation: cons_pct = 23.99 + 0.00039 * num_imm_tot\nR² = 0.161 (Explains 16.1% of variance)\np-value = 0.0026 (Significant)\n\n\nNot all regression lines are made equal, and R² measures how well the regression line fits the data, ranging from 0 (no fit) to 1 (perfect fit). It answers: “What percentage of variation in voting patterns can be explained by immigrant population?”. In the above example, we can say that 16.1% of the differences in conservative votes across ridings are predictable from immigrant numbers—the rest is due to other factors.\nNow try the following two exercises to examine outcomes: - Change the x-variable to avg_hou_inc. Does wealth predict conservative votes better than immigrant population? - Add ndp_pct as y-variable. Is the relationship positive or negative?\n\n\nOther kinds of regression\nWhile linear regression is ideal for modeling straight-line relationships, real-world data often requires more flexible approaches. Below are key alternatives with use cases relevant to political/demographic data, along with their Python implementations: - Multiple Linear Regression: Modeling how multiple demographic factors jointly influence voting patterns (e.g., predicting Conservative vote share using both immigrant population and average income). - Polynomial Regression: Modeling curved relationships (e.g., voter turnout vs. age, where middle-aged groups vote more than very young or elderly). - Logistic Regression: Predicting binary outcomes (e.g., whether a riding will vote Conservative (1) or not (0) based on income thresholds). - Ridge/Lasso Regression: Handling multicollinearity (e.g., when immigrant population and visible minority numbers are strongly correlated).\nIn case you want to do these more complex kinds of regression, the typical go to library is scikit-learn.",
+    "crumbs": [
+      "Urban Data Analytics",
+      "Statistical Foundations"
+    ]
+  },
+  {
+    "objectID": "notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html#hypothesis-testing-making-conclusions",
+    "href": "notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html#hypothesis-testing-making-conclusions",
+    "title": "Statistical Foundations",
+    "section": "Hypothesis testing: making conclusions",
+    "text": "Hypothesis testing: making conclusions\nHypothesis testing evaluates whether observed patterns in data are statistically significant or likely due to random chance. A t-test compares the means of two groups (e.g., Conservative vote share in high- vs. low-income ridings) to determine if their difference is meaningful.\nThe t-statistic measures the size of the difference relative to the variability in the data—think of it like a “signal-to-noise ratio” where if the group difference (signal) stands out from natural variation (noise). Larger absolute values (e.g., |t| &gt; 2) suggest stronger evidence against no difference (a strong “signal”), and the sign indicates direction (e.g., positive = Group A &gt; Group B).\nThe p-value then calculates how likely we’d see this t-statistic if no true difference existed. If p &lt; 0.05, we reject the null hypothesis.\nThere’s two different t-tests we’ll illustrate today. - One-sample: Compares data to a fixed number - Two-sample: Compares two datasets to each other.\n\nOne-Sample t-test\nOur data set only includes ridings within the Greater Toronto Area (GTA) - but more than half of the ridings exist in the rest of Ontario. In the 2025 election, the Conservatives won 43% of the vote - does the average vote share for Conservatives in the GTA vary from Ontario in full?\n\nparty_var = 'cons_pct'\ntotal_party_vote = 43\n\nsample_data = df[party_var]\nt_stat, p_value = stats.ttest_1samp(sample_data, popmean=total_party_vote)\n\nprint(f\"t-statistic: {t_stat:.2f}, p-value: {p_value:.4f}\")\nprint(\"Significantly different!\" if p_value &lt; 0.05 else \"No significant difference.\")\n\nt-statistic: 0.76, p-value: 0.4497\nNo significant difference.\n\n\n\nplt.figure(figsize=(8, 4))\nplt.hist(sample_data, bins=15, color='skyblue', edgecolor='black', alpha=0.7)\nplt.axvline(total_party_vote, color='red', linestyle='--', label=f'Vote share in full election ({total_party_vote}%)')\nplt.xlabel('Vote %')\nplt.ylabel('Frequency')\nplt.legend()\nplt.show()\n\n\n\n\n\n\n\n\n\n\nTwo-Sample t-test\nWe’ve talked a lot about immigrant ridings as a whole, but we can also examine different subsets of them. For example: Do high-immigrant ridings vote differently than low-immigrant ridings?\n\ncensus_var = 'num_imm_tot'\nparty_var = 'cons_pct'\n\n# Split data into two groups (median split)\nmedian_data = df[census_var].median()\nhigh_data = df[df[census_var] &gt; median_data][party_var]\nlow_data = df[df[census_var] &lt;= median_data][party_var]\n\n# Independent t-test\nt_stat, p_value = stats.ttest_ind(high_data, low_data)\n\nprint(f\"t-statistic: {t_stat:.2f}, p-value: {p_value:.4f}\")\nprint(\"Significantly different!\" if p_value &lt; 0.05 else \"No significant difference.\")\n\nt-statistic: 2.52, p-value: 0.0149\nSignificantly different!\n\n\n\nplt.figure(figsize=(8, 4))\nplt.hist(high_data, bins=15, alpha=0.5, label=f'High-{census_var} ridings')\nplt.hist(low_data, bins=15, alpha=0.5, label=f'Low-{census_var} ridings')\nplt.xlabel('Vote %')\nplt.ylabel('Frequency')\nplt.legend()\nplt.show()\n\n\n\n\n\n\n\n\nFinally, substitute out the census and party variables for different versions and run this analysis. Assess whether there are significant differences in the new hypothesis that you are testing.",
+    "crumbs": [
+      "Urban Data Analytics",
+      "Statistical Foundations"
     ]
   }
 ]
