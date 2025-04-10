@@ -40,17 +40,20 @@ Reference maps are often used as base layers for thematic maps.
 
 For example, if we've collected a dataset about the location of public washrooms in a city, the first thing we might want to do is simply see where they are located by overlaying them onto a base map in GIS. This would be an example of a simple thematic map.
 
-Here are a few examples of thematic maps that we've created 
+Here are a few examples of thematic maps that we've created, each with different urban data, objectives, and audience in mind.
 
-[3 EXAMPLES]
+![Heatmap of Bike Share trips in Toronto in 06/2024](img/toronto-bikes.png)
 
+![Isochrone map of access to outdoor skating rinks in Toronto](img/toronto-rinks.png)
+
+![Bi-variate map of public transit accessibility and recent immigrant settlement patterns](img/toronto-bivariate.png)
 
 
 ### Static & interactive
 
 *Static maps* are fixed, pre-generated images that display geographic information in a single, unchangeable format. They are ideal for simple visualization, printing, or when interactivity isn’t needed—such as in posters, reports, or static web images. 
 
-Static maps can vary in size from just a few dozen pixels on a screen or a small figure in a report to large maps printed as posters or dozens of maps as part of a series, like in an atlas. The three maps shown above are examples of static maps.
+Static maps can vary in size from just a few dozen pixels on a screen or a small figure in a report, to graphics in a slide deck, to large maps printed as posters or dozens of maps as part of a series, like in an atlas. The three maps shown above are examples of static maps.
 
 *Interactive maps* are digital and allow users to engage with the content by zooming, panning, clicking for details, or filtering data. They are best for exploration, real-time applications, user-driven analysis, or providing increased engagement via animation in a data-story. Here are a few examples that we've developed at the School of Cities"
 
@@ -58,11 +61,9 @@ Static maps can vary in size from just a few dozen pixels on a screen or a small
 - [Heat Vulnerability in Toronto](https://schoolofcities.github.io/heat-vulnerability-toronto/)
 - [Knowledge of Languages in the Greater Toronto & Hamilton Area](https://schoolofcities.github.io/gtha-language-map/)
 
-While static maps offer simplicity, interactive maps can provide flexibility and deeper engagement with spatial data.
+Interactive maps can provide flexibility and deeper engagement with spatial data. However, interactive maps typically are much more work to create than a static map as they include all the visual design thinking in a static map, plus additional thinking about how users interact with them and how the maps respond to user inputs, as well as increased technical development time.
 
-However, interactive maps typically take much more work to create than a static map as they include all the design thinking in a static map, plus additional thinking about how users interact with them and how the maps respond to user inputs. 
-
-Our general recommendation is to always start with creating static maps, and then move on to creating an interactive version only if static version are insufficient at conveying the story in your data that you want to convey.
+Our general recommendation is to always start with creating static maps, and then move on to creating an interactive version only if a static version is insufficient at conveying the story in your data that you want to convey.
 
 If designed well, static maps can be super effective at highlighting key trends and stories in spatial data in a quick and easy to read way.
 
@@ -98,7 +99,7 @@ Similar to selection is cartographic generalization, this is when mapmakers simp
 
 For example, a coastline with tons of tiny twists and inlets might get smoothed out—keeping the overall shape but removing unnecessary complexity. This helps the map stay readable without losing its key features. It’s like sketching a quick but accurate version of a photo instead of drawing every single pixel.
 
-[SHORELINE EXAMPLE]
+![Shoreline of eastern Canada at two different levels of simplification](img/simplification.png)
 
 Another example would be that if you had a dataset of sports and recreation facilities in a city with data on the type of activity each is predominately used by (e.g. baseball, football, tennis, etc.). We can choose to have a different colour or symbol for each of these types, or generalize these to have them all look the same (e.g. the same shade of green).
 
@@ -154,29 +155,47 @@ Each of these layers is styled via a single rule. For example, all public librar
 
 ### Data-defined styling
 
-Visual variables often used for map data?
+A power using tools like QGIS and Python or others like them, is that we can visualize spatial data based on a set of rules relating to their associated attribute data. For example ...
+
+- Colour census tract data based on median income
+- Size business point data based on their number of employees 
+- Shade different land-cover (wetlands, forest, farmland) with different textures for each category
+- Style street network data based on quality and safety of cycling infrastructure
+- Many more!
+
+Many of these options we use [visual variables]() like size, hue, saturation, orientation, etc. that we showed in our [data visualization]() notebook, but apply these directly to spatial data on a map.
+
+Let's look at a couple examples in QGIS!
+
+### Styling categorical data
+
+Land cover? 
+
+### Styling numeric data
+
+Colouring some points libraries by number of books
 
 
 
-We can think of these as 
+
+How we decide to group (i.e. classify or bin) or data, as well as what colours we pick can 
 
 
+## Layers and hierarchy
 
-Style via data values
-- categorical example - e.g. 
-- numeric example - e.g. 
---- link to choropleth and prop symbol?
+Maps are often the product of multiple layers, each with their own defined styling. Thinking about the ordering of the layers and their styling relative to each other goes a long way in making an effective map. 
 
+Well designed maps, especially thematic maps, often have a *visual hierarchy* of background and foreground - where the background provides geographic reference (e.g. streets, bodies of water), while the foreground are the key data that we want to show.
 
-
-## Layers & Layouts: Putting it all together
-
-Well designed maps often have a *visual hierarchy* of background and foreground - where the background provides geographic reference (e.g. streets, bodies of water), while the foreground are the key data that we want to show.
+These are two examples of maps relating to the 2023 wildfires in Yellowknife where we tried to design them to a have strong visual hierarchy of the key data (e.g. fire area, evacuation routes) relative to their geographic reference backgrounds. Both these maps are quite simple from data analytics standpoint, but were part of a story highlighting the scale and impact of the fires.
 
 
+![Map of the 2023 Yellowknife wildfires](img/fire-map.png)
+
+![Scale and location of evacuation resulting from the 2023 Yellowknife wildfires](img/evacuation.png)
 
 
-
+# Map layouts
 
 
 

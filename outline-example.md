@@ -1,38 +1,47 @@
-V1
-- goals
-- stakeholders
-- narrative ideas
-- list of potential data
+*Data storytelling (V1, V2)*
 
-- urban data 101
-- measuring the city
-- data ethics / literacy
+Assessment:
+- Describe your goals, stakeholders, narrative ideas, list of potential data, etc.
 
-V2
-- describe each dataset you will use
-- provide at least 3 summaries of your data that are key points or trends that you think are worth communicating
-- - - summary statistics (means, percents, etc.)
-- - - pivot table
-- - - correlation stat or regression model
+Mandatory readings:
+- intro to data storytelling (video)
+- intro to urban data (video and notebook) 
+- measuring the city (notebook)
+- data ethics / literacy (videos)
+Optional readings (if they want a background in coding)
+- intro to python and jupyter (notebook)
 
 
-- data analaysis and processing
-- spatial data and gis
-Optional
-- intro to python and jupyter
-- statistics 101
-- census data
-- openstreetmap data
-- spatial data in python
-- spatial data processing
+
+*Data analysis (V3)*
+
+Assessment:
+- List each dataset you have downloaded/have access to, and briefly describe why it's important for your work
+- Analyze and explore your data to provide at least 3 summaries that super important to your research and story. Describe what the data tells you. These can include, but are not limited to,summary statistics (means, percents, etc.), summary tables (e.g. cross-tabs, pivot tables, etc.), correlation statistics or summary trend from a regression model, or other results from a statistical analysis
+
+Mandatory readings:
+- data analysis and processing (notebook)
+- spatial data and gis (notebook)
+Optional readings (pick and choose depending on which relate to your project):
+- statistics fundementals (notebook)
+- intro to census data (notebook)
+- intro to openstreetmap data (notebook)
+- spatial data in python (notebook)
+- spatial data processing (notebook)
 
 
--V3
-- at least 3 maps and/or data visualizations of your data that help communicate patterns and help tell your story
 
-- data viz
-- maps and spatial data viz
-Optional
-- exploratory data viz in Python
-- choropleth maps
-- etc. other maps
+*Data visualization (V4, V5)*
+
+Assessment:
+- Create at least 3 maps and/or charts of your data that help communicate patterns and help tell your story. Try to make at least 1 non-spatial chart and at least 1 map/spatial data visualization.
+
+Mandatory readings:
+- data visualization (notebook)
+- maps and spatial data visualization (notebook)
+Optional readings (pick and choose depending on which relate to your project):
+- exploratory data viz in Python (notebook)
+- choropleth maps (notebook)
+- proportional symbol maps (notebook)
+- mapping density (notebook)
+(might add 1 or 2 more in this section depending on time)

@@ -9,9 +9,14 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-	padding-top: 60px;
-	color: #44134c;
+	padding-top: 46px;
+	color: #1E3765;
+	font-size: 38px;
 	text-decoration: underline;
+}
+
+h2 {
+	padding-top: 30px;
 }
 
 h3, h4, h5 {

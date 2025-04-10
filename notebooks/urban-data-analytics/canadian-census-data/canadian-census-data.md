@@ -28,14 +28,12 @@ For example, here's a map of population density in the Greater Toronto Area (GTA
 
 ![Map of population density in Toronto](img/toronto-density.png)
 
-Maps like these are pretty easy to make! Let's learn how.
-
-Specifically, this tutorial covers:
+This notebook covers:
 
 - an overview of Canadian Census data
 - where to find census data on the Statistics Canada website
 - how to explore maps of census data using CensusMapper
-- how to download census data and make a choropleth map in QGIS
+- how to download census data to use in your own projects
 
 ## Overview of the Canadian census
 
@@ -68,6 +66,11 @@ The are a number of [geographic boundaries](https://www12.statcan.gc.ca/census-r
 Each polygon on this map has associated publicly available summary census data. Joining this tabular data to these spatial boundaries allows for making a wide range of maps showing the distribution of demographics and socio-economic variables
 
 You can [bulk download census data](https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/download-telecharger.cfm?Lang=E) for a number of geographic levels and formats from the Statistics Canada website. These downloads are essentially copies of the Census Profile data, but for all regions noted in each row.
+
+One issue to be aware of is that census boundaries can change over time each time a census is conducted. Doing a longitudinal analysis of spatial census data often requires using a technique like areal interpolation, in which data are joined to a common set of spatial units prior to analyses.
+
+![Example of census tract boundaries changing in Victoria](img/victoria-boundary.png)
+
 
 
 
