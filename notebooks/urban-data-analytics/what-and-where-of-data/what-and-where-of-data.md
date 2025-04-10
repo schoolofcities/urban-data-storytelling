@@ -9,22 +9,20 @@ In data analysis, understanding the type and origin of data is essential to choo
 
 | Data source type      | Description                                                                 | Examples                                       |
 |-----------------------|-----------------------------------------------------------------------------|------------------------------------------------|
-| Designed/Survey        | Data collected through surveys, experiments, or designed methods.           | Census data (historical or current), research surveys, opinion polls |
-| Administrative         | Data from routine operations or official records. Often open when government-run. | City records (public housing locations, public transit data), tax records, healthcare data (historical and current), school enrollment data |
-| Crowdsourced           | Data contributed by the public or community-driven platforms.                | OpenStreetMap (OSM), Wikipedia, social media data, 311 data, business user reviews |
-| Event-Driven/Real-Time | Data generated from sensors, transactions, or interactions. Often continuous and time-sensitive. | Satellite data, mobile phone GPS, IoT sensors, e-commerce transactions, website clicks |
-| Derived Data           | Data created by transforming or calculating metrics from existing data or simulations. | Indices like low-income prevalence or social deprivation, environmental quality scores, simulated datasets for testing or model training |
+| **Designed/Survey**        | Data collected through surveys, experiments, or designed methods.           | Census data (historical or current), research surveys, opinion polls |
+| **Administrative**         | Data from routine operations or official records. Often open when government-run. | City records (public housing locations, public transit data), tax records, healthcare data (historical and current), school enrollment data |
+| **Crowdsourced**           | Data contributed by the public or community-driven platforms.                | OpenStreetMap (OSM), Wikipedia, social media data, 311 data, Google reviews |
+| **Event-Driven/Real-Time** | Data generated from sensors, transactions, or interactions. Often continuous and time-sensitive. | Satellite data, mobile phone GPS, IoT sensors, e-commerce transactions, website clicks |
+| **Derived data**           | Data created by transforming or calculating metrics from existing data or simulations. | Indices like low-income prevalence or social deprivation, environmental quality scores, simulated datasets for testing or model training |
 
 
-Sometimes data can be a combination, for example, both the [United States Census Bureau](https://www.census.gov/about/what/admin-data.html) and [Statistics Canada](https://www.statcan.gc.ca/en/our-data/where/administrative-data) collect a combination of *survey* data and *administrative* data.
+Sometimes data can be a combination, for example, both the [United States Census Bureau](https://www.census.gov/about/what/admin-data.html) and [Statistics Canada](https://www.statcan.gc.ca/en/our-data/where/administrative-data) collect a combination of survey data and administrative data.
 
-<!-- Another type of data that is often used in urban analyses comes from *[remote sensing](https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/remote-sensing)*, which involves measuring the physical characteristics of an area from a distance ([USGS](https://www.usgs.gov/faqs/what-remote-sensing-and-what-it-used#:~:text=Remote%20sensing%20is%20the%20process,sense%22%20things%20about%20the%20Earth.)). Spatial data collected via remote sensing is often used in analyses of the built or natural environment (e.g., land cover classification or urban growth). One example of this type of data is the satellite imagery layer in Google Maps: -->
+<br>
 
-<!-- ![Satellite imagery of Ottawa](img/satellite_imagery_ottawa.png)
+![Map of average household income in Toronto using data from Statistics Canada (2020)](img/toronto-income.png)
 
-Crowdsourced data, which is collected from the public - usually online or via social media or apps - often helps to fill information gaps left by official data sources. For example, [FixMyStreet](https://www.fixmystreet.com/) allows residents in the UK to report problems like graffiti or potholes in their neighborhood and sends the information directly to local authorities. [OpenStreetMap](https://www.openstreetmap.org/) is a popular crowdsourced mapping dataset with billions of data points representing buildings, streets, transit lines, and [much more](https://wiki.openstreetmap.org/wiki/Map_features). -->
 
-![Crowdsourced OpenStreetMap in Vancouver](img/osm.png)
 
 
 ## Data availability
@@ -38,6 +36,9 @@ Data that is available but comes with limitations due to privacy, security, or l
 
 **Proprietary data** - Data that is owned by a specific entity (e.g., a corporation or private organization) and is not freely available. Access is typically granted through licenses, paid subscriptions, or agreements. For example, cell phone mobility data from [Spectus](https://docs.spectus.ai/) can be used to measure [post-pandemic downtown recovery trends](https://downtownrecovery.com/charts/trends), real estate data from [Costar](https://www.costar.com/home/demo?utm_source=google&utm_medium=cpc&utm_campaign=8362819905&utm_content=85421354763&utm_term=costar%20data&utm_campaign_id=7013p000002MUoNAAW&gad_source=1&gclid=Cj0KCQjwna6_BhCbARIsALId2Z2fd8KIEBhSXancChMwmCO0cA0j-R7r_1hNQu85JD7SXKO78atAMFAaAp-lEALw_wcB) can be used to assess vacancy rates or rent prices, and consumer data from [Data Axle](https://www.data-axle.com/) can be used to study [the impact of new housing on migration patterns](https://www.urbandisplacement.org/maps/housing-by-block/).
 
+<br>
+
+![Crowdsourced OpenStreetMap data in Vancouver](img/osm.png)
 
 
 ## Data sources for urban analysis
@@ -66,6 +67,7 @@ Data format refers to how data is stored and structured. In practice, this is mo
 Some of the most common data formats for *non-spatial* data are:
 
 - [CSV (comma separated values)](https://en.wikipedia.org/wiki/Comma-separated_values) `.csv`
+- [Excel](https://www.exceldemy.com/learn-excel/files/) `.xlsx`
 - [JSON (JavaScript Object Notation)](https://en.wikipedia.org/wiki/JSON) `.json`
 - [XML (Extensible Markup Language)](https://en.wikipedia.org/wiki/XML) `.xml`
 
@@ -105,15 +107,15 @@ Different software (e.g. Excel, Python, R, QGIS, etc.) might have slightly diffe
 
 ## Levels of measurement
 
-While *data types* specify what kind of data a variable can hold, *levels of measurement* describe how data is structured and the relationships between different values. They refer to how we can classify and interpret the data in terms of its inherent ordering, spacing, and possible mathematical operations.
+While **data types** specify what kind of data a variable can hold, **levels of measurement** describe how data is structured and the relationships between different values. They refer to how we can classify and interpret the data in terms of its inherent ordering, spacing, and possible mathematical operations.
 
-- Nominal: Categorical data with no inherent order (e.g., colors, countries, land-use types e.g. `Urban`, `Wetlands`, `Forest`, etc.).
+- **Nominal**: Categorical data with no inherent order (e.g., colors, countries, land-use types e.g. `Urban`, `Wetlands`, `Forest`, etc.).
 
-- Ordinal: Data with a meaningful order, but unknown or not always equal differences between values (e.g., movie ratings like `Good`,`Okay`, or `Bad`, or levels of education e.g. `High School`, `Bachelors`, `Masters` ).
+- **Ordinal**: Data with a meaningful order, but unknown or not always equal differences between values (e.g., movie ratings like `Good`,`Okay`, or `Bad`, or levels of education e.g. `High School`, `Bachelors`, `Masters` ).
 
-- Interval: Ordered data with equal intervals between values but no true zero (e.g., temperature in Celsius or Fahrenheit, datetime).
+- **Interval**: Ordered data with equal intervals between values but no true zero (e.g., temperature in Celsius or Fahrenheit, datetime).
 
-- Ratio: Ordered data with equal intervals and a true zero point, allowing for meaningful ratios (e.g., length, area, income).
+- **Ratio**: Ordered data with equal intervals and a true zero point, allowing for meaningful ratios (e.g., length, area, income).
 
 
 

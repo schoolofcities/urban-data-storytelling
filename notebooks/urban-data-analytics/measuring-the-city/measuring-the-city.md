@@ -1,44 +1,8 @@
 # Measuring the city: metrics and indicators
 
-In this module, we will explore how to measure urban phenomena using data, specifically focusing on:
+This page covers 1) common metrics and indicators used in urban analysis, 2) spatial units and measures of aggregation often used for urban analysis, and 3) limitations and biases for working with urban datasets to keep in mind when working with urban data.
 
-- Common spatial units and measures of aggregation
-- Common metrics and indicators used in urban analysis
-- Limitations & potential errors in data collection
 
-## Common spatial units and measures of aggregation
-
-When analyzing geospatial data, it is often necessary to select a *spatial unit* or *unit of aggregation* to define the boundaries of the areas you are representing. Below are some units of aggregation that are often used in urban analysis:
-
-### Census
-
-Boundaries for spatial census data are either defined by federal or provincial/territorial governments or "according to a set of rules based on geographic attributes and one or more characteristics of the resident population" ([Statistics Canada](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21)). See [Canadian census data](../canadian-census-data/canadian-census-data.md) for more information.
-
-![Common census boundaries in Toronto](img/census-boundaries-legend-eg.png){width=70%}
-
-### Political
-
-Political boundaries delineate areas that are governed by different authorities, like countries or states. Canadian federal electoral districts, or ridings, are geographic constituencies that are each represented by a Member of Parliament. There are also provincial and territorial electoral districts, which are smaller.
-
-![Canadian electoral districts ([source](https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FElectoral_district_%2528Canada%2529&psig=AOvVaw0y9xqp_su-jxB3RT35MGD1&ust=1743958206809000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJCo3dyswYwDFQAAAAAdAAAAABAE))](img/canada_electoral_districts.png){width=70%}
-
-### Grids
-
-A grid is "a network of evenly spaced horizontal and vertical lines used to identify locations on a map" ([source](https://pro.arcgis.com/en/pro-app/latest/help/layouts/grids-and-graticules.htm)). Grids are used in spatial analysis when existing boundaries are unavailable, unsuitable, or when evenly sized, uniform areas are required. [Geohashes](https://www.ibm.com/docs/en/streams/4.3.0?topic=334-geohashes) -- which uniquely identify specific regions according to their latitude and longitude everywhere on Earth -- are one type of commonly used grid.
-
-![Geohashes in Québec City ([source](https://geohash.softeng.co/f2m677))](img/geohash.png){width=70%}
-
-### Streets
-
-While streets are often added to maps to provide geographic context, streets can also be their own unit of analysis. For example, traffic flow could be measured on street segments throughout a city. In the image below, streets are categorized by how friendly they are to pedestrians and other forms of traffic.
-
-![Street types ([source](https://www.researchgate.net/figure/The-street-function-analysis-based-on-street-profiles_fig1_334670964))](img/streets.png){width=90%}
-
-### Addresses
-
-Some urban data is measured at the address level. Addresses are often *[geocoded](https://en.wikipedia.org/wiki/Address_geocoding)*, which means they are converted into geographic coordinates (latitude and longitude) so they can be mapped. See [Spatial data and GIS](../spatial-data-and-gis/spatial-data-and-gis.md) and [Spatial data in Python](../6-spatial-data-and-python/spatial-data-and-python.ipynb) **<-- FIX THIS LINK!** for more information about geocoding.
-
-![Geocoded addresses ([source](https://desktop.arcgis.com/en/arcmap/latest/manage-data/geocoding/geocoding-a-table-of-addresses-about.htm))](img/geocoding.png)
 
 ## Common metrics and indicators for urban analyses
 
@@ -54,16 +18,72 @@ The table below lists examples of variables/metrics that are used in urban analy
 | Environment | - [Emissions/air pollution](https://schoolofcities.github.io/air-pollution-and-premature-mortality))<br>- Urban heat (e.g., [heat exposure in Toronto](https://schoolofcities.github.io/heat-vulnerability-toronto/))<br>- [Greenness](https://nasa-eej.projects.earthengine.app/view/wherethegrassgrowsgreener))<br>- Park access (e.g., distance to nearest park)<br>- Flood maps (e.g., [Toronto](https://schoolofcities.github.io/flood-data-equity/); [FEMA](https://hazards-fema.maps.arcgis.com/apps/webappviewer/index.html?id=8b0adb51996444d4879338b5529aa9cd); [Canada](https://natural-resources.canada.ca/science-data/science-research/flood-mapping))<br>- [Tree canopy coverage](https://schoolofcities.github.io/trees-toronto/dot-map) |
 | Health | - Life expectancy<br>- Prevalence of chronic diseases (e.g., diabetes, asthma) |
 
-## Limitations & potential errors in data collection
 
-When collecting and analyzing data, it is important to verify the quality of the dataset. Some data is incomplete or has missing values, which can bias the results, especially if data from certain categories is missing disproportionately. For example, if income data is missing more often for lower-income individuals, the results may overestimate average income and underrepresent vulnerable populations.
 
-*Self report bias* is another form of bias that occurs particularly in survey data like the census, when individuals report inaccurate information about themselves. This can be intentional (e.g., underreporting income or overreporting education) or unintentional (e.g., forgetting details).
 
-The *[Modifiable Areal Unit Problem](https://en.wikipedia.org/wiki/Modifiable_areal_unit_problem)* (MAUP) is another source of bias when working with spatial data. It is a form of statistical bias that results from the fact that changing the scale or shape of aggregation units leads to different results. This issue often arises when creating choropleth maps, which use different colors to represent different values, like the ones below. It is important to think critically when choosing units of spatial aggregation to avoid misrepresenting data or cherry-picking results.
 
-![Modifiable Areal Unit Problem ([source](https://www.metrans.org/news/the-modifiable-areal-unit-problem-an-overview))](img/maup.png){width=80%}
+## Common spatial units and measures of aggregation
 
-*[Ecological fallacy](https://en.wikipedia.org/wiki/Ecological_fallacy)* is the phenomenon of drawing conclusions about individuals based on the group they belong to. For example, one might infer that everyone in a census tract with an overall high median income is wealthy. Although the median income is high, there may be low income people who live in the tract who are not being captured by this measure of central tendency.
+Urban data is often linked to specific places. This is often called *spatial* or *geographic* data.
 
-Another statistical bias to be aware of results from *changes in geographic boundaries over time*. Census boundaries, for example, can change on a yearly basis. Doing a longitudinal analysis of spatial census data requires using a technique like areal weighting, in which data are redistributed based on the amount they overlap.
+When analyzing spatial data, our analysis is often at the level of specific *spatial units* or *unit of aggregations*.  Sometimes our data is directly collected at these units, while sometimes it is useful to aggregate large datasets to these units to help analyses and visualizations. Below are spatial units and types of encoding that are often used for collecting and analyzing urban data. 
+
+In our notebook on [spatial data and GIS](notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.md), we go into details on how different spatial data is structured, and how we can begin to view, explore, and analyze different data in GIS.
+
+
+### Administrative or political boundaries
+
+Political boundaries that delineate jurisdictions for different levels of government, from national down to local levels. Countries, provinces or states, counties, municipalities, electoral districts or city wards, and within cities, neighbourhood planning areas, are all examples of commonly used spatial units. 
+
+![Federal electoral district in Saskatoon](img/saskatoon.jpg)
+
+
+### Census geographies
+
+National censuses aggregate data to a variety of spatial units ranging in size, many are the same as administrative and political boundaries, as well as many smaller-geography boundaries that are super useful for urban- and neighbourhood-scale maps and analyses. Census tracts (usually in the range of 2,500 and 8,000 persons) and Dissemination Areas (400 to 700 persons) are two scales that are often used. Check out ([Statistics Canada documentation](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21)) or see our notebook on [Canadian census data](../canadian-census-data/canadian-census-data.md) for more information.
+
+![Common census boundaries in Toronto](img/census-boundaries-legend-eg.png)
+
+
+### Grids
+
+A grid is repetitive tesselation spread across the surface of a map. Grids are used in spatial analysis when existing boundaries are unavailable, unsuitable, or when evenly sized, uniform areas are required. [Geohashes](https://www.ibm.com/docs/en/streams/4.3.0?topic=334-geohashes), which uniquely identify specific regions according to their latitude and longitude everywhere on Earth, are one type of commonly used grid. Grids do not have to 4-sided. 
+
+![Geohashes in Québec City ([source](https://geohash.softeng.co/f2m677))](img/geohash.png)
+
+Triangular and hexagonal grids are often used for some studies. Hexagon's are often recommended since they are the regular polygon with the most sides (i.e. can closest represent a circle), that can tesselate without any gaps.
+
+![Screenshot of a map showing density of activity in Glasgow](img/glasgow.png)
+
+
+### Streets
+
+While streets are often added to maps to provide geographic context, streets can also be their own unit of analysis. For example, traffic flow could be measured on street segments throughout a city. In the image below, streets are coloured by how many parking tickets that they have.
+
+![Parking tickets in Toronto ([source](https://schoolofcities.github.io/parking-tickets-toronto/))](img/toronto-parking-tickets.png)
+
+
+### Addresses
+
+Some urban data is measured or collected at the address level. For example, address of businesses, non-profits, or community facilities. To map them and compare with other spatial data, addresses are often *[geocoded](https://en.wikipedia.org/wiki/Address_geocoding)*, where their names are converted into geographic coordinates (latitude and longitude). See our [Spatial data and GIS](../spatial-data-and-gis/spatial-data-and-gis.md) tutorial for more.
+
+![Geocoded addresses of businesses in Mississauga from the Canadian Urban Institutes [Measuring Main Streets](https://measuringmainstreets.ca/casestudies/toronto/mississaugadundas/) project](img/addresses-mississauga.png)
+
+
+## Biases and limitations of spatial data
+
+When collecting and analyzing data, it is important to verify the quality of the dataset. Some data is incomplete or has missing values, which can bias the results, especially if data from certain categories is missing disproportionately. For example, if income data is missing more often for lower-income individuals, the results may overestimate average income and under-represent vulnerable populations.
+
+These are a few important sources of bias or limitations when working with spatial data that are super important to be aware of when working with data linked to places.
+
+- *Self-reporting bias* which is when individuals report inaccurate information about themselves in a survey. This can be intentional (e.g., under-reporting income or over-reporting education) or unintentional (e.g., forgetting details). This can lead to biases in the final dataset and any subsequent analysis.
+
+- *[Ecological fallacy](https://en.wikipedia.org/wiki/Ecological_fallacy)* is the phenomenon of drawing conclusions about individuals based on the group they belong to. For example, one might infer that everyone in a census tract with an overall high median income is wealthy. Although the median income is high, there may be low income residents who live in the tract who are not close to the median.
+
+- *[Edge effects]*  in spatial analysis refer to the limitations or distortions that occur at the boundaries of a study area. They can bias results or reduce accuracy, especially when spatial patterns or processes extend beyond the area being analyzed.. For example, let's say you were mapping access to healthy food in a city. Your map may show that one corner of your city does not have a grocery store, leading to a conclusion of it being a food dessert. But if you didn't consider grocery stores just outside the edge or boundary of your city adjacent to this corner, this may not be the case. 
+
+- *[Modifiable areal unit problem](https://en.wikipedia.org/wiki/Modifiable_areal_unit_problem)* (MAUP) is another source of bias when working with spatial data. It is a form of statistical bias that results from the fact that changing the scale or shape of aggregation units leads to different results. [Gerrymandering](https://en.wikipedia.org/wiki/Gerrymandering) is a classic example of intentional MAUP to obtain specific voting outcomes. Check out the graphic below, we can see the results of how different spatial units are arranged would impact the overall results of an election. Overall, it is important to think critically when working with different spatial units to avoid misrepresenting data or cherry-picking results.
+
+![Gerrymandering example](img/gerrymandering.png){width=50%}
+
+

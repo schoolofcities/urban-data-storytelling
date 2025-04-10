@@ -5,7 +5,7 @@ project:
     - notebooks/**/*
 
 website:
-  title: "<img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg'  style='height:auto;width:220px'></img><br>Urban Data Analytics & Visualization 📊📈🏙️"
+  title: "<img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg'  style='height:auto;width:220px'></img><br>Urban Data Storytelling 📊📈🏙️"
   sidebar:
     style: floating
     contents: 
@@ -13,13 +13,13 @@ website:
         href: notebooks/urban-data-analytics/index.md
         contents:
           - notebooks/urban-data-analytics/what-and-where-of-data/what-and-where-of-data.md
+          - notebooks/urban-data-analytics/measuring-the-city/measuring-the-city.md
           - notebooks/urban-data-analytics/data-ethics-and-literacy/data-ethics-and-literacy.md
           - notebooks/urban-data-analytics/intro-to-python-and-jupyter/intro-to-python-and-jupyter.ipynb
           - notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.ipynb
           - notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.ipynb
           - notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.md
           - notebooks/urban-data-analytics/spatial-data-in-python/spatial-data-in-python.ipynb
-          - notebooks/urban-data-analytics/measuring-the-city/measuring-the-city.md
           - notebooks/urban-data-analytics/canadian-census-data/canadian-census-data.md
           - notebooks/urban-data-analytics/openstreetmap-data/openstreetmap-data.md
       - section: "Urban Data Visualization"
