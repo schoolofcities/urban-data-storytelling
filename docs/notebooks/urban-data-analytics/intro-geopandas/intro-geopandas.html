@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Introduction to Geopandas – Urban Data Storytelling 📊📈🏙️</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-d1fcf46c23e38b7e3acfb286f502517d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../../assets/styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      &lt;img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg'  style='height:auto;width:220px'&gt;&lt;/img&gt;&lt;br&gt;Urban Data Storytelling 📊📈🏙️
+      </li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;width:220px"><br>Urban Data Storytelling 📊📈🏙️</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../notebooks/urban-data-analytics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Urban Data Analytics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to urban data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/measuring-the-city/measuring-the-city.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Measuring the city: metrics and indicators</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/data-ethics-and-literacy/data-ethics-and-literacy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data ethics and literacy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/intro-to-python-and-jupyter/intro-to-python-and-jupyter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Programming with Python and computational notebooks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing and analyzing data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Foundations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial data and GIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/spatial-data-in-python/spatial-data-in-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial data in Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/canadian-census-data/canadian-census-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of Canadian census data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">notebooks/urban-data-analytics/openstreetmap-data/openstreetmap-data.md</span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Maps &amp; Visualizing Spatial Data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#in-python" id="toc-in-python" class="nav-link active" data-scroll-target="#in-python">in Python</a></li>
+  <li><a href="#loading-exploring-and-geometric-data-types" id="toc-loading-exploring-and-geometric-data-types" class="nav-link" data-scroll-target="#loading-exploring-and-geometric-data-types">Loading, Exploring, and Geometric Data Types</a></li>
+  <li><a href="#basic-static-plots" id="toc-basic-static-plots" class="nav-link" data-scroll-target="#basic-static-plots">Basic Static Plots</a></li>
+  <li><a href="#interactive-exploration" id="toc-interactive-exploration" class="nav-link" data-scroll-target="#interactive-exploration">Interactive Exploration</a></li>
+  <li><a href="#layering-multiple-datasets" id="toc-layering-multiple-datasets" class="nav-link" data-scroll-target="#layering-multiple-datasets">Layering Multiple Datasets</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Introduction to Geopandas</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="in-python" class="level3">
+<h3 class="anchored" data-anchor-id="in-python">in Python</h3>
+<p>GeoPandas is a library for working with spatial (typically geographic) data. It extends the functionality of pandas to support spatial data types and operations, making it easier to analyze, visualize, and manipulate spatial data. Many of the tasks that are typically done within a GIS can be done via geopandas.</p>
+<div id="5368d972-52f8-4ac4-b18d-15628b9b667f" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="loading-exploring-and-geometric-data-types" class="level2">
+<h2 class="anchored" data-anchor-id="loading-exploring-and-geometric-data-types">Loading, Exploring, and Geometric Data Types</h2>
+<p>Geospatial data represents real-world features using three primary geometric types: - Points: Single (x,y) coordinates for discrete locations like transit stops or landmarks. - Lines: Connected sequences of points forming paths, such as roads or rivers. - Polygons: Closed shapes defining areas like census tracts or property boundaries.</p>
+<div id="67116cce-650f-4f20-baac-4941679ad071" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>transit_stops <span class="op">=</span> gpd.read_file(<span class="st">"data/ttc_stops.geojson"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>transit_routes <span class="op">=</span> gpd.read_file(<span class="st">"data/ttc_routes.geojson"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>census_tracts <span class="op">=</span> gpd.read_file(<span class="st">"data/toronto_census_tract_2021.shp"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>census_data <span class="op">=</span> pd.read_csv(<span class="st">"data/census_tract_data_sample.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In geopandas, we typically load data with a more agnostic <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.read_file.html">read_file()</a> function. For this workshop, we’re going to use four sources of data: - <code>transit_stops</code>: each of the stops for the TTC - <code>transit_routes</code>: each of the lines for the TTC - <code>census_tracts</code>: The geometry of Canadian census tracts within Toronto - <code>census_data</code>: the data of Canadian census tracts within Toronto</p>
+<p>Let’s take a look at the first layer, the transit stops. We have two columns with text, and a third with geometry data.</p>
+<div id="5e0cd8c7-9a37-4f5b-ad11-7429c869b125" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>transit_stops</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">LOCATION_N</th>
+<th data-quarto-table-cell-role="th">NAME</th>
+<th data-quarto-table-cell-role="th">geometry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Avenue</td>
+<td>Eglinton Crosstown LRT</td>
+<td>POINT (-79.40851 43.70460)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Forest Hill</td>
+<td>Eglinton Crosstown LRT</td>
+<td>POINT (-79.42556 43.70102)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Leaside</td>
+<td>Eglinton Crosstown LRT</td>
+<td>POINT (-79.37715 43.71105)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Sloane</td>
+<td>Eglinton Crosstown LRT</td>
+<td>POINT (-79.31352 43.72597)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Birchmount</td>
+<td>Eglinton Crosstown LRT</td>
+<td>POINT (-79.27791 43.73006)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">101</td>
+<td>Vaughan Metropolitan Centre</td>
+<td>Toronto-York Spadina Subway Extension</td>
+<td>POINT (-79.52727 43.79351)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">102</td>
+<td>Sheppard-Yonge</td>
+<td>Sheppard Subway</td>
+<td>POINT (-79.41092 43.76151)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">103</td>
+<td>Spadina</td>
+<td>Bloor-Danforth Subway</td>
+<td>POINT (-79.40397 43.66728)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">104</td>
+<td>St. George</td>
+<td>Bloor-Danforth Subway</td>
+<td>POINT (-79.39930 43.66827)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">105</td>
+<td>Bloor-Yonge</td>
+<td>Bloor-Danforth Subway</td>
+<td>POINT (-79.38572 43.67100)</td>
+</tr>
+</tbody>
+</table>
+
+<p>106 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<p>The data can be manipulated like a regular pandas data frame. For example, if we want to filter out all stations on the “Eglinton Crosstown LRT” line, since it hasn’t been completed yet (at the time of writing), we can do so as follows:</p>
+<div id="f55afbe9-a758-4e21-bca8-fd0cf37904d7" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>transit_stops <span class="op">=</span> transit_stops.loc[transit_stops[<span class="st">"NAME"</span>] <span class="op">!=</span> <span class="st">"Eglinton Crosstown LRT"</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>transit_stops</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">LOCATION_N</th>
+<th data-quarto-table-cell-role="th">NAME</th>
+<th data-quarto-table-cell-role="th">geometry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25</td>
+<td>Kipling</td>
+<td>Bloor-Danforth Subway</td>
+<td>POINT (-79.53628 43.63694)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">26</td>
+<td>Islington</td>
+<td>Bloor-Danforth Subway</td>
+<td>POINT (-79.52459 43.64532)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">27</td>
+<td>Royal York</td>
+<td>Bloor-Danforth Subway</td>
+<td>POINT (-79.51129 43.64811)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">28</td>
+<td>Old Mill</td>
+<td>Bloor-Danforth Subway</td>
+<td>POINT (-79.49509 43.65007)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">29</td>
+<td>Jane</td>
+<td>Bloor-Danforth Subway</td>
+<td>POINT (-79.48446 43.64979)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">101</td>
+<td>Vaughan Metropolitan Centre</td>
+<td>Toronto-York Spadina Subway Extension</td>
+<td>POINT (-79.52727 43.79351)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">102</td>
+<td>Sheppard-Yonge</td>
+<td>Sheppard Subway</td>
+<td>POINT (-79.41092 43.76151)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">103</td>
+<td>Spadina</td>
+<td>Bloor-Danforth Subway</td>
+<td>POINT (-79.40397 43.66728)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">104</td>
+<td>St. George</td>
+<td>Bloor-Danforth Subway</td>
+<td>POINT (-79.39930 43.66827)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">105</td>
+<td>Bloor-Yonge</td>
+<td>Bloor-Danforth Subway</td>
+<td>POINT (-79.38572 43.67100)</td>
+</tr>
+</tbody>
+</table>
+
+<p>81 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<p>We can do the same for the transit lines data. Here the data are coded as a <code>MULTILINESTRING</code>, essentially a combination of lines that combine into one object. There are also <code>MULTIPOLYGON</code> geometry types</p>
+<div id="917ed8a5-d9d6-4274-8e3d-406428e4cfd6" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>transit_routes <span class="op">=</span> transit_routes.loc[transit_routes[<span class="st">"NAME"</span>] <span class="op">!=</span> <span class="st">"Eglinton Crosstown LRT"</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>transit_routes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">STATUS</th>
+<th data-quarto-table-cell-role="th">TECHNOLOGY</th>
+<th data-quarto-table-cell-role="th">NAME</th>
+<th data-quarto-table-cell-role="th">geometry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Existing</td>
+<td>Subway</td>
+<td>Sheppard Subway</td>
+<td>MULTILINESTRING ((-79.41092 43.76151, -79.4096...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Existing</td>
+<td>Subway</td>
+<td>Yonge-University-Spadina Subway</td>
+<td>MULTILINESTRING ((-79.46247 43.75043, -79.4621...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Existing</td>
+<td>Subway</td>
+<td>Spadina Subway Extension</td>
+<td>MULTILINESTRING ((-79.52727 43.79351, -79.5261...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Existing</td>
+<td>Subway</td>
+<td>Scarborough RT</td>
+<td>MULTILINESTRING ((-79.26453 43.73226, -79.2632...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Existing</td>
+<td>Subway</td>
+<td>Bloor Subway</td>
+<td>MULTILINESTRING ((-79.26453 43.73226, -79.2669...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Before we go on, it’s important to have an idea of the metadata of geometric files that we work with. There’s two key parts to this. - CRS (Coordinate Reference System): The <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.crs.html">crs</a> attribute defines a geodataset’s spatial “coordinate system” (e.g., latitude/longitude, meters-based projections). We can use it to ensure layers align—for example, combining Toronto census tracts (EPSG:3347) with a Web Mercator basemap (EPSG:3857). - Total Bounds: The <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.total_bounds.html">total_bounds</a> attribute returns the min/max coordinates (xmin, ymin, xmax, ymax) of your data’s extent. It’s useful for setting map zoom levels or clipping other datasets to the same area—like focusing a transit map on Toronto’s downtown core.</p>
+<div id="39685986-5cd3-4181-9bbb-3c3802664481" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>transit_stops.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>&lt;Geographic 2D CRS: EPSG:4326&gt;
+Name: WGS 84
+Axis Info [ellipsoidal]:
+- Lat[north]: Geodetic latitude (degree)
+- Lon[east]: Geodetic longitude (degree)
+Area of Use:
+- name: World.
+- bounds: (-180.0, -90.0, 180.0, 90.0)
+Datum: World Geodetic System 1984 ensemble
+- Ellipsoid: WGS 84
+- Prime Meridian: Greenwich</code></pre>
+</div>
+</div>
+<div id="1118c390-6ced-4094-88d7-151ebb476c04" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>transit_stops.total_bounds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>array([-79.53627668,  43.63693527, -79.25160004,  43.79350523])</code></pre>
+</div>
+</div>
+</section>
+<section id="basic-static-plots" class="level2">
+<h2 class="anchored" data-anchor-id="basic-static-plots">Basic Static Plots</h2>
+<p>We explore geometry simply by plotting using <code>.plot()</code>. We can do this for any row, or the entire GeoDataFrame</p>
+<div id="cc673a6a-b291-4b6a-8dc6-df561305c7e9" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>transit_stops.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="intro-geopandas_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This is the default plot, but we can tweak the colours, add multiple layers, and change some of the layout options using <a href="https://matplotlib.org/">matplotlib</a>, probably the most commonly used map. Here’s a very simple schematic of rapid transit in Toronto (circa 2021)</p>
+<div id="c1a95366-2bf4-47b0-aa16-02ef5242bb32" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>transit_stops.plot(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"Black"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    markersize <span class="op">=</span> <span class="dv">6</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> ax</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>transit_routes.plot(</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    linewidth <span class="op">=</span> <span class="dv">1</span>,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"Black"</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> ax</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>).set_axis_off()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="intro-geopandas_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s take a look at the census tract data. Here we have polygon geometries.</p>
+<div id="a2f9f34e-3e15-4566-ae75-dfdff9e6d351" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>census_tracts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">ctuid</th>
+<th data-quarto-table-cell-role="th">dguid</th>
+<th data-quarto-table-cell-role="th">ctname</th>
+<th data-quarto-table-cell-role="th">landarea</th>
+<th data-quarto-table-cell-role="th">pruid</th>
+<th data-quarto-table-cell-role="th">geometry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>487</td>
+<td>5350128.04</td>
+<td>2021S05075350128.04</td>
+<td>0128.04</td>
+<td>0.1620</td>
+<td>35</td>
+<td>POLYGON ((629437.750 4839364.950, 629247.561 4...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>502</td>
+<td>5350363.06</td>
+<td>2021S05075350363.06</td>
+<td>0363.06</td>
+<td>0.8210</td>
+<td>35</td>
+<td>POLYGON ((640741.738 4848050.419, 640723.345 4...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>506</td>
+<td>5350363.07</td>
+<td>2021S05075350363.07</td>
+<td>0363.07</td>
+<td>2.2422</td>
+<td>35</td>
+<td>POLYGON ((642782.718 4849973.938, 642781.180 4...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>508</td>
+<td>5350378.23</td>
+<td>2021S05075350378.23</td>
+<td>0378.23</td>
+<td>1.5314</td>
+<td>35</td>
+<td>POLYGON ((639248.900 4849901.332, 639248.900 4...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>509</td>
+<td>5350378.24</td>
+<td>2021S05075350378.24</td>
+<td>0378.24</td>
+<td>2.5129</td>
+<td>35</td>
+<td>POLYGON ((639952.255 4850407.204, 639952.255 4...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">580</td>
+<td>5861</td>
+<td>5350210.04</td>
+<td>2021S05075350210.04</td>
+<td>0210.04</td>
+<td>0.4751</td>
+<td>35</td>
+<td>MULTIPOLYGON (((623047.314 4831182.748, 623047...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">581</td>
+<td>5862</td>
+<td>5350062.03</td>
+<td>2021S05075350062.03</td>
+<td>0062.03</td>
+<td>0.4638</td>
+<td>35</td>
+<td>POLYGON ((629776.795 4835352.843, 629766.377 4...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">582</td>
+<td>5863</td>
+<td>5350062.04</td>
+<td>2021S05075350062.04</td>
+<td>0062.04</td>
+<td>0.1215</td>
+<td>35</td>
+<td>POLYGON ((630319.668 4835517.832, 630149.660 4...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">583</td>
+<td>5864</td>
+<td>5350017.01</td>
+<td>2021S05075350017.01</td>
+<td>0017.01</td>
+<td>0.8026</td>
+<td>35</td>
+<td>POLYGON ((633075.947 4834744.346, 633089.159 4...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">584</td>
+<td>5865</td>
+<td>5350017.02</td>
+<td>2021S05075350017.02</td>
+<td>0017.02</td>
+<td>0.5681</td>
+<td>35</td>
+<td>POLYGON ((631852.697 4833570.180, 631843.913 4...</td>
+</tr>
+</tbody>
+</table>
+
+<p>585 rows × 7 columns</p>
+</div>
+</div>
+</div>
+<div id="f230e2f3-b6cb-4e2f-a1a9-f649377a8455" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>census_tracts.plot(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">"Black"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"White"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> ax</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>).set_axis_off()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="intro-geopandas_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s try to make a choropleth map. We’ll have to join in the tabular data in <code>census_data</code></p>
+<div id="613943bc-ae1a-4209-90c1-00cefdc48d7a" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>census_tracts_data <span class="op">=</span> census_tracts.merge(census_data, how<span class="op">=</span><span class="st">'left'</span>, on<span class="op">=</span><span class="st">'ctuid'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="79bd3584-da8b-43a0-8ef0-7cb50504feed" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>census_tracts_data[<span class="st">"population density"</span>] <span class="op">=</span> census_tracts_data[<span class="st">"population_2021"</span>] <span class="op">/</span> census_tracts_data[<span class="st">"landarea"</span>]</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">7</span>))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>census_tracts_data.to_crs(<span class="dv">4326</span>).plot(</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    column <span class="op">=</span> <span class="st">"population density"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">"White"</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    cmap <span class="op">=</span> <span class="st">'YlOrRd'</span>, </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="dv">7</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    scheme <span class="op">=</span> <span class="st">"Quantiles"</span>, </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    legend <span class="op">=</span> <span class="va">True</span>,</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    zorder<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    legend_kwds <span class="op">=</span> {</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"loc"</span>: <span class="st">"lower right"</span>,</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"fontsize"</span>: <span class="dv">7</span>,</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"title"</span>: <span class="st">"Population Density"</span>,</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"alignment"</span>: <span class="st">"left"</span>,</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"reverse"</span>: <span class="va">True</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>).set_axis_off()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="intro-geopandas_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can choose a different variable and make a map of median income. Notice that we’ve also switched the color parameter <code>cmap</code>; just as in <code>matplotlib</code> generally, we can style the map as we please.</p>
+<div id="d749742b-d422-45a2-92cc-75ac49e2a1e4" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">7</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>census_tracts_data.plot(</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    column <span class="op">=</span> <span class="st">"median_aftertax_hhld_income_2020"</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">"Black"</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    cmap <span class="op">=</span> <span class="st">'coolwarm_r'</span>, </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="dv">4</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    scheme <span class="op">=</span> <span class="st">"Quantiles"</span>, </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    legend <span class="op">=</span> <span class="va">True</span>,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    legend_kwds <span class="op">=</span> {</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"loc"</span>: <span class="st">"lower right"</span>,</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"fontsize"</span>: <span class="dv">7</span>,</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"title"</span>: <span class="st">"Median Income</span><span class="ch">\n</span><span class="st">(after tax)"</span>,</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"alignment"</span>: <span class="st">"left"</span>,</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"reverse"</span>: <span class="va">True</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>).set_axis_off()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="intro-geopandas_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="interactive-exploration" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-exploration">Interactive Exploration</h2>
+<p>GeoPandas’ <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.explore.html">explore()</a> function generates an interactive Leaflet map (like Google Maps) from your geodata. We can use it to better understand the data we are working with and how it might be viewed from the user side on a web application (e.g., Svelte).</p>
+<p>You’ll need to install a couple libraries in order for this to work - matplotlib, folium, and mapclassify. This can be done in the environment that you’re working in with a command like <code>pip install folium matplotlib mapclassify</code>.</p>
+<div id="48adc7d6-3300-479f-9b7b-f1f0d1b9579c" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>transit_stops.explore(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">'LOCATION_N'</span>,  <span class="co"># Popup labels</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    tiles<span class="op">=</span><span class="st">"CartoDB Positron"</span>, </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    marker_kwds<span class="op">=</span>{<span class="st">"radius"</span>: <span class="dv">5</span>}</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -&gt; Trust Notebook</span><iframe srcdoc="<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;></script>
+    <script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;></script>
+    <script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;></script>
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;></script>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/>
+    
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; />
+            <style>
+                #map_bd4ccca8db6d92a0182bd4c8fa10e9d4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+    
+    <script src=&quot;https://code.jquery.com/ui/1.12.1/jquery-ui.js&quot;></script>
+    <script>$( function() {
+        $( &quot;.maplegend&quot; ).draggable({
+            start: function (event, ui) {
+                $(this).css({
+                    right: &quot;auto&quot;,
+                    top: &quot;auto&quot;,
+                    bottom: &quot;auto&quot;
+                });
+            }
+        });
+    });
+    </script>
+    <style type='text/css'>
+      .maplegend {
+        position: absolute;
+        z-index:9999;
+        background-color: rgba(255, 255, 255, .8);
+        border-radius: 5px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        padding: 10px;
+        font: 12px/14px Arial, Helvetica, sans-serif;
+        right: 10px;
+        bottom: 20px;
+      }
+      .maplegend .legend-title {
+        text-align: left;
+        margin-bottom: 5px;
+        font-weight: bold;
+        }
+      .maplegend .legend-scale ul {
+        margin: 0;
+        margin-bottom: 0px;
+        padding: 0;
+        float: left;
+        list-style: none;
+        }
+      .maplegend .legend-scale ul li {
+        list-style: none;
+        margin-left: 0;
+        line-height: 16px;
+        margin-bottom: 2px;
+        }
+      .maplegend ul.legend-labels li span {
+        display: block;
+        float: left;
+        height: 14px;
+        width: 14px;
+        margin-right: 5px;
+        margin-left: 0;
+        border: 0px solid #ccc;
+        }
+      .maplegend .legend-source {
+        color: #777;
+        clear: both;
+        }
+      .maplegend a {
+        color: #777;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    
+    <div id='maplegend LOCATION_N' class='maplegend'>
+        <div class='legend-title'>LOCATION_N</div>
+        <div class='legend-scale'>
+            <ul class='legend-labels'>
+                <li><span style='background:#1f77b4'></span>Bathurst</li>
+                <li><span style='background:#1f77b4'></span>Bay</li>
+                <li><span style='background:#1f77b4'></span>Bayview</li>
+                <li><span style='background:#1f77b4'></span>Bessarion</li>
+                <li><span style='background:#aec7e8'></span>Bloor-Yonge</li>
+                <li><span style='background:#aec7e8'></span>Broadview</li>
+                <li><span style='background:#aec7e8'></span>Castle Frank</li>
+                <li><span style='background:#aec7e8'></span>Chester</li>
+                <li><span style='background:#ff7f0e'></span>Christie</li>
+                <li><span style='background:#ff7f0e'></span>College</li>
+                <li><span style='background:#ff7f0e'></span>Coxwell</li>
+                <li><span style='background:#ff7f0e'></span>Davisville</li>
+                <li><span style='background:#ffbb78'></span>Don Mills</li>
+                <li><span style='background:#ffbb78'></span>Donlands</li>
+                <li><span style='background:#ffbb78'></span>Downsview Park</li>
+                <li><span style='background:#2ca02c'></span>Dufferin</li>
+                <li><span style='background:#2ca02c'></span>Dundas</li>
+                <li><span style='background:#2ca02c'></span>Dundas West</li>
+                <li><span style='background:#2ca02c'></span>Dupont</li>
+                <li><span style='background:#98df8a'></span>Eglinton</li>
+                <li><span style='background:#98df8a'></span>Eglinton West</li>
+                <li><span style='background:#98df8a'></span>Ellesmere</li>
+                <li><span style='background:#98df8a'></span>Finch</li>
+                <li><span style='background:#d62728'></span>Finch West</li>
+                <li><span style='background:#d62728'></span>Glencairn</li>
+                <li><span style='background:#d62728'></span>Greenwood</li>
+                <li><span style='background:#ff9896'></span>High Park</li>
+                <li><span style='background:#ff9896'></span>Highway 407</li>
+                <li><span style='background:#ff9896'></span>Islington</li>
+                <li><span style='background:#ff9896'></span>Jane</li>
+                <li><span style='background:#9467bd'></span>Keele</li>
+                <li><span style='background:#9467bd'></span>Kennedy</li>
+                <li><span style='background:#9467bd'></span>King</li>
+                <li><span style='background:#9467bd'></span>Kipling</li>
+                <li><span style='background:#c5b0d5'></span>Lansdowne</li>
+                <li><span style='background:#c5b0d5'></span>Lawrence</li>
+                <li><span style='background:#c5b0d5'></span>Lawrence East</li>
+                <li><span style='background:#8c564b'></span>Lawrence West</li>
+                <li><span style='background:#8c564b'></span>Leslie</li>
+                <li><span style='background:#8c564b'></span>Main Street</li>
+                <li><span style='background:#8c564b'></span>McCowan</li>
+                <li><span style='background:#c49c94'></span>Midland</li>
+                <li><span style='background:#c49c94'></span>Museum</li>
+                <li><span style='background:#c49c94'></span>North York Centre</li>
+                <li><span style='background:#c49c94'></span>Old Mill</li>
+                <li><span style='background:#e377c2'></span>Osgoode</li>
+                <li><span style='background:#e377c2'></span>Ossington</li>
+                <li><span style='background:#e377c2'></span>Pape</li>
+                <li><span style='background:#e377c2'></span>Pioneer Village</li>
+                <li><span style='background:#f7b6d2'></span>Queen</li>
+                <li><span style='background:#f7b6d2'></span>Queen's Park</li>
+                <li><span style='background:#f7b6d2'></span>Rosedale</li>
+                <li><span style='background:#7f7f7f'></span>Royal York</li>
+                <li><span style='background:#7f7f7f'></span>Runnymede</li>
+                <li><span style='background:#7f7f7f'></span>Scarborough Town Centre</li>
+                <li><span style='background:#7f7f7f'></span>Sheppard West</li>
+                <li><span style='background:#c7c7c7'></span>Sheppard-Yonge</li>
+                <li><span style='background:#c7c7c7'></span>Sherbourne</li>
+                <li><span style='background:#c7c7c7'></span>Spadina</li>
+                <li><span style='background:#c7c7c7'></span>St Clair West</li>
+                <li><span style='background:#bcbd22'></span>St. Andrew</li>
+                <li><span style='background:#bcbd22'></span>St. Clair</li>
+                <li><span style='background:#bcbd22'></span>St. George</li>
+                <li><span style='background:#dbdb8d'></span>St. Patrick</li>
+                <li><span style='background:#dbdb8d'></span>Summerhill</li>
+                <li><span style='background:#dbdb8d'></span>Union</li>
+                <li><span style='background:#dbdb8d'></span>Vaughan Metropolitan Centre</li>
+                <li><span style='background:#17becf'></span>Victoria Park</li>
+                <li><span style='background:#17becf'></span>Warden</li>
+                <li><span style='background:#17becf'></span>Wellesley</li>
+                <li><span style='background:#17becf'></span>Wilson</li>
+                <li><span style='background:#9edae5'></span>Woodbine</li>
+                <li><span style='background:#9edae5'></span>York Mills</li>
+                <li><span style='background:#9edae5'></span>York University</li>
+                <li><span style='background:#9edae5'></span>Yorkdale</li>
+            </ul>
+        </div>
+    </div>
+    
+    
+            <div class=&quot;folium-map&quot; id=&quot;map_bd4ccca8db6d92a0182bd4c8fa10e9d4&quot; ></div>
+        
+</body>
+<script>
+    
+    
+            var map_bd4ccca8db6d92a0182bd4c8fa10e9d4 = L.map(
+                &quot;map_bd4ccca8db6d92a0182bd4c8fa10e9d4&quot;,
+                {
+                    center: [43.71522024592608, -79.39393836164854],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  &quot;zoom&quot;: 10,
+  &quot;zoomControl&quot;: true,
+  &quot;preferCanvas&quot;: false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_bd4ccca8db6d92a0182bd4c8fa10e9d4);
+
+            
+
+        
+    
+            var tile_layer_fb6939e29a5189271c9d97f6cfc5f410 = L.tileLayer(
+                &quot;https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png&quot;,
+                {
+  &quot;minZoom&quot;: 0,
+  &quot;maxZoom&quot;: 20,
+  &quot;maxNativeZoom&quot;: 20,
+  &quot;noWrap&quot;: false,
+  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\&quot;https://carto.com/attributions\&quot;\u003eCARTO\u003c/a\u003e&quot;,
+  &quot;subdomains&quot;: &quot;abc&quot;,
+  &quot;detectRetina&quot;: false,
+  &quot;tms&quot;: false,
+  &quot;opacity&quot;: 1,
+}
+
+            );
+        
+    
+            tile_layer_fb6939e29a5189271c9d97f6cfc5f410.addTo(map_bd4ccca8db6d92a0182bd4c8fa10e9d4);
+        
+    
+            map_bd4ccca8db6d92a0182bd4c8fa10e9d4.fitBounds(
+                [[43.63693526566496, -79.53627668264696], [43.79350522618721, -79.2516000406501]],
+                {}
+            );
+        
+    
+        function geo_json_54931a8e0c4bdd76b1df03b6f36ee45c_styler(feature) {
+            switch(feature.id) {
+                case &quot;25&quot;: case &quot;32&quot;: case &quot;54&quot;: case &quot;57&quot;: case &quot;89&quot;: 
+                    return {&quot;color&quot;: &quot;#9467bd&quot;, &quot;fillColor&quot;: &quot;#9467bd&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;26&quot;: case &quot;29&quot;: case &quot;31&quot;: case &quot;100&quot;: 
+                    return {&quot;color&quot;: &quot;#ff9896&quot;, &quot;fillColor&quot;: &quot;#ff9896&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;27&quot;: case &quot;30&quot;: case &quot;84&quot;: case &quot;93&quot;: case &quot;95&quot;: 
+                    return {&quot;color&quot;: &quot;#7f7f7f&quot;, &quot;fillColor&quot;: &quot;#7f7f7f&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;28&quot;: case &quot;65&quot;: case &quot;74&quot;: case &quot;92&quot;: 
+                    return {&quot;color&quot;: &quot;#c49c94&quot;, &quot;fillColor&quot;: &quot;#c49c94&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;33&quot;: case &quot;35&quot;: case &quot;61&quot;: case &quot;77&quot;: 
+                    return {&quot;color&quot;: &quot;#2ca02c&quot;, &quot;fillColor&quot;: &quot;#2ca02c&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;34&quot;: case &quot;71&quot;: case &quot;90&quot;: 
+                    return {&quot;color&quot;: &quot;#c5b0d5&quot;, &quot;fillColor&quot;: &quot;#c5b0d5&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;36&quot;: case &quot;46&quot;: case &quot;58&quot;: case &quot;99&quot;: 
+                    return {&quot;color&quot;: &quot;#e377c2&quot;, &quot;fillColor&quot;: &quot;#e377c2&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;37&quot;: case &quot;49&quot;: case &quot;63&quot;: case &quot;69&quot;: 
+                    return {&quot;color&quot;: &quot;#ff7f0e&quot;, &quot;fillColor&quot;: &quot;#ff7f0e&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;38&quot;: case &quot;40&quot;: case &quot;85&quot;: case &quot;86&quot;: 
+                    return {&quot;color&quot;: &quot;#1f77b4&quot;, &quot;fillColor&quot;: &quot;#1f77b4&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;39&quot;: case &quot;56&quot;: case &quot;68&quot;: case &quot;104&quot;: 
+                    return {&quot;color&quot;: &quot;#bcbd22&quot;, &quot;fillColor&quot;: &quot;#bcbd22&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;41&quot;: case &quot;43&quot;: case &quot;44&quot;: case &quot;45&quot;: case &quot;105&quot;: 
+                    return {&quot;color&quot;: &quot;#aec7e8&quot;, &quot;fillColor&quot;: &quot;#aec7e8&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;42&quot;: case &quot;73&quot;: case &quot;76&quot;: case &quot;78&quot;: case &quot;102&quot;: case &quot;103&quot;: 
+                    return {&quot;color&quot;: &quot;#c7c7c7&quot;, &quot;fillColor&quot;: &quot;#c7c7c7&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;47&quot;: case &quot;88&quot;: case &quot;96&quot;: 
+                    return {&quot;color&quot;: &quot;#ffbb78&quot;, &quot;fillColor&quot;: &quot;#ffbb78&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;48&quot;: case &quot;80&quot;: case &quot;97&quot;: 
+                    return {&quot;color&quot;: &quot;#d62728&quot;, &quot;fillColor&quot;: &quot;#d62728&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;50&quot;: case &quot;72&quot;: case &quot;82&quot;: case &quot;98&quot;: 
+                    return {&quot;color&quot;: &quot;#9edae5&quot;, &quot;fillColor&quot;: &quot;#9edae5&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;51&quot;: case &quot;81&quot;: case &quot;87&quot;: case &quot;94&quot;: 
+                    return {&quot;color&quot;: &quot;#8c564b&quot;, &quot;fillColor&quot;: &quot;#8c564b&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;52&quot;: case &quot;53&quot;: case &quot;64&quot;: case &quot;83&quot;: 
+                    return {&quot;color&quot;: &quot;#17becf&quot;, &quot;fillColor&quot;: &quot;#17becf&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;55&quot;: case &quot;60&quot;: case &quot;67&quot;: case &quot;101&quot;: 
+                    return {&quot;color&quot;: &quot;#dbdb8d&quot;, &quot;fillColor&quot;: &quot;#dbdb8d&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                case &quot;59&quot;: case &quot;62&quot;: case &quot;66&quot;: 
+                    return {&quot;color&quot;: &quot;#f7b6d2&quot;, &quot;fillColor&quot;: &quot;#f7b6d2&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+                default:
+                    return {&quot;color&quot;: &quot;#98df8a&quot;, &quot;fillColor&quot;: &quot;#98df8a&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+            }
+        }
+        function geo_json_54931a8e0c4bdd76b1df03b6f36ee45c_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {&quot;fillOpacity&quot;: 0.75};
+            }
+        }
+        function geo_json_54931a8e0c4bdd76b1df03b6f36ee45c_pointToLayer(feature, latlng) {
+            var opts = {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#3388ff&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#3388ff&quot;, &quot;fillOpacity&quot;: 0.2, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 5, &quot;stroke&quot;: true, &quot;weight&quot;: 3};
+            
+            let style = geo_json_54931a8e0c4bdd76b1df03b6f36ee45c_styler(feature)
+            Object.assign(opts, style)
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_54931a8e0c4bdd76b1df03b6f36ee45c_onEachFeature(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === &quot;function&quot;){
+                            geo_json_54931a8e0c4bdd76b1df03b6f36ee45c.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === &quot;function&quot;){
+                        const highlightStyle = geo_json_54931a8e0c4bdd76b1df03b6f36ee45c_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_54931a8e0c4bdd76b1df03b6f36ee45c = L.geoJson(null, {
+                onEachFeature: geo_json_54931a8e0c4bdd76b1df03b6f36ee45c_onEachFeature,
+            
+                style: geo_json_54931a8e0c4bdd76b1df03b6f36ee45c_styler,
+                pointToLayer: geo_json_54931a8e0c4bdd76b1df03b6f36ee45c_pointToLayer,
+            ...{
+}
+        });
+
+        function geo_json_54931a8e0c4bdd76b1df03b6f36ee45c_add (data) {
+            geo_json_54931a8e0c4bdd76b1df03b6f36ee45c
+                .addData(data);
+        }
+            geo_json_54931a8e0c4bdd76b1df03b6f36ee45c_add({&quot;bbox&quot;: [-79.53627668264696, 43.63693526566496, -79.2516000406501, 43.79350522618721], &quot;features&quot;: [{&quot;bbox&quot;: [-79.53627668264696, 43.63693526566496, -79.53627668264696, 43.63693526566496], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.53627668264696, 43.63693526566496], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;25&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Kipling&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#9467bd&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.52459416770003, 43.645324703142585, -79.52459416770003, 43.645324703142585], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.52459416770003, 43.645324703142585], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;26&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Islington&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#ff9896&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.51128621926097, 43.648114280972784, -79.51128621926097, 43.648114280972784], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.51128621926097, 43.648114280972784], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;27&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Royal York&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#7f7f7f&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.49509052619219, 43.65007461932932, -79.49509052619219, 43.65007461932932], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.49509052619219, 43.65007461932932], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;28&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Old Mill&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#c49c94&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.48445959351085, 43.64978724780803, -79.48445959351085, 43.64978724780803], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.48445959351085, 43.64978724780803], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;29&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Jane&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#ff9896&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.47620426057834, 43.651655074347076, -79.47620426057834, 43.651655074347076], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.47620426057834, 43.651655074347076], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;30&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Runnymede&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#7f7f7f&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.4662210533711, 43.654050121366886, -79.4662210533711, 43.654050121366886], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.4662210533711, 43.654050121366886], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;31&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;High Park&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#ff9896&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.45985095211213, 43.655466702017705, -79.45985095211213, 43.655466702017705], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.45985095211213, 43.655466702017705], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;32&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Keele&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#9467bd&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.45240868069939, 43.657172286282744, -79.45240868069939, 43.657172286282744], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.45240868069939, 43.657172286282744], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;33&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Dundas West&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#2ca02c&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.44262062367237, 43.65911805691256, -79.44262062367237, 43.65911805691256], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.44262062367237, 43.65911805691256], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;34&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Lansdowne&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#c5b0d5&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.43548641109042, 43.66024264137987, -79.43548641109042, 43.66024264137987], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.43548641109042, 43.66024264137987], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;35&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Dufferin&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#2ca02c&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.42593524897596, 43.66241631324876, -79.42593524897596, 43.66241631324876], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.42593524897596, 43.66241631324876], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;36&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Ossington&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#e377c2&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.41834326123623, 43.664069176542704, -79.41834326123623, 43.664069176542704], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.41834326123623, 43.664069176542704], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;37&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Christie&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#ff7f0e&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.41148726474378, 43.665716657052236, -79.41148726474378, 43.665716657052236], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.41148726474378, 43.665716657052236], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;38&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Bathurst&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#1f77b4&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.39930461940905, 43.668274963362165, -79.39930461940905, 43.668274963362165], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.39930461940905, 43.668274963362165], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;39&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;St. George&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#bcbd22&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.38986584103392, 43.67020648528124, -79.38986584103392, 43.67020648528124], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.38986584103392, 43.67020648528124], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;40&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Bay&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#1f77b4&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.3857181047047, 43.67099535261082, -79.3857181047047, 43.67099535261082], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.3857181047047, 43.67099535261082], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;41&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Bloor-Yonge&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#aec7e8&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.37684375116443, 43.672353907492045, -79.37684375116443, 43.672353907492045], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.37684375116443, 43.672353907492045], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;42&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Sherbourne&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#c7c7c7&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.36849422782296, 43.673858492017835, -79.36849422782296, 43.673858492017835], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.36849422782296, 43.673858492017835], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;43&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Castle Frank&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#aec7e8&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.35878438785355, 43.67682992437178, -79.35878438785355, 43.67682992437178], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.35878438785355, 43.67682992437178], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;44&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Broadview&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#aec7e8&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.3522549037185, 43.678341388211386, -79.3522549037185, 43.678341388211386], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.3522549037185, 43.678341388211386], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;45&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Chester&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#aec7e8&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.34517397876546, 43.67973240536551, -79.34517397876546, 43.67973240536551], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.34517397876546, 43.67973240536551], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;46&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Pape&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#e377c2&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.33777972421824, 43.68117580183839, -79.33777972421824, 43.68117580183839], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.33777972421824, 43.68117580183839], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;47&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Donlands&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#ffbb78&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.33028189951284, 43.68280225195953, -79.33028189951284, 43.68280225195953], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.33028189951284, 43.68280225195953], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;48&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Greenwood&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#d62728&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.32309717051837, 43.68432411935631, -79.32309717051837, 43.68432411935631], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.32309717051837, 43.68432411935631], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;49&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Coxwell&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#ff7f0e&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.31298531883972, 43.686541345639924, -79.31298531883972, 43.686541345639924], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.31298531883972, 43.686541345639924], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;50&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Woodbine&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#9edae5&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.30201262578369, 43.68897369331793, -79.30201262578369, 43.68897369331793], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.30201262578369, 43.68897369331793], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;51&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Main Street&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#8c564b&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.28944683016572, 43.694612892964216, -79.28944683016572, 43.694612892964216], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.28944683016572, 43.694612892964216], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;52&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Victoria Park&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#17becf&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.27920176726371, 43.711178152769904, -79.27920176726371, 43.711178152769904], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.27920176726371, 43.711178152769904], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;53&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Warden&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#17becf&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.26452916119514, 43.73225750005057, -79.26452916119514, 43.73225750005057], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.26452916119514, 43.73225750005057], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;54&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Kennedy&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#9467bd&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.379132328259, 43.646013320346555, -79.379132328259, 43.646013320346555], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.379132328259, 43.646013320346555], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;55&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Union&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#dbdb8d&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.38479241257306, 43.64765378485977, -79.38479241257306, 43.64765378485977], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.38479241257306, 43.64765378485977], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;56&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;St. Andrew&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#bcbd22&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.37790437380409, 43.64914077008835, -79.37790437380409, 43.64914077008835], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.37790437380409, 43.64914077008835], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;57&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;King&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#9467bd&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.3866154213889, 43.6508477453411, -79.3866154213889, 43.6508477453411], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.3866154213889, 43.6508477453411], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;58&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Osgoode&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#e377c2&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.37925340213074, 43.65243065800437, -79.37925340213074, 43.65243065800437], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.37925340213074, 43.65243065800437], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;59&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Queen&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#f7b6d2&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.38830253326181, 43.65478531786308, -79.38830253326181, 43.65478531786308], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.38830253326181, 43.65478531786308], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;60&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;St. Patrick&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#dbdb8d&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.38091131637775, 43.65631881819831, -79.38091131637775, 43.65631881819831], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.38091131637775, 43.65631881819831], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;61&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Dundas&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#2ca02c&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.39046298068325, 43.659849415465395, -79.39046298068325, 43.659849415465395], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.39046298068325, 43.659849415465395], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;62&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Queen\u0027s Park&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#f7b6d2&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.38313929796253, 43.66144481203087, -79.38313929796253, 43.66144481203087], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.38313929796253, 43.66144481203087], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;63&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;College&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#ff7f0e&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.38352432285, 43.66525984411958, -79.38352432285, 43.66525984411958], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.38352432285, 43.66525984411958], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;64&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Wellesley&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#17becf&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.39356310676807, 43.66736040552427, -79.39356310676807, 43.66736040552427], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.39356310676807, 43.66736040552427], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;65&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Museum&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#c49c94&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.38852111474004, 43.67708731486125, -79.38852111474004, 43.67708731486125], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.38852111474004, 43.67708731486125], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;66&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Rosedale&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#f7b6d2&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.39124275155555, 43.683334031647064, -79.39124275155555, 43.683334031647064], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.39124275155555, 43.683334031647064], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;67&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Summerhill&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#dbdb8d&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.39339770502323, 43.68829399546402, -79.39339770502323, 43.68829399546402], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.39339770502323, 43.68829399546402], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;68&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;St. Clair&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#bcbd22&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.39726415365763, 43.69797792873612, -79.39726415365763, 43.69797792873612], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.39726415365763, 43.69797792873612], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;69&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Davisville&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#ff7f0e&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.39843492558448, 43.70671828747643, -79.39843492558448, 43.70671828747643], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.39843492558448, 43.70671828747643], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;70&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Eglinton&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#98df8a&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.40217508238034, 43.72494879119223, -79.40217508238034, 43.72494879119223], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.40217508238034, 43.72494879119223], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;71&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Lawrence&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#c5b0d5&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.40619806214053, 43.74426287234565, -79.40619806214053, 43.74426287234565], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.40619806214053, 43.74426287234565], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;72&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;York Mills&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#9edae5&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.41092065156607, 43.76151320650585, -79.41092065156607, 43.76151320650585], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.41092065156607, 43.76151320650585], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;73&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Sheppard-Yonge&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#c7c7c7&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.4127723256562, 43.768831500718456, -79.4127723256562, 43.768831500718456], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.4127723256562, 43.768831500718456], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;74&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;North York Centre&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#c49c94&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.41556695310892, 43.779762008239075, -79.41556695310892, 43.779762008239075], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.41556695310892, 43.779762008239075], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;75&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Finch&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#98df8a&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.4047591968835, 43.66895355696991, -79.4047591968835, 43.66895355696991], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.4047591968835, 43.66895355696991], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;76&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Spadina&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#c7c7c7&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.40710726049527, 43.67484780805618, -79.40710726049527, 43.67484780805618], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.40710726049527, 43.67484780805618], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;77&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Dupont&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#2ca02c&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.41533564045446, 43.683815277731185, -79.41533564045446, 43.683815277731185], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.41533564045446, 43.683815277731185], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;78&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;St Clair West&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#c7c7c7&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.43599138317788, 43.6988276567849, -79.43599138317788, 43.6988276567849], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.43599138317788, 43.6988276567849], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;79&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Eglinton West&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#98df8a&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.44117917070213, 43.70953194143158, -79.44117917070213, 43.70953194143158], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.44117917070213, 43.70953194143158], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;80&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Glencairn&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#d62728&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.44418617545364, 43.71605601876608, -79.44418617545364, 43.71605601876608], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.44418617545364, 43.71605601876608], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;81&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Lawrence West&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#8c564b&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.44786522945826, 43.72560706486381, -79.44786522945826, 43.72560706486381], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.44786522945826, 43.72560706486381], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;82&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Yorkdale&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#9edae5&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.44991771900149, 43.73408458651144, -79.44991771900149, 43.73408458651144], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.44991771900149, 43.73408458651144], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;83&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Wilson&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#17becf&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.46247219705842, 43.75042985433167, -79.46247219705842, 43.75042985433167], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.46247219705842, 43.75042985433167], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;84&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Sheppard West&quot;, &quot;NAME&quot;: &quot;Yonge-University Subway&quot;, &quot;__folium_color&quot;: &quot;#7f7f7f&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.38775249812039, 43.76665484312658, -79.38775249812039, 43.76665484312658], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.38775249812039, 43.76665484312658], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;85&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Bayview&quot;, &quot;NAME&quot;: &quot;Sheppard Subway&quot;, &quot;__folium_color&quot;: &quot;#1f77b4&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.37664912866809, 43.76918520601126, -79.37664912866809, 43.76918520601126], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.37664912866809, 43.76918520601126], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;86&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Bessarion&quot;, &quot;NAME&quot;: &quot;Sheppard Subway&quot;, &quot;__folium_color&quot;: &quot;#1f77b4&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.36704117058645, 43.77113566121936, -79.36704117058645, 43.77113566121936], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.36704117058645, 43.77113566121936], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;87&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Leslie&quot;, &quot;NAME&quot;: &quot;Sheppard Subway&quot;, &quot;__folium_color&quot;: &quot;#8c564b&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.34697276957536, 43.77513502107869, -79.34697276957536, 43.77513502107869], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.34697276957536, 43.77513502107869], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;88&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Don Mills&quot;, &quot;NAME&quot;: &quot;Sheppard Subway&quot;, &quot;__folium_color&quot;: &quot;#ffbb78&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.26452916119514, 43.73225750005057, -79.26452916119514, 43.73225750005057], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.26452916119514, 43.73225750005057], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;89&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Kennedy&quot;, &quot;NAME&quot;: &quot;Scarborough RT&quot;, &quot;__folium_color&quot;: &quot;#9467bd&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.27004368364844, 43.75049426520838, -79.27004368364844, 43.75049426520838], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.27004368364844, 43.75049426520838], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;90&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Lawrence East&quot;, &quot;NAME&quot;: &quot;Scarborough RT&quot;, &quot;__folium_color&quot;: &quot;#c5b0d5&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.27613892935055, 43.76686610136011, -79.27613892935055, 43.76686610136011], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.27613892935055, 43.76686610136011], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;91&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Ellesmere&quot;, &quot;NAME&quot;: &quot;Scarborough RT&quot;, &quot;__folium_color&quot;: &quot;#98df8a&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.27198399426206, 43.77044646221821, -79.27198399426206, 43.77044646221821], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.27198399426206, 43.77044646221821], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;92&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Midland&quot;, &quot;NAME&quot;: &quot;Scarborough RT&quot;, &quot;__folium_color&quot;: &quot;#c49c94&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.25785208752882, 43.77444365718166, -79.25785208752882, 43.77444365718166], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.25785208752882, 43.77444365718166], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;93&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Scarborough Town Centre&quot;, &quot;NAME&quot;: &quot;Scarborough RT&quot;, &quot;__folium_color&quot;: &quot;#7f7f7f&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.2516000406501, 43.77490295883942, -79.2516000406501, 43.77490295883942], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.2516000406501, 43.77490295883942], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;94&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;McCowan&quot;, &quot;NAME&quot;: &quot;Scarborough RT&quot;, &quot;__folium_color&quot;: &quot;#8c564b&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.46247219705842, 43.75042985433167, -79.46247219705842, 43.75042985433167], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.46247219705842, 43.75042985433167], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;95&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Sheppard West&quot;, &quot;NAME&quot;: &quot;Toronto-York Spadina Subway Extension&quot;, &quot;__folium_color&quot;: &quot;#7f7f7f&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.47833062027846, 43.75359791631721, -79.47833062027846, 43.75359791631721], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.47833062027846, 43.75359791631721], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;96&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Downsview Park&quot;, &quot;NAME&quot;: &quot;Toronto-York Spadina Subway Extension&quot;, &quot;__folium_color&quot;: &quot;#ffbb78&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.49098350468903, 43.7634818992141, -79.49098350468903, 43.7634818992141], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.49098350468903, 43.7634818992141], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;97&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Finch West&quot;, &quot;NAME&quot;: &quot;Toronto-York Spadina Subway Extension&quot;, &quot;__folium_color&quot;: &quot;#d62728&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.49964144654678, 43.77412009746659, -79.49964144654678, 43.77412009746659], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.49964144654678, 43.77412009746659], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;98&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;York University&quot;, &quot;NAME&quot;: &quot;Toronto-York Spadina Subway Extension&quot;, &quot;__folium_color&quot;: &quot;#9edae5&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.51163202195342, 43.777513928396274, -79.51163202195342, 43.777513928396274], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.51163202195342, 43.777513928396274], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;99&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Pioneer Village&quot;, &quot;NAME&quot;: &quot;Toronto-York Spadina Subway Extension&quot;, &quot;__folium_color&quot;: &quot;#e377c2&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.52323343871011, 43.7835475641806, -79.52323343871011, 43.7835475641806], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.52323343871011, 43.7835475641806], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;100&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Highway 407&quot;, &quot;NAME&quot;: &quot;Toronto-York Spadina Subway Extension&quot;, &quot;__folium_color&quot;: &quot;#ff9896&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.52727034967297, 43.79350522618721, -79.52727034967297, 43.79350522618721], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.52727034967297, 43.79350522618721], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;101&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Vaughan Metropolitan Centre&quot;, &quot;NAME&quot;: &quot;Toronto-York Spadina Subway Extension&quot;, &quot;__folium_color&quot;: &quot;#dbdb8d&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.41092065156607, 43.76151320650585, -79.41092065156607, 43.76151320650585], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.41092065156607, 43.76151320650585], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;102&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Sheppard-Yonge&quot;, &quot;NAME&quot;: &quot;Sheppard Subway&quot;, &quot;__folium_color&quot;: &quot;#c7c7c7&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.40396981671873, 43.66728038684284, -79.40396981671873, 43.66728038684284], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.40396981671873, 43.66728038684284], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;103&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Spadina&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#c7c7c7&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.39930461940905, 43.668274963362165, -79.39930461940905, 43.668274963362165], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.39930461940905, 43.668274963362165], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;104&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;St. George&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#bcbd22&quot;}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-79.3857181047047, 43.67099535261082, -79.3857181047047, 43.67099535261082], &quot;geometry&quot;: {&quot;coordinates&quot;: [-79.3857181047047, 43.67099535261082], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;105&quot;, &quot;properties&quot;: {&quot;LOCATION_N&quot;: &quot;Bloor-Yonge&quot;, &quot;NAME&quot;: &quot;Bloor-Danforth Subway&quot;, &quot;__folium_color&quot;: &quot;#aec7e8&quot;}, &quot;type&quot;: &quot;Feature&quot;}], &quot;type&quot;: &quot;FeatureCollection&quot;});
+
+        
+    
+    geo_json_54931a8e0c4bdd76b1df03b6f36ee45c.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature=>typeof(feature)=='object' ? JSON.stringify(feature) : feature;
+    let fields = [&quot;LOCATION_N&quot;, &quot;NAME&quot;];
+    let aliases = [&quot;LOCATION_N&quot;, &quot;NAME&quot;];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  &quot;sticky&quot;: true,
+  &quot;className&quot;: &quot;foliumtooltip&quot;,
+});
+                     
+    
+            geo_json_54931a8e0c4bdd76b1df03b6f36ee45c.addTo(map_bd4ccca8db6d92a0182bd4c8fa10e9d4);
+        
+</script>
+</html>" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
+</div>
+</div>
+</section>
+<section id="layering-multiple-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="layering-multiple-datasets">Layering Multiple Datasets</h2>
+<p>Layering lets you combine different geographic datasets (like roads on top of neighborhoods) to reveal spatial relationships. In GeoPandas, each plot() call adds a new visual layer, with zorder controlling which appears on top. These plots are highly customizable, as we see below.</p>
+<div id="74c0d7ca-81d5-40dc-a102-5c7647e6a25c" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the canvas (all layers will share this axis)</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">7</span>))  </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Layer 1: Transit routes (black lines on top, zorder=3)</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>transit_routes.to_crs(<span class="dv">4326</span>).plot(</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="dv">1</span>,        </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"Black"</span>,      </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax,              <span class="co"># Draw on our shared axis</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    zorder<span class="op">=</span><span class="dv">3</span>            <span class="co"># Top layer (overlaps others)</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Layer 2: Transit stops (black dots below routes, zorder=2)</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>transit_stops.to_crs(<span class="dv">4326</span>).plot(</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"Black"</span>,      </span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    markersize<span class="op">=</span><span class="dv">16</span>,      </span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax,              <span class="co"># Same shared axis</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    zorder<span class="op">=</span><span class="dv">2</span>            <span class="co"># Middle layer (above tracts)</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Layer 3: Census tracts (colored by density, zorder=1)</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>census_tracts_data.to_crs(<span class="dv">4326</span>).plot(</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">"population density"</span>,  </span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">"White"</span>,            </span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'YlOrRd'</span>,                </span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    k<span class="op">=</span><span class="dv">7</span>,                          </span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    scheme<span class="op">=</span><span class="st">"Quantiles"</span>,           </span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="fl">0.5</span>,                </span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span>,                  </span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    zorder<span class="op">=</span><span class="dv">1</span>,                     <span class="co"># Bottom layer</span></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>    legend_kwds<span class="op">=</span>{</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>        <span class="st">"loc"</span>: <span class="st">"lower right"</span>,     </span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>        <span class="st">"fontsize"</span>: <span class="dv">7</span>,            </span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>        <span class="st">"title"</span>: <span class="st">"Population Density"</span>,  </span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>        <span class="st">"alignment"</span>: <span class="st">"left"</span>,      </span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>        <span class="st">"reverse"</span>: <span class="va">True</span>           </span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax</span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>).set_axis_off()  <span class="co"># Hide distracting x/y axes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="intro-geopandas_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

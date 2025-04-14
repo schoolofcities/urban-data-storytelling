@@ -25,7 +25,7 @@ Mandatory readings:
 Optional readings (pick and choose depending on which relate to your project):
 - statistics fundementals (notebook)
 - intro to census data (notebook)
-- intro to openstreetmap data (notebook)
+- intro to openstreetmap data (notebook) - REV
 - spatial data in python (notebook)
 - spatial data processing (notebook)
 

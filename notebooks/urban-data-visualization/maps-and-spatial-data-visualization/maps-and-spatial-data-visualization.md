@@ -1,4 +1,4 @@
-# Maps & Visualizing Spatial Data
+# Maps and visualizing spatial data
 
 <br>
 
