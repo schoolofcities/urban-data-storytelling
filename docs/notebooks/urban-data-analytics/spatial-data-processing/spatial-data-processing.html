@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Spatial Data Processing – Urban Data Storytelling 📊📈🏙️</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-d1fcf46c23e38b7e3acfb286f502517d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../../assets/styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      &lt;img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg'  style='height:auto;width:220px'&gt;&lt;/img&gt;&lt;br&gt;Urban Data Storytelling 📊📈🏙️
+      </li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;width:220px"><br>Urban Data Storytelling 📊📈🏙️</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../notebooks/urban-data-analytics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Urban Data Analytics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to urban data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/measuring-the-city/measuring-the-city.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Measuring the city: metrics and indicators</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/data-ethics-and-literacy/data-ethics-and-literacy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data ethics and literacy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/intro-to-python-and-jupyter/intro-to-python-and-jupyter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Programming with Python and computational notebooks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing and analyzing data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Foundations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial data and GIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/spatial-data-in-python/spatial-data-in-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial data in Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/canadian-census-data/canadian-census-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of Canadian census data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-visualization/data-visualization/data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Maps and visualizing spatial data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#in-python-using-geopandas" id="toc-in-python-using-geopandas" class="nav-link active" data-scroll-target="#in-python-using-geopandas">in Python, using geopandas</a></li>
+  <li><a href="#geocoding-and-creating-geometries" id="toc-geocoding-and-creating-geometries" class="nav-link" data-scroll-target="#geocoding-and-creating-geometries">Geocoding and Creating Geometries</a>
+  <ul class="collapse">
+  <li><a href="#geocoding-addresses" id="toc-geocoding-addresses" class="nav-link" data-scroll-target="#geocoding-addresses">Geocoding Addresses</a></li>
+  <li><a href="#creating-new-geometries" id="toc-creating-new-geometries" class="nav-link" data-scroll-target="#creating-new-geometries">Creating New Geometries</a></li>
+  </ul></li>
+  <li><a href="#spatial-relationships-and-operations" id="toc-spatial-relationships-and-operations" class="nav-link" data-scroll-target="#spatial-relationships-and-operations">Spatial Relationships and Operations</a>
+  <ul class="collapse">
+  <li><a href="#spatial-selection" id="toc-spatial-selection" class="nav-link" data-scroll-target="#spatial-selection">Spatial Selection</a></li>
+  <li><a href="#overlay-operations" id="toc-overlay-operations" class="nav-link" data-scroll-target="#overlay-operations">Overlay Operations</a></li>
+  <li><a href="#spatial-joins" id="toc-spatial-joins" class="nav-link" data-scroll-target="#spatial-joins">Spatial Joins</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Spatial Data Processing</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="in-python-using-geopandas" class="level3">
+<h3 class="anchored" data-anchor-id="in-python-using-geopandas">in Python, using geopandas</h3>
+<p>There are many ways to interact with spatial data - ranging from getting geometric points from addresses, to intersecting a different spatial datasets. In this workshop, we’ll cover a number of methods using <code>geopandas</code>. However, this is just a specific instantiation of these ideas; they can also be done in GIS software.</p>
+<div id="f1909ada-0c74-4b5b-9373-1a5afef9616c" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s remind ourselves of some key concepts to start with.</p>
+<p>First, there are two major types of spatial data. - Vector data represents geographic features as discrete points, lines, and polygons, making it ideal for boundaries, roads, or point locations like cities. - Raster data stores information in a grid of pixels (cells), often used for continuous data like elevation models or satellite imagery.</p>
+<p>We also consider three common types of geometry. 1. Points are zero-dimensional coordinates (e.g., a library’s latitude/longitude). 2. Lines are one-dimensional sequences of points (e.g., rivers, roads, or transit routes). 3. Polygons are two-dimensional enclosed shapes (e.g., political boundaries, lakes, or census tracts).</p>
+<p>These can be projected into different Coordinate Reference Systems (CRS), which define how spatial data maps to the Earth’s surface. For example, WGS84 (EPSG:4326) is common for global latitude/longitude coordinates, while UTM zones (e.g., EPSG:32617) minimize distortion for local measurements. Choosing the right CRS ensures accurate distances, areas, and spatial relationships.</p>
+<p>In order to process spatial data we will be working with three datasets today: - Toronto Public Libraries (TPL) branches, which contains information about each of the libraries in the TPL - Toronto’s wards, each of which have a city councillor - Toronto’s regions, which are the former municipalities that were amalgamated in 1998 to make modern Toronto</p>
+<div id="37d09d8c-61f0-4bc5-98a2-506589d23879" class="cell" data-execution_count="145">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_tpl <span class="op">=</span> pd.read_csv(<span class="st">'./data/tpl-branch-general-information-2023.csv'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>gdf_wards <span class="op">=</span> gpd.read_file(<span class="st">'./data/city-wards.gpkg'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>gdf_regions <span class="op">=</span> gpd.read_file(<span class="st">'./data/toronto-regions.gpkg'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="geocoding-and-creating-geometries" class="level2">
+<h2 class="anchored" data-anchor-id="geocoding-and-creating-geometries">Geocoding and Creating Geometries</h2>
+<section id="geocoding-addresses" class="level3">
+<h3 class="anchored" data-anchor-id="geocoding-addresses">Geocoding Addresses</h3>
+<p>Geocoding converts addresses (like <code>"100 Queen St, Toronto, ON M5H 2N2"</code>) into geographic coordinates (latitude/longitude) using a geocoding service. In GeoPandas, the <code>geopandas.tools.geocode()</code> method leverages the <a href="https://nominatim.org/">Nominatim</a> geocoder by default, which queries OpenStreetMap’s database. This transforms a DataFrame of addresses into a GeoDataFrame with <code>Point</code> geometries, enabling spatial analysis.</p>
+<p>Free geocoding services usually allow about one query per second - since we have over 100 library branches, this should take a few minutes</p>
+<div id="3bb01b85-bb07-4e44-bab1-4a761cf938f6" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gdf_tpl <span class="op">=</span> gpd.tools.geocode(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    df_tpl[<span class="st">"Address"</span>],  </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    provider<span class="op">=</span><span class="st">"nominatim"</span>,      </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    user_agent<span class="op">=</span><span class="st">"tpl-workshop"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    timeout<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|█████████████████████████████████████| 112/112 [00:00&lt;00:00, 114576.11it/s]</code></pre>
+</div>
+</div>
+<div id="303420b8-0592-4aa2-b675-0c9731102aee" class="cell" data-execution_count="112">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In case the above takes too long</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># gdf_tpl = gpd.read_file('./data/tpl.gpkg')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="1030f276-e3de-42c6-9ae5-10f677d448ee" class="cell" data-execution_count="148">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gdf_tpl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="148">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">geometry</th>
+<th data-quarto-table-cell-role="th">address</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>POINT (613956.686 4843954.713)</td>
+<td>Toronto Public Library - Albion, 1515, Albion ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>POINT (639436.969 4840903.999)</td>
+<td>Toronto Public Library - Albert Campbell, 496,...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>POINT (617250.270 4828684.997)</td>
+<td>Alderwood Pool, 2, Orianna Drive, Alderwood, E...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>POINT (637314.699 4849438.607)</td>
+<td>Toronto Public Library - Agincourt, 155, Bonis...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>POINT (627091.776 4844124.918)</td>
+<td>Toronto Public Library - Armour Heights, 2140,...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">107</td>
+<td>POINT (617698.730 4844001.503)</td>
+<td>Toronto Public Library - Woodview Park, 16, Br...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">108</td>
+<td>POINT (639171.567 4852212.822)</td>
+<td>Tickets &amp; More Post Office (Woodside Square Ca...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">109</td>
+<td>POINT (627543.864 4837797.125)</td>
+<td>Toronto Public Library - Wychwood, 1431, Bathu...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">110</td>
+<td>POINT (629901.096 4836706.001)</td>
+<td>Toronto Public Library - Yorkville, 22, Yorkvi...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">111</td>
+<td>POINT (620158.053 4846173.998)</td>
+<td>Toronto Public Library - York Woods, 1785, Fin...</td>
+</tr>
+</tbody>
+</table>
+
+<p>112 rows × 2 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-new-geometries" class="level3">
+<h3 class="anchored" data-anchor-id="creating-new-geometries">Creating New Geometries</h3>
+<p>There’s a number of basic operations we can do on spatial data.</p>
+<p>First, we need to project this into a CRS which is measured in meters. If we used a longitude-latitude based measure like WGS84 (EPSG:4326), then we would end up with something in degrees - which is nonsense here.</p>
+<div id="4fc2e65a-2ec5-44b1-b99c-78a211e16a0b" class="cell" data-execution_count="149">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gdf_wards <span class="op">=</span> gdf_wards.to_crs(<span class="st">"EPSG:32617"</span>)  <span class="co"># UTM Zone 17N (meters)  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Area: Calculates the area of polygon geometries using <code>.area</code> (returns values in CRS units, e.g., m² for projected CRS).</p>
+<div id="8b82e80f-8de2-452f-ae88-d464c1e8109b" class="cell" data-scrolled="true" data-execution_count="150">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate area (in m², then divide by 10^6 for km²)  </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>gdf_wards[<span class="st">"area_km2"</span>] <span class="op">=</span> gdf_wards.area <span class="op">/</span> <span class="fl">1e6</span>  </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>gdf_wards[[<span class="st">'WARD_NAME'</span>, <span class="st">'area_km2'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="150">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">WARD_NAME</th>
+<th data-quarto-table-cell-role="th">area_km2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Humber River-Black Creek</td>
+<td>30.694207</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>York Centre</td>
+<td>35.352673</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Willowdale</td>
+<td>19.758824</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>University-Rosedale</td>
+<td>13.594704</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Beaches-East York</td>
+<td>16.801757</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Scarborough Southwest</td>
+<td>28.187890</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Scarborough-Rouge Park</td>
+<td>54.085106</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Scarborough North</td>
+<td>30.433949</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Scarborough-Guildwood</td>
+<td>26.114731</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Scarborough Centre</td>
+<td>28.201837</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Scarborough-Agincourt</td>
+<td>21.395977</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>Don Valley West</td>
+<td>30.291447</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Toronto-St. Paul's</td>
+<td>13.119079</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Parkdale-High Park</td>
+<td>15.324933</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Etobicoke North</td>
+<td>48.352264</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Etobicoke-Lakeshore</td>
+<td>40.012431</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>Etobicoke Centre</td>
+<td>37.339754</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>Eglinton-Lawrence</td>
+<td>22.657720</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>Don Valley North</td>
+<td>24.416753</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>Don Valley East</td>
+<td>22.961198</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>Davenport</td>
+<td>12.092764</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>Toronto Centre</td>
+<td>5.861979</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>York South-Weston</td>
+<td>24.973567</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>Toronto-Danforth</td>
+<td>21.798056</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>Spadina-Fort York</td>
+<td>18.698987</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Centroid: Computes the geometric center point of polygons using <code>.centroid</code> (returns a Point geometry for each feature).</p>
+<p>A simple application is using these centroids to then compute the distance from one to the other.</p>
+<div id="13dbdad3-31cb-4173-a12d-0642aaba3ba1" class="cell" data-execution_count="151">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute centroids (as Point geometries)  </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>gdf_wards[<span class="st">"centroid"</span>] <span class="op">=</span> gdf_wards.centroid  </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare the wards and their center points</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>gdf_wards.plot(alpha<span class="op">=</span><span class="fl">0.3</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)  </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>gdf_wards.set_geometry(<span class="st">"centroid"</span>).plot(alpha<span class="op">=</span><span class="fl">0.3</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="spatial-data-processing_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="spatial-data-processing_files/figure-html/cell-9-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Buffer: Creates a zone around geometries at a specified distance using <code>.buffer()</code> (distance units depend on CRS; e.g., meters for UTM).</p>
+<div id="f00a4b0d-e67b-48f2-a304-64ecaf2aae15" class="cell" data-execution_count="152">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create 500m buffers around each ward  </span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>gdf_wards[<span class="st">"buffer_500m"</span>] <span class="op">=</span> gdf_wards.<span class="bu">buffer</span>(<span class="dv">500</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="910f5d2c-e6f7-478b-bce1-4cfd133e805d" class="cell" data-execution_count="153">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>gdf_wards.set_geometry(<span class="st">"buffer_500m"</span>).plot(alpha<span class="op">=</span><span class="fl">0.3</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="spatial-data-processing_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="spatial-relationships-and-operations" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-relationships-and-operations">Spatial Relationships and Operations</h2>
+<p>Now that we’ve identified a few ways to create new spatial data, let’s look at how we can understand the relationships between different sets of spatial data.</p>
+<p>Before we compare any spatial data, it’s important to make sure that they’re all in the same CRS.</p>
+<div id="9278591d-f06f-4137-b0b8-617f3cb510fd" class="cell" data-execution_count="154">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cur_crs <span class="op">=</span> <span class="dv">4327</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>gdf_tpl <span class="op">=</span> gdf_tpl.to_crs(cur_crs)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>gdf_wards <span class="op">=</span> gpd.read_file(<span class="st">'./data/city-wards.gpkg'</span>).to_crs(cur_crs)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>gdf_regions <span class="op">=</span> gpd.read_file(<span class="st">'./data/toronto-regions.gpkg'</span>).to_crs(cur_crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="spatial-selection" class="level3">
+<h3 class="anchored" data-anchor-id="spatial-selection">Spatial Selection</h3>
+<p>Suppose we want to identify whether some geometry is inside of another. It depends on what kinds of geometry we’re looking at and there’s two methods to do that. - <code>.within()</code> checks if a geometry is <em>completely inside</em> another (e.g., “Is this library point within Scarborough’s polygon?”). - <code>.contains()</code> checks if a geometry <em>fully encloses</em> another (e.g., “Does Old Toronto’s polygon contain this entire ward?”).</p>
+<div id="911ad5e6-d13f-4fb5-9f9b-7c0156dc4e0d" class="cell" data-execution_count="155">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get Scarborough's polygon from regions  </span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>scarborough <span class="op">=</span> gdf_regions[gdf_regions[<span class="st">"REGION_NAME"</span>] <span class="op">==</span> <span class="st">"SCARBOROUGH"</span>].geometry.iloc[<span class="dv">0</span>]  </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter libraries within Scarborough  </span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>libraries_in_scarborough <span class="op">=</span> gdf_tpl[gdf_tpl.within(scarborough)]  </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(libraries_in_scarborough)<span class="sc">}</span><span class="ss"> libraries in Scarborough"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>16 libraries in Scarborough</code></pre>
+</div>
+</div>
+<div id="d2d7acf1-4214-459d-a016-3df49e51cb1f" class="cell" data-execution_count="156">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get Old Toronto's polygon from regions  </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>old_toronto <span class="op">=</span> gdf_regions[gdf_regions[<span class="st">"REGION_NAME"</span>] <span class="op">==</span> <span class="st">"TORONTO"</span>].geometry.iloc[<span class="dv">0</span>]  </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter wards entirely within Old Toronto  </span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>wards_in_toronto <span class="op">=</span> gdf_wards[old_toronto.contains(gdf_wards.geometry)]</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(wards_in_toronto)<span class="sc">}</span><span class="ss"> wards fully contained by Old Toronto"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1 wards fully contained by Old Toronto</code></pre>
+</div>
+</div>
+<p>If we investigate this manually in GIS software, you’ll notice that one more ward (Spadina-Fort York) is also basically contained in Old Toronto. However, due to differences when the data was made, there’s some fine details that lead to tiny pieces being outside of the bigger region and thus lead to that ward not being counted. It’s important to make sure the data you’re working with is precisely suited to the task you’re doing.</p>
+<p>The <code>.cx[]</code> indexer filters geometries using coordinate ranges ([minx:maxx, miny:maxy]), acting like a spatial “crop” without explicit polygon creation. It’s faster than geometric operations but limited to rectangular areas.</p>
+<div id="77de4c92-e472-4818-99bd-cf406f56df92" class="cell" data-execution_count="157">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define bbox: Toronto's east/west bounds, Eglinton (south) to Steeles (north)  </span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>bbox <span class="op">=</span> gdf_tpl.total_bounds  <span class="co"># Get full extent [minx, miny, maxx, maxy]  </span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>bbox[<span class="dv">1</span>] <span class="op">=</span> <span class="fl">43.70</span>  <span class="co"># Set miny ≈ Eglinton Ave (lat)  </span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>bbox[<span class="dv">3</span>] <span class="op">=</span> <span class="fl">43.84</span>  <span class="co"># Set maxy ≈ Steeles Ave (lat)  </span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter libraries in bbox  </span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>libraries_north_of_eglinton <span class="op">=</span> gdf_tpl.cx[bbox[<span class="dv">0</span>]:bbox[<span class="dv">2</span>], bbox[<span class="dv">1</span>]:bbox[<span class="dv">3</span>]]  </span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="bu">len</span>(libraries_north_of_eglinton)  </span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>count<span class="sc">}</span><span class="ss"> libraries north of Eglinton Ave"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>45 libraries north of Eglinton Ave</code></pre>
+</div>
+</div>
+</section>
+<section id="overlay-operations" class="level3">
+<h3 class="anchored" data-anchor-id="overlay-operations">Overlay Operations</h3>
+<p>Overlay operations allow us to understand the nature of the relationships between different spatial data. There are four approaches that we will consider. - <code>intersection</code>: Finds only overlapping areas between two layers (Example: Identify which wards intersect with Old Toronto and count them) - <code>union</code>: Merges geometries into a single combined shape (Example: Combine all wards intersecting Old Toronto and calculate their total area) - <code>symmetric_difference</code>: Shows areas that are in either layer but not both (Example: Highlight areas unique to either Old Toronto wards or North York region) - <code>difference</code>: Extracts parts of the first layer not covered by the second (Example: Isolate ward segments that extend beyond Old Toronto’s boundaries)</p>
+<p>The image below is adapted from the <a href="https://geopandas.org/en/stable/docs/user_guide/set_operations.html">full tutorial</a> by geopandas on this topic which you can look at for more details.</p>
+<p><img src="spatial-data-processing_files/figure-html/39984d8c-13f4-4ff4-bd11-78e858573cd7-1-65352957-8e74-48cd-a6a6-3d8bdb1b2e3b.png" class="img-fluid" alt="image.png">!</p>
+<div id="3eb6e2b7-45eb-4638-b7f8-3cca4cd99ac6" class="cell" data-execution_count="158">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>cur_crs <span class="op">=</span> <span class="dv">32617</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>gdf_tpl <span class="op">=</span> gdf_tpl.to_crs(cur_crs)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>gdf_wards <span class="op">=</span> gpd.read_file(<span class="st">'./data/city-wards.gpkg'</span>).to_crs(cur_crs)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>gdf_regions <span class="op">=</span> gpd.read_file(<span class="st">'./data/toronto-regions.gpkg'</span>).to_crs(cur_crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="intersection-find-wards-overlapping-old-toronto" class="level4">
+<h4 class="anchored" data-anchor-id="intersection-find-wards-overlapping-old-toronto">Intersection: Find Wards Overlapping Old Toronto</h4>
+<div id="bc3a6e5b-c1cc-45de-8d53-2f2dc70d0739" class="cell" data-execution_count="161">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get Old Toronto polygon</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>old_toronto <span class="op">=</span> gdf_regions[gdf_regions[<span class="st">"REGION_NAME"</span>] <span class="op">==</span> <span class="st">"TORONTO"</span>]</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Find intersecting wards</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>intersection <span class="op">=</span> gpd.overlay(gdf_wards, old_toronto, how<span class="op">=</span><span class="st">"intersection"</span>, keep_geom_type<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">len</span>(intersection[<span class="st">'WARD_NAME'</span>].unique())<span class="sc">}</span><span class="ss"> wards overlap Old Toronto"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>13 wards overlap Old Toronto</code></pre>
+</div>
+</div>
+</section>
+<section id="union-combine-measure-intersecting-wards" class="level4">
+<h4 class="anchored" data-anchor-id="union-combine-measure-intersecting-wards">Union: Combine &amp; Measure Intersecting Wards</h4>
+<div id="7b0031c3-1a1d-4430-895b-4a2deb9e4d36" class="cell" data-execution_count="162">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get intersecting wards</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>wards_in_toronto <span class="op">=</span> gdf_wards[gdf_wards.intersects(old_toronto.unary_union)]</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate combined area in km²</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>union_area <span class="op">=</span> wards_in_toronto.area.<span class="bu">sum</span>() <span class="op">/</span> <span class="fl">1e6</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Combined area: </span><span class="sc">{</span>union_area<span class="sc">:.2f}</span><span class="ss"> km²"</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> wards_in_toronto.plot()</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Wards Intersecting Old Toronto"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Combined area: 263.42 km²</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="162">
+<pre><code>Text(0.5, 1.0, 'Wards Intersecting Old Toronto')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="spatial-data-processing_files/figure-html/cell-18-output-3.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="symmetric-difference-unique-areas-vs.-north-york" class="level4">
+<h4 class="anchored" data-anchor-id="symmetric-difference-unique-areas-vs.-north-york">Symmetric Difference: Unique Areas vs.&nbsp;North York</h4>
+<div id="eec31a4c-bae2-4a51-a088-8a29c649c8c6" class="cell" data-execution_count="163">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get North York polygon</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>north_york <span class="op">=</span> gdf_regions[gdf_regions[<span class="st">"REGION_NAME"</span>] <span class="op">==</span> <span class="st">"NORTH YORK"</span>]</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare with Old Toronto wards -- basically, how much area these wards "eating" into North York?</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>sym_diff <span class="op">=</span> gpd.overlay(wards_in_toronto, north_york, how<span class="op">=</span><span class="st">"symmetric_difference"</span>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sym_diff.plot()</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Areas Exclusive to Old Toronto Wards or North York"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="163">
+<pre><code>Text(0.5, 1.0, 'Areas Exclusive to Old Toronto Wards or North York')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="spatial-data-processing_files/figure-html/cell-19-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="difference-ward-areas-outside-old-toronto" class="level4">
+<h4 class="anchored" data-anchor-id="difference-ward-areas-outside-old-toronto">Difference: Ward Areas Outside Old Toronto</h4>
+<div id="aea0a86e-a6ec-4b59-b8b3-1f0f3d950739" class="cell" data-execution_count="165">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract parts of wards beyond Old Toronto</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>difference <span class="op">=</span> gpd.overlay(wards_in_toronto, old_toronto, how<span class="op">=</span><span class="st">"difference"</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> difference.plot()</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Old Toronto Ward Segments Outside Old Toronto"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="165">
+<pre><code>Text(0.5, 1.0, 'Old Toronto Ward Segments Outside Old Toronto')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="spatial-data-processing_files/figure-html/cell-20-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="spatial-joins" class="level3">
+<h3 class="anchored" data-anchor-id="spatial-joins">Spatial Joins</h3>
+<p>Spatial joins combine data from two GeoDataFrames based on their geometric relationship, allowing you to connect attributes from different layers. For example, you can match points (libraries) to polygons (wards) to see which administrative district contains each facility.</p>
+<p>The <code>.sjoin()</code> method takes two key arguments: - <code>predicate='within'</code>: Matches features where the first layer is completely inside the second (e.g., libraries fully within a ward). - <code>predicate='intersects'</code>: Matches features that touch or overlap (e.g., wards that partially or fully overlap a region).</p>
+<div id="4f343d9f-eeaf-4457-9480-752428719cdc" class="cell" data-execution_count="166">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>cur_crs <span class="op">=</span> <span class="dv">32617</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>gdf_tpl <span class="op">=</span> gdf_tpl.to_crs(cur_crs)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>gdf_wards <span class="op">=</span> gpd.read_file(<span class="st">'./data/city-wards.gpkg'</span>).to_crs(cur_crs)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>gdf_regions <span class="op">=</span> gpd.read_file(<span class="st">'./data/toronto-regions.gpkg'</span>).to_crs(cur_crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="9f40d425-ab43-47e9-8801-26238d81b518" class="cell" data-execution_count="167">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Match wards to regions based on intersection  </span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>wards_with_regions <span class="op">=</span> gpd.sjoin(  </span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    gdf_wards,  </span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    gdf_regions,  </span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">"left"</span>,  <span class="co"># Keep all wards even if no region match  </span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    predicate<span class="op">=</span><span class="st">"intersects"</span>  </span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>)  </span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>wards_with_regions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="167">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">WARD_SHORT_CODE</th>
+<th data-quarto-table-cell-role="th">WARD_NAME</th>
+<th data-quarto-table-cell-role="th">geometry</th>
+<th data-quarto-table-cell-role="th">index_right</th>
+<th data-quarto-table-cell-role="th">REGION_NAME</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>07</td>
+<td>Humber River-Black Creek</td>
+<td>MULTIPOLYGON (((621458.592 4846712.482, 621544...</td>
+<td>4</td>
+<td>ETOBICOKE</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">0</td>
+<td>07</td>
+<td>Humber River-Black Creek</td>
+<td>MULTIPOLYGON (((621458.592 4846712.482, 621544...</td>
+<td>1</td>
+<td>NORTH YORK</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>06</td>
+<td>York Centre</td>
+<td>MULTIPOLYGON (((625533.338 4846776.345, 625573...</td>
+<td>1</td>
+<td>NORTH YORK</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>18</td>
+<td>Willowdale</td>
+<td>MULTIPOLYGON (((629235.325 4846644.348, 629226...</td>
+<td>1</td>
+<td>NORTH YORK</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3</td>
+<td>11</td>
+<td>University-Rosedale</td>
+<td>MULTIPOLYGON (((629747.036 4838758.081, 629746...</td>
+<td>5</td>
+<td>TORONTO</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>11</td>
+<td>University-Rosedale</td>
+<td>MULTIPOLYGON (((629747.036 4838758.081, 629746...</td>
+<td>2</td>
+<td>EAST YORK</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>19</td>
+<td>Beaches-East York</td>
+<td>MULTIPOLYGON (((637056.976 4841642.218, 637080...</td>
+<td>5</td>
+<td>TORONTO</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4</td>
+<td>19</td>
+<td>Beaches-East York</td>
+<td>MULTIPOLYGON (((637056.976 4841642.218, 637080...</td>
+<td>2</td>
+<td>EAST YORK</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>19</td>
+<td>Beaches-East York</td>
+<td>MULTIPOLYGON (((637056.976 4841642.218, 637080...</td>
+<td>1</td>
+<td>NORTH YORK</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4</td>
+<td>19</td>
+<td>Beaches-East York</td>
+<td>MULTIPOLYGON (((637056.976 4841642.218, 637080...</td>
+<td>3</td>
+<td>SCARBOROUGH</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>20</td>
+<td>Scarborough Southwest</td>
+<td>MULTIPOLYGON (((638736.626 4836846.147, 638635...</td>
+<td>5</td>
+<td>TORONTO</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>20</td>
+<td>Scarborough Southwest</td>
+<td>MULTIPOLYGON (((638736.626 4836846.147, 638635...</td>
+<td>2</td>
+<td>EAST YORK</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>20</td>
+<td>Scarborough Southwest</td>
+<td>MULTIPOLYGON (((638736.626 4836846.147, 638635...</td>
+<td>1</td>
+<td>NORTH YORK</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>20</td>
+<td>Scarborough Southwest</td>
+<td>MULTIPOLYGON (((638736.626 4836846.147, 638635...</td>
+<td>3</td>
+<td>SCARBOROUGH</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>25</td>
+<td>Scarborough-Rouge Park</td>
+<td>MULTIPOLYGON (((647525.046 4856108.797, 647720...</td>
+<td>3</td>
+<td>SCARBOROUGH</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>23</td>
+<td>Scarborough North</td>
+<td>MULTIPOLYGON (((642619.920 4855587.637, 642648...</td>
+<td>3</td>
+<td>SCARBOROUGH</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>24</td>
+<td>Scarborough-Guildwood</td>
+<td>MULTIPOLYGON (((646355.108 4846610.684, 646417...</td>
+<td>3</td>
+<td>SCARBOROUGH</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>21</td>
+<td>Scarborough Centre</td>
+<td>MULTIPOLYGON (((640832.743 4847664.300, 640873...</td>
+<td>1</td>
+<td>NORTH YORK</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">9</td>
+<td>21</td>
+<td>Scarborough Centre</td>
+<td>MULTIPOLYGON (((640832.743 4847664.300, 640873...</td>
+<td>3</td>
+<td>SCARBOROUGH</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10</td>
+<td>22</td>
+<td>Scarborough-Agincourt</td>
+<td>MULTIPOLYGON (((635501.723 4847524.659, 635490...</td>
+<td>1</td>
+<td>NORTH YORK</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>22</td>
+<td>Scarborough-Agincourt</td>
+<td>MULTIPOLYGON (((635501.723 4847524.659, 635490...</td>
+<td>3</td>
+<td>SCARBOROUGH</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>15</td>
+<td>Don Valley West</td>
+<td>MULTIPOLYGON (((632731.112 4841620.045, 632750...</td>
+<td>5</td>
+<td>TORONTO</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">11</td>
+<td>15</td>
+<td>Don Valley West</td>
+<td>MULTIPOLYGON (((632731.112 4841620.045, 632750...</td>
+<td>2</td>
+<td>EAST YORK</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>15</td>
+<td>Don Valley West</td>
+<td>MULTIPOLYGON (((632731.112 4841620.045, 632750...</td>
+<td>1</td>
+<td>NORTH YORK</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>12</td>
+<td>Toronto-St. Paul's</td>
+<td>MULTIPOLYGON (((629848.984 4838895.727, 629786...</td>
+<td>5</td>
+<td>TORONTO</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">12</td>
+<td>12</td>
+<td>Toronto-St. Paul's</td>
+<td>MULTIPOLYGON (((629848.984 4838895.727, 629786...</td>
+<td>0</td>
+<td>YORK</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">13</td>
+<td>04</td>
+<td>Parkdale-High Park</td>
+<td>MULTIPOLYGON (((623403.341 4836059.877, 623660...</td>
+<td>4</td>
+<td>ETOBICOKE</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>04</td>
+<td>Parkdale-High Park</td>
+<td>MULTIPOLYGON (((623403.341 4836059.877, 623660...</td>
+<td>5</td>
+<td>TORONTO</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">13</td>
+<td>04</td>
+<td>Parkdale-High Park</td>
+<td>MULTIPOLYGON (((623403.341 4836059.877, 623660...</td>
+<td>0</td>
+<td>YORK</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">14</td>
+<td>01</td>
+<td>Etobicoke North</td>
+<td>MULTIPOLYGON (((614351.171 4846444.141, 614361...</td>
+<td>4</td>
+<td>ETOBICOKE</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>01</td>
+<td>Etobicoke North</td>
+<td>MULTIPOLYGON (((614351.171 4846444.141, 614361...</td>
+<td>0</td>
+<td>YORK</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">14</td>
+<td>01</td>
+<td>Etobicoke North</td>
+<td>MULTIPOLYGON (((614351.171 4846444.141, 614361...</td>
+<td>1</td>
+<td>NORTH YORK</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">15</td>
+<td>03</td>
+<td>Etobicoke-Lakeshore</td>
+<td>MULTIPOLYGON (((621142.680 4834316.930, 621184...</td>
+<td>4</td>
+<td>ETOBICOKE</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>03</td>
+<td>Etobicoke-Lakeshore</td>
+<td>MULTIPOLYGON (((621142.680 4834316.930, 621184...</td>
+<td>5</td>
+<td>TORONTO</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">15</td>
+<td>03</td>
+<td>Etobicoke-Lakeshore</td>
+<td>MULTIPOLYGON (((621142.680 4834316.930, 621184...</td>
+<td>0</td>
+<td>YORK</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16</td>
+<td>02</td>
+<td>Etobicoke Centre</td>
+<td>MULTIPOLYGON (((618634.809 4839739.484, 618769...</td>
+<td>4</td>
+<td>ETOBICOKE</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>02</td>
+<td>Etobicoke Centre</td>
+<td>MULTIPOLYGON (((618634.809 4839739.484, 618769...</td>
+<td>0</td>
+<td>YORK</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>08</td>
+<td>Eglinton-Lawrence</td>
+<td>MULTIPOLYGON (((623736.777 4838829.585, 623733...</td>
+<td>5</td>
+<td>TORONTO</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">17</td>
+<td>08</td>
+<td>Eglinton-Lawrence</td>
+<td>MULTIPOLYGON (((623736.777 4838829.585, 623733...</td>
+<td>0</td>
+<td>YORK</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>08</td>
+<td>Eglinton-Lawrence</td>
+<td>MULTIPOLYGON (((623736.777 4838829.585, 623733...</td>
+<td>1</td>
+<td>NORTH YORK</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>17</td>
+<td>Don Valley North</td>
+<td>MULTIPOLYGON (((630115.267 4846940.229, 629822...</td>
+<td>1</td>
+<td>NORTH YORK</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">18</td>
+<td>17</td>
+<td>Don Valley North</td>
+<td>MULTIPOLYGON (((630115.267 4846940.229, 629822...</td>
+<td>3</td>
+<td>SCARBOROUGH</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19</td>
+<td>16</td>
+<td>Don Valley East</td>
+<td>MULTIPOLYGON (((635868.077 4841822.174, 635375...</td>
+<td>2</td>
+<td>EAST YORK</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>16</td>
+<td>Don Valley East</td>
+<td>MULTIPOLYGON (((635868.077 4841822.174, 635375...</td>
+<td>1</td>
+<td>NORTH YORK</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19</td>
+<td>16</td>
+<td>Don Valley East</td>
+<td>MULTIPOLYGON (((635868.077 4841822.174, 635375...</td>
+<td>3</td>
+<td>SCARBOROUGH</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">20</td>
+<td>09</td>
+<td>Davenport</td>
+<td>MULTIPOLYGON (((625211.921 4838198.779, 625237...</td>
+<td>5</td>
+<td>TORONTO</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>09</td>
+<td>Davenport</td>
+<td>MULTIPOLYGON (((625211.921 4838198.779, 625237...</td>
+<td>0</td>
+<td>YORK</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>13</td>
+<td>Toronto Centre</td>
+<td>MULTIPOLYGON (((630823.939 4836850.705, 630840...</td>
+<td>5</td>
+<td>TORONTO</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>05</td>
+<td>York South-Weston</td>
+<td>MULTIPOLYGON (((623317.871 4840656.060, 623361...</td>
+<td>4</td>
+<td>ETOBICOKE</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">22</td>
+<td>05</td>
+<td>York South-Weston</td>
+<td>MULTIPOLYGON (((623317.871 4840656.060, 623361...</td>
+<td>5</td>
+<td>TORONTO</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>05</td>
+<td>York South-Weston</td>
+<td>MULTIPOLYGON (((623317.871 4840656.060, 623361...</td>
+<td>0</td>
+<td>YORK</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">22</td>
+<td>05</td>
+<td>York South-Weston</td>
+<td>MULTIPOLYGON (((623317.871 4840656.060, 623361...</td>
+<td>1</td>
+<td>NORTH YORK</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">23</td>
+<td>14</td>
+<td>Toronto-Danforth</td>
+<td>MULTIPOLYGON (((634386.886 4840242.263, 634398...</td>
+<td>5</td>
+<td>TORONTO</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>14</td>
+<td>Toronto-Danforth</td>
+<td>MULTIPOLYGON (((634386.886 4840242.263, 634398...</td>
+<td>2</td>
+<td>EAST YORK</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>10</td>
+<td>Spadina-Fort York</td>
+<td>MULTIPOLYGON (((630327.894 4834904.243, 630376...</td>
+<td>5</td>
+<td>TORONTO</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Notice something interesting has happened: most wards belong to multiple regions. Sometimes this is genuinely the case as a ward might be split across different regions, and other times there might just be a sliver that intersects due to inconsistent geometric coding.</p>
+<p>But ultimately we want to know which exact region we can put a ward in. One way to do this is to conduct a spatial join and filter for the region with which a ward has the highest intersection.</p>
+<div id="e56b5ee1-cc90-4877-8089-c3851d81e76e" class="cell" data-execution_count="177">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform intersection and calculate overlap areas</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>intersections <span class="op">=</span> gpd.overlay(</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    gdf_wards[[<span class="st">"WARD_NAME"</span>, <span class="st">"geometry"</span>]],</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    gdf_regions[[<span class="st">"REGION_NAME"</span>, <span class="st">"geometry"</span>]],</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">"intersection"</span>,</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    keep_geom_type<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>intersections[<span class="st">"overlap_area"</span>] <span class="op">=</span> intersections.area  <span class="co"># Calculate area in m²</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the region with maximum overlap for each ward</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>dominant_regions <span class="op">=</span> (</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    intersections</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    .sort_values(<span class="st">"overlap_area"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    .drop_duplicates(<span class="st">"WARD_NAME"</span>)</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    [[<span class="st">"WARD_NAME"</span>, <span class="st">"REGION_NAME"</span>, <span class="st">"overlap_area"</span>]]</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge back with original wards data</span></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>wards_with_primary_region <span class="op">=</span> gdf_wards.merge(</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>    dominant_regions,</span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span><span class="st">"WARD_NAME"</span>,</span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>    how<span class="op">=</span><span class="st">"left"</span></span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Show results</span></span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>wards_with_primary_region[[<span class="st">"WARD_NAME"</span>, <span class="st">"REGION_NAME"</span>, <span class="st">"overlap_area"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="177">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">WARD_NAME</th>
+<th data-quarto-table-cell-role="th">REGION_NAME</th>
+<th data-quarto-table-cell-role="th">overlap_area</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Humber River-Black Creek</td>
+<td>NORTH YORK</td>
+<td>3.069420e+07</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>York Centre</td>
+<td>NORTH YORK</td>
+<td>3.535267e+07</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Willowdale</td>
+<td>NORTH YORK</td>
+<td>1.975882e+07</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>University-Rosedale</td>
+<td>TORONTO</td>
+<td>1.298088e+07</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Beaches-East York</td>
+<td>TORONTO</td>
+<td>8.270194e+06</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Scarborough Southwest</td>
+<td>SCARBOROUGH</td>
+<td>2.805821e+07</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Scarborough-Rouge Park</td>
+<td>SCARBOROUGH</td>
+<td>5.399644e+07</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Scarborough North</td>
+<td>SCARBOROUGH</td>
+<td>3.043395e+07</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Scarborough-Guildwood</td>
+<td>SCARBOROUGH</td>
+<td>2.604160e+07</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Scarborough Centre</td>
+<td>SCARBOROUGH</td>
+<td>2.820184e+07</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Scarborough-Agincourt</td>
+<td>SCARBOROUGH</td>
+<td>2.139598e+07</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>Don Valley West</td>
+<td>NORTH YORK</td>
+<td>1.792099e+07</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Toronto-St. Paul's</td>
+<td>TORONTO</td>
+<td>9.542804e+06</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Parkdale-High Park</td>
+<td>TORONTO</td>
+<td>1.274050e+07</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Etobicoke North</td>
+<td>ETOBICOKE</td>
+<td>4.827373e+07</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Etobicoke-Lakeshore</td>
+<td>ETOBICOKE</td>
+<td>3.993253e+07</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>Etobicoke Centre</td>
+<td>ETOBICOKE</td>
+<td>3.733975e+07</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>Eglinton-Lawrence</td>
+<td>NORTH YORK</td>
+<td>1.503473e+07</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>Don Valley North</td>
+<td>NORTH YORK</td>
+<td>2.441675e+07</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>Don Valley East</td>
+<td>NORTH YORK</td>
+<td>2.267217e+07</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>Davenport</td>
+<td>TORONTO</td>
+<td>9.782633e+06</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>Toronto Centre</td>
+<td>TORONTO</td>
+<td>5.861979e+06</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>York South-Weston</td>
+<td>YORK</td>
+<td>1.323862e+07</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>Toronto-Danforth</td>
+<td>TORONTO</td>
+<td>1.608529e+07</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>Spadina-Fort York</td>
+<td>TORONTO</td>
+<td>1.861978e+07</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
