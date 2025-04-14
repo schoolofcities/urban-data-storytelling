@@ -221,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#chart-components" id="toc-chart-components" class="nav-link" data-scroll-target="#chart-components">Chart components</a></li>
   <li><a href="#practical-tips-for-effective-data-visualization" id="toc-practical-tips-for-effective-data-visualization" class="nav-link" data-scroll-target="#practical-tips-for-effective-data-visualization">Practical tips for effective data visualization</a>
   <ul class="collapse">
-  <li><a href="#visual-and-storytelling-hierarchy" id="toc-visual-and-storytelling-hierarchy" class="nav-link" data-scroll-target="#visual-and-storytelling-hierarchy">Visual and storytelling hierarchy</a></li>
+  <li><a href="#hierarchy-in-graphics-and-stories" id="toc-hierarchy-in-graphics-and-stories" class="nav-link" data-scroll-target="#hierarchy-in-graphics-and-stories">Hierarchy in graphics and stories</a></li>
   <li><a href="#de-clutter-and-high-data-ink-ratio" id="toc-de-clutter-and-high-data-ink-ratio" class="nav-link" data-scroll-target="#de-clutter-and-high-data-ink-ratio">De-clutter and high data-ink ratio</a></li>
   <li><a href="#design-for-your-output" id="toc-design-for-your-output" class="nav-link" data-scroll-target="#design-for-your-output">Design for your output</a></li>
   <li><a href="#brand-guidelines" id="toc-brand-guidelines" class="nav-link" data-scroll-target="#brand-guidelines">Brand guidelines</a></li>
@@ -338,10 +338,10 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/PreattentiveProcessingTable.png" class="img-fluid figure-img"></p>
-<figcaption>Example of preattentive processing to highlight certain numbers in a table via different shading. Source: Better Data Visualizations (Schwabish, 2021)</figcaption>
+<figcaption>Example of preattentive processing to highlight rows in a table (Source: <a href="https://www.cnn.com/us/maps-damage-los-angeles-wildfires-dg/index.html">CNN</a>)</figcaption>
 </figure>
 </div>
-<p>Via preattentive processing, we can guide viewers’ attention efficiently, enhancing comprehension and reducing cognitive load.</p>
+<p>Via preattentive processing, we can guide viewers’ attention efficiently, enhance comprehension, and reduce cognitive load.</p>
 </section>
 <section id="perceptual-rankings" class="level3">
 <h3 class="anchored" data-anchor-id="perceptual-rankings">Perceptual Rankings</h3>
@@ -371,21 +371,31 @@ ul.task-list li input[type="checkbox"] {
 <section id="chart-components" class="level2">
 <h2 class="anchored" data-anchor-id="chart-components">Chart components</h2>
 <p>Strong visualizations depend not just on the data and encodings, but on thoughtful framing. The supporting elements of a chart provide clarity and context.</p>
+<p>Thinking about and directly designing each of the different components of a chart, rather than just using the defaults of a software (e.g.&nbsp;what a chart in <code>Excel</code> or a <code>Python</code> library will give you initially), will go a long way in making effective graphics.</p>
+<p>Make sure every visual component earns its place. If it doesn’t clarify, it probably distracts.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/ChartComponents.png" class="img-fluid figure-img"></p>
+<figcaption>Chart components (Source: data.europa.eu/apps/data-visualisation-guide)</figcaption>
+</figure>
+</div>
 </section>
 <section id="practical-tips-for-effective-data-visualization" class="level2">
 <h2 class="anchored" data-anchor-id="practical-tips-for-effective-data-visualization">Practical tips for effective data visualization</h2>
 <p>A strong visualization can make complex data accessible; however, without care, the message can get lost. Great visualizations balance clarity, precision, and aesthetics. This section offers practical tips and guiding principles to elevate your data visualizations.</p>
 <p>Note that these are general recommendations and rules of thumb, not rules that you must follow 100% of the time! data visualization is a combination of technical, design, and artistic skills, and there are often exceptions to the rules :)</p>
-<section id="visual-and-storytelling-hierarchy" class="level3">
-<h3 class="anchored" data-anchor-id="visual-and-storytelling-hierarchy">Visual and storytelling hierarchy</h3>
+<section id="hierarchy-in-graphics-and-stories" class="level3">
+<h3 class="anchored" data-anchor-id="hierarchy-in-graphics-and-stories">Hierarchy in graphics and stories</h3>
 <p>Guide the viewer’s eye by creating a hierarchy between background and foreground. Your key message should be the focus and highlighted while everything else (axes, grid-lines, background elements) should support and not compete with it.</p>
 <ul>
 <li>Bold or highlight key data points.</li>
 <li>Use size, contrast, and color to signal importance.</li>
 <li>De-emphasize secondary elements like gridlines, minor tick marks, or axis labels</li>
 </ul>
-<p>This is very similar to journalistic styles of writing, “don’t burry the lead” and “bottom line up-front”</p>
+<p>The line chart in the image above has a strong visual hiearchy between the key data points it wants to show (e.g.&nbsp;the lines for Sweden, the E.U., and Ireland) relative to the rest of the chart components.</p>
 <p>When guiding your readers through a story with a series of visualizations, sometimes it is useful to follow a Data Visualization Sandwich metaphor</p>
+<p><img src="img/Sandwich.png" class="img-fluid"></p>
+<p>This is very similar to journalistic styles of writing, “don’t burry the lead” and “bottom line up-front”</p>
 <p>Let’s look at an example, this is a map of the United States from an article by the <a href="www.theguardian.com/environment/2022/feb/05/americans-above-average-temperature-increase-climate-crisis">Guardian</a> on how the USA is facing above average rises in temperatures. This map acts as the Patty – it draws the attention of the reader and introduces the topic of the article.</p>
 <p><img src="img/Sandwich_EX1.png" class="img-fluid"></p>
 <p>The article then takes a deeper look at specific counties that have experienced significant temperature increases via a table</p>
@@ -414,9 +424,19 @@ ul.task-list li input[type="checkbox"] {
 <li>Group or collapse less important data to simplify interpretation.</li>
 <li>Whitespace is your friend</li>
 </ul>
+<p>Here’s an example of COVID-19 deaths that appeared in <a href="www.theguardian.com/us-news/2022/mar/13/how-covid-shook-the-us-charts-graphs">The Guardian</a> that has limited visual clutter and strong hierarchy.</p>
+<p><img src="img/DataInk_EX1.png" class="img-fluid"></p>
 </section>
 <section id="design-for-your-output" class="level3">
 <h3 class="anchored" data-anchor-id="design-for-your-output">Design for your output</h3>
+<p>Effective visualization isn’t one-size-fits-all. Always consider where and how your work will be seen. Tailor your design choices to the medium and the audience:</p>
+<ul>
+<li><p><strong>Print vs digital</strong>: Pick fonts, line weights, and colors that are clear at the specific resolution and paper size that you are designing for. What works on a low-resolution screen may not translate well to paper.</p></li>
+<li><p><strong>Presentations vs.&nbsp;reports</strong>: Slides call for bold, minimal visuals with large text and fewer details. Reports allow for more complexity and written explanation.</p></li>
+<li><p><strong>Social media</strong>: Prioritize clarity at small sizes. Expect compression and low resolution and keep text minimal and legible.</p></li>
+<li><p><strong>Audience expertise</strong>: Technical audiences may appreciate complex charts and granular data. Broader or non-expert audiences often benefit from simpler visuals, clear labeling, and guiding annotations.</p></li>
+</ul>
+<p>If you design a chart to fit within a specific medium (e.g.&nbsp;mobile view on a screen), it’s recommended you redesign the chart if you want to have it in a different context (e.g.&nbsp;printed in a report). This is to prevent fonts being resized so they are no longer legible, graphics losing resolution and becoming fuzzy, or distorted if they are resized.</p>
 </section>
 <section id="brand-guidelines" class="level3">
 <h3 class="anchored" data-anchor-id="brand-guidelines">Brand guidelines</h3>
@@ -436,9 +456,10 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="choosing-charts-based-on-your-data" class="level3">
 <h3 class="anchored" data-anchor-id="choosing-charts-based-on-your-data">Choosing charts based on your data</h3>
-<p>Match the visualization to the type of data and the message you’re trying to convey.</p>
-<p>and 3D charts in most cases because they tend to overcomplicate</p>
-<p>or be difficult to accurately perceive. Below are some uses for various basic charts.</p>
+<p>Match the visualization to the type of data and the message you’re trying to convey. Here’s a quick overview of very common charts for different types of data</p>
+<p><img src="img/ChartPurpose.png" class="img-fluid"></p>
+<p>Choosing the right chart type is essential to making your data clear, compelling, and truthful. While there’s no single “correct” choice for every scenario, understanding your data and communication goals will help you select a format that highlights the story you want to tell. Whether you’re comparing categories, showing trends over time, exploring distributions, or revealing relationships, each chart type has strengths and limitations.</p>
+<p>For a deeper dive into chart selection, visit <a href="https://www.data-to-viz.com/">From Data to Viz</a>, a comprehensive, visual guide that helps you choose the most appropriate chart based on your data structure and communication goals.</p>
 
 
 </section>
