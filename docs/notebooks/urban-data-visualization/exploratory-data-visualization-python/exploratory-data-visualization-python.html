@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Exploratory Data Analysis and Visualization in pandas – Urban Data Storytelling 📊📈🏙️</title>
+<title>Exploratory data visualization in Python – Urban Data Storytelling 📊📈🏙️</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,9 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      &lt;img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg'  style='height:auto;width:220px'&gt;&lt;/img&gt;&lt;br&gt;Urban Data Storytelling 📊📈🏙️
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-visualization/exploratory-data-visualization-python/exploratory-data-visualization-python.html">Exploratory data visualization in Python</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -232,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../notebooks/urban-data-visualization/exploratory-data-visualization-python/exploratory-data-visualization-python.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../notebooks/urban-data-visualization/exploratory-data-visualization-python/exploratory-data-visualization-python.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Exploratory data visualization in Python</span></a>
   </div>
 </li>
@@ -267,9 +265,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-visualization/exploratory-data-visualization-python/exploratory-data-visualization-python.html">Exploratory data visualization in Python</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Exploratory Data Analysis and Visualization in pandas</h1>
+<h1 class="title">Exploratory data visualization in Python</h1>
 </div>
 
 
@@ -286,12 +284,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Data exploration is an important step in the data analysis process. It can highlight anomalies or interesting trends, and reveal how the data are distributed. This notebook explains how to visually explore data by creating plots using the popular <a href="https://seaborn.pydata.org/">seaborn</a> and <a href="https://matplotlib.org/">matplotlib</a> libraries.</p>
+<p>Data exploration is an important step in the data analysis process. It can highlight anomalies or interesting trends, and reveal how the data are distributed.</p>
+<p>This notebook explains how to visually explore data by creating plots using the popular <a href="https://seaborn.pydata.org/">seaborn</a> and <a href="https://matplotlib.org/">matplotlib</a> libraries.</p>
 <p>It will include the following plots:</p>
 <ul>
 <li>Histogram &amp; stacked histogram</li>
 <li>Kernel density plot</li>
-<li>Line plot</li>
+<li>Bar charts</li>
+<li>Line charts</li>
 <li>Scatter plot with trend line</li>
 </ul>
 <section id="install-and-import-libraries" class="level2">
