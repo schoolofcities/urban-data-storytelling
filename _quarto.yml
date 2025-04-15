@@ -28,6 +28,7 @@ website:
           # - notebooks/urban-data-visualization/data-visualization-overview/data-visualization-overview.md
           # - notebooks/urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.ipynb
           - notebooks/urban-data-visualization/data-visualization/data-visualization.md
+          - notebooks/urban-data-visualization/exploratory-data-visualization-python/exploratory-data-visualization-python.ipynb
           - notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.md
      
 format:

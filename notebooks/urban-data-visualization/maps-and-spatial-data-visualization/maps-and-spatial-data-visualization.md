@@ -18,7 +18,7 @@ Maps and spatial data visualizations can either created be at the research stage
 
 This page will cover the basics of what goes into making maps and spatial data visualizations, following each of these steps. 
 
-The last part of this notebook shows an example in QGIS for making a simple map ............. The 
+The last part of this notebook shows an example in QGIS for making maps with data-defined styling, for both categorical and numeric data.
 
 If you are interested in creating specific types of maps, check out the following notebooks:
 
@@ -169,12 +169,13 @@ Let's look at a couple examples in QGIS!
 
 ### Styling categorical data
 
-Land cover? 
+For the first example, 
+
+
 
 ### Styling numeric data
 
-Colouring some points libraries by number of books
-
+Colouring some points libraries by number of books?
 
 
 
