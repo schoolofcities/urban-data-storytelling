@@ -203,6 +203,24 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Maps and visualizing spatial data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-visualization/choropleth-maps/choropleth-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Choropleth Maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bivariate Choropleth Maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-visualization/flow-maps/flow-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Origin-Destination Flow Maps</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -267,8 +285,11 @@ ul.task-list li input[type="checkbox"] {
 <p>If you are interested in creating specific types of maps, check out the following notebooks:</p>
 <ul>
 <li>Choropleth maps</li>
+<li>Bivariate choropleth maps</li>
 <li>Proportional symbol maps</li>
 <li>Mapping point density (dot maps, grid maps, heat maps)</li>
+<li>Categorical random dot maps</li>
+<li>Flow maps</li>
 </ul>
 </section>
 <section id="types-of-maps" class="level2">
@@ -395,17 +416,56 @@ ul.task-list li input[type="checkbox"] {
 <li>Style street network data based on quality and safety of cycling infrastructure</li>
 <li>Many more!</li>
 </ul>
-<p>Many of these options we use <a href="">visual variables</a> like size, hue, saturation, orientation, etc. that we showed in our <a href="">data visualization</a> notebook, but apply these directly to spatial data on a map.</p>
-<p>Let’s look at a couple examples in QGIS!</p>
+<p>Many of these options we use <a href="">visual variables</a> like size, hue, saturation, orientation, etc. that we showed in our <a href="../../../notebooks/urban-data-visualization/data-visualization/data-visualization.html">data visualization</a> notebook, but apply these directly to spatial data on a map.</p>
+<p>Let’s look at a couple examples in QGIS! (If you haven’t worked with QGIS before, check out our <a href="../../../notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">intro to spatial data and GIS</a> notebook)</p>
 </section>
 <section id="styling-categorical-data" class="level3">
 <h3 class="anchored" data-anchor-id="styling-categorical-data">Styling categorical data</h3>
-<p>For the first example,</p>
+<p>For the first example, let’s try to create a map of public washrooms in Toronto in QGIS, using some categorical based styling - where different categories or groups</p>
+<ul>
+<li>Washroom Facilities (a point dataset of public washroom facilities in Toronto)</li>
+<li>Centrelines (a line dataset representing a mix of features like streets, railways, power lines, rivers, etc. in Toronto)</li>
+<li>Green space (a polygon dataset of green spaces and public parks in Toronto)</li>
+<li>Lake Ontario (a polygon of Lake Ontario)</li>
+</ul>
+<p>(All of this data is from the <a href="https://open.toronto.ca/catalogue/">City of Toronto</a>, except for the Lake Ontario polygon, which is from <a href="https://www.openstreetmap.org/relation/1206310">OpenStreetMap</a>)</p>
+<p>Load the data into QGIS and re-order the layers such that the washroom locations are at the top. For our map, the washrooms are a the key data we want to show (i.e.&nbsp;the foreground), while the others are visual reference (i.e.&nbsp;the background).</p>
+<p>After loading in the data, right click on each of the layers and then click <em>Open Attribute Table</em> to view the what data is linked to each feature.</p>
+<p>Pretty much every column of any spatial dataset can be styled categorically, but many wouldn’t be interesting, or if there are many different categories, lead to a lot of visual clutter.</p>
+<p>So let’s pick something simple to start with, we’ll colour the washrooms by their <code>type</code>, which only has two options <code>"Washroom Building"</code> or <code>"Portable Toilet"</code></p>
+<p>To style a layer based on a category, right-click the layer, go to <em>Properties</em>, then <em>Symbology</em>, and then at the top there will be a dropdown where one of the options is <em>Categorical</em>. The below dropdown is the <em>Value</em>, which is the column in your data that you want to use to define the style of your data. For this example, lets pick <code>type</code>. Then click <em>Classify</em>. You should each possible category display with a default symbol next to it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/qgis-categorical.png" class="img-fluid figure-img"></p>
+<figcaption>Screenshot of categorical styling in QGIS</figcaption>
+</figure>
+</div>
+<p>You can change the default colours and symbols of each category by double clicking on it.</p>
+<p>Once you hit <em>OK</em> at the bottom-right, your map should update!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/toronto-washrooms.png" class="img-fluid figure-img"></p>
+<figcaption>Map of public washrooms in Toronto coloured by their type</figcaption>
+</figure>
+</div>
+<p>This was just the beginning! You can play with categorical styling for other layers as well. Here’s a couple ideas to improve the the reference layers</p>
+<p><strong>Style to colour green spaces based on their <code>AREA_CLASS</code>, to give different green spaces types different shades of green</strong></p>
+<p><strong>Style the centreline data by <code>FEATURE_CODE_DESC</code>, to show major roads as thicker lines</strong></p>
+<p>Tip! with categorical styling you can also very quickly filter a dataset. Notice in how once a layer is being categorized, there are check marks next to each symbol, this allows you to easily hide or show different categories if you want.</p>
+<p>For example, if you only wanted to show parks and cemeteries in the green space layer, you can simply uncheck all the other layers.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/qgis-categorical-parks.png" class="img-fluid figure-img"></p>
+<figcaption>Screenshot of selectable categorical styling in QGIS</figcaption>
+</figure>
+</div>
 </section>
 <section id="styling-numeric-data" class="level3">
 <h3 class="anchored" data-anchor-id="styling-numeric-data">Styling numeric data</h3>
-<p>Colouring some points libraries by number of books?</p>
-<p>How we decide to group (i.e.&nbsp;classify or bin) or data, as well as what colours we pick can</p>
+<p>We often have ordinal or numeric data that we want to use to define our styling. For example, showing larger numbers in a column with a darker colour and smaller numbers with a lighter colour.</p>
+<p>Let’s do a quick example, with data indicating camera locations for automated enforcement of speeding in Toronto.</p>
+<p>How we decide to group (i.e.&nbsp;classify or bin) or data, as well as what colours we pick can, can</p>
+<p>For further ideas, ….</p>
 </section>
 </section>
 <section id="layers-and-hierarchy" class="level2">

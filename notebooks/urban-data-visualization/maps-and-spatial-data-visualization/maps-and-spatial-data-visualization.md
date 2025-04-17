@@ -23,8 +23,11 @@ The last part of this notebook shows an example in QGIS for making maps with dat
 If you are interested in creating specific types of maps, check out the following notebooks:
 
 - Choropleth maps
+- Bivariate choropleth maps
 - Proportional symbol maps
 - Mapping point density (dot maps, grid maps, heat maps)
+- Categorical random dot maps
+- Flow maps
 
 
 ## Types of maps
@@ -177,6 +180,8 @@ For the first example, let's try to create a map of public washrooms in Toronto 
 - Green space (a polygon dataset of green spaces and public parks in Toronto)
 - Lake Ontario (a polygon of Lake Ontario)
 
+(All of this data is from the [City of Toronto](https://open.toronto.ca/catalogue/), except for the Lake Ontario polygon, which is from [OpenStreetMap](https://www.openstreetmap.org/relation/1206310))
+
 Load the data into QGIS and re-order the layers such that the washroom locations are at the top. For our map, the washrooms are a the key data we want to show (i.e. the foreground), while the others are visual reference (i.e. the background).
 
 After loading in the data, right click on each of the layers and then click *Open Attribute Table* to view the what data is linked to each feature.  
@@ -211,13 +216,21 @@ For example, if you only wanted to show parks and cemeteries in the green space 
 
 ### Styling numeric data
 
-Colouring some points libraries by number of books?
+We often have ordinal or numeric data that we want to use to define our styling. For example, showing larger numbers in a column with a darker colour and smaller numbers with a lighter colour.
+
+Let's do a quick example, with data indicating camera locations for automated enforcement of speeding in Toronto.
 
 
 
 
 
-How we decide to group (i.e. classify or bin) or data, as well as what colours we pick can 
+
+
+
+
+How we decide to group (i.e. classify or bin) or data, as well as what colours we pick can, can 
+
+For further ideas, ....
 
 
 
