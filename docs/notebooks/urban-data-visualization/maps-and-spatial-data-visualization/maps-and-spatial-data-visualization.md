@@ -218,19 +218,20 @@ For example, if you only wanted to show parks and cemeteries in the green space 
 
 We often have ordinal or numeric data that we want to use to define our styling. For example, showing larger numbers in a column with a darker colour and smaller numbers with a lighter colour.
 
-Let's do a quick example, with data indicating camera locations for automated enforcement of speeding in Toronto.
+Let's do a quick example, with data indicating camera locations for automated enforcement of speeding in Toronto. This dataset includes a integer column which denotes the number of speeding tickets for each automated camera in February 2025. 
 
+We can colour these using the *Graduated* option in QGIS. This option allows us to pick a numeric column, and then classify or group the data into different "bins" or "breaks", each with a colour, in this case ordered sequentially (more tickets, a darker red).
 
+![Screenshot of graduated styling in QGIS](img/qgis-graduated.png)
 
+There are lots options here for different sets of colours and ways to classify your data. The screenshots show what I did, **try playing with some of these different options**
 
+![Map automated speeding tickets by location in Toronto in February 2025](img/toronto-speeding.png)
 
-
-
-
-
-How we decide to group (i.e. classify or bin) or data, as well as what colours we pick can, can 
-
-For further ideas, ....
+For more ideas and ways on how we can classify and map numeric data via data-driven styles, check out our notebooks on ...
+- insert here
+- insert here
+- insert here
 
 
 
@@ -248,7 +249,30 @@ These are two examples of maps relating to the 2023 wildfires in Yellowknife whe
 ![Scale and location of evacuation resulting from the 2023 Yellowknife wildfires](img/evacuation.png)
 
 
-# Map layouts
+## Map layouts
+
+You'll notice that many of the example maps above include graphic elements beyond specific data layers. Things like ...
+- Titles
+- Explanatory text and annotations
+- Place labels
+- Borders
+- Scale bar
+- North arrows
+- Legends
+
+Not all maps and spatial data visualizations require all of the above, but they can often help communicate what is being shown on the map to your readers and audience.
+
+The space that you would combine these items on top of map data layers are sometimes called *map layouts*, with each item sometimes called *map elements* or *layout elements*
+
+Most mapping and data analysis software and related libraries (e.g. in QGIS, Python, R, etc.), provide tools for adding elements and creating map layouts. In QGIS you can go to *Project* then *New Print Layout*. This gives you a blank canvas for you to add your map data and layout elements. [Here is a good step-by-step tutorial](https://mapscaping.com/custom_map_layout_in_qgis/).
+
+In the layout view in QGIS, you can export and save your map as `.pdf`, `.png`, or `.svg`.
+
+While the options in QGIS and similar tools are pretty good, they are limited in terms of customization. 
+
+If we are making maps for publication and communication material (i.e. for not just our internal research), we typically export only our map data layers at a high resolution, and then do our layouts and related elements in graphic design software (e.g. Inkscape, Illustrator, Canva, etc.). This allows for a much more customization in the design of layout elements, to help make a much more professional final product.
+
+
 
 
 
