@@ -171,6 +171,7 @@ Many of these options we use [visual variables]() like size, hue, saturation, or
 Let's look at a couple examples in QGIS! (If you haven't worked with QGIS before, check out our [intro to spatial data and GIS](../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.md) notebook)
 
 
+
 ### Styling categorical data
 
 For the first example, let's try to create a map of public washrooms in Toronto in QGIS, using some categorical based styling - where different categories or groups 
@@ -212,6 +213,8 @@ For example, if you only wanted to show parks and cemeteries in the green space 
 
 ![Screenshot of selectable categorical styling in QGIS](img/qgis-categorical-parks.png)
 
+(Also note how the map has been rotated ~17-18 degrees, to horizontally align some of the features and reduce empty white space).
+
 
 
 ### Styling numeric data
@@ -228,10 +231,8 @@ There are lots options here for different sets of colours and ways to classify y
 
 ![Map automated speeding tickets by location in Toronto in February 2025](img/toronto-speeding.png)
 
-For more ideas and ways on how we can classify and map numeric data via data-driven styles, check out our notebooks on ...
-- insert here
-- insert here
-- insert here
+For more ideas and ways on how we can classify and map numeric data via data-driven styles, check out our [notebook on choropleth maps](../choropleth-maps/choropleth-maps.md) (maps where areas are shaded based on data values)
+
 
 
 
@@ -247,6 +248,7 @@ These are two examples of maps relating to the 2023 wildfires in Yellowknife whe
 ![Map of the 2023 Yellowknife wildfires](img/fire-map.png)
 
 ![Scale and location of evacuation resulting from the 2023 Yellowknife wildfires](img/evacuation.png)
+
 
 
 ## Map layouts
@@ -270,7 +272,7 @@ In the layout view in QGIS, you can export and save your map as `.pdf`, `.png`, 
 
 While the options in QGIS and similar tools are pretty good, they are limited in terms of customization. 
 
-If we are making maps for publication and communication material (i.e. for not just our internal research), we typically export only our map data layers at a high resolution, and then do our layouts and related elements in graphic design software (e.g. Inkscape, Illustrator, Canva, etc.). This allows for a much more customization in the design of layout elements, to help make a much more professional final product.
+If we are making maps for publication and communication material (i.e. for not just our internal research), we typically export only our map data layers at a high resolution, and then do our layouts and related elements in graphic design software (e.g. Inkscape, Illustrator, Canva, etc.). This allows for a much more customization in the design of layout elements, to help make a much more professional final product. 
 
 
 

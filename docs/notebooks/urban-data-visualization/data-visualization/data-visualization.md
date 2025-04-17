@@ -122,10 +122,13 @@ For example, based on this research, position on a common scale is easier to int
 
 Your data visualizations should be readable by everyone, which means thinking beyond aesthetics and into the realm of inclusive design. 
 
-Use color vision deficiency-safe palettes, such as those available on ColorBrewer, and avoid relying solely on color to distinguish elements. 
+For charts and maps, there are two main things to consider
 
-Incorporate texture, thickness, shape, or labels where possible. Additionally, ensure sufficient contrast between the foreground and background, as light grey text on white or red-on-green combinations are problematic for readability. The greater the contrast between the foreground and background, the easier it is to read. For text, keep in mind that font size plays a significant role: smaller fonts require even higher contrast between the text color and background to maintain readability.
+1. Using colourblind safe colours. Tools, such as [ColorBrewer](https://colorbrewer2.org) can be used to pick safe colours. There are also [tools for uploading images](https://www.color-blindness.com/coblis-color-blindness-simulator/) (e.g. of a chart or a map), and test how it is viewed for different types of colourblindness. Highly recommend using this for any graphics that will appear in publications
 
+2. Adequate font sizes a making sure there is adequate level of contrast between foreground and background, especially with text. The greater the contrast between the foreground and background, the easier it is to read. For text, keep in mind that font size plays a significant role: smaller fonts require even higher contrast between the text color and background to maintain readability. There are online [tools for checking contrast ratios](https://webaim.org/resources/contrastchecker/) between background and foreground that are useful for design.
+
+![Examples of different text on a background at different contrast ratios](img/VisualAccessibility.png)
 
 
 
@@ -135,7 +138,7 @@ Strong visualizations depend not just on the data and encodings, but on thoughtf
 
 Thinking about and directly designing each of the different components of a chart, rather than just using the defaults of a software (e.g. what a chart in `Excel` or a `Python` library will give you initially), will go a long way in making effective graphics.
 
-Make sure every visual component earns its place. If it doesn’t clarify, it probably distracts.
+Make sure every visual component earns its place. If it doesn’t clarify, it probably distracts, and it's probably best to either remove or de-emphasize it.
 
 ![Chart components (Source: data.europa.eu/apps/data-visualisation-guide)](img/ChartComponents.png)
 

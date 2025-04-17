@@ -33,6 +33,7 @@ website:
           - notebooks/urban-data-visualization/choropleth-maps/choropleth-maps.md
           - notebooks/urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.ipynb
           - notebooks/urban-data-visualization/flow-maps/flow-maps.ipynb
+          - notebooks/urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.ipynb
 
      
 format:
