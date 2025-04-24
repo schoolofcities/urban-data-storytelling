@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>proportional-symbol-maps – &lt;img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg'  style='height:auto;width:220px'&gt;&lt;/img&gt;&lt;br&gt;Urban Data Storytelling 📊📈🏙️</title>
+<title>Proportional symbol maps – Urban Data Storytelling 📊📈🏙️</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
+<link href="../../../assets/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -66,6 +67,30 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XB09CWTEWB"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XB09CWTEWB');
+</script>
+
+<meta name="description" content="Notebooks on urban data analysis and visualization">
+<meta name="author" content="School of Cities">
+
+<meta property="og:title" content="Proportional symbol maps – Urban Data Storytelling 📊📈🏙️">
+<meta name="og:description" content="Notebooks on urban data analysis and visualization">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://schoolofcities.github.io/urban-data-storytelling">
+<meta property="og:image" content="https://schoolofcities.github.io/evening-and-night-commuting/web-card.png">
+<meta property="og:locale" content="en_CA">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="https://schoolofcities.github.io/urban-data-storytelling">
+<meta name="twitter:creator" content="@UofTCities">
+<meta name="twitter:title" content="Proportional symbol maps – Urban Data Storytelling 📊📈🏙️">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://schoolofcities.github.io/evening-and-night-commuting/web-card.png">
 
 
 <link rel="stylesheet" href="../../../assets/styles.css">
@@ -245,27 +270,38 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#proportional-symbol-maps" id="toc-proportional-symbol-maps" class="nav-link active" data-scroll-target="#proportional-symbol-maps">Proportional symbol maps</a>
-  <ul class="collapse">
-  <li><a href="#on-how-to-size-symbols" id="toc-on-how-to-size-symbols" class="nav-link" data-scroll-target="#on-how-to-size-symbols">On how to size symbols</a>
+  <li><a href="#on-how-to-size-symbols" id="toc-on-how-to-size-symbols" class="nav-link active" data-scroll-target="#on-how-to-size-symbols">On how to size symbols</a>
   <ul class="collapse">
   <li><a href="#continuous-versus-grouped-symbol-sizes" id="toc-continuous-versus-grouped-symbol-sizes" class="nav-link" data-scroll-target="#continuous-versus-grouped-symbol-sizes">Continuous versus grouped symbol sizes</a></li>
   <li><a href="#area-versus-diameter-symbol-sizes" id="toc-area-versus-diameter-symbol-sizes" class="nav-link" data-scroll-target="#area-versus-diameter-symbol-sizes">Area versus diameter symbol sizes</a></li>
   </ul></li>
   <li><a href="#proportional-symbol-maps-in-qgis" id="toc-proportional-symbol-maps-in-qgis" class="nav-link" data-scroll-target="#proportional-symbol-maps-in-qgis">Proportional symbol maps in QGIS</a></li>
   <li><a href="#more-symbol-options" id="toc-more-symbol-options" class="nav-link" data-scroll-target="#more-symbol-options">More symbol options! :)</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-visualization/proportional-symbol-maps/proportional-symbol-maps.html">Proportional symbol maps</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../../notebooks/urban-data-visualization/proportional-symbol-maps/proportional-symbol-maps.html">Proportional symbol maps</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Proportional symbol maps</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="proportional-symbol-maps" class="level1">
-<h1>Proportional symbol maps</h1>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <p>Proportional symbol maps are an intuitive way to visualize quantitative data on a map or visualization. Instead of relying on color gradients like choropleth maps, proportional symbol maps use symbols (most often circles) sized in direct proportion to the data they represent.</p>
 <p>They are most often used for representing totals or counts (e.g.&nbsp;larger symbols, greater totals).</p>
 <p>They are typically applied to point data (e.g.&nbsp;circles for transit station sized by ridership) or to polygons (e.g.&nbsp;census tracts represented by a circle, that is sized based on its population)</p>
@@ -437,7 +473,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -6,6 +6,7 @@ project:
 
 website:
   title: "<img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg'  style='height:auto;width:220px'></img><br>Urban Data Storytelling 📊📈🏙️"
+  favicon: assets/favicon.svg
   sidebar:
     style: floating
     contents: 
@@ -42,3 +43,4 @@ format:
     toc: true
     toc-depth: 3
     toc-expand: true
+    include-in-header: _includes/head.html

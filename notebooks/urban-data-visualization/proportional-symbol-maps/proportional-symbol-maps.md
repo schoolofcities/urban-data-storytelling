@@ -1,4 +1,6 @@
-# Proportional symbol maps
+---
+title: "Proportional symbol maps"
+---
 
 Proportional symbol maps are an intuitive way to visualize quantitative data on a map or visualization. Instead of relying on color gradients like choropleth maps, proportional symbol maps use symbols (most often circles) sized in direct proportion to the data they represent. 
 
