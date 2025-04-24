@@ -68,7 +68,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
@@ -169,13 +168,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../notebooks/urban-data-analytics/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Urban Data Analytics</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Storytelling</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The importance of urban data storytelling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Analytics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html" class="sidebar-item-text sidebar-link">
@@ -209,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistical Foundations</span></a>
+ <span class="menu-text">Statistical foundations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -236,17 +252,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Overview of Canadian census data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/us-census-data/us-census-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of U.S. census data</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Urban Data Visualization</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-visualization/data-visualization/data-visualization.html" class="sidebar-item-text sidebar-link">
@@ -349,7 +371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>As a short side note on history, it is surprising that despite centuries of thematic maps showing multivariate data, bivariate choropleths are a recent creation. They gained popularity in the 1970s via maps created by the U.S. Bureau of the Census (<a href="https://doi.org/10.1559/152304075784313250">DOI</a>). Here’s one of their maps. I believe these were the first published bivariate maps, but if you are reading this and know of earlier bivariate maps, please let me know. I’d be super interested to see them.</p>
 <p><img src="images/us-census-income-education-1975-paper.png" width="501"></p>
 <section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<h2 data-anchor-id="prerequisites">Prerequisites</h2>
 <p>Prior knowledge of Python, including <code>pandas</code> and <code>geopandas</code>, as well as Inkscape or similar graphic design software, would be helpful for the following tutorial.</p>
 <p>Click <a href="https://github.com/schoolofcities/mapping-workshops-2023/raw/main/notebooks/bivariate-maps/bivariate-maps.zip">here</a> to download this article as a Jupyter Notebook alongside the datasets required. In the download, there is also a standalone Python script, if you want to run the steps all-at-once or integrate with anything else you have cooking.</p>
 <p>You can also run the notebook <a href="https://mybinder.org/v2/gh/schoolofcities/mapping-workshops-2023/HEAD?urlpath=lab%2Ftree%2Fnotebooks%2Fbivariate-maps%2Fbivariate-maps.ipynb">Binder</a></p>
@@ -367,7 +389,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="loading-data" class="level2">
-<h2 class="anchored" data-anchor-id="loading-data">Loading Data</h2>
+<h2 data-anchor-id="loading-data">Loading Data</h2>
 <p>We’re going to replicate the map of Winnipeg shown at the top of this page. I’ve pre-filtered the source datasets for Winnipeg, and they are included in the download link above. The datasets we’ll be using are: - <a href="https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index-eng.cfm">Census Dissemination Areas (DA) Polygons</a> - <a href="https://ontariohealthprofiles.ca/canmargCAN.php">Canadian Marginalization Index (CAN-Marg)</a> - <a href="https://www.arcgis.com/home/item.html?id=c6d2917c4a7d4fb4a8e7a615369b68d5">Canadian Bikeway Comfort and Safety Classification system (Can-BICS)</a></p>
 <p>We’re also going to add three additional layers solely for cartographic purposes (i.e.&nbsp;as reference layers on the final map) - <a href="https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index-eng.cfm">Census Subdivision (CSD) Polygon</a> - i.e.&nbsp;a boundary polygon for Winnipeg - <a href="https://www.openstreetmap.org/#map=11/49.8787/-97.1514">Major Streets from OpenStreetMap</a> - <a href="https://www.openstreetmap.org/#map=11/49.8787/-97.1514">Rivers from OpenStreetMap</a></p>
 <p>To get started, let’s read the first three data layers and merge them into a single <code>geoDataFrame</code>, joining by the Dissemination Area unique id, <code>dauid</code>. We’ll also load the three carotgraphic reference layers.</p>
@@ -465,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="univariate-choropleth-maps" class="level2">
-<h2 class="anchored" data-anchor-id="univariate-choropleth-maps">Univariate Choropleth Maps</h2>
+<h2 data-anchor-id="univariate-choropleth-maps">Univariate Choropleth Maps</h2>
 <p>GeoPandas has a built-in <code>plot</code> function that makes it very easy to create univariate choropleth maps for any quantitative variable. In the code below, we use <strong>quantiles</strong> (equal number of DAs in each coloured group) to create choropleths using <code>geopandas</code> and <code>matplotlib</code>.</p>
 <p>If you’re interested in learning more about creating univariate choropleth maps in Python, including how to classify data, check out the Geographic Data Science textbook’s <a href="https://geographicdata.science/book/notebooks/05_choropleth.html">chapter</a> on the topic. You can also refer to the <code>geopandas.GeoDataFrame.plot</code> <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.plot.html">documentation</a> for more information.</p>
 <p>Creating similar maps in QGIS is also straightforward. Simply load the data, right-click on the layer, go to <code>properties</code>, then <code>symbology</code>, and then select <code>Graduated</code>. From here, you’ll have access to a wide range of options for colours and classification schemes to create informative univariate choropleth maps.</p>
@@ -514,7 +536,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="bivariate-classifications" class="level2">
-<h2 class="anchored" data-anchor-id="bivariate-classifications">Bivariate Classifications</h2>
+<h2 data-anchor-id="bivariate-classifications">Bivariate Classifications</h2>
 <p>The first step towards creating a bivariate map is to classify our data.</p>
 <p>I’ll be focusing 3x3 classifications using quantiles, but the same principles can be applied to any classification type.</p>
 <p>A bivariate classification has two dimensions, let’s call those <code>X</code> and <code>Y</code>. The legend can be visualized as a 2-dimensional chart. For this example, I’m classifying each dimension into three categories, terming them 0 (low), 1, and 2 (high). We then <strong>concatenate</strong> these two categories together to create a joint classification. For example, a high value in the X dimension and a low value in the Y dimension would be classified as <code>2-0</code>.</p>
@@ -615,7 +637,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>At this stage, we can also save the classified data to then view it in QGIS or use for web-mapping: <code>gdf.to_file("data/winnipeg-bivariate.geojson", driver='GeoJSON')</code></p>
 </section>
 <section id="bivariate-colours" class="level2">
-<h2 class="anchored" data-anchor-id="bivariate-colours">Bivariate Colours</h2>
+<h2 data-anchor-id="bivariate-colours">Bivariate Colours</h2>
 <p>Now that we’ve classified our data, we can assign colours and make a map!</p>
 <p>Here are a few examples for colouring that we can choose from:</p>
 <p><img src="images/eg-legends.svg" width="620"></p>
@@ -698,7 +720,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="layout-design-in-inkscape" class="level2">
-<h2 class="anchored" data-anchor-id="layout-design-in-inkscape">Layout Design in Inkscape</h2>
+<h2 data-anchor-id="layout-design-in-inkscape">Layout Design in Inkscape</h2>
 <p>The line of code above exports the figure as an <code>.svg</code> (Scalable Vector Graphic). We can open it up in Inkscape (or similar graphic design software) and add layout items such as a title, legend, scale bar, north arrow, and other information.</p>
 <p>The page size is set to 7x7 inches based on the <code>plt.subplots(figsize=(7,7))</code> included at the top of the code used to render the map.</p>
 <p>Generally, my workflow is to create at least three layers in the following order: - layout (title, legend, scale bar, north arrow, and other info) - map (in this case, the original exported .svg) - background (often just a single rectangle with a solid fill colour)</p>
@@ -711,12 +733,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/winnipeg-bivariate-map.png" width="699"></p>
 </section>
 <section id="final-thoughts" class="level2">
-<h2 class="anchored" data-anchor-id="final-thoughts">Final Thoughts</h2>
+<h2 data-anchor-id="final-thoughts">Final Thoughts</h2>
 <p>The classification method (e.g., quantiles, equal breaks, etc.), the number of classes, and of course, the colours can easily be tinkered with.</p>
 <p>A noted drawback with bivariate maps is that they are often not initially intuitive and sometimes require a good amount of looking back-and-forth with the legend, especially compared to univariate choropleth maps. Even with a 3x3 legend like the map above, it can take a bit of time to read the map and understand and parse out specific values (especially for the middle values). If you’re more interested in understanding each variable on its own, rather than a direct comparison, it’s probably best to stick with two side-by-side univariate choropleth maps. If you want to allow for comparison but keep things easier to read, a 2x2 legend might be better, but remember that different aggregation can lead to varying results!</p>
 </section>
 <section id="additional-resources" class="level2">
-<h2 class="anchored" data-anchor-id="additional-resources">Additional Resources</h2>
+<h2 data-anchor-id="additional-resources">Additional Resources</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Multivariate_map">Wikipedia page on multivariate maps</a></li>
 <li><a href="https://doi.org/10.1559/152304075784313250">Color Statistical Mapping by the U.S. Bureau of the Census</a> | (what I think might be the first published bivariate maps)</li>
@@ -748,13 +770,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

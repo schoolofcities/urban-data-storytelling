@@ -1,6 +1,19 @@
-# Introduction to urban data
+---
+title: "Introduction to urban data"
+---
 
-[Insert video here]
+<br>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://www.youtube.com/embed/a2o8OKAH2RE" 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+</div>
+<br>
+
 
 ## Where does data come from?
 
@@ -9,11 +22,11 @@ In data analysis, understanding the type and origin of data is essential to choo
 
 | Data source type      | Description                                                                 | Examples                                       |
 |-----------------------|-----------------------------------------------------------------------------|------------------------------------------------|
-| **Designed/Survey**        | Data collected through surveys, experiments, or designed methods.           | Census data (historical or current), research surveys, opinion polls |
-| **Administrative**         | Data from routine operations or official records. Often open when government-run. | City records (public housing locations, public transit data), tax records, healthcare data (historical and current), school enrollment data |
-| **Crowdsourced**           | Data contributed by the public or community-driven platforms.                | OpenStreetMap (OSM), Wikipedia, social media data, 311 data, Google reviews |
-| **Event-Driven/Real-Time** | Data generated from sensors, transactions, or interactions. Often continuous and time-sensitive. | Satellite data, mobile phone GPS, IoT sensors, e-commerce transactions, website clicks |
-| **Derived data**           | Data created by transforming or calculating metrics from existing data or simulations. | Indices like low-income prevalence or social deprivation, environmental quality scores, simulated datasets for testing or model training |
+| *Designed/Survey*        | Data collected through surveys, experiments, or designed methods.           | Census data (historical or current), research surveys, opinion polls |
+| *Administrative*         | Data from routine operations or official records. Often open or public when government-run. | City records (public housing locations, public transit data), tax records, healthcare data (historical and current), school enrollment data |
+| *Crowdsourced*           | Data contributed by the public or community-driven platforms.                | OpenStreetMap (OSM), Wikipedia, social media data, 311 data, Google reviews |
+| *Event-Driven/Real-Time* | Data generated from sensors, transactions, or interactions. Often continuous and time-sensitive. | Satellite data, mobile phone GPS, IoT sensors, e-commerce transactions, website clicks |
+| *Derived data*           | Data created by transforming or calculating metrics from existing data or simulations. | Indices like low-income prevalence or social deprivation, environmental quality scores, simulated datasets for testing or model training |
 
 
 Sometimes data can be a combination, for example, both the [United States Census Bureau](https://www.census.gov/about/what/admin-data.html) and [Statistics Canada](https://www.statcan.gc.ca/en/our-data/where/administrative-data) collect a combination of survey data and administrative data.
@@ -29,12 +42,12 @@ Sometimes data can be a combination, for example, both the [United States Census
 
 Data availability refers to how accessible data is and the conditions under which it can be used. Key categories include:
 
-**Public / Open data** - Data that is freely accessible to anyone and can be reused without restrictions. Open data is often provided by governments, research institutions, and public organizations. It is typically non-sensitive and available in machine-readable formats. Examples include aggregated census data, municipal open data, and OpenStreetMap.
+*Public / Open data* - Data that is freely accessible to anyone and can be reused without restrictions. Open data is often provided by governments, research institutions, and public organizations. It is typically non-sensitive and available in machine-readable formats. Examples include aggregated census data, municipal open data, and OpenStreetMap.
 
-**Restricted data**
+*Restricted data*
 Data that is available but comes with limitations due to privacy, security, or legal concerns. This includes sensitive datasets such as health data, dis-aggregate census data, and government records with personal identifiers that are redacted or protected.
 
-**Proprietary data** - Data that is owned by a specific entity (e.g., a corporation or private organization) and is not freely available. Access is typically granted through licenses, paid subscriptions, or agreements. For example, cell phone mobility data from [Spectus](https://docs.spectus.ai/) can be used to measure [post-pandemic downtown recovery trends](https://downtownrecovery.com/charts/trends), real estate data from [Costar](https://www.costar.com/home/demo?utm_source=google&utm_medium=cpc&utm_campaign=8362819905&utm_content=85421354763&utm_term=costar%20data&utm_campaign_id=7013p000002MUoNAAW&gad_source=1&gclid=Cj0KCQjwna6_BhCbARIsALId2Z2fd8KIEBhSXancChMwmCO0cA0j-R7r_1hNQu85JD7SXKO78atAMFAaAp-lEALw_wcB) can be used to assess vacancy rates or rent prices, and consumer data from [Data Axle](https://www.data-axle.com/) can be used to study [the impact of new housing on migration patterns](https://www.urbandisplacement.org/maps/housing-by-block/).
+*Proprietary data* - Data that is owned by a specific entity (e.g., a corporation or private organization) and is not freely available. Access is typically granted through licenses, paid subscriptions, or agreements. For example, cell phone mobility data from [Spectus](https://docs.spectus.ai/) can be used to measure [post-pandemic downtown recovery trends](https://downtownrecovery.com/charts/trends), real estate data from [Costar](https://www.costar.com/home/demo?utm_source=google&utm_medium=cpc&utm_campaign=8362819905&utm_content=85421354763&utm_term=costar%20data&utm_campaign_id=7013p000002MUoNAAW&gad_source=1&gclid=Cj0KCQjwna6_BhCbARIsALId2Z2fd8KIEBhSXancChMwmCO0cA0j-R7r_1hNQu85JD7SXKO78atAMFAaAp-lEALw_wcB) can be used to assess vacancy rates or rent prices, and consumer data from [Data Axle](https://www.data-axle.com/) can be used to study [the impact of new housing on migration patterns](https://www.urbandisplacement.org/maps/housing-by-block/).
 
 <br>
 
@@ -47,7 +60,7 @@ The table below lists a handful of websites where you can find publicly availabl
 
 | Topic | Data sources |
 |--------------|------------|
-| Demographic data | - [Canadian census data](../canadian-census-data/canadian-census-data.md) |
+| Demographic data | - [Canadian census data](../canadian-census-data/canadian-census-data.md) <br>- [U.S. census data](https://www.census.gov/data.html) |
 | Municipal data | - Open data portals (e.g., [Toronto](https://open.toronto.ca/), [Montreal](https://donnees.montreal.ca/), & [Vancouver](https://opendata.vancouver.ca/pages/home/)) |
 | Environment | - [NASA's Earth Science Data Systems (ESDS) Program](https://www.earthdata.nasa.gov/data/catalog)<br>- [The Canadian Urban Environmental Health Research Consortium](https://canue.ca/)<br>- [Natural Resources Canada](https://natural-resources.canada.ca/science-data/data-analysis)<br>- [Environment and Climate Change Canada](https://open.canada.ca/data/organization/ec) 
 | Land use and built environment | - [OpenStreetMap](https://www.openstreetmap.org/)<br>- [Land cover of Canada](https://open.canada.ca/data/en/dataset/ee1580ab-a23d-4f86-a09b-79763677eb47)<br>- Municipal-level zoning maps (e.g., in [Toronto](https://map.toronto.ca/maps/map.jsp?app=ZBL_CONSULT)) |
@@ -56,6 +69,7 @@ The table below lists a handful of websites where you can find publicly availabl
 | Housing and homelessness | - [Housing - Statistics Canada](https://www.statcan.gc.ca/en/subjects-start/housing)<br>- [Housing data from Canada Mortgage and Housing Corporation](https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/housing-data) |
 
 [Web scraping](https://en.wikipedia.org/wiki/Web_scraping), or extracting information from the internet, is another method for creating datasets. Since the data do not already exist and must be created, this can be more time-intensive than using existing datasets. However, packages like [beautifulsoup](https://pypi.org/project/beautifulsoup4/) or [selenium](https://pypi.org/project/selenium/) in Python make this process easier.
+
 
 
 
@@ -107,15 +121,15 @@ Different software (e.g. Excel, Python, R, QGIS, etc.) might have slightly diffe
 
 ## Levels of measurement
 
-While **data types** specify what kind of data a variable can hold, **levels of measurement** describe how data is structured and the relationships between different values. They refer to how we can classify and interpret the data in terms of its inherent ordering, spacing, and possible mathematical operations.
+While *data types* specify what kind of data a variable can hold, *levels of measurement* describe how data is structured and the relationships between different values. They refer to how we can classify and interpret the data in terms of its inherent ordering, spacing, and possible mathematical operations.
 
-- **Nominal**: Categorical data with no inherent order (e.g., colors, countries, land-use types e.g. `Urban`, `Wetlands`, `Forest`, etc.).
+- *Nominal*: Categorical data with no inherent order (e.g., colors, countries, land-use types e.g. `Urban`, `Wetlands`, `Forest`, etc.).
 
-- **Ordinal**: Data with a meaningful order, but unknown or not always equal differences between values (e.g., movie ratings like `Good`,`Okay`, or `Bad`, or levels of education e.g. `High School`, `Bachelors`, `Masters` ).
+- *Ordinal*: Data with a meaningful order, but unknown or not always equal differences between values (e.g., movie ratings like `Good`,`Okay`, or `Bad`, or levels of education e.g. `High School`, `Bachelors`, `Masters` ).
 
-- **Interval**: Ordered data with equal intervals between values but no true zero (e.g., temperature in Celsius or Fahrenheit, datetime).
+- *Interval*: Ordered data with equal intervals between values but no true zero (e.g., temperature in Celsius or Fahrenheit, datetime).
 
-- **Ratio**: Ordered data with equal intervals and a true zero point, allowing for meaningful ratios (e.g., length, area, income).
+- *Ratio*: Ordered data with equal intervals and a true zero point, allowing for meaningful ratios (e.g., length, area, income).
 
 
 
@@ -123,9 +137,13 @@ While **data types** specify what kind of data a variable can hold, **levels of 
 
 There are hundreds of software and tools for processing, analyzing, and visualizing data. 
 
-When choosing which software to use to analyze or visualize data, one of the main considerations is whether the software is *open source* or *proprietary*. Open source software has its source code publicly available and can be modified by anyone on the internet. Proprietary software’s source code is not publicly available, is typically developed and updated by a closed group, and is licensed to users in exchange for payment. Read [this link](https://www.geeksforgeeks.org/difference-between-open-source-software-and-proprietary-software/) if you're interested in learning more about the difference between the two.
+When choosing which other software to use to analyze or visualize data, one of the main considerations is whether the software is *open source* or *proprietary*. Open source software has its source code publicly available and can be modified by anyone on the internet. Proprietary software’s source code is not publicly available, is typically developed and updated by a closed group, and is licensed to users in exchange for payment. Read [this article](https://www.geeksforgeeks.org/difference-between-open-source-software-and-proprietary-software/) if you're interested in learning more about the difference between the two.
 
-In this course, we will focus on *open source* software because it is free and available to everyone. Below is a list of some of the main open source programming languages, software, and tools that we recommend using for data analysis and mapping.
+Spreadsheet software, like [Excel](https://www.microsoft.com/en-us/microsoft-365/excel), [Google Sheets](https://workspace.google.com/products/sheets/), and [LibreOffice calc](https://www.libreoffice.org/discover/calc/) can be great for viewing and exploring data, as well as quick analyses, they can be super limited for serious data analysis. They struggle with large datasets, lacks robust tools for cleaning and transforming complex data, have very limited options for spatial/geographic data, and makes reproducibility nearly impossible. Plus, it's easy to introduce silent errors with formulas or copy-pasting. For anything beyond basic summaries or charts, scripting languages like `R` or `Python` are far more powerful, reliable, and scalable.
+
+Geographic information systems (GIS), are tools and software specifically for are tools and software designed for analyzing, processing, and visualizing spatial data. There are desktop point-and-click software like [QGIS](https://qgis.org/) that are great for exploratory and smaller-scale analyses and visualization, while programming languages like `Python` have many libraries for working with spatial data.
+
+In this course, other than common spreadsheet software, we will focus on *open source* software because it is free and available to everyone. Below is a list of some of the main open source programming languages, software, and tools that we recommend using for data analysis and mapping.
 
 | Purpose | Software/Tools |
 |--------------|------------|
@@ -140,12 +158,12 @@ In this course, we will focus on *open source* software because it is free and a
 
 While is no set of specific step-by-step instructions for data analysis -- each project involves unique data sources, variables, methodologies, and outputs -- but there is a general [framework](https://www.geeksforgeeks.org/six-steps-of-data-analysis-process/) that we recommend following:
 
-1. **Define the problem or research question.** What question are you trying to answer with data? Is data analysis the best way to answer that question? Who is the audience for your data analysis, and what do they want to know?
-2. **Collect data.** What kind of data do you need to answer your research question, and where can you find it? Does it exist? In what format?
-3. **Clean data.** Make sure the data has appropriate variable names, does not have misspellings or other errors, and the variables are the correct data types. Get rid of any redundant or irrelevant data that you don't need, and determine a method for dealing with any missing values.
-4. **Analyze data.** Start by exploring the data to understand its structure and any statistical patterns. Then perform your analysis -- for example, are you trying to uncover trends, or measure the relationship among variables?
-5. **Visualize data.** Create plots, maps, or other visual representations that illustrate the structure, trends, or relationships present in your data.
-6. **Present data.** Clearly communicate your results to your intended audience. This could involve writing a report, or creating a presentation or interactive dashboard. Whatever gets your message across!
+1. *Define the problem or research question.* What question are you trying to answer with data? Is data analysis the best way to answer that question? Who is the audience for your data analysis, and what do they want to know?
+2. *Collect data.* What kind of data do you need to answer your research question, and where can you find it? Does it exist? In what format?
+3. *Clean data.* Make sure the data has appropriate variable names, does not have misspellings or other errors, and the variables are the correct data types. Get rid of any redundant or irrelevant data that you don't need, and determine a method for dealing with any missing values.
+4. *Analyze data.* Start by exploring the data to understand its structure and any statistical patterns. Then perform your analysis -- for example, are you trying to uncover trends, or measure the relationship among variables?
+5. *Visualize data.* Create plots, maps, or other visual representations that illustrate the structure, trends, or relationships present in your data.
+6. *Present data.* Clearly communicate your results to your intended audience. This could involve writing a report, or creating a presentation or interactive dashboard. Whatever gets your message across!
 
 It is important to iterate through some of these steps and make updates as needed. For example, if step 5 (visualize your data) reveals that you have an imbalanced dataset, you may need to go back to step 3 or 4 to address this. And of course once you hit steps 5. and 6., you might find something super interesting in your data that you'll want to collect more data and repeat the process all over again! :)
 

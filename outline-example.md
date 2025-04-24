@@ -45,3 +45,21 @@ Optional readings (pick and choose depending on which relate to your project):
 - proportional symbol maps (notebook)
 - mapping density (notebook)
 (might add 1 or 2 more in this section depending on time)
+
+
+
+Thank y'all for all your edits, additions, etc. huge improvement overall!:)
+
+I've integrated almost everything for the first two sections (storytelling and analytics) between meetings today. Didn't have time to do the visualization part, will do that Monday morning (so far I only have 3hours of meetings on Monday)
+
+I've also tried to fix consistency issues throughout (terms should all be italic/yellow, prompts and buttons to click blue/bold), as well as little copyediting/language consistency that is inevitable when this many people are working on something
+
+Remaining to dos for the storytelling and analytics:
+- Integrate the two tables (all can add to the Google Sheet, I can copy over on Monday)
+- In the ethics notebook, please format the additional readings section to .md link format [text](URL) and a consistent citation/naming style (Michelle? Evelyne?)
+- For the new pages (data storytelling, ethics etc.), please send me .png or .jpg files of all images included (Michelle / Evelyne)
+- Python intro notebook: More step-by-step intro to python for running a very simple script (Julia)
+- Python intro notebook: Create glossery table for common terms (Julia)
+- Python intro notebook: have examples urban rather than names and fruit (Julia)
+
+- stats page - list other examples of hypoth tests?

@@ -31,12 +31,19 @@ figcaption {
 }
 
 em {
-	background-color: #f1c50080;
+	background-color: #f1c50050;
 }
 
 strong {
-	background-color: #8DBF2E50;
-	opacity: 0.9;
+	background-color: #6fc7ea34;
+	opacity: 1;
+}
+
+a {
+	color: #1E3765;
+}
+a:hover {
+	color: #007FA3;
 }
 
 

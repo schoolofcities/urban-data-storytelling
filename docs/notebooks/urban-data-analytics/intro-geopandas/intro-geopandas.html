@@ -68,7 +68,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
@@ -171,13 +170,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../notebooks/urban-data-analytics/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Urban Data Analytics</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Storytelling</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The importance of urban data storytelling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Analytics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html" class="sidebar-item-text sidebar-link">
@@ -211,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistical Foundations</span></a>
+ <span class="menu-text">Statistical foundations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -238,17 +254,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Overview of Canadian census data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/us-census-data/us-census-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of U.S. census data</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Urban Data Visualization</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-visualization/data-visualization/data-visualization.html" class="sidebar-item-text sidebar-link">
@@ -340,7 +362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="in-python" class="level3">
-<h3 class="anchored" data-anchor-id="in-python">in Python</h3>
+<h3 data-anchor-id="in-python">in Python</h3>
 <p>GeoPandas is a library for working with spatial (typically geographic) data. It extends the functionality of pandas to support spatial data types and operations, making it easier to analyze, visualize, and manipulate spatial data. Many of the tasks that are typically done within a GIS can be done via geopandas.</p>
 <div id="5368d972-52f8-4ac4-b18d-15628b9b667f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -349,7 +371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="loading-exploring-and-geometric-data-types" class="level2">
-<h2 class="anchored" data-anchor-id="loading-exploring-and-geometric-data-types">Loading, Exploring, and Geometric Data Types</h2>
+<h2 data-anchor-id="loading-exploring-and-geometric-data-types">Loading, Exploring, and Geometric Data Types</h2>
 <p>Geospatial data represents real-world features using three primary geometric types: - Points: Single (x,y) coordinates for discrete locations like transit stops or landmarks. - Lines: Connected sequences of points forming paths, such as roads or rivers. - Polygons: Closed shapes defining areas like census tracts or property boundaries.</p>
 <div id="67116cce-650f-4f20-baac-4941679ad071" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>transit_stops <span class="op">=</span> gpd.read_file(<span class="st">"data/ttc_stops.geojson"</span>)</span>
@@ -624,7 +646,7 @@ Datum: World Geodetic System 1984 ensemble
 </div>
 </section>
 <section id="basic-static-plots" class="level2">
-<h2 class="anchored" data-anchor-id="basic-static-plots">Basic Static Plots</h2>
+<h2 data-anchor-id="basic-static-plots">Basic Static Plots</h2>
 <p>We explore geometry simply by plotting using <code>.plot()</code>. We can do this for any row, or the entire GeoDataFrame</p>
 <div id="cc673a6a-b291-4b6a-8dc6-df561305c7e9" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>transit_stops.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -880,7 +902,7 @@ Datum: World Geodetic System 1984 ensemble
 </div>
 </section>
 <section id="interactive-exploration" class="level2">
-<h2 class="anchored" data-anchor-id="interactive-exploration">Interactive Exploration</h2>
+<h2 data-anchor-id="interactive-exploration">Interactive Exploration</h2>
 <p>GeoPandas’ <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.explore.html">explore()</a> function generates an interactive Leaflet map (like Google Maps) from your geodata. We can use it to better understand the data we are working with and how it might be viewed from the user side on a web application (e.g., Svelte).</p>
 <p>You’ll need to install a couple libraries in order for this to work - matplotlib, folium, and mapclassify. This can be done in the environment that you’re working in with a command like <code>pip install folium matplotlib mapclassify</code>.</p>
 <div id="48adc7d6-3300-479f-9b7b-f1f0d1b9579c" class="cell" data-execution_count="17">
@@ -1270,7 +1292,7 @@ Datum: World Geodetic System 1984 ensemble
 </div>
 </section>
 <section id="layering-multiple-datasets" class="level2">
-<h2 class="anchored" data-anchor-id="layering-multiple-datasets">Layering Multiple Datasets</h2>
+<h2 data-anchor-id="layering-multiple-datasets">Layering Multiple Datasets</h2>
 <p>Layering lets you combine different geographic datasets (like roads on top of neighborhoods) to reveal spatial relationships. In GeoPandas, each plot() call adds a new visual layer, with zorder controlling which appears on top. These plots are highly customizable, as we see below.</p>
 <div id="74c0d7ca-81d5-40dc-a102-5c7647e6a25c" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the canvas (all layers will share this axis)</span></span>
@@ -1344,13 +1366,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

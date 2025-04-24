@@ -34,7 +34,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
@@ -132,13 +131,30 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../notebooks/urban-data-analytics/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Urban Data Analytics</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Storytelling</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The importance of urban data storytelling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Analytics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html" class="sidebar-item-text sidebar-link">
@@ -172,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistical Foundations</span></a>
+ <span class="menu-text">Statistical foundations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -199,17 +215,23 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Overview of Canadian census data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/us-census-data/us-census-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of U.S. census data</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Urban Data Visualization</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-visualization/data-visualization/data-visualization.html" class="sidebar-item-text sidebar-link">
@@ -338,10 +360,10 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Not ideal for showing non-count data (e.g., per capita, averages, ratios, etc.) unless clearly annotated.</p></li>
 </ul>
 <section id="on-how-to-size-symbols" class="level2">
-<h2 class="anchored" data-anchor-id="on-how-to-size-symbols">On how to size symbols</h2>
+<h2 data-anchor-id="on-how-to-size-symbols">On how to size symbols</h2>
 <p>When creating a proportional symbol map, one of the key decisions is how to size your symbols so they reflect the data meaningfully. There are two main choices you’ll make:</p>
 <section id="continuous-versus-grouped-symbol-sizes" class="level3">
-<h3 class="anchored" data-anchor-id="continuous-versus-grouped-symbol-sizes">Continuous versus grouped symbol sizes</h3>
+<h3 data-anchor-id="continuous-versus-grouped-symbol-sizes">Continuous versus grouped symbol sizes</h3>
 <p><strong>Continuous sizing</strong> means each symbol is scaled exactly to match the data value it represents. For example, a location with 800 people might have a slightly smaller circle than one with 900.</p>
 <p>Pros:</p>
 <ul>
@@ -377,7 +399,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 <section id="area-versus-diameter-symbol-sizes" class="level3">
-<h3 class="anchored" data-anchor-id="area-versus-diameter-symbol-sizes">Area versus diameter symbol sizes</h3>
+<h3 data-anchor-id="area-versus-diameter-symbol-sizes">Area versus diameter symbol sizes</h3>
 <p>If we scale our circles as a direct mathematical function of our data, we have a few options.</p>
 <p><strong>Scaling by diameter</strong> means the width of the symbol (the circle’s diameter) is proportional to the data value.</p>
 <p>Pros:</p>
@@ -402,7 +424,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 <section id="proportional-symbol-maps-in-qgis" class="level2">
-<h2 class="anchored" data-anchor-id="proportional-symbol-maps-in-qgis">Proportional symbol maps in QGIS</h2>
+<h2 data-anchor-id="proportional-symbol-maps-in-qgis">Proportional symbol maps in QGIS</h2>
 <p>Great! lets take a look at an example of how to make a proportional symbol map in QGIS. We’ll use the same data for Edmonton that is shown at the top of this page to try to make a map showing the distribution of population in the city.</p>
 <p>Good prerequisites for this tutorial would be our <a href="../../../notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">introductory GIS</a> and <a href="../../../notebooks/urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html">spatial data visualization</a> notebooks.</p>
 <p><a href="./data/edmonton-ct-population-96-21.geojson">Click here to download data for census tracts in Edmonton</a>. The data includes the following columns, sourced from the Canadian census. Check out <a href="../../../notebooks/urban-data-analytics/canadian-census-data/canadian-census-data.html">our notebook on Canadian census data</a> for more details on this data source.</p>
@@ -448,7 +470,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 <section id="more-symbol-options" class="level2">
-<h2 class="anchored" data-anchor-id="more-symbol-options">More symbol options! :)</h2>
+<h2 data-anchor-id="more-symbol-options">More symbol options! :)</h2>
 <p>Circles are the most common shape for proportional symbol maps - but there are many other options available! Check out the following map, which uses triangles (or spikes) to show where Christmas trees grow in the USA. To make maps similar to this with your own data in QGIS or other software, the process would be to select a different symbol, or even load in your own custom symbol (e.g.&nbsp;as an <code>.svg</code>).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -496,13 +518,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

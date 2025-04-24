@@ -34,7 +34,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
@@ -132,13 +131,30 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../notebooks/urban-data-analytics/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Urban Data Analytics</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Storytelling</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The importance of urban data storytelling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Analytics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html" class="sidebar-item-text sidebar-link">
@@ -172,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistical Foundations</span></a>
+ <span class="menu-text">Statistical foundations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -199,17 +215,23 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Overview of Canadian census data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/us-census-data/us-census-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of U.S. census data</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Urban Data Visualization</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-visualization/data-visualization/data-visualization.html" class="sidebar-item-text sidebar-link active">
@@ -311,7 +333,7 @@ ul.task-list li input[type="checkbox"] {
 <p>We live in a world increasingly shaped by data – from climate change and public health to business performance and social media behavior – however, raw numbers alone are difficult to interpret. Visualizations help bridge that gap by making data more accessible, understandable, and actionable. It’s not just about making things look good, it’s about making data make sense.</p>
 <p>“The simple graph has brought more information to the data analyst’s mind than any other device. It specializes in providing indications of unexpected phenomena.” – <a href="https://en.wikipedia.org/wiki/John_Tukey">John Tukey</a></p>
 <section id="why-visualize-data" class="level2">
-<h2 class="anchored" data-anchor-id="why-visualize-data">Why visualize data?</h2>
+<h2 data-anchor-id="why-visualize-data">Why visualize data?</h2>
 <p>We visualize data to help us understand it better. When we turn numbers into pictures like charts or graphs, it becomes easier to see patterns, trends, or problems. Broadly speaking, visualization can serve two major goals:</p>
 <ol type="1">
 <li><strong>Exploration</strong> – Using charts to help make sense of the data. It helps you find interesting things or answer questions</li>
@@ -334,7 +356,7 @@ ul.task-list li input[type="checkbox"] {
 <p>This framework helps situate visualization as part of a broader storytelling or decision-making process. Whether you are creating a data story with multiple visuals or a single chart for a report, it is important to keep all of these things in mind. The purpose behind your visualization determines everything from the chart type you use to the level of detail, annotation, and tone you adopt.</p>
 </section>
 <section id="data-visualization-for-exploratory-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="data-visualization-for-exploratory-analysis">Data visualization for exploratory analysis</h2>
+<h2 data-anchor-id="data-visualization-for-exploratory-analysis">Data visualization for exploratory analysis</h2>
 <p>Before we share our findings with others, we often need to make sense of the data ourselves. This is where exploratory data analysis comes in. This is the process of visually investigating datasets to uncover trends, spot anomalies, test hypotheses, and surface insights that might otherwise be hidden in raw numbers or tables.</p>
 <p>Visualization during this stage can reveal unexpected patterns and outliers, correlations and clusters, distribution shapes, and data quality issues.</p>
 <p>It also helps uncover relationships that summary statistics alone might obscure. The exploratory process is typically iterative and often messy, with charts not needing to be beautiful, but instead, informative. Quick plots, heatmaps, and scatterplots are all useful tools in this phase, enabling a deeper understanding of the data before any formal analysis or presentation.</p>
@@ -347,7 +369,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 <section id="data-visualization-for-communication-and-storytelling" class="level2">
-<h2 class="anchored" data-anchor-id="data-visualization-for-communication-and-storytelling">Data visualization for communication and storytelling</h2>
+<h2 data-anchor-id="data-visualization-for-communication-and-storytelling">Data visualization for communication and storytelling</h2>
 <p>Once we’ve explored the data and identified key findings, the next step is to share these insights with others. Data visualization becomes a powerful tool for communication, helping us inform, engage, and persuade different audiences. In this context, visualization is not just about showing data, it’s about <strong>shaping understanding</strong> and sometimes even <strong>inspiring action</strong>.</p>
 <p>Data stories combine charts and text to walk the audience through a narrative arc. These stories often include:</p>
 <ol type="1">
@@ -359,7 +381,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Good data visualizations and stories often zoom in and out to show both the big picture and key details while guiding the audience with clear visual hierarchy and annotations.</p>
 <p>In advocacy contexts, data visualizations are used to support arguments, influence policy, and raise awareness. The visual design here should support the clarity and urgency of the message while still being transparent and truthful.</p>
 <section id="designing-for-specific-audiences" class="level3">
-<h3 class="anchored" data-anchor-id="designing-for-specific-audiences">Designing for specific audiences</h3>
+<h3 data-anchor-id="designing-for-specific-audiences">Designing for specific audiences</h3>
 <p>Not all data visualizations are created for the same audience or goal. Some are meant to be read in detail (like charts in a policy report), while others are intended to create an emotional impact at a glance (like a billboard or social media graphic).</p>
 <p>For example, a line chart depicting global temperatures over time provides nuance and precision, making it an excellent choice for scientists and analysts.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -378,10 +400,10 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 <section id="data-visualization-theory" class="level2">
-<h2 class="anchored" data-anchor-id="data-visualization-theory">Data visualization theory</h2>
+<h2 data-anchor-id="data-visualization-theory">Data visualization theory</h2>
 <p>A well-designed visualization isn’t just about making data look good – it’s about making it understandable, accurate, and accessible. This often requires a base understanding of how we encode data visually, how the human brain processes that information, and how to make charts function well across different audiences and mediums.</p>
 <section id="visual-variables" class="level3">
-<h3 class="anchored" data-anchor-id="visual-variables">Visual variables</h3>
+<h3 data-anchor-id="visual-variables">Visual variables</h3>
 <p>At the heart of every chart or graph is visual encoding: the transformation of data into visual elements (Figure 5). Each variable in your dataset must be “mapped” to a visual channel, often called a <em>visual variable</em>. The effectiveness of these visual encodings depends on what type of data you’re working with.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -391,7 +413,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 <section id="perception-and-cognition" class="level3">
-<h3 class="anchored" data-anchor-id="perception-and-cognition">Perception and cognition</h3>
+<h3 data-anchor-id="perception-and-cognition">Perception and cognition</h3>
 <p>Effective data visualization leverages our brain’s innate ability to rapidly process certain visual elements. This phenomenon, known as <em>preattentive processing</em>, allows viewers to quickly and effortlessly identify certain patterns, contrasts, and structures without conscious effort.</p>
 <p>This allows us to instantly spot outliers, notice trends and clusters, and recognize visual hierarchies.</p>
 <p>Key preattentive features include color, form, orientation, and size. For example, we can quickly distinguish a red circle among blue circles (color) and identify a square amidst a group of circles (form). These features are processed so swiftly and effortlessly that they can influence our perception and understanding of visual information without conscious effort.</p>
@@ -411,7 +433,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Via preattentive processing, we can guide viewers’ attention efficiently, enhance comprehension, and reduce cognitive load.</p>
 </section>
 <section id="perceptual-rankings" class="level3">
-<h3 class="anchored" data-anchor-id="perceptual-rankings">Perceptual Rankings</h3>
+<h3 data-anchor-id="perceptual-rankings">Perceptual Rankings</h3>
 <p>**Perceptual Rankings* help explain why some encodings are easier to interpret than others. Not all visual variables are equally effective.</p>
 <p>You may have noticed that in the scatter-plot example in the previous section, that it’s generally easier to pick out a red circle among a group of blue circles rather than a blue square among a group of blue circles.</p>
 <p>Research has established a hierarchy of visual channels based on their accuracy and ease of interpretation:</p>
@@ -429,7 +451,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 <section id="visual-accessibility" class="level3">
-<h3 class="anchored" data-anchor-id="visual-accessibility">Visual accessibility</h3>
+<h3 data-anchor-id="visual-accessibility">Visual accessibility</h3>
 <p>Your data visualizations should be readable by everyone, which means thinking beyond aesthetics and into the realm of inclusive design.</p>
 <p>For charts and maps, there are two main things to consider</p>
 <ol type="1">
@@ -445,7 +467,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 <section id="chart-components" class="level2">
-<h2 class="anchored" data-anchor-id="chart-components">Chart components</h2>
+<h2 data-anchor-id="chart-components">Chart components</h2>
 <p>Strong visualizations depend not just on the data and encodings, but on thoughtful framing. The supporting elements of a chart provide clarity and context.</p>
 <p>Thinking about and directly designing each of the different components of a chart, rather than just using the defaults of a software (e.g.&nbsp;what a chart in <code>Excel</code> or a <code>Python</code> library will give you initially), will go a long way in making effective graphics.</p>
 <p>Make sure every visual component earns its place. If it doesn’t clarify, it probably distracts, and it’s probably best to either remove or de-emphasize it.</p>
@@ -457,11 +479,11 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 <section id="practical-tips-for-effective-data-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="practical-tips-for-effective-data-visualization">Practical tips for effective data visualization</h2>
+<h2 data-anchor-id="practical-tips-for-effective-data-visualization">Practical tips for effective data visualization</h2>
 <p>A strong visualization can make complex data accessible; however, without care, the message can get lost. Great visualizations balance clarity, precision, and aesthetics. This section offers practical tips and guiding principles to elevate your data visualizations.</p>
 <p>Note that these are general recommendations and rules of thumb, not rules that you must follow 100% of the time! data visualization is a combination of technical, design, and artistic skills, and there are often exceptions to the rules :)</p>
 <section id="hierarchy-in-graphics-and-stories" class="level3">
-<h3 class="anchored" data-anchor-id="hierarchy-in-graphics-and-stories">Hierarchy in graphics and stories</h3>
+<h3 data-anchor-id="hierarchy-in-graphics-and-stories">Hierarchy in graphics and stories</h3>
 <p>Guide the viewer’s eye by creating a hierarchy between background and foreground. Your key message should be the focus and highlighted while everything else (axes, grid-lines, background elements) should support and not compete with it.</p>
 <ul>
 <li>Bold or highlight key data points.</li>
@@ -480,7 +502,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="img/Sandwich_EX3.png" class="img-fluid"></p>
 </section>
 <section id="de-clutter-and-high-data-ink-ratio" class="level3">
-<h3 class="anchored" data-anchor-id="de-clutter-and-high-data-ink-ratio">De-clutter and high data-ink ratio</h3>
+<h3 data-anchor-id="de-clutter-and-high-data-ink-ratio">De-clutter and high data-ink ratio</h3>
 <p>Coined by <a href="https://en.wikipedia.org/wiki/Edward_Tufte">Edward Tufte</a>, the data-ink ratio refers to the proportion of visual elements that represent actual data, rather than decoration, relative to all ‘ink’ on the chart.</p>
 <p>In other words, this is about reducing clutter and focusing graphical elements of a chart on the data.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -504,7 +526,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="img/DataInk_EX1.png" class="img-fluid"></p>
 </section>
 <section id="design-for-your-output" class="level3">
-<h3 class="anchored" data-anchor-id="design-for-your-output">Design for your output</h3>
+<h3 data-anchor-id="design-for-your-output">Design for your output</h3>
 <p>Effective visualization isn’t one-size-fits-all. Always consider where and how your work will be seen. Tailor your design choices to the medium and the audience:</p>
 <ul>
 <li><p><strong>Print vs digital</strong>: Pick fonts, line weights, and colors that are clear at the specific resolution and paper size that you are designing for. What works on a low-resolution screen may not translate well to paper.</p></li>
@@ -515,13 +537,13 @@ ul.task-list li input[type="checkbox"] {
 <p>If you design a chart to fit within a specific medium (e.g.&nbsp;mobile view on a screen), it’s recommended you redesign the chart if you want to have it in a different context (e.g.&nbsp;printed in a report). This is to prevent fonts being resized so they are no longer legible, graphics losing resolution and becoming fuzzy, or distorted if they are resized.</p>
 </section>
 <section id="brand-guidelines" class="level3">
-<h3 class="anchored" data-anchor-id="brand-guidelines">Brand guidelines</h3>
+<h3 data-anchor-id="brand-guidelines">Brand guidelines</h3>
 <p>If you’re creating visualizations within an organization or for a specific campaign, it’s important to follow established brand guidelines.</p>
 <p>This includes using approved typefaces, colors, and logos, and aligning your visuals with the tone and messaging of the broader content.</p>
 <p>Maintaining visual consistency across all charts, graphics, and reports reinforces brand identity, leads to more cohesive products, and builds recognition with your audience.</p>
 </section>
 <section id="annotations" class="level3">
-<h3 class="anchored" data-anchor-id="annotations">Annotations</h3>
+<h3 data-anchor-id="annotations">Annotations</h3>
 <p>Great charts don’t always speak for themselves. Use clear titles, subtitles, and axis labels. Add callouts or annotations to highlight patterns or anomalies. You can guide the reader to your takeaway rather than leaving it to interpretation.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -531,7 +553,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 <section id="choosing-charts-based-on-your-data" class="level3">
-<h3 class="anchored" data-anchor-id="choosing-charts-based-on-your-data">Choosing charts based on your data</h3>
+<h3 data-anchor-id="choosing-charts-based-on-your-data">Choosing charts based on your data</h3>
 <p>Match the visualization to the type of data and the message you’re trying to convey. Here’s a quick overview of very common charts for different types of data</p>
 <p><img src="img/ChartPurpose.png" class="img-fluid"></p>
 <p>Choosing the right chart type is essential to making your data clear, compelling, and truthful. While there’s no single “correct” choice for every scenario, understanding your data and communication goals will help you select a format that highlights the story you want to tell. Whether you’re comparing categories, showing trends over time, exploring distributions, or revealing relationships, each chart type has strengths and limitations.</p>
@@ -563,13 +585,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

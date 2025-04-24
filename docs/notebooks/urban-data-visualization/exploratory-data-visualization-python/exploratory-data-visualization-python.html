@@ -68,7 +68,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
@@ -169,13 +168,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../notebooks/urban-data-analytics/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Urban Data Analytics</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Storytelling</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The importance of urban data storytelling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Analytics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html" class="sidebar-item-text sidebar-link">
@@ -209,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistical Foundations</span></a>
+ <span class="menu-text">Statistical foundations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -236,17 +252,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Overview of Canadian census data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/us-census-data/us-census-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of U.S. census data</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Urban Data Visualization</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-visualization/data-visualization/data-visualization.html" class="sidebar-item-text sidebar-link">
@@ -350,7 +372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Scatter plot with trend line</li>
 </ul>
 <section id="install-and-import-libraries" class="level2">
-<h2 class="anchored" data-anchor-id="install-and-import-libraries">Install and import libraries</h2>
+<h2 data-anchor-id="install-and-import-libraries">Install and import libraries</h2>
 <p>If you haven’t already done so, install the following libraries using <code>pip</code>:</p>
 <div id="fc3f88f5" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install pandas</span>
@@ -365,7 +387,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="load-bike-share-data" class="level2">
-<h2 class="anchored" data-anchor-id="load-bike-share-data">Load bike share data</h2>
+<h2 data-anchor-id="load-bike-share-data">Load bike share data</h2>
 <p>The dataset we’ll be working with is Bike Share Toronto ridership data from January 2022. It’s already been downloaded for you, so you can just load it below using the <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html"><code>read_csv</code></a> function from the <code>pandas</code> library.</p>
 <p>However, if you want to download the data yourself…</p>
 <ol type="1">
@@ -477,7 +499,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>What do you notice about the data? Which variables are you interested in exploring?</strong></p>
 </section>
 <section id="how-long-do-bike-share-trips-last" class="level2">
-<h2 class="anchored" data-anchor-id="how-long-do-bike-share-trips-last">How long do bike share trips last?</h2>
+<h2 data-anchor-id="how-long-do-bike-share-trips-last">How long do bike share trips last?</h2>
 <p>Let’s start by looking at the trip duration column to see how long people are travelling when using the bike share.</p>
 <p>The “Trip Duration” column is in seconds, which is hard to interpret – to make it easier, let’s create a column for minutes by dividing by 60. We can then compute some simple summary statistics on the column using the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html"><code>describe</code></a> method from <code>pandas</code>.</p>
 <div id="5de36475-c831-41d4-8a9a-24f66f905816" class="cell" data-execution_count="42">
@@ -523,7 +545,7 @@ Name: Trip Duration Minutes, dtype: float64</code></pre>
 <p>According to this plot, trips are typically fairly short, with the majority of trip durations well below 20 minutes. There are a small number of trips that are longer than 40 minutes but these are relatively rare.</p>
 </section>
 <section id="how-does-trip-duration-vary-by-user-type" class="level2">
-<h2 class="anchored" data-anchor-id="how-does-trip-duration-vary-by-user-type">How does trip duration vary by user type?</h2>
+<h2 data-anchor-id="how-does-trip-duration-vary-by-user-type">How does trip duration vary by user type?</h2>
 <p>Next, let’s create a <em>stacked histogram</em> that shows trip duration for casual versus annual members. Unlike the previous plot, we’ll need more than just the “Trip Duration Minutes” column because we’re also plotting by “User Type”.</p>
 <div id="f0915823" class="cell" data-execution_count="155">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>trips_120 <span class="op">=</span> df.loc[df[<span class="st">"Trip Duration Minutes"</span>] <span class="op">&lt;=</span> <span class="dv">120</span>]</span>
@@ -548,7 +570,7 @@ Name: Trip Duration Minutes, dtype: float64</code></pre>
 <p>This stacked histogram shows that shorter trips (&lt;20 minutes) are most common for both types of members. There are far fewer trips taken by casual members compared to annual members.</p>
 </section>
 <section id="how-does-the-number-of-trips-vary-by-day-for-each-user-type" class="level2">
-<h2 class="anchored" data-anchor-id="how-does-the-number-of-trips-vary-by-day-for-each-user-type">How does the number of trips vary by day, for each user type?</h2>
+<h2 data-anchor-id="how-does-the-number-of-trips-vary-by-day-for-each-user-type">How does the number of trips vary by day, for each user type?</h2>
 <p>What if we want to plot the number of trips by day of the month, colored by user type? Let’s start with a <a href="https://en.wikipedia.org/wiki/Kernel_density_estimation">kernel density plot</a>.</p>
 <p>First we need to convert the “Start Time” column to a <em>datetime</em> object using <a href="https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html"><code>pandas.to_datetime</code></a> so that we can sort by date.</p>
 <div id="0fb8f29f" class="cell">
@@ -579,7 +601,7 @@ Name: Trip Duration Minutes, dtype: float64</code></pre>
 <p>It appears that trips peak in the first half of the month, with more trips taken by annual members than casual members, and are less frequent in the later half.</p>
 </section>
 <section id="which-stations-have-the-largest-number-of-trips-that-both-start-and-end-at-that-station" class="level2">
-<h2 class="anchored" data-anchor-id="which-stations-have-the-largest-number-of-trips-that-both-start-and-end-at-that-station">Which stations have the largest number of trips that both start and end at that station?</h2>
+<h2 data-anchor-id="which-stations-have-the-largest-number-of-trips-that-both-start-and-end-at-that-station">Which stations have the largest number of trips that both start and end at that station?</h2>
 <p>Now let’s try creating a visualization that’s a bit more analytical. We’ll answer the question: which stations have the largest number of trips that both start and end at that station?</p>
 <div id="a23a9158-11ad-464d-a5e2-d4fa86df61ed" class="cell" data-execution_count="152">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the data to trips where start station ID = end station ID</span></span>
@@ -608,7 +630,7 @@ Name: Trip Duration Minutes, dtype: float64</code></pre>
 <p><strong>Why do you think these stations have the most “round trip” rides? What additional analysis could you do to explore the potential reasons why?</strong></p>
 </section>
 <section id="are-bike-share-trips-more-common-when-the-weather-is-warmer" class="level2">
-<h2 class="anchored" data-anchor-id="are-bike-share-trips-more-common-when-the-weather-is-warmer">Are bike share trips more common when the weather is warmer?</h2>
+<h2 data-anchor-id="are-bike-share-trips-more-common-when-the-weather-is-warmer">Are bike share trips more common when the weather is warmer?</h2>
 <p>What if we are curious about the relationship between bike share trips and temperature? Maybe we have a hypothesis that more people tend to use bike share when it’s warmer. Let’s test this hypothesis by loading in another dataset, which includes the daily temperature in January 2022, and joining it with our bike share data.</p>
 <p>Let’s load in our weather data, which was already downloaded for you from the federal government’s <a href="https://climate.weather.gc.ca/index_e.html">historical climate data website</a>.</p>
 <div id="650463f0-0040-4927-8665-917cbe082478" class="cell" data-scrolled="true" data-execution_count="77">
@@ -1153,13 +1175,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

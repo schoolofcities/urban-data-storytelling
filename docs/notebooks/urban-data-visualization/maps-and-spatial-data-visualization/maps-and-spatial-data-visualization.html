@@ -34,7 +34,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
@@ -132,13 +131,30 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../notebooks/urban-data-analytics/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Urban Data Analytics</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Storytelling</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The importance of urban data storytelling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Analytics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html" class="sidebar-item-text sidebar-link">
@@ -172,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistical Foundations</span></a>
+ <span class="menu-text">Statistical foundations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -199,17 +215,23 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Overview of Canadian census data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/us-census-data/us-census-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of U.S. census data</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Urban Data Visualization</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-visualization/data-visualization/data-visualization.html" class="sidebar-item-text sidebar-link">
@@ -307,7 +329,7 @@ ul.task-list li input[type="checkbox"] {
 <p><br></p>
 <p><img src="img/maps-mini-examples.png" class="img-fluid"></p>
 <section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<h2 data-anchor-id="overview">Overview</h2>
 <p>Maps and spatial data visualizations can either created be at the research stage where we are trying to uncover patterns in the data, or as polished communication visuals where we want to convey patterns in the data to a our intended audience.</p>
 <p><em>Cartography</em> is often defined as the science and art of creating maps. It often involves decisions about …</p>
 <ol type="1">
@@ -330,9 +352,9 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 <section id="types-of-maps" class="level2">
-<h2 class="anchored" data-anchor-id="types-of-maps">Types of maps</h2>
+<h2 data-anchor-id="types-of-maps">Types of maps</h2>
 <section id="reference-thematic" class="level3">
-<h3 class="anchored" data-anchor-id="reference-thematic">Reference &amp; thematic</h3>
+<h3 data-anchor-id="reference-thematic">Reference &amp; thematic</h3>
 <p>Almost all maps can be thought of as either</p>
 <ul>
 <li><em>Reference maps</em>, which provide base geographic information (e.g.&nbsp;streets, land forms, water, etc.) often for locating places or for navigation. Google Maps is probably the most well-used example.</li>
@@ -361,7 +383,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 <section id="static-interactive" class="level3">
-<h3 class="anchored" data-anchor-id="static-interactive">Static &amp; interactive</h3>
+<h3 data-anchor-id="static-interactive">Static &amp; interactive</h3>
 <p><em>Static maps</em> are fixed, pre-generated images that display geographic information in a single, unchangeable format. They are ideal for simple visualization, printing, or when interactivity isn’t needed—such as in posters, reports, or static web images.</p>
 <p>Static maps can vary in size from just a few dozen pixels on a screen or a small figure in a report, to graphics in a slide deck, to large maps printed as posters or dozens of maps as part of a series, like in an atlas. The three maps shown above are examples of static maps.</p>
 <p><em>Interactive maps</em> are digital and allow users to engage with the content by zooming, panning, clicking for details, or filtering data. They are best for exploration, real-time applications, user-driven analysis, or providing increased engagement via animation in a data-story. Here are a few examples that we’ve developed at the School of Cities”</p>
@@ -376,12 +398,12 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 <section id="whats-on-the-map" class="level2">
-<h2 class="anchored" data-anchor-id="whats-on-the-map">What’s on the map?</h2>
+<h2 data-anchor-id="whats-on-the-map">What’s on the map?</h2>
 <p>How do we decide what were are going to include on our map? Sometimes this may seem obvious, the key dataset(s) that we want to visualize should be there, but particularly with our reference layers, this can often require a lot of little subtle choices.</p>
 <p>This is because maps always abstractions of reality. It is impossible to show everything in the world on a piece of paper or a screen - nor would we want to, as we usually want to focus our reader’s attention on specific data point(s), trend(s), or story.</p>
 <p>Making maps and spatial data visualizations therefore often involve various decisions on <em>selection</em> and <em>generalization</em> of spatial data to reduce visual clutter to focus on specific data points.</p>
 <section id="cartographic-selection" class="level3">
-<h3 class="anchored" data-anchor-id="cartographic-selection">Cartographic selection</h3>
+<h3 data-anchor-id="cartographic-selection">Cartographic selection</h3>
 <p>Cartographic selection is about picking the most important things to draw on a map so it’s not too crowded. Imagine drawing a treasure map — you’d likely want to show big landmarks like mountains or forests, but leave out tiny rocks or every individual tree.</p>
 <p>In practice, this can include deciding about whether or not to include a dataset at all when creating a map (e.g.&nbsp;in GIS or Python or other map-making software), or if we do include the dataset, if we want to filter it to only show certain features.</p>
 <p>For example, you may want to include a dataset of public transit lines as a reference layer for a map of your city. However, you may not want to include every single transit route. An example of cartographic selection would be to only show major transit lines by pre-filtering the data by mode (e.g.&nbsp;only show metro/subway) or frequency (e.g.&nbsp;only show routes where a bus or train comes every 10 minutes or less). Now of course if the goal of your map and research is specifically about public transit, you may want to include all the routes.</p>
@@ -389,7 +411,7 @@ ul.task-list li input[type="checkbox"] {
 <p>What data to include depends on your objectives, audience, and story.</p>
 </section>
 <section id="cartographic-generalization" class="level3">
-<h3 class="anchored" data-anchor-id="cartographic-generalization">Cartographic generalization</h3>
+<h3 data-anchor-id="cartographic-generalization">Cartographic generalization</h3>
 <p>Similar to selection is cartographic generalization, this is when mapmakers simplify real-world details to make maps clearer and less cluttered, especially at smaller scales.</p>
 <p>For example, a coastline with tons of tiny twists and inlets might get smoothed out—keeping the overall shape but removing unnecessary complexity. This helps the map stay readable without losing its key features. It’s like sketching a quick but accurate version of a photo instead of drawing every single pixel.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -402,7 +424,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 <section id="symbols-and-layer-styling" class="level2">
-<h2 class="anchored" data-anchor-id="symbols-and-layer-styling">Symbols and layer styling</h2>
+<h2 data-anchor-id="symbols-and-layer-styling">Symbols and layer styling</h2>
 <p>Once we’ve decided what we want to include on our map, we have to decide how we want to style each layer. In some mapping tools, like QGIS, style options are often called <em>Symbology</em></p>
 <p>These are the common graphic styling options available for vector data layers. If you’ve worked with other design software, especially vector graphic software, many of these will be familiar.</p>
 <p>Points:</p>
@@ -432,7 +454,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Note that there are other options as well, the above are just the most commonly used.</p>
 <section id="single-rule-styling" class="level3">
-<h3 class="anchored" data-anchor-id="single-rule-styling">Single-rule styling</h3>
+<h3 data-anchor-id="single-rule-styling">Single-rule styling</h3>
 <p>Single-rule styling is when we want all features in a dataset to look the same, regardless of how they may different in terms of their attributes</p>
 <p>In the example in <a href="../../../notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">our notebook on introducing spatial data and GIS</a>, we created a simple map of Toronto where we had two vector datasets 1) ward administrative boundaries (polygons) and 2) public libraries (points).</p>
 <p>Each of these layers is styled via a single rule. For example, all public libraries are shown as blue squares, even though some libraries may be larger than others or have longer opening hours.</p>
@@ -444,7 +466,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 <section id="data-defined-styling" class="level3">
-<h3 class="anchored" data-anchor-id="data-defined-styling">Data-defined styling</h3>
+<h3 data-anchor-id="data-defined-styling">Data-defined styling</h3>
 <p>A power using tools like QGIS and Python or others like them, is that we can visualize spatial data based on a set of rules relating to their associated attribute data. For example …</p>
 <ul>
 <li>Colour census tract data based on median income</li>
@@ -457,7 +479,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Let’s look at a couple examples in QGIS! (If you haven’t worked with QGIS before, check out our <a href="../../../notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">intro to spatial data and GIS</a> notebook)</p>
 </section>
 <section id="styling-categorical-data" class="level3">
-<h3 class="anchored" data-anchor-id="styling-categorical-data">Styling categorical data</h3>
+<h3 data-anchor-id="styling-categorical-data">Styling categorical data</h3>
 <p>For the first example, let’s try to create a map of public washrooms in Toronto in QGIS, using some categorical based styling - where different categories or groups</p>
 <ul>
 <li>Washroom Facilities (a point dataset of public washroom facilities in Toronto)</li>
@@ -499,7 +521,7 @@ ul.task-list li input[type="checkbox"] {
 <p>(Also note how the map has been rotated ~17-18 degrees, to horizontally align some of the features and reduce empty white space).</p>
 </section>
 <section id="styling-numeric-data" class="level3">
-<h3 class="anchored" data-anchor-id="styling-numeric-data">Styling numeric data</h3>
+<h3 data-anchor-id="styling-numeric-data">Styling numeric data</h3>
 <p>We often have ordinal or numeric data that we want to use to define our styling. For example, showing larger numbers in a column with a darker colour and smaller numbers with a lighter colour.</p>
 <p>Let’s do a quick example, with data indicating camera locations for automated enforcement of speeding in Toronto. This dataset includes a integer column which denotes the number of speeding tickets for each automated camera in February 2025.</p>
 <p>We can colour these using the <em>Graduated</em> option in QGIS. This option allows us to pick a numeric column, and then classify or group the data into different “bins” or “breaks”, each with a colour, in this case ordered sequentially (more tickets, a darker red).</p>
@@ -520,7 +542,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 <section id="layers-and-hierarchy" class="level2">
-<h2 class="anchored" data-anchor-id="layers-and-hierarchy">Layers and hierarchy</h2>
+<h2 data-anchor-id="layers-and-hierarchy">Layers and hierarchy</h2>
 <p>Maps are often the product of multiple layers, each with their own defined styling. Thinking about the ordering of the layers and their styling relative to each other goes a long way in making an effective map.</p>
 <p>Well designed maps, especially thematic maps, often have a <em>visual hierarchy</em> of background and foreground - where the background provides geographic reference (e.g.&nbsp;streets, bodies of water), while the foreground are the key data that we want to show.</p>
 <p>These are two examples of maps relating to the 2023 wildfires in Yellowknife where we tried to design them to a have strong visual hierarchy of the key data (e.g.&nbsp;fire area, evacuation routes) relative to their geographic reference backgrounds. Both these maps are quite simple from data analytics standpoint, but were part of a story highlighting the scale and impact of the fires.</p>
@@ -538,7 +560,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 <section id="map-layouts" class="level2">
-<h2 class="anchored" data-anchor-id="map-layouts">Map layouts</h2>
+<h2 data-anchor-id="map-layouts">Map layouts</h2>
 <p>You’ll notice that many of the example maps above include graphic elements beyond specific data layers. Things like … - Titles - Explanatory text and annotations - Place labels - Borders - Scale bar - North arrows - Legends</p>
 <p>Not all maps and spatial data visualizations require all of the above, but they can often help communicate what is being shown on the map to your readers and audience.</p>
 <p>The space that you would combine these items on top of map data layers are sometimes called <em>map layouts</em>, with each item sometimes called <em>map elements</em> or <em>layout elements</em></p>
@@ -572,13 +594,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

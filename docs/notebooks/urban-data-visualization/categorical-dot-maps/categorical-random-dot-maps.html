@@ -68,7 +68,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
@@ -169,13 +168,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../notebooks/urban-data-analytics/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Urban Data Analytics</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Storytelling</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The importance of urban data storytelling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Analytics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html" class="sidebar-item-text sidebar-link">
@@ -209,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-analytics/statistical-foundations/statistical-foundations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistical Foundations</span></a>
+ <span class="menu-text">Statistical foundations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -236,17 +252,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Overview of Canadian census data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../notebooks/urban-data-analytics/us-census-data/us-census-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of U.S. census data</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Urban Data Visualization</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../notebooks/urban-data-visualization/data-visualization/data-visualization.html" class="sidebar-item-text sidebar-link">
@@ -348,7 +370,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The dots on demographic dot maps, like those shown above, are therefore not perfect representations of where people live; they are estimated. For example, in the map above, if we know that there are 100 households in subsidized housing in a neighbourhood, we generate 10 dots randomly placed within that neighbourhood. If we have available data, this process can be improved by via <a href="https://en.wikipedia.org/wiki/Dasymetric_map">dasymetric</a> mapping, where we only place dots in locations where we think people live. For example, in the above map, we used a land-use layer to place dots only in residential zones rather than parks or industrial zones. Once we have this working for one neighbourhood, it is then repeated for all neighbourhoods and all categories we want to include on our map.</p>
 <p>In this tutorial, we’re going to cover how to create dot maps like these using <a href="https://www.python.org/">Python</a>, mostly using <a href="https://geopandas.org/">geoPandas</a>, with some final cartography in <a href="https://www.qgis.org/en/site/">QGIS</a> and <a href="https://inkscape.org/">Inkscape</a>. The example data will be to replicate the map above, but the methods and code can be applied to anywhere with similar data.</p>
 <section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<h2 data-anchor-id="prerequisites">Prerequisites</h2>
 <p>Prior knowledge of pandas, geopandas, QGIS, and Inkscape (or similar graphic design software) would be helpful for the following tutorial.</p>
 <p>Click <a href="https://github.com/schoolofcities/mapping-workshops-2023/raw/main/notebooks/categorical-dot-maps/categorical-dot-maps.zip">here</a> to download this article as a Jupyter Notebook alongside the datasets required. In the download, there is also a standalone Python script, if you want to run the steps all-at-once or integrate with anything else you have brewing.</p>
 <p>You can also run the notebook <a href="https://mybinder.org/v2/gh/schoolofcities/mapping-workshops-2023/HEAD?urlpath=lab%2Ftree%2Fnotebooks%2Fcategorical-dot-maps%2Fcategorical-dot-maps.ipynb">Binder</a></p>
@@ -365,7 +387,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="loading-data" class="level2">
-<h2 class="anchored" data-anchor-id="loading-data">Loading Data</h2>
+<h2 data-anchor-id="loading-data">Loading Data</h2>
 <p>We’re going to replicate the map of Toronto shown at the top of this page. I’ve pre-filtered the source datasets for Toronto, and they are included in the download link above. The datasets we’ll be using are: - <a href="https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index-eng.cfm">Census Dissemination Areas (DA) Polygons</a> - <a href="https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/index.cfm?Lang=E">Census Data on Housing Tenure</a> - <a href="https://borealisdata.ca/dataset.xhtml?persistentId=doi:10.5683/SP3/1VMJAG">Toronto Land Use Spatial Data</a></p>
 <p>Also included are layers solely for cartographic purposes (i.e.&nbsp;as reference layers on the final map) - <a href="https://www.openstreetmap.org/relation/324211">Toronto Boundary Polygon from OpenStreetMap</a> - <a href="https://www.openstreetmap.org/relation/1206310">Lake Ontario Polygon from OpenStreetMap</a> - <a href="https://www.metrolinx.com/en/about-us/open-data">Major Trasnit Lines &amp; Stops from Metrolinx</a></p>
 <p>To get started, let’s load the census data:</p>
@@ -467,7 +489,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="initial-exploration" class="level2">
-<h2 class="anchored" data-anchor-id="initial-exploration">Initial Exploration</h2>
+<h2 data-anchor-id="initial-exploration">Initial Exploration</h2>
 <p>Let’s calculate a column containing the total number of households in each DA. Then create two additional columns: one for households that own their home without a mortgage, and another for those that rent their home without living in subsidized housing.</p>
 <div id="7fdcd59e-e203-4b27-aff6-aaa6802b2b90" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>da[<span class="st">"Total"</span>] <span class="op">=</span> da[<span class="st">"Owner"</span>] <span class="op">+</span> da[<span class="st">"Renter"</span>]</span>
@@ -535,7 +557,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>These choropleth maps are a good start, but they have some limitations: - They only show the percent (i.e.&nbsp;rate) of each tenure type, not the density. Areas of the same value on the maps above may have very different concentrations of dwellings. - In order to look at all four variables, we needed to make 4 separate plots. These are useful for overall comparisons, but it’s difficult to compare specific neighbourhoods. - The concentration of dwellings probably varies across each DA polygon. Some of these DAs are quite large, but mostly consist of non-residential land (e.g.&nbsp;parks, industrial, etc.), so shading the entire DA can be a bit misleading in terms of <em>where</em> households are. - A few of the DAs have 0 population. We coloured these as an extra category to our map (yellow), but this can distract a bit from the overall story.</p>
 </section>
 <section id="categorical-dot-maps" class="level2">
-<h2 class="anchored" data-anchor-id="categorical-dot-maps">Categorical Dot Maps</h2>
+<h2 data-anchor-id="categorical-dot-maps">Categorical Dot Maps</h2>
 <p>One solution to the above-noted issues are categorical dot maps. These maps can show the relative proportions and densities among one or more categories.</p>
 <p>The first step in creating a dot map like the above is to decide on a rate of households per dot, and then calculate the number of dots to generate per area based on this rate and the number of households in the area. For example, if there are 200 households in a DA, and the rate is 10 households per dot, then we would generate 20 dots in the DA.</p>
 <p>We can do this pretty simply as shown below, using the variable <code>d</code> to represent the rate of households per dot.</p>
@@ -1050,7 +1072,7 @@ Wall time: 39.3 s</code></pre>
 </div>
 </section>
 <section id="cartographic-details" class="level2">
-<h2 class="anchored" data-anchor-id="cartographic-details">Cartographic Details</h2>
+<h2 data-anchor-id="cartographic-details">Cartographic Details</h2>
 <p>Okay! So the above worked pretty well, but the map isn’t great, and could use some additional context and layout items.</p>
 <p>From here, let’s pivot over to trying to make the map prettier and more useful in QGIS and Inkscape.</p>
 <p>(Note that we could probably do most of the following in Python, but my personal preference is to tweak the symbology of layers via a GUI rather than just code).</p>
@@ -1077,11 +1099,11 @@ Renter_in_subsidized_housing 73151 6.304272885533551</code></pre>
 <p><img src="images/toronto-housing-dot-map.png" width="1001"></p>
 </section>
 <section id="caveats" class="level2">
-<h2 class="anchored" data-anchor-id="caveats">Caveats</h2>
+<h2 data-anchor-id="caveats">Caveats</h2>
 <p>Of course dot maps aren’t always the best option. They can be a bit difficult to parse out colours and patterns, especially once we add more and more categories. If you want to dig into the patterns of each specifically, i.e.&nbsp;are less concerned about the comparisons, or are only interested in density OR proportions (rather than both at the same time), a series of individual choropleth or single-category dot density maps would be good to pursue as well. It’s rare to have too many maps :)</p>
 </section>
 <section id="additional-resources" class="level2">
-<h2 class="anchored" data-anchor-id="additional-resources">Additional Resources</h2>
+<h2 data-anchor-id="additional-resources">Additional Resources</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Dot_distribution_map">Wikipedia page on dot maps</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Dasymetric_map">Wikipedia page on dasymetric mapping</a></li>
@@ -1111,13 +1133,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
