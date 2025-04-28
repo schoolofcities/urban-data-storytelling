@@ -330,13 +330,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link active" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data">Loading Data</a></li>
-  <li><a href="#univariate-choropleth-maps" id="toc-univariate-choropleth-maps" class="nav-link" data-scroll-target="#univariate-choropleth-maps">Univariate Choropleth Maps</a></li>
-  <li><a href="#bivariate-classifications" id="toc-bivariate-classifications" class="nav-link" data-scroll-target="#bivariate-classifications">Bivariate Classifications</a></li>
-  <li><a href="#bivariate-colours" id="toc-bivariate-colours" class="nav-link" data-scroll-target="#bivariate-colours">Bivariate Colours</a></li>
-  <li><a href="#layout-design-in-inkscape" id="toc-layout-design-in-inkscape" class="nav-link" data-scroll-target="#layout-design-in-inkscape">Layout Design in Inkscape</a></li>
-  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts">Final Thoughts</a></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
+  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data">Loading data</a></li>
+  <li><a href="#choropleth-maps" id="toc-choropleth-maps" class="nav-link" data-scroll-target="#choropleth-maps">Choropleth maps</a></li>
+  <li><a href="#bivariate-classifications" id="toc-bivariate-classifications" class="nav-link" data-scroll-target="#bivariate-classifications">Bivariate classifications</a></li>
+  <li><a href="#bivariate-colours" id="toc-bivariate-colours" class="nav-link" data-scroll-target="#bivariate-colours">Bivariate colours</a></li>
+  <li><a href="#layout-design-in-inkscape" id="toc-layout-design-in-inkscape" class="nav-link" data-scroll-target="#layout-design-in-inkscape">Layout design in Inkscape</a></li>
+  <li><a href="#final-thoughts-and-additional-resources" id="toc-final-thoughts-and-additional-resources" class="nav-link" data-scroll-target="#final-thoughts-and-additional-resources">Final thoughts and additional resources</a></li>
   </ul>
 </nav>
     </div>
@@ -362,19 +361,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Bivariate choropleth maps are pretty two-bular. They use <strong>colour</strong> to represent the values of <strong>two</strong> different data variables on the same map. Check out this map of neighbourhood material deprivation (a combined metric of lower income, education, employment rates, etc.) and quality of cycling infrastructure in Winnipeg.</p>
+<p>Bivariate choropleth maps are pretty two-bular. They use <em>colour</em> to represent the values of <em>two</em> different data variables on the same map. Check out this map of neighbourhood material deprivation (a combined metric of lower income, education, employment rates, etc.) and quality of cycling infrastructure in Winnipeg.</p>
 <p><img src="images/winnipeg-bivariate-map.png" width="501"></p>
-<p>Of course, we can always just map these two variables individually. However, overlaying them onto a single map can be incredibly useful for highlighting areas of correlation (or lack thereof) at different scales.</p>
+<p>Of course, we could just map these two variables individually. However, overlaying them onto a single map can be incredibly useful for highlighting areas of correlation (or lack thereof) at different scales.</p>
 <p>For example, in the bivariate map above, we can quickly identify areas with greater material deprivation but a lack of cycling infrastructure (in pink). These neighborhoods arguably should be at the top of the list for new investments in cycling infrastructure. The dark purple areas are those with high material deprivation but good cycling infrastructure, while the green areas are wealthier areas with good cycling infrastructure.</p>
 <p>These types of maps can aid effective spatial storytelling and communication of findings, highlighting specific local areas of need, and be a useful exploratory analysis step before more sophisticated spatial modeling.</p>
-<p>In this tutorial, we’re going to cover how to create bivariate choropleth maps like these using <a href="https://www.python.org/">Python</a>, mostly using <a href="https://geopandas.org/">geoPandas</a>, with some final touch-ups and legend design in <a href="https://inkscape.org/">Inkscape</a>. The example data will be on urban health-related data in Canada (replicating the map above), but the methods and code can be applied to anywhere with two quantitative variables linked to the same set of geometries.</p>
+<p>In this tutorial, we will to cover how to create bivariate choropleth maps using <a href="https://www.python.org/">Python</a>, mostly using <a href="https://geopandas.org/">geoPandas</a>, with some final touch-ups and legend design in <a href="https://inkscape.org/">Inkscape</a>. However, the same processes can be done in other software (e.g.&nbsp;check out these tutorials for making <a href="https://timogrossenbacher.ch/2019/04/bivariate-maps-with-ggplot2-and-sf/">bivariate maps in R</a> and <a href="https://www.joshuastevens.net/cartography/make-a-bivariate-choropleth-map/">bivariate maps in QGIS</a>).</p>
+<p>The example data will be on urban health-related data in Canada (replicating the map above), but the methods and code can be applied to any location with two quantitative variables linked to the same set of geometries.</p>
 <p>As a short side note on history, it is surprising that despite centuries of thematic maps showing multivariate data, bivariate choropleths are a recent creation. They gained popularity in the 1970s via maps created by the U.S. Bureau of the Census (<a href="https://doi.org/10.1559/152304075784313250">DOI</a>). Here’s one of their maps. I believe these were the first published bivariate maps, but if you are reading this and know of earlier bivariate maps, please let me know. I’d be super interested to see them.</p>
 <p><img src="images/us-census-income-education-1975-paper.png" width="501"></p>
 <section id="prerequisites" class="level2">
 <h2 data-anchor-id="prerequisites">Prerequisites</h2>
-<p>Prior knowledge of Python, including <code>pandas</code> and <code>geopandas</code>, as well as Inkscape or similar graphic design software, would be helpful for the following tutorial.</p>
-<p>Click <a href="https://github.com/schoolofcities/mapping-workshops-2023/raw/main/notebooks/bivariate-maps/bivariate-maps.zip">here</a> to download this article as a Jupyter Notebook alongside the datasets required. In the download, there is also a standalone Python script, if you want to run the steps all-at-once or integrate with anything else you have cooking.</p>
-<p>You can also run the notebook <a href="https://mybinder.org/v2/gh/schoolofcities/mapping-workshops-2023/HEAD?urlpath=lab%2Ftree%2Fnotebooks%2Fbivariate-maps%2Fbivariate-maps.ipynb">Binder</a></p>
+<p>Prior knowledge of Python, including <code>pandas</code> and <code>geopandas</code>, as well as Inkscape or similar graphic design software, will be helpful for the following tutorial.</p>
+<p>Here are the links to download the notebook and data for this tutorial:</p>
+<ul>
+<li><a href="../../urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.html">Jupyter Notebook</a></li>
+<li><a href="data.zip">Datasets</a></li>
+</ul>
+<p>In the data download, there is also a standalone Python script, if you want to run the steps all-at-once or integrate with anything else you have cooking.</p>
 <p>If you are running the notebook and/or script locally (generally recommended), you will need to use the following libraries. You’ll have to install them via <code>pip</code> or <code>conda</code> if you do not have them installed already.</p>
 <div id="cell-7" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
@@ -389,10 +393,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="loading-data" class="level2">
-<h2 data-anchor-id="loading-data">Loading Data</h2>
-<p>We’re going to replicate the map of Winnipeg shown at the top of this page. I’ve pre-filtered the source datasets for Winnipeg, and they are included in the download link above. The datasets we’ll be using are: - <a href="https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index-eng.cfm">Census Dissemination Areas (DA) Polygons</a> - <a href="https://ontariohealthprofiles.ca/canmargCAN.php">Canadian Marginalization Index (CAN-Marg)</a> - <a href="https://www.arcgis.com/home/item.html?id=c6d2917c4a7d4fb4a8e7a615369b68d5">Canadian Bikeway Comfort and Safety Classification system (Can-BICS)</a></p>
-<p>We’re also going to add three additional layers solely for cartographic purposes (i.e.&nbsp;as reference layers on the final map) - <a href="https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index-eng.cfm">Census Subdivision (CSD) Polygon</a> - i.e.&nbsp;a boundary polygon for Winnipeg - <a href="https://www.openstreetmap.org/#map=11/49.8787/-97.1514">Major Streets from OpenStreetMap</a> - <a href="https://www.openstreetmap.org/#map=11/49.8787/-97.1514">Rivers from OpenStreetMap</a></p>
-<p>To get started, let’s read the first three data layers and merge them into a single <code>geoDataFrame</code>, joining by the Dissemination Area unique id, <code>dauid</code>. We’ll also load the three carotgraphic reference layers.</p>
+<h2 data-anchor-id="loading-data">Loading data</h2>
+<p>We’re going to replicate the map of Winnipeg shown at the top of this page. I’ve pre-filtered the source datasets for Winnipeg, and they are included in the download link above. The datasets we’ll be using are:</p>
+<ul>
+<li><a href="https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index-eng.cfm">Census Dissemination Areas (DA) Polygons</a></li>
+<li><a href="https://ontariohealthprofiles.ca/canmargCAN.php">Canadian Marginalization Index (CAN-Marg)</a></li>
+<li><a href="https://www.arcgis.com/home/item.html?id=c6d2917c4a7d4fb4a8e7a615369b68d5">Canadian Bikeway Comfort and Safety Classification system (Can-BICS)</a></li>
+</ul>
+<p>We’re also going to add three additional layers solely for cartographic purposes (i.e.&nbsp;as reference layers on the final map)</p>
+<ul>
+<li><a href="https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index-eng.cfm">Census Subdivision (CSD) Polygon</a> - i.e.&nbsp;a boundary polygon for Winnipeg</li>
+<li><a href="https://www.openstreetmap.org/#map=11/49.8787/-97.1514">Major Streets from OpenStreetMap</a></li>
+<li><a href="https://www.openstreetmap.org/#map=11/49.8787/-97.1514">Rivers from OpenStreetMap</a></li>
+</ul>
+<p>To get started, let’s read the first three data layers and merge them into a single <code>geoDataFrame</code>, joining by the Dissemination Area unique id, <code>dauid</code>. We’ll also load the three cartographic reference layers.</p>
 <div id="cell-9" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> gpd.read_file(<span class="st">"data/dissemination-area-winnipeg-2016.geojson"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dfm <span class="op">=</span> pd.read_csv(<span class="st">"data/can-marg-manitoba-2016.csv"</span>)</span>
@@ -404,7 +418,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>osm_streets <span class="op">=</span> gpd.read_file(<span class="st">"data/streets-osm-winnipeg.geojson"</span>)</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>osm_rivers <span class="op">=</span> gpd.read_file(<span class="st">"data/river-osm-winnipeg.geojson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Let’s pick two variables to map, one from each of the tabular datasets: 1) <strong>Material resources</strong> from CAN-Marg - an indicator of individual and community access to and attainment of basic material needs (including housing, income, education, employment). The higher the value, the fewer the resources (i.e.&nbsp;greater deprivation). 2) <strong>Can-BICS continuous metric</strong> - a weighted sum of the quality of bike infrastructure within a buffer of each DA. The higher the value, the better the infrastructure.</p>
+<p>Let’s pick two variables to map, one from each of the tabular datasets:</p>
+<ol type="1">
+<li><p><em>Material resources</em> from CAN-Marg - an indicator of individual and community access to and attainment of basic material needs (including housing, income, education, employment). The higher the value, the fewer the resources (i.e.&nbsp;greater deprivation).</p></li>
+<li><p><em>Can-BICS continuous metric</em> - a weighted sum of the quality of bike infrastructure within a buffer of each DA. The higher the value, the better the infrastructure.</p></li>
+</ol>
 <p>Here’s a subset of what we want to map, the two variables noted above, plus the geometry data required to plot the data.</p>
 <div id="cell-11" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gdf[[<span class="st">"dauid"</span>,<span class="st">"material_resources_DA16"</span>,<span class="st">"CBICS_cont"</span>,<span class="st">"geometry"</span>]].head(<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -486,11 +504,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="univariate-choropleth-maps" class="level2">
-<h2 data-anchor-id="univariate-choropleth-maps">Univariate Choropleth Maps</h2>
-<p>GeoPandas has a built-in <code>plot</code> function that makes it very easy to create univariate choropleth maps for any quantitative variable. In the code below, we use <strong>quantiles</strong> (equal number of DAs in each coloured group) to create choropleths using <code>geopandas</code> and <code>matplotlib</code>.</p>
+<section id="choropleth-maps" class="level2">
+<h2 data-anchor-id="choropleth-maps">Choropleth maps</h2>
+<p>For a background on single-variable choropleth maps, and how to make them in QGIS, check out <a href="../../urban-data-visualization/choropleth-maps/choropleth-maps.html">our notebook on the subject</a></p>
+<p>In Python, <code>geopandas</code> has a built-in <code>plot</code> function that makes it very easy to create choropleth maps for any quantitative variable. In the code below, we use <strong>quantiles</strong> (equal number of DAs in each coloured group) to create choropleths using <code>geopandas</code> and <code>matplotlib</code>.</p>
 <p>If you’re interested in learning more about creating univariate choropleth maps in Python, including how to classify data, check out the Geographic Data Science textbook’s <a href="https://geographicdata.science/book/notebooks/05_choropleth.html">chapter</a> on the topic. You can also refer to the <code>geopandas.GeoDataFrame.plot</code> <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.plot.html">documentation</a> for more information.</p>
-<p>Creating similar maps in QGIS is also straightforward. Simply load the data, right-click on the layer, go to <code>properties</code>, then <code>symbology</code>, and then select <code>Graduated</code>. From here, you’ll have access to a wide range of options for colours and classification schemes to create informative univariate choropleth maps.</p>
 <div id="cell-13" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">6</span>))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -536,10 +554,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="bivariate-classifications" class="level2">
-<h2 data-anchor-id="bivariate-classifications">Bivariate Classifications</h2>
+<h2 data-anchor-id="bivariate-classifications">Bivariate classifications</h2>
 <p>The first step towards creating a bivariate map is to classify our data.</p>
-<p>I’ll be focusing 3x3 classifications using quantiles, but the same principles can be applied to any classification type.</p>
-<p>A bivariate classification has two dimensions, let’s call those <code>X</code> and <code>Y</code>. The legend can be visualized as a 2-dimensional chart. For this example, I’m classifying each dimension into three categories, terming them 0 (low), 1, and 2 (high). We then <strong>concatenate</strong> these two categories together to create a joint classification. For example, a high value in the X dimension and a low value in the Y dimension would be classified as <code>2-0</code>.</p>
+<p>I’ll be showing an example for 3x3 classifications using quantiles, but the same principles can be applied to any classification type.</p>
+<p>A bivariate classification has two dimensions, let’s call those <code>X</code> and <code>Y</code>. The legend can be visualized as a 2-dimensional chart. For this example, I’m classifying each dimension into three categories, terming them 0 (low), 1, and 2 (high). We then <em>concatenate</em> these two categories together to create a joint classification. For example, a high value in the X dimension and a low value in the Y dimension would be classified as <code>2-0</code>.</p>
 <p>We can then colour based on this joint classification.</p>
 <p><img src="images/eg-legend-classify.svg" width="310"></p>
 <p>But how do we do this in Python and geopandas? Behind the scenes of the univariate choropleth maps in the previous section is a Python library called <a href="https://github.com/pysal/mapclassify">mapclassify</a>.</p>
@@ -635,9 +653,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Now we are ready to make a bivariate map!</p>
 <p>At this stage, we can also save the classified data to then view it in QGIS or use for web-mapping: <code>gdf.to_file("data/winnipeg-bivariate.geojson", driver='GeoJSON')</code></p>
+<p>Note that the steps above could also be replicated in QGIS by creating and calculating new columns in the Attribute table.</p>
 </section>
 <section id="bivariate-colours" class="level2">
-<h2 data-anchor-id="bivariate-colours">Bivariate Colours</h2>
+<h2 data-anchor-id="bivariate-colours">Bivariate colours</h2>
 <p>Now that we’ve classified our data, we can assign colours and make a map!</p>
 <p>Here are a few examples for colouring that we can choose from:</p>
 <p><img src="images/eg-legends.svg" width="620"></p>
@@ -720,7 +739,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="layout-design-in-inkscape" class="level2">
-<h2 data-anchor-id="layout-design-in-inkscape">Layout Design in Inkscape</h2>
+<h2 data-anchor-id="layout-design-in-inkscape">Layout design in Inkscape</h2>
 <p>The line of code above exports the figure as an <code>.svg</code> (Scalable Vector Graphic). We can open it up in Inkscape (or similar graphic design software) and add layout items such as a title, legend, scale bar, north arrow, and other information.</p>
 <p>The page size is set to 7x7 inches based on the <code>plt.subplots(figsize=(7,7))</code> included at the top of the code used to render the map.</p>
 <p>Generally, my workflow is to create at least three layers in the following order: - layout (title, legend, scale bar, north arrow, and other info) - map (in this case, the original exported .svg) - background (often just a single rectangle with a solid fill colour)</p>
@@ -732,13 +751,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>And here’s the final map! We can export this to any resolution that we want. This is 300dpi for 7”x7” (2100x2100 px), a nice size for fitting into a report.</p>
 <p><img src="images/winnipeg-bivariate-map.png" width="699"></p>
 </section>
-<section id="final-thoughts" class="level2">
-<h2 data-anchor-id="final-thoughts">Final Thoughts</h2>
+<section id="final-thoughts-and-additional-resources" class="level2">
+<h2 data-anchor-id="final-thoughts-and-additional-resources">Final thoughts and additional resources</h2>
 <p>The classification method (e.g., quantiles, equal breaks, etc.), the number of classes, and of course, the colours can easily be tinkered with.</p>
 <p>A noted drawback with bivariate maps is that they are often not initially intuitive and sometimes require a good amount of looking back-and-forth with the legend, especially compared to univariate choropleth maps. Even with a 3x3 legend like the map above, it can take a bit of time to read the map and understand and parse out specific values (especially for the middle values). If you’re more interested in understanding each variable on its own, rather than a direct comparison, it’s probably best to stick with two side-by-side univariate choropleth maps. If you want to allow for comparison but keep things easier to read, a 2x2 legend might be better, but remember that different aggregation can lead to varying results!</p>
-</section>
-<section id="additional-resources" class="level2">
-<h2 data-anchor-id="additional-resources">Additional Resources</h2>
+<p>Lastly, here are a few other resources and tutorials on bivariate maps:</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Multivariate_map">Wikipedia page on multivariate maps</a></li>
 <li><a href="https://doi.org/10.1559/152304075784313250">Color Statistical Mapping by the U.S. Bureau of the Census</a> | (what I think might be the first published bivariate maps)</li>

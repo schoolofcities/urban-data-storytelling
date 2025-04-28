@@ -7,15 +7,15 @@ from matplotlib.patches import Patch
 
 # loading data and merging
 
-gdf = gpd.read_file("data/dissemination-area-winnipeg-2016.geojson")
-dfm = pd.read_csv("data/can-marg-manitoba-2016.csv")
-dfb = pd.read_csv("data/can-bics-winnipeg.csv")
+gdf = gpd.read_file("dissemination-area-winnipeg-2016.geojson")
+dfm = pd.read_csv("can-marg-manitoba-2016.csv")
+dfb = pd.read_csv("can-bics-winnipeg.csv")
 
 gdf = gdf.merge(dfb, how='left', on='dauid').merge(dfm, how='left', on='dauid')
 
-csd = gpd.read_file("data/csd-winnipeg-2016.geojson")
-osm_streets = gpd.read_file("data/streets-osm-winnipeg.geojson")
-osm_rivers = gpd.read_file("data/river-osm-winnipeg.geojson")
+csd = gpd.read_file("csd-winnipeg-2016.geojson")
+osm_streets = gpd.read_file("streets-osm-winnipeg.geojson")
+osm_rivers = gpd.read_file("river-osm-winnipeg.geojson")
 
 # classifying data
 
