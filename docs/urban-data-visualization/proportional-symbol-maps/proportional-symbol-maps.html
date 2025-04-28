@@ -259,7 +259,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bivariate Choropleth Maps</span></a>
+ <span class="menu-text">Bivariate choropleth maps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -271,7 +271,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../urban-data-visualization/flow-maps/flow-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Origin-Destination Flow Maps</span></a>
+ <span class="menu-text">Flow maps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -343,15 +343,15 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./img/toronto-collisions.png" class="img-fluid figure-img"></p>
-<figcaption>Visualization using proportional symbols of traffic collisions in Toronto, weighted by injury severity (Source: City of Toronto)</figcaption>
+<figcaption>Proportional symbols used to visualize traffic collisions in Toronto, weighted by injury severity (Source: City of Toronto)</figcaption>
 </figure>
 </div>
 <p>Pros of proportional symbol maps:</p>
 <ul>
 <li><p>Intuitive visual comparison of values.</p></li>
 <li><p>Flexible placement—symbols can sit above or alongside base features.</p></li>
-<li><p>Good for visualizing raw counts or totals</p></li>
-<li><p>Can be adapted to create bivariate maps, e.g.&nbsp;classify symbols by both size and colour to show two different variables (e.g.&nbsp;the language map above uses colour for different languages and size for the number of speakers)</p></li>
+<li><p>Good for visualizing raw counts or totals.</p></li>
+<li><p>Can be adapted to create bivariate maps, e.g.&nbsp;classify symbols by both size and colour to show two different variables (e.g.&nbsp;the language map above uses colour for different languages and size for the number of speakers).</p></li>
 </ul>
 <p>Cons of proportional symbol maps:</p>
 <ul>
@@ -419,13 +419,13 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Cons:</p>
 <ul>
-<li>Even if this is this better than diameter in most cases, some research has found that people tend to underestimate the size differences between circles. This can be adapted with <a href="https://en.wikipedia.org/wiki/Proportional_symbol_map#Apparent_magnitude_(Flannery)_scaling">Flannery scaling</a>, which slightly inflates larger symbols in area-based scaling to compensate for how we see them.</li>
+<li>Even if scaling by area is better than scaling by diameter in most cases, some research has found that people tend to underestimate the size differences between circles. This can be addressed with <a href="https://en.wikipedia.org/wiki/Proportional_symbol_map#Apparent_magnitude_(Flannery)_scaling">Flannery scaling</a>, which slightly inflates larger symbols in area-based scaling to compensate for how we see them.</li>
 </ul>
 </section>
 </section>
 <section id="proportional-symbol-maps-in-qgis" class="level2">
 <h2 data-anchor-id="proportional-symbol-maps-in-qgis">Proportional symbol maps in QGIS</h2>
-<p>Great! lets take a look at an example of how to make a proportional symbol map in QGIS. We’ll use the same data for Edmonton that is shown at the top of this page to try to make a map showing the distribution of population in the city.</p>
+<p>Great! Let’s take a look at an example of how to make a proportional symbol map in QGIS. We’ll use the same data for Edmonton that is shown at the top of this page to try to make a map showing the distribution of population in the city.</p>
 <p>Good prerequisites for this tutorial would be our <a href="../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">introductory GIS</a> and <a href="../../urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html">spatial data visualization</a> notebooks.</p>
 <p><a href="./data/edmonton-ct-population-96-21.geojson">Click here to download data for census tracts in Edmonton</a>. The data includes the following columns, sourced from the Canadian census. Check out <a href="../../urban-data-analytics/canadian-census-data/canadian-census-data.html">our notebook on Canadian census data</a> for more details on this data source.</p>
 <ul>
@@ -436,15 +436,15 @@ ul.task-list li input[type="checkbox"] {
 <li><p><code>pop_1996</code> population in 1996</p></li>
 <li><p><code>dwe_1996</code> number of dwellings in 1996</p></li>
 </ul>
-<p>Since our data are polygons, but proportional symbol maps are typically based on single points, we’ll have to first convert our polygons to points first before we can visualize. The common way to generate representative points of polygons is by computing centroids. We can do this via <em>Vector</em> - <em>Geometry</em> - <em>Centroids</em>. Or by opening the <em>Processing</em> - <em>Toolbox</em> and searching for <em>Centroids</em>. The result should look something like this (likely with different colours)</p>
-<p>(Note that computing centroids is one of may common spatial data or geo-processing functions. Read more in our <a href="../../urban-data-analytics/spatial-data-processing/spatial-data-processing.html">notebook on spatial data processing</a>)</p>
+<p>Since our data are polygons, but proportional symbol maps are typically based on single points, we’ll have to convert our polygons to points first before we can visualize. The common way to generate representative points of polygons is by computing centroids. We can do this via <strong>Vector</strong> - <strong>Geometry</strong> - <strong>Centroids</strong>. Or by opening the <strong>Processing</strong> - <strong>Toolbox</strong> and searching for <strong>Centroids</strong>. The result should look something like this (likely with different colours).</p>
+<p>(Note that computing centroids is one of many common spatial data or geo-processing functions. Read more in our <a href="../../urban-data-analytics/spatial-data-processing/spatial-data-processing.html">notebook on spatial data processing</a>)</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./img/centroids-ct-edm.png" class="img-fluid figure-img"></p>
 <figcaption>Centroids of census tracts in Edmonton</figcaption>
 </figure>
 </div>
-<p>Once we have our points, we can then visual them based on their size! To do so, open up the <em>Properties</em> of the centroids layer, go to <em>Symbology</em>, and then select <em>Graduated</em>. The default is to style by colour, but if you can change the <em>Method</em> to <em>Size</em>. The <em>Size from</em> options define the size of the smallest and largest circle. These are worth tinkering with since you want all circles to be visible, but you don’t want too much clutter on the map either (i.e.&nbsp;circle too big that they cover everything).</p>
+<p>Once we have our points, we can then visualize them based on their size! To do so, open up the <em>Properties</em> of the centroids layer, go to <em>Symbology</em>, and then select <em>Graduated</em>. The default is to style by colour, but if you can change the <em>Method</em> to <em>Size</em>. The <em>Size from</em> options define the size of the smallest and largest circle. These are worth tinkering with since you want all circles to be visible, but you don’t want too much clutter on the map either (i.e.&nbsp;circles too big that they cover everything).</p>
 <p>In the example below, I am testing out 3 groups of sizes, based on quantiles of 2021 population.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -459,8 +459,8 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Result of proportional symbol styling options in QGIS, based on 2021 census tract population</figcaption>
 </figure>
 </div>
-<p>Note as well that the map is in an area-conserving CRS (a local Mercator projection) and that an OpenStreetMap basemap is in the background to give the map some visual reference. (check out our <a href="../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">introductory QGIS</a> tutorial on how to do this).</p>
-<p>This output on its own is great for exploratory analysis, can clearly pick up patterns of high and low population in Edmonton, but if you were going to export this to include it in a publication it would be better to include a title and legend. Check out some of the other example maps on this page on how legends for proportional symbol maps can be designed, this is sometimes done via graphic design software since base legend options in QGIS and similar tools can be limited in terms of custom layout and legend design.</p>
+<p>Note as well that the map is in an area-conserving CRS (a local Mercator projection) and that an OpenStreetMap basemap is in the background to give the map some visual reference (check out our <a href="../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">introductory QGIS</a> tutorial on how to do this).</p>
+<p>This output on its own is great for exploratory analysis, can clearly pick up patterns of high and low population in Edmonton, but if you were going to export this to include it in a publication it would be better to include a title and legend. Check out some of the other example maps on this page about how legends for proportional symbol maps can be designed. This is sometimes done via graphic design software since base legend options in QGIS and similar tools can be limited in terms of custom layout and legend design.</p>
 <p>What we did, as well, is relatively simple. It only shows population in one year. However, in the data (the same source as the very first map shown in this notebook) we have population and dwelling counts for 2021 and 1996. From here you could use proportional symbols to show…</p>
 <ul>
 <li>1996 population or dwelling counts</li>
@@ -478,7 +478,7 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Map of the USA where the proportional heights of triangles represent how many Christmas trees are grown and sold (<a href="https://www.maps.com/where-christmas-trees-grow">Source</a>)</figcaption>
 </figure>
 </div>
-<p>Proportional symbol maps can also be combined with charts to both show size alongside other data. It is possible to create chart-based symbols like this in QGIS by going to a layers <em>Properties</em> and then <em>Diagrams</em>. There are options for pie charts, bar charts, and histograms. Just be careful with the size and number of variables in each chart, as if there are many on a map, it can become difficult to read and parse out trends.</p>
+<p>Proportional symbol maps can also be combined with charts to show size alongside other data. It is possible to create chart-based symbols like this in QGIS by going to a layers <em>Properties</em> and then <em>Diagrams</em>. There are options for pie charts, bar charts, and histograms. Just be careful with the size and number of variables in each chart, as if there are many on a map, it can become difficult to read and parse out trends.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./img/minard-carte-viande-1858.png" class="img-fluid figure-img"></p>
@@ -486,7 +486,7 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p>Everything that we’ve shown above pertains to single points (either a point dataset or polygons represented by their centroids). However, we can also do similar proportional symbols for line-data, for example where the width or thickness of a line is based on a data value. For example, this map visualizes ridership by transit route in Toronto via line-width.</p>
-<p>In QGIS, you can create something similar by classifying your line data via <em>graduated</em> and then either A) manually changing the symbol styling to different line-widths or B) styling via a function using the <a href="https://www.qgistutorials.com/en/docs/3/vector_styling_expressions.html">expression builder</a></p>
+<p>In QGIS, you can create something similar by classifying your line data via <strong>Graduated</strong> (in <strong>Symbology</strong>) and then either A) manually changing the symbol styling to different line-widths or B) styling via a function using the <a href="https://www.qgistutorials.com/en/docs/3/vector_styling_expressions.html">expression builder</a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./img/ttc-ridership.png" class="img-fluid figure-img"></p>

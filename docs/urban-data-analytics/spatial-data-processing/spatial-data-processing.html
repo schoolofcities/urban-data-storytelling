@@ -296,7 +296,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bivariate Choropleth Maps</span></a>
+ <span class="menu-text">Bivariate choropleth maps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -308,7 +308,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../urban-data-visualization/flow-maps/flow-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Origin-Destination Flow Maps</span></a>
+ <span class="menu-text">Flow maps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -370,6 +370,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>These help answer spatial questions like “What’s within walking distance?” or “How much green-space is inside this area?” or “How many libraries are in each neighbourhood?”</p>
 <p>There are many ways to interact with spatial data - ranging from getting geometric points from addresses, to intersecting different spatial datasets. In this notebook, we’ll cover a number of commonly used spatial data processing functions.</p>
 <p>We’ll show the examples using <code>geopandas</code>, however every one of these examples can easily be done in GIS software and many other libraries for working with spatial data.</p>
+<p>In QGIS, many of the functions that we show below (e.g.&nbsp;Buffer, Spatial Joins, etc.) can be found under the <strong>Vector</strong> or <strong>Raster</strong> dropdowns at the top QGIS panel. These dropdowns include some of the most common functions. For a full, searchable, list of all the spatial data processing functions in QGIS, go to the <strong>Processing</strong> dropdown and then click <strong>Toolbox</strong>. This should display a panel with all the functions available in QGIS by category and with a search bar.</p>
+<p>Generally, when processing spatial data, using QGIS is great for smaller tasks that we only want to compute something once, while using Python is better suited for larger datasets, automating repetitive tasks, chaining processes together, and allows for greater reproducibility.</p>
 <div id="f1909ada-0c74-4b5b-9373-1a5afef9616c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>

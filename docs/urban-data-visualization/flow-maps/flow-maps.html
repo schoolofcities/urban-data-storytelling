@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Origin-Destination Flow Maps – Urban Data Storytelling 📊📈🏙️</title>
+<title>Flow maps – Urban Data Storytelling 📊📈🏙️</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="description" content="Notebooks on urban data analysis and visualization">
 <meta name="author" content="School of Cities">
 
-<meta property="og:title" content="Origin-Destination Flow Maps – Urban Data Storytelling 📊📈🏙️">
+<meta property="og:title" content="Flow maps – Urban Data Storytelling 📊📈🏙️">
 <meta name="og:description" content="Notebooks on urban data analysis and visualization">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://schoolofcities.github.io/urban-data-storytelling">
@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="https://schoolofcities.github.io/urban-data-storytelling">
 <meta name="twitter:creator" content="@UofTCities">
-<meta name="twitter:title" content="Origin-Destination Flow Maps – Urban Data Storytelling 📊📈🏙️">
+<meta name="twitter:title" content="Flow maps – Urban Data Storytelling 📊📈🏙️">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://schoolofcities.github.io/evening-and-night-commuting/web-card.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
@@ -141,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/flow-maps/flow-maps.html">Origin-Destination Flow Maps</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/flow-maps/flow-maps.html">Flow maps</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -296,7 +296,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bivariate Choropleth Maps</span></a>
+ <span class="menu-text">Bivariate choropleth maps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -308,7 +308,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../urban-data-visualization/flow-maps/flow-maps.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Origin-Destination Flow Maps</span></a>
+ <span class="menu-text">Flow maps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -330,16 +330,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link active" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#origin-destination-matrices" id="toc-origin-destination-matrices" class="nav-link" data-scroll-target="#origin-destination-matrices">Origin-Destination Matrices</a></li>
+  <li><a href="#origin-destination-matrices" id="toc-origin-destination-matrices" class="nav-link" data-scroll-target="#origin-destination-matrices">Origin-destination matrices</a></li>
+  <li><a href="#generating-flow-lines" id="toc-generating-flow-lines" class="nav-link" data-scroll-target="#generating-flow-lines">Generating flow lines</a></li>
+  <li><a href="#visualizing-flow-lines" id="toc-visualizing-flow-lines" class="nav-link" data-scroll-target="#visualizing-flow-lines">Visualizing flow lines</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/flow-maps/flow-maps.html">Origin-Destination Flow Maps</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/flow-maps/flow-maps.html">Flow maps</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Origin-Destination Flow Maps</h1>
+<h1 class="title">Flow maps</h1>
 </div>
 
 
@@ -362,8 +364,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/calgary-hospital-map-multipes-python-export.png" class="img-fluid"></p>
 <section id="prerequisites" class="level2">
 <h2 data-anchor-id="prerequisites">Prerequisites</h2>
-<p>Prior knowledge of <code>pandas</code>, <code>geopanda</code>, QGIS, and Inkscape (or similar graphic design software) would be helpful for the following tutorial.</p>
-<p>Click <a href="od-flow-maps.zip">here</a> to download this article as a Jupyter Notebook alongside the datasets required. In the download, there is also a standalone Python script, if you want to run the steps all-at-once or integrate with anything else you have brewing.</p>
+<p>Prior knowledge of <code>pandas</code>, <code>geopandas</code>, QGIS, and Inkscape (or similar graphic design software) would be helpful for the following tutorial. Here are the links to download this notebook and data.</p>
+<ul>
+<li><a href="../../urban-data-visualization/flow-maps/flow-maps.html">Jupyter notebook</a></li>
+<li><a href="./data.zip">Datasets</a></li>
+</ul>
 <p>If you are running the notebook and/or script locally (generally recommended), you will need to use the following libraries. You’ll have to install them (e.g.&nbsp;via <code>pip</code> or <code>conda</code>) if you do not have them installed already.</p>
 <div id="71a56f71-3ad2-4ba7-9dbc-2ef16673346a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
@@ -376,11 +381,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="origin-destination-matrices" class="level2">
-<h2 data-anchor-id="origin-destination-matrices">Origin-Destination Matrices</h2>
+<h2 data-anchor-id="origin-destination-matrices">Origin-destination matrices</h2>
 <p>Origin-Destination matrices encode many people travel from one set of locations (e.g.&nbsp;neighbourhoods) to another set of locations (e.g.&nbsp;hospitals). These are sometimes called <em>flow</em> or <em>trip</em> tables.</p>
 <p>In urban geography applications, this data often represents people travelling in the city, to or from specific types of places. But it can also be used to represent the transport or travel of other phenomena e.g.&nbsp;products, money, wildlife, etc.</p>
 <p>This type of data can be based on real observations e.g.&nbsp;from administrative data that includes visiting patients’ addresses or a survey that asks about daily travel. The data can also be <em>simulated</em>, i.e.&nbsp;estimated, based on a model that predicts trips between locations.</p>
-<p>The toy data that we are going to look at below is the latter, ersatz data of trips to hospitals in Calgary. Let’s load it and take a look. The data have 3 columns; the first is the unique ID of a Census Dissemination Area (DA), the second is the ID of a hospital, and the third column is the number of visits from each DA to each hospital.</p>
+<p>The example data that we are going to look at below is the latter, ersatz data of trips to hospitals in Calgary. Let’s load it and take a look. The data have 3 columns; the first is the unique ID of a Census Dissemination Area (DA), the second is the ID of a hospital, and the third column is the number of visits from each DA to each hospital.</p>
 <div id="21af7745-fda4-4b41-abc5-9d50bbcce583" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>od <span class="op">=</span> pd.read_csv(<span class="st">"data/od-flows.csv"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>od.tail(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -598,7 +603,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>For a flow map, we want to connect the two sets of points, and then style the lines based a weight connecting them, in this case number of trips between them.</p>
+</section>
+<section id="generating-flow-lines" class="level2">
+<h2 data-anchor-id="generating-flow-lines">Generating flow lines</h2>
+<p>For a flow map, we want to connect the two sets of points, and then style the lines based on the weight connecting them, in this case, the number of trips between them.</p>
 <p>For this, we are essentially creating a straight <em>line</em> geometry for every row in <code>od</code>. We can do this by first joining in the coordinates to the <code>od</code> flow matrix</p>
 <div id="cd60b19e-df7c-4c2b-95b2-ec6107e1bbd3" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>da[<span class="st">'dauid'</span>] <span class="op">=</span> da[<span class="st">'name'</span>].astype(<span class="st">'int64'</span>)</span>
@@ -613,7 +621,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    right_on<span class="op">=</span><span class="st">'id'</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Then we use some <a href="https://shapely.readthedocs.io/en/stable/index.html">shapely</a> magic, specifically the <code>LineString</code> function to combine two point geometries into a line geometry. The <code>lambda</code> function (a small single expression function) applies this to each row in the GeoDataFrame.</p>
+<p>Then we use some <a href="https://shapely.readthedocs.io/en/stable/index.html">shapely</a> magic, specifically the <code>LineString</code> function to combine two point geometries into a line geometry. The <code>lambda</code> function (a small single expression function) applies this to each row in the GeoDataFrame. (Check out this <a href="https://www.geeksforgeeks.org/applying-lambda-functions-to-pandas-dataframe/">tutorial for using Lambda functions in pandas</a>)</p>
 <div id="882b118b-28f7-4646-ba24-777a21470691" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>odm <span class="op">=</span> gpd.GeoDataFrame(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    {</span>
@@ -645,6 +653,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</section>
+<section id="visualizing-flow-lines" class="level2">
+<h2 data-anchor-id="visualizing-flow-lines">Visualizing flow lines</h2>
 <p>That’s a bit of a mess, but it <em>looks like</em> the lines are all there. There are a few simple ways to distinguish lines with more trips, and dim those with fewer. The first is to have the line width be a function of the number of trips</p>
 <div id="b429fc0b-f8a2-4ce2-bb5a-b63073467989" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
@@ -678,7 +689,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Let’s try to better distinguish flows to each hospital, i.e.&nbsp;to better show what the catchment area is of visitors to each. We can do this the help of a little colour! Below we combine categorical colouring with dynamic opacity styling used above.</p>
+<p>Let’s try to better distinguish flows to each hospital, i.e.&nbsp;to better show what the catchment area is of visitors to each. We can do this with the help of a little colour! Below we combine categorical colouring with dynamic opacity styling used above.</p>
 <div id="e663a341-9df0-4a0c-b8e0-1e02801389a1" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specifying the colour and opacity of each line</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -817,8 +828,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>That’s it for now. Thanks!</p>
-<hr>
 
 
 </section>
