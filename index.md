@@ -14,3 +14,4 @@ This online textbook will walk you through three core modules that will help you
 - Urban data analysis
 - Urban data visualization 
 
+![Framework for data storytelling](assets/uds-framework-diagram.png)
