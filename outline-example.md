@@ -62,4 +62,8 @@ Remaining to dos for the storytelling and analytics:
 - Python intro notebook: Create glossery table for common terms (Julia)
 - Python intro notebook: have examples urban rather than names and fruit (Julia)
 
+- Python data viz - Julia makes changes
+
 - stats page - list other examples of hypoth tests?
+- excel/sheets data viz without code
+- 

@@ -1,4 +1,6 @@
-# Data visualization
+---
+title: "Data visualization"
+---
 
 Data visualization is the graphical representation of information and data. By using visual elements like charts, graphs, and maps, data visualization tools help people understand patterns, trends, and outliers in data. At its core, data visualization translates abstract numbers into something visible and intuitive, helping our audiences better understand what the data is telling us.
 
@@ -103,7 +105,7 @@ Via preattentive processing, we can guide viewers’ attention efficiently, enha
 
 ### Perceptual Rankings
 
-* Perceptual Rankings* help explain why some encodings are easier to interpret than others. Not all visual variables are equally effective.
+*Perceptual Rankings* help explain why some encodings are easier to interpret than others. Not all visual variables are equally effective.
 
 You may have noticed that in the scatter-plot example in the previous section, that it is generally easier to pick out a red circle among a group of blue circles rather than a blue square among a group of blue circles.
 
@@ -144,9 +146,6 @@ Thinking about and directly designing each of the different components of a char
 
 
 
-
-
-
 ## Practical tips for effective data visualization
 
 A strong visualization can make complex data accessible; however, without care, the message can get lost. Great visualizations balance clarity, precision, and aesthetics. This section offers practical tips and guiding principles to elevate your data visualizations.
@@ -159,19 +158,18 @@ Note that these are general recommendations and rules of thumb, not rules that y
 Guide the viewer’s eye by creating a hierarchy between background and foreground. Your key message should be the focus and highlighted while everything else (axes, grid-lines, background elements) should support and not compete with it.
 
 - Bold or highlight key data points.
-- Use size, contrast, and color to signal importance.
+- Use size, contrast, and colour to signal importance.
 - De-emphasize secondary elements like gridlines, minor tick marks, or axis labels
 
-The line chart in the image above has a strong visual hiearchy between the key data points it wants to show (e.g. the lines for Sweden, the E.U., and Ireland) relative to the rest of the chart components.
-
+For example, the line chart in the image above has a strong visual hierarchy between the key data points it wants to show (e.g. the lines for Sweden, the E.U., and Ireland) relative to the rest of the chart components.
 
 When guiding your readers through a story with a series of visualizations, sometimes it is useful to follow a Data Visualization Sandwich metaphor
 
 ![](img/Sandwich.png)
 
-This is very similar to journalistic styles of writing, "don't burry the lead" and "bottom line up-front"
+This is very similar to journalistic styles of writing, “don’t bury the lead” and “bottom line up-front”.
 
-Let's look at an example, this is a map of the United States from an article by the [Guardian](www.theguardian.com/environment/2022/feb/05/americans-above-average-temperature-increase-climate-crisis) on how the USA is facing above average rises in temperatures. This map acts as the Patty – it draws the attention of the reader and introduces the topic of the article.
+Let’s look at an example. This is a map of the United States from an article by the [Guardian](www.theguardian.com/environment/2022/feb/05/americans-above-average-temperature-increase-climate-crisis) on how the USA is facing above average rises in temperatures. This map acts as the Patty – it draws the attention of the reader and introduces the topic of the article.
 
 ![](img/Sandwich_EX1.png)
 
@@ -195,31 +193,32 @@ In other words, this is about reducing clutter and focusing graphical elements o
 
 Here are a few recommendations for reducing clutter and increasing data-ink ratios:
 
-- Remove non-essential "chart-junk" (3D effects, background shading, unnecessary gridlines, borders).
+- Remove non-essential "chartjunk" (3D effects, background shading, unnecessary gridlines, borders).
 - Use direct labels instead of relying on legends.
 - Choose simple chart types unless complexity is truly needed.
 - Use subtle formatting of reference information like gridlines to keep the audience focused on the data itself.
 - Avoid overuse of colors, labels, and gridlines.
-- Don't always need to visualize every possible variable, focus on the story you're trying to tell.
+- You don't need to visualize every possible variable or data point, focus on the story you're trying to tell.
 - Group or collapse less important data to simplify interpretation.
 - Whitespace is your friend
 
-Here's an example of COVID-19 deaths that appeared in [The Guardian]( www.theguardian.com/us-news/2022/mar/13/how-covid-shook-the-us-charts-graphs) that has limited visual clutter and strong hierarchy.
+Here's an example of COVID-19 deaths that appeared in [The Guardian](https://www.theguardian.com/us-news/2022/mar/13/how-covid-shook-the-us-charts-graphs) that has limited visual clutter and strong hierarchy.
 
 ![](img/DataInk_EX1.png)
+
 
 
 ### Design for your output
 
 Effective visualization isn’t one-size-fits-all. Always consider where and how your work will be seen. Tailor your design choices to the medium and the audience:
 
-- **Print vs digital**: Pick fonts, line weights, and colors that are clear at the specific resolution and paper size that you are designing for. What works on a low-resolution screen may not translate well to paper. 
+- *Print vs digital*: Pick fonts, line weights, and colors that are clear at the specific resolution and/or paper size that you are designing for. What works on a low-resolution screen may not translate well to paper. 
 
-- **Presentations vs. reports**: Slides call for bold, minimal visuals with large text and fewer details. Reports allow for more complexity and written explanation.
+- *Presentations vs. reports*: Slides call for bold, minimal visuals with large text and fewer details. Reports allow for more complexity and written explanation.
 
-- **Social media**: Prioritize clarity at small sizes. Expect compression and low resolution and keep text minimal and legible.
+- *Social media*: Prioritize clarity at small sizes. Expect compression and low resolution and keep text minimal and legible.
 
-- **Audience expertise**: Technical audiences may appreciate complex charts and granular data. Broader or non-expert audiences often benefit from simpler visuals, clear labeling, and guiding annotations.
+- *Audience expertise*: Technical audiences may appreciate complex charts and granular data. Broader or non-expert audiences often benefit from simpler visuals, clear labeling, and guiding annotations.
 
 If you design a chart to fit within a specific medium (e.g. mobile view on a screen), it's recommended you redesign the chart if you want to have it in a different context (e.g. printed in a report). This is to prevent fonts being resized so they are no longer legible, graphics losing resolution and becoming fuzzy, or distorted if they are resized.
 

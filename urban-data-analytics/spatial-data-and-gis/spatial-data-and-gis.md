@@ -1,11 +1,12 @@
-
-# Spatial data and GIS
+---
+title: "Spatial data and GIS"
+---
 
 A lot of urban datasets are directly linked to specific places, e.g. addresses, streets, neighbourhoods, political or administrative boundaries, etc.
 
 Data that include place-based information are often called *spatial*, *geographic*, or *geospatial* data *Geographic Information Systems (GIS)* are tools and software for analyzing, processing, and visualizing spatial data.
 
-This page will cover the basics of spatial data and how we can view and interact with these data in the software [QGIS](https://qgis.org) (you will need to download QGIS to work on the hands-on part of this tutorial).
+This page will cover the basics of spatial data and how we can view and interact with these data in the software [QGIS](https://qgis.org). You will need to download QGIS to work on the hands-on part of this tutorial. We recommend the Long-Term Release (LTR) version.
 
 
 ## Spatial data
