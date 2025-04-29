@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d1fcf46c23e38b7e3acfb286f502517d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6fbcbd56e20030bb8c94bdea314e40aa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -337,22 +337,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/flow-maps/flow-maps.html">Flow maps</a></li></ol></nav><h1 class="title display-7">Flow maps</h1></header>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/flow-maps/flow-maps.html">Flow maps</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Flow maps</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
+<header id="title-block-header">
 
 
 </header>
@@ -366,8 +353,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-anchor-id="prerequisites">Prerequisites</h2>
 <p>Prior knowledge of <code>pandas</code>, <code>geopandas</code>, QGIS, and Inkscape (or similar graphic design software) would be helpful for the following tutorial. Here are the links to download this notebook and data.</p>
 <ul>
-<li><a href="../../urban-data-visualization/flow-maps/flow-maps.html">Jupyter notebook</a></li>
-<li><a href="./data.zip">Datasets</a></li>
+<li><a href="../../urban-data-visualization/flow-maps/flow-maps.html" target="_blank">Jupyter notebook</a></li>
+<li><a href="./data.zip" target="_blank">Datasets</a></li>
 </ul>
 <p>If you are running the notebook and/or script locally (generally recommended), you will need to use the following libraries. You’ll have to install them (e.g.&nbsp;via <code>pip</code> or <code>conda</code>) if you do not have them installed already.</p>
 <div id="71a56f71-3ad2-4ba7-9dbc-2ef16673346a" class="cell" data-execution_count="1">
@@ -621,7 +608,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    right_on<span class="op">=</span><span class="st">'id'</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Then we use some <a href="https://shapely.readthedocs.io/en/stable/index.html">shapely</a> magic, specifically the <code>LineString</code> function to combine two point geometries into a line geometry. The <code>lambda</code> function (a small single expression function) applies this to each row in the GeoDataFrame. (Check out this <a href="https://www.geeksforgeeks.org/applying-lambda-functions-to-pandas-dataframe/">tutorial for using Lambda functions in pandas</a>)</p>
+<p>Then we use some <a href="https://shapely.readthedocs.io/en/stable/index.html" target="_blank">shapely</a> magic, specifically the <code>LineString</code> function to combine two point geometries into a line geometry. The <code>lambda</code> function (a small single expression function) applies this to each row in the GeoDataFrame. (Check out this <a href="https://www.geeksforgeeks.org/applying-lambda-functions-to-pandas-dataframe/" target="_blank">tutorial for using Lambda functions in pandas</a>)</p>
 <div id="882b118b-28f7-4646-ba24-777a21470691" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>odm <span class="op">=</span> gpd.GeoDataFrame(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    {</span>

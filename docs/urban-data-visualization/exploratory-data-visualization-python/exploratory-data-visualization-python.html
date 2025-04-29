@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d1fcf46c23e38b7e3acfb286f502517d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6fbcbd56e20030bb8c94bdea314e40aa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -340,29 +340,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/exploratory-data-visualization-python/exploratory-data-visualization-python.html">Exploratory data visualization in Python</a></li></ol></nav><h1 class="title display-7">Exploratory data visualization in Python</h1></header>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/exploratory-data-visualization-python/exploratory-data-visualization-python.html">Exploratory data visualization in Python</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Exploratory data visualization in Python</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
+<header id="title-block-header">
 
 
 </header>
 
 
 <p>Data exploration is an important step in the data analysis process. It can highlight anomalies or interesting trends, and reveal how the data are distributed.</p>
-<p>This notebook explains how to visually explore data by creating plots using the popular <a href="https://seaborn.pydata.org/">seaborn</a> and <a href="https://matplotlib.org/">matplotlib</a> libraries.</p>
+<p>This notebook explains how to visually explore data by creating plots using the popular <a href="https://seaborn.pydata.org/" target="_blank">seaborn</a> and <a href="https://matplotlib.org/" target="_blank">matplotlib</a> libraries.</p>
 <p>It will include the following plots:</p>
 <ul>
 <li>Histogram &amp; stacked histogram</li>
@@ -388,10 +375,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="load-bike-share-data" class="level2">
 <h2 data-anchor-id="load-bike-share-data">Load bike share data</h2>
-<p>The dataset we’ll be working with is Bike Share Toronto ridership data from January 2022. It’s already been downloaded for you, so you can just load it below using the <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html"><code>read_csv</code></a> function from the <code>pandas</code> library.</p>
+<p>The dataset we’ll be working with is Bike Share Toronto ridership data from January 2022. It’s already been downloaded for you, so you can just load it below using the <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html" target="_blank"><code>read_csv</code></a> function from the <code>pandas</code> library.</p>
 <p>However, if you want to download the data yourself…</p>
 <ol type="1">
-<li>Go to <a href="https://open.toronto.ca/dataset/bike-share-toronto-ridership-data/">this page</a> from the City of Toronto’s Open Data portal</li>
+<li>Go to <a href="https://open.toronto.ca/dataset/bike-share-toronto-ridership-data/" target="_blank">this page</a> from the City of Toronto’s Open Data portal</li>
 <li>Click on the blue “Download” bar towards the bottom</li>
 <li>Download the <code>bikeshare-ridership-2022</code> zip file</li>
 <li>Unzip the file and open the folder</li>
@@ -501,7 +488,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="how-long-do-bike-share-trips-last" class="level2">
 <h2 data-anchor-id="how-long-do-bike-share-trips-last">How long do bike share trips last?</h2>
 <p>Let’s start by looking at the trip duration column to see how long people are travelling when using the bike share.</p>
-<p>The “Trip Duration” column is in seconds, which is hard to interpret – to make it easier, let’s create a column for minutes by dividing by 60. We can then compute some simple summary statistics on the column using the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html"><code>describe</code></a> method from <code>pandas</code>.</p>
+<p>The “Trip Duration” column is in seconds, which is hard to interpret – to make it easier, let’s create a column for minutes by dividing by 60. We can then compute some simple summary statistics on the column using the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html" target="_blank"><code>describe</code></a> method from <code>pandas</code>.</p>
 <div id="5de36475-c831-41d4-8a9a-24f66f905816" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Trip Duration Minutes"</span>] <span class="op">=</span> df[<span class="st">"Trip  Duration"</span>] <span class="op">/</span> <span class="dv">60</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Trip Duration Minutes"</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -519,8 +506,8 @@ Name: Trip Duration Minutes, dtype: float64</code></pre>
 </div>
 <p>Now we have the mean, standard deviation, and quantiles. The average trip length is about 15 minutes, which seems reasonable. However, the maximum trip length is about 635 hours! That doesn’t seem right – when analyzing this data, we would need to make a decision about how to handle this value. For example, we might filter it out if we’re confident it’s an error. Or maybe it’s part of a larger pattern of people who forget to dock their bikes.</p>
 <p>The fact that the median (the “50%” statistic from above) is lower than the mean shows that the data are right-skewed – most values are clustered at the lower end of the range – and there are some large outliers.</p>
-<p>Let’s plot a <em><a href="https://en.wikipedia.org/wiki/Histogram">histogram</a></em> to show the distribution of shorter trips (those less than 2 hours long) using the <a href="https://seaborn.pydata.org/generated/seaborn.displot.html"><code>displot</code></a> function from the <code>seaborn</code> package. Refer to this documentation to understand each of the parameters/arguments used to create the plots below.</p>
-<p>We’ll start by filtering the data to only rows where the “Trip Duration Minutes” column value is less than or equal to 120, using <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html"><code>loc</code></a>. Note that we’re only selecting the column itself because that’s the only data we need for this plot.</p>
+<p>Let’s plot a <em><a href="https://en.wikipedia.org/wiki/Histogram" target="_blank">histogram</a></em> to show the distribution of shorter trips (those less than 2 hours long) using the <a href="https://seaborn.pydata.org/generated/seaborn.displot.html" target="_blank"><code>displot</code></a> function from the <code>seaborn</code> package. Refer to this documentation to understand each of the parameters/arguments used to create the plots below.</p>
+<p>We’ll start by filtering the data to only rows where the “Trip Duration Minutes” column value is less than or equal to 120, using <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html" target="_blank"><code>loc</code></a>. Note that we’re only selecting the column itself because that’s the only data we need for this plot.</p>
 <div id="6efcdc5f" class="cell" data-execution_count="156">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"whitegrid"</span>) <span class="co"># set style to make plots look nicer</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -571,8 +558,8 @@ Name: Trip Duration Minutes, dtype: float64</code></pre>
 </section>
 <section id="how-does-the-number-of-trips-vary-by-day-for-each-user-type" class="level2">
 <h2 data-anchor-id="how-does-the-number-of-trips-vary-by-day-for-each-user-type">How does the number of trips vary by day, for each user type?</h2>
-<p>What if we want to plot the number of trips by day of the month, colored by user type? Let’s start with a <a href="https://en.wikipedia.org/wiki/Kernel_density_estimation">kernel density plot</a>.</p>
-<p>First we need to convert the “Start Time” column to a <em>datetime</em> object using <a href="https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html"><code>pandas.to_datetime</code></a> so that we can sort by date.</p>
+<p>What if we want to plot the number of trips by day of the month, colored by user type? Let’s start with a <a href="https://en.wikipedia.org/wiki/Kernel_density_estimation" target="_blank">kernel density plot</a>.</p>
+<p>First we need to convert the “Start Time” column to a <em>datetime</em> object using <a href="https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html" target="_blank"><code>pandas.to_datetime</code></a> so that we can sort by date.</p>
 <div id="0fb8f29f" class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Start Date'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'Start Time'</span>], <span class="bu">format</span><span class="op">=</span><span class="st">'%m/</span><span class="sc">%d</span><span class="st">/%Y %H:%M'</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_sorted_date <span class="op">=</span> df.sort_values(<span class="st">'Start Date'</span>)</span>
@@ -632,7 +619,7 @@ Name: Trip Duration Minutes, dtype: float64</code></pre>
 <section id="are-bike-share-trips-more-common-when-the-weather-is-warmer" class="level2">
 <h2 data-anchor-id="are-bike-share-trips-more-common-when-the-weather-is-warmer">Are bike share trips more common when the weather is warmer?</h2>
 <p>What if we are curious about the relationship between bike share trips and temperature? Maybe we have a hypothesis that more people tend to use bike share when it’s warmer. Let’s test this hypothesis by loading in another dataset, which includes the daily temperature in January 2022, and joining it with our bike share data.</p>
-<p>Let’s load in our weather data, which was already downloaded for you from the federal government’s <a href="https://climate.weather.gc.ca/index_e.html">historical climate data website</a>.</p>
+<p>Let’s load in our weather data, which was already downloaded for you from the federal government’s <a href="https://climate.weather.gc.ca/index_e.html" target="_blank">historical climate data website</a>.</p>
 <div id="650463f0-0040-4927-8665-917cbe082478" class="cell" data-scrolled="true" data-execution_count="77">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_weather <span class="op">=</span> pd.read_csv(<span class="st">"data/toronto-historical-weather-2022.csv"</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1138,7 +1125,7 @@ Name: Trip Duration Minutes, dtype: float64</code></pre>
 </div>
 </div>
 <p>The trend line has a positive slope, indicating there is a positive relationship between average daily temperature and number of trips.</p>
-<p>We can also determine how highly correlated the two variables are by calculating the <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">Pearson correlation coefficient</a> using the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html"><code>pearsonr</code></a> function from the <code>stats</code> module of the <code>scipy</code> library.</p>
+<p>We can also determine how highly correlated the two variables are by calculating the <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient" target="_blank">Pearson correlation coefficient</a> using the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" target="_blank"><code>pearsonr</code></a> function from the <code>stats</code> module of the <code>scipy</code> library.</p>
 <div id="5d61980d" class="cell" data-execution_count="139">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> pearsonr</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>

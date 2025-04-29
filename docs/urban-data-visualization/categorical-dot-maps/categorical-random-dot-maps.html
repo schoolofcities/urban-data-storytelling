@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d1fcf46c23e38b7e3acfb286f502517d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6fbcbd56e20030bb8c94bdea314e40aa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -338,22 +338,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.html">Categorical dot maps</a></li></ol></nav><h1 class="title display-7">Categorical dot maps</h1></header>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.html">Categorical dot maps</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Categorical dot maps</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
+<header id="title-block-header">
 
 
 </header>
@@ -365,14 +352,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>These maps also display well at multiple scales. We can examine general patterns across the entire city or zoom in on an area to identify local patterns.</p>
 <p><img src="images/toronto-housing-dot-map.png" class="img-fluid"></p>
 <p>Dot maps showing demographic and household data, like the one above, are often based on census data. Census data are usually publicly available pre-aggregated to spatial boundaries. In Canada, for instance, urban maps are often created using neighbourhood Census Tracts or smaller Dissemination Area boundaries.</p>
-<p>The dots on demographic dot maps, like those shown above, are therefore not perfect representations of where people live; they are estimated. For example, in the map above, if we know that there are 100 households in subsidized housing in a neighbourhood, we generate 10 dots randomly placed within that neighbourhood. If we have available data, this process can be improved via <a href="https://en.wikipedia.org/wiki/Dasymetric_map">dasymetric</a> mapping, where we only place dots in locations where we think people live. For example, in the above map, we used a land-use layer to place dots only in residential zones rather than parks or industrial zones. Once we have this working for one neighbourhood, it is then repeated for all neighbourhoods and all categories we want to include on our map.</p>
-<p>In this tutorial, we’re going to cover how to create dot maps like these using <a href="https://www.python.org/">Python</a>, mostly using <a href="https://geopandas.org/">geoPandas</a>, with some final cartography in <a href="https://www.qgis.org/en/site/">QGIS</a> and <a href="https://inkscape.org/">Inkscape</a>. The example data will be to replicate the map above, but the methods and code can be applied to anywhere with similar data.</p>
+<p>The dots on demographic dot maps, like those shown above, are therefore not perfect representations of where people live; they are estimated. For example, in the map above, if we know that there are 100 households in subsidized housing in a neighbourhood, we generate 10 dots randomly placed within that neighbourhood. If we have available data, this process can be improved via <a href="https://en.wikipedia.org/wiki/Dasymetric_map" target="_blank">dasymetric</a> mapping, where we only place dots in locations where we think people live. For example, in the above map, we used a land-use layer to place dots only in residential zones rather than parks or industrial zones. Once we have this working for one neighbourhood, it is then repeated for all neighbourhoods and all categories we want to include on our map.</p>
+<p>In this tutorial, we’re going to cover how to create dot maps like these using <a href="https://www.python.org/" target="_blank">Python</a>, mostly using <a href="https://geopandas.org/" target="_blank">geoPandas</a>, with some final cartography in <a href="https://www.qgis.org/en/site/" target="_blank">QGIS</a> and <a href="https://inkscape.org/" target="_blank">Inkscape</a>. The example data will be to replicate the map above, but the methods and code can be applied to anywhere with similar data.</p>
 <section id="prerequisites" class="level2">
 <h2 data-anchor-id="prerequisites">Prerequisites</h2>
 <p>Prior knowledge of pandas, geopandas, QGIS, and Inkscape (or similar graphic design software) would be helpful for the following tutorial. Here are the links to download this notebook and data.</p>
 <ul>
-<li><a href="../../urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.html">Jupyter notebook</a></li>
-<li><a href="./data.zip">Datasets</a></li>
+<li><a href="../../urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.html" target="_blank">Jupyter notebook</a></li>
+<li><a href="./data.zip" target="_blank">Datasets</a></li>
 </ul>
 <p>If you are running the notebook and/or script locally (generally recommended), you will need to use the following libraries. You’ll have to install them (e.g.&nbsp;via <code>pip</code> or <code>conda</code>) if you do not have them installed already.</p>
 <div id="7bd48190-5b20-4692-80f1-b69f31c18b9f" class="cell" data-execution_count="1">
@@ -388,8 +375,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-loading-and-processing" class="level2">
 <h2 data-anchor-id="data-loading-and-processing">Data loading and processing</h2>
-<p>We’re going to replicate the map of Toronto shown at the top of this page. I’ve pre-filtered the source datasets for Toronto, and they are included in the download link above. The datasets we’ll be using are: - <a href="https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index-eng.cfm">Census Dissemination Areas (DA) Polygons</a> - <a href="https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/index.cfm?Lang=E">Census Data on Housing Tenure</a> - <a href="https://borealisdata.ca/dataset.xhtml?persistentId=doi:10.5683/SP3/1VMJAG">Toronto Land Use Spatial Data</a></p>
-<p>Also included are layers solely for cartographic purposes (i.e.&nbsp;as reference layers on the final map) - <a href="https://www.openstreetmap.org/relation/324211">Toronto Boundary Polygon from OpenStreetMap</a> - <a href="https://www.openstreetmap.org/relation/1206310">Lake Ontario Polygon from OpenStreetMap</a> - <a href="https://www.metrolinx.com/en/about-us/open-data">Major Trasnit Lines &amp; Stops from Metrolinx</a></p>
+<p>We’re going to replicate the map of Toronto shown at the top of this page. I’ve pre-filtered the source datasets for Toronto, and they are included in the download link above. The datasets we’ll be using are: - <a href="https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index-eng.cfm" target="_blank">Census Dissemination Areas (DA) Polygons</a> - <a href="https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/index.cfm?Lang=E" target="_blank">Census Data on Housing Tenure</a> - <a href="https://borealisdata.ca/dataset.xhtml?persistentId=doi:10.5683/SP3/1VMJAG" target="_blank">Toronto Land Use Spatial Data</a></p>
+<p>Also included are layers solely for cartographic purposes (i.e.&nbsp;as reference layers on the final map) - <a href="https://www.openstreetmap.org/relation/324211" target="_blank">Toronto Boundary Polygon from OpenStreetMap</a> - <a href="https://www.openstreetmap.org/relation/1206310" target="_blank">Lake Ontario Polygon from OpenStreetMap</a> - <a href="https://www.metrolinx.com/en/about-us/open-data" target="_blank">Major Trasnit Lines &amp; Stops from Metrolinx</a></p>
 <p>To get started, let’s load the census data:</p>
 <div id="75e62240-1b89-4c45-8660-22a4b3fb9e05" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>da <span class="op">=</span> gpd.read_file(<span class="st">"data/toronto-da-2021.geojson"</span>)</span>
@@ -574,7 +561,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The second step is generating dots that we can plot on a map. For each DA, we generate <code>_</code> random dots, based on the numbers calculated above. Below is a schematic example.</p>
 <p>The simplest approach is on the left, placing dots randomly throughout the DA polygon.</p>
-<p>On the right is a <a href="https://en.wikipedia.org/wiki/Dasymetric_map">dasymetric</a> (dasy = dense, metric = measure) approach, where we use another dataset, such as land-use data, to clip out non-residential areas prior to generating dots. For example, on the right, we’re only placing dots in the areas that are not retail or parks. This provides better estimation that the dots are located where households actually live.</p>
+<p>On the right is a <a href="https://en.wikipedia.org/wiki/Dasymetric_map" target="_blank">dasymetric</a> (dasy = dense, metric = measure) approach, where we use another dataset, such as land-use data, to clip out non-residential areas prior to generating dots. For example, on the right, we’re only placing dots in the areas that are not retail or parks. This provides better estimation that the dots are located where households actually live.</p>
 <p><img src="images/dot-generation.svg" width="800"></p>
 <p>Let’s try to dasymetrically generate dots for every DA in Toronto!</p>
 <p>For Toronto, we fortunately have a dataset on land-use that we can use to classify areas as “residential” (i.e.&nbsp;candidate areas for placing dots), and “non-residential”. Let’s load and quickly plot the data:</p>
@@ -611,7 +598,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> lu[lu[<span class="st">'Class_name'</span>].isin(res_classes)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now let’s cut out the non-residential zones from the Dissemination Area polygons. We can think of this operation like a cookie cutter.</p>
-<p>This is a two-step process in <code>geopandas</code>. First we use the <a href="https://geopandas.org/en/stable/docs/user_guide/set_operations.html">overlay</a> function to select out only the residential areas from the DAs. Then we dissolve the geometries (i.e.&nbsp;a spatial group-by) by the <code>DAUID</code> since the instresection can lead to several different features with the same <code>DAUID</code>. This happens when two non-touching residential zones spatially overlap with a single Dissemination Area.</p>
+<p>This is a two-step process in <code>geopandas</code>. First we use the <a href="https://geopandas.org/en/stable/docs/user_guide/set_operations.html" target="_blank">overlay</a> function to select out only the residential areas from the DAs. Then we dissolve the geometries (i.e.&nbsp;a spatial group-by) by the <code>DAUID</code> since the instresection can lead to several different features with the same <code>DAUID</code>. This happens when two non-touching residential zones spatially overlap with a single Dissemination Area.</p>
 <div id="a024ca72-fc6b-4de6-8a0e-a173e0f4c0b3" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> gpd.overlay(da, res, how<span class="op">=</span><span class="st">'intersection'</span>).dissolve(by <span class="op">=</span> <span class="st">"DAUID"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1116,8 +1103,8 @@ Renter_in_subsidized_housing 73151 6.304272885533551</code></pre>
 <h2 data-anchor-id="final-thoughts">Final thoughts</h2>
 <p>Of course dot maps aren’t always the best option. They can be a bit difficult to parse out colours and patterns, especially once we add more and more categories. If you want to dig into the patterns of each specifically, i.e.&nbsp;are less concerned about the comparisons, or are only interested in density OR proportions (rather than both at the same time), a series of individual choropleth or single-category dot density maps would be good to pursue as well. It’s rare to have too many maps :)</p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Dot_distribution_map">Wikipedia page on dot maps</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Dasymetric_map">Wikipedia page on dasymetric mapping</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dot_distribution_map" target="_blank">Wikipedia page on dot maps</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dasymetric_map" target="_blank">Wikipedia page on dasymetric mapping</a></li>
 </ul>
 
 

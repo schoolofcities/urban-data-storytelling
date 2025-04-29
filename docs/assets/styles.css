@@ -9,9 +9,9 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-	padding-top: 46px;
+	padding-top: 70px;
 	color: #1E3765;
-	font-size: 38px;
+	font-size: 36px;
 	text-decoration: underline;
 }
 
@@ -31,11 +31,11 @@ figcaption {
 }
 
 em {
-	background-color: #f1c50050;
+	background-color: #f1c50069;
 }
 
 strong {
-	background-color: #6fc7ea34;
+	background-color: #6fc7ea52;
 	opacity: 1;
 }
 
@@ -44,6 +44,12 @@ a {
 }
 a:hover {
 	color: #007FA3;
+}
+
+.author {
+	color: #007FA3;
+	font-size: 14px;
+	padding-bottom: 30px;
 }
 
 

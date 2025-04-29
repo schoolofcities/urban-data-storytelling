@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d1fcf46c23e38b7e3acfb286f502517d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6fbcbd56e20030bb8c94bdea314e40aa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -346,22 +346,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html">Urban Data Analytics</a></li><li class="breadcrumb-item"><a href="../../urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html">Processing and analyzing data</a></li></ol></nav><h1 class="title display-7">Processing and analyzing data</h1></header>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html">Urban Data Analytics</a></li><li class="breadcrumb-item"><a href="../../urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html">Processing and analyzing data</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Processing and analyzing data</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
+<header id="title-block-header">
 
 
 </header>
@@ -376,7 +363,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Computing descriptive statistics (sum, mean, etc.)</li>
 <li>Aggregating data via cross-tabulations and pivot tables</li>
 </ul>
-<p>To do this, <strong>we’ll primarily be using <a href="https://pandas.pydata.org/">pandas</a>, a Python library</strong> for analyzing and organizing tabular data. For each section, we’ll also <strong>link to relevant documentation for doing similar tasks in Microsoft Excel and Google Sheets</strong>.</p>
+<p>To do this, <strong>we’ll primarily be using <a href="https://pandas.pydata.org/" target="_blank">pandas</a>, a Python library</strong> for analyzing and organizing tabular data. For each section, we’ll also <strong>link to relevant documentation for doing similar tasks in Microsoft Excel and Google Sheets</strong>.</p>
 <p>If you haven’t installed <code>pandas</code> you’ll have to install it.</p>
 <div id="1fdd66fd" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># !pip install pandas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -400,8 +387,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-anchor-id="tables-dataframes">Tables &amp; DataFrames</h2>
 <p>A very common way of structuring and analyzing a dataset is in a 2-dimensional table format, where rows are individual records or observations, while columns are attributes (often called <em>variables</em>) about those observations. For example, rows could each be a city and columns could indicate the population for different time periods. Data stored in spreadsheets often take this format.</p>
 <p>In <code>pandas</code>, a <code>DataFrame</code> is a tabular data structure similar to a spreadsheet, where data is organized in rows and columns. Columns can contain different kinds of data, such as numbers, strings, dates, and so on. When we load data in <code>pandas</code>, we typically load it into the structure of a <code>DataFrame</code>.</p>
-<p><strong>Let’s first take a look at a small dataset</strong>, Canadian municipalities and their population in 2021 and 2016, based on Census data. In Statistics Canada lingo, these are called <a href="https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo012">Census Subdivisions</a>. This dataset only includes municipalities with a population greater than 25,000 in 2021.</p>
-<p>The main method for loading csv data is to use the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">read_csv</a> function, but pandas can also read and write <a href="https://pandas.pydata.org/pandas-docs/stable/reference/io.html">many other</a> data formats.</p>
+<p><strong>Let’s first take a look at a small dataset</strong>, Canadian municipalities and their population in 2021 and 2016, based on Census data. In Statistics Canada lingo, these are called <a href="https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo012" target="_blank">Census Subdivisions</a>. This dataset only includes municipalities with a population greater than 25,000 in 2021.</p>
+<p>The main method for loading csv data is to use the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html" target="_blank">read_csv</a> function, but pandas can also read and write <a href="https://pandas.pydata.org/pandas-docs/stable/reference/io.html" target="_blank">many other</a> data formats.</p>
 <div id="9113af00-ba82-4adc-83d5-812caf09d720" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/cities.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -640,8 +627,8 @@ Name: Prov/terr, dtype: object</code></pre>
 <p>Let’s try to do some filtering in <code>pandas</code> with our data of Canadian cities.</p>
 <p>Check out these links for filtering and sorting in spreadsheet software:</p>
 <ul>
-<li><a href="https://support.microsoft.com/en-us/office/filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e">Filtering in Excel</a></li>
-<li><a href="https://support.google.com/docs/answer/3540681?hl=en&amp;co=GENIE.Platform%3DDesktop">Filtering in Google Sheets</a></li>
+<li><a href="https://support.microsoft.com/en-us/office/filter-data-in-a-range-or-table-01832226-31b5-4568-8806-38c37dcc180e" target="_blank">Filtering in Excel</a></li>
+<li><a href="https://support.google.com/docs/answer/3540681?hl=en&amp;co=GENIE.Platform%3DDesktop" target="_blank">Filtering in Google Sheets</a></li>
 </ul>
 <p>We can use the columns to identify data that we might want to filter by. The line below shows data only for Ontario, <strong>but see if you can filter for another province or territory</strong>.</p>
 <div id="3d291a78-7d41-4e76-bddc-4f3c72484642" class="cell" data-execution_count="7">
@@ -769,8 +756,8 @@ dtype: int64</code></pre>
 </section>
 <section id="sorting-data" class="level2">
 <h2 data-anchor-id="sorting-data">Sorting data</h2>
-<p>You might have noticed that these cities are in alphabetical order - what if we wanted to see them in the order of population? In pandas, we do this using the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html">sort_values</a> function. The default is to sort in ascending order, so we set this to be <code>False</code> (i.e.&nbsp;descending) so the most populous cities are at the top.</p>
-<p>Check out these links for sorting data in Excel and Google Sheets - <a href="https://support.microsoft.com/en-us/office/sort-data-in-a-range-or-table-62d0b95d-2a90-4610-a6ae-2e545c4a4654">Sorting in Excel</a> - <a href="https://support.google.com/docs/answer/3540681?hl=en&amp;co=GENIE.Platform%3DDesktop">Sorting in Google Sheets</a></p>
+<p>You might have noticed that these cities are in alphabetical order - what if we wanted to see them in the order of population? In pandas, we do this using the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html" target="_blank">sort_values</a> function. The default is to sort in ascending order, so we set this to be <code>False</code> (i.e.&nbsp;descending) so the most populous cities are at the top.</p>
+<p>Check out these links for sorting data in Excel and Google Sheets - <a href="https://support.microsoft.com/en-us/office/sort-data-in-a-range-or-table-62d0b95d-2a90-4610-a6ae-2e545c4a4654" target="_blank">Sorting in Excel</a> - <a href="https://support.google.com/docs/answer/3540681?hl=en&amp;co=GENIE.Platform%3DDesktop" target="_blank">Sorting in Google Sheets</a></p>
 <div id="b287a54b-b162-4fd5-9b84-7100f148e2ac" class="cell" data-scrolled="true">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df.sort_values(by<span class="op">=</span><span class="st">'Population, 2021'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -994,8 +981,8 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<p>DataFrames are easily modifiable. <code>pandas</code> has a number of methods like <code>str.lower()</code> to do so (see the <a href="https://pandas.pydata.org/docs/reference/index.html">full documentation</a>). The important thing to note here is that we directly modified the existing values of a column. We might not always want to do this, but it is often a good way of saving computer memory by not duplicating data.</p>
-<p>Likewise, we might want better names for the columns we have. <strong>Take a look at the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rename.html">documentation for <code>.rename()</code></a> and modify the data frame <code>df</code> such that we rename the column <code>Name</code> to <code>City</code></strong>. Pandas has more methods than we could ever remember, so learning to navigate the documentation is a crucial part of using the library.</p>
+<p>DataFrames are easily modifiable. <code>pandas</code> has a number of methods like <code>str.lower()</code> to do so (see the <a href="https://pandas.pydata.org/docs/reference/index.html" target="_blank">full documentation</a>). The important thing to note here is that we directly modified the existing values of a column. We might not always want to do this, but it is often a good way of saving computer memory by not duplicating data.</p>
+<p>Likewise, we might want better names for the columns we have. <strong>Take a look at the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rename.html" target="_blank">documentation for <code>.rename()</code></a> and modify the data frame <code>df</code> such that we rename the column <code>Name</code> to <code>City</code></strong>. Pandas has more methods than we could ever remember, so learning to navigate the documentation is a crucial part of using the library.</p>
 </section>
 <section id="handling-missing-data" class="level2">
 <h2 data-anchor-id="handling-missing-data">Handling missing data</h2>
@@ -1118,7 +1105,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<p>You can see that some rows are missing multiple values, while others are just missing one. We can remove rows which have missing data using the function <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html">dropna</a> and assign it to <code>df</code> so that we will be working only with complete data going forward. <strong>Try to modify the code below to drop rows that contain empty values in one of the two population columns. Put another way, we want to keep rows with population values, even if the name or province values are missing</strong>. Look at the documentation to figure this out, specifically the argument <code>subset</code> for <code>.dropna()</code></p>
+<p>You can see that some rows are missing multiple values, while others are just missing one. We can remove rows which have missing data using the function <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html" target="_blank">dropna</a> and assign it to <code>df</code> so that we will be working only with complete data going forward. <strong>Try to modify the code below to drop rows that contain empty values in one of the two population columns. Put another way, we want to keep rows with population values, even if the name or province values are missing</strong>. Look at the documentation to figure this out, specifically the argument <code>subset</code> for <code>.dropna()</code></p>
 <div id="064cd644-4e56-4c2c-8479-68de04c28a3a" class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1127,12 +1114,12 @@ dtype: int64</code></pre>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/cities.csv"</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Instead of dropping (i.e.&nbsp;removing) rows with missing values, we can instead replace them with specific values with <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html">fillna</a>. For example, <code>df.fillna(0)</code> would replace all missing data values with a <code>0</code>. This wouldn’t make sense in our data of Canadian cities, but can be useful in other contexts.</p>
-<p>Similarly we can programatically find and replace data in any other column or across our dataset. For example, if we wanted to rename <code>'Y.T.'</code> to <code>'Yukon'</code> we would run the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.replace.html#pandas.DataFrame.replace">replace</a> function as so <code>df = df.replace('Y.T.', 'Yukon')</code></p>
+<p>Instead of dropping (i.e.&nbsp;removing) rows with missing values, we can instead replace them with specific values with <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html" target="_blank">fillna</a>. For example, <code>df.fillna(0)</code> would replace all missing data values with a <code>0</code>. This wouldn’t make sense in our data of Canadian cities, but can be useful in other contexts.</p>
+<p>Similarly we can programatically find and replace data in any other column or across our dataset. For example, if we wanted to rename <code>'Y.T.'</code> to <code>'Yukon'</code> we would run the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.replace.html#pandas.DataFrame.replace" target="_blank">replace</a> function as so <code>df = df.replace('Y.T.', 'Yukon')</code></p>
 <p>If you are using spreadsheet software such as Excel or Google Sheets, there are different ways of approaching this problem. Explore some of the common ways to clean data and handle missing values in the following resources:</p>
 <ul>
-<li><p><a href="https://support.microsoft.com/en-us/office/top-ten-ways-to-clean-your-data-2844b620-677c-47a7-ac3e-c2e157d1db19">Top ten ways of cleaning your data in Excel</a></p></li>
-<li><p><a href="https://exceljet.net/formulas/find-missing-values">Find missing values in Excel</a></p></li>
+<li><p><a href="https://support.microsoft.com/en-us/office/top-ten-ways-to-clean-your-data-2844b620-677c-47a7-ac3e-c2e157d1db19" target="_blank">Top ten ways of cleaning your data in Excel</a></p></li>
+<li><p><a href="https://exceljet.net/formulas/find-missing-values" target="_blank">Find missing values in Excel</a></p></li>
 </ul>
 <section id="creating-new-columns" class="level3">
 <h3 data-anchor-id="creating-new-columns">Creating new columns</h3>
@@ -1204,16 +1191,16 @@ dtype: int64</code></pre>
 </div>
 <p>Pandas supports mathematical equations between columns, just like the subtraction we did above. <strong>Create a new column called <code>pct_pop_change</code> that computes the percentage change in population between 2016 and 2021, and sort by the cities with the greatest increase</strong>.</p>
 <p>HINT: the way to compute percent change is <code>100 * (Y - X) / X</code>.</p>
-<p>Now let’s clear these new columns out using <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop.html">drop</a> to return to what we had originally.</p>
+<p>Now let’s clear these new columns out using <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop.html" target="_blank">drop</a> to return to what we had originally.</p>
 <div id="2599339d" class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop(columns<span class="op">=</span>[<span class="st">'pop_change'</span>, <span class="st">'pct_pop_change'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In Excel or Google Sheets, you can easily create a new column by <a href="https://support.microsoft.com/en-us/office/insert-or-delete-rows-and-columns-6f40e6e4-85af-45e0-b39d-65dd504a3246#:~:text=To%20insert%20a%20single%20column,and%20then%20select%20Insert%20Columns.">following these steps</a>, then typing out the mathematical formula you wish to use to define the values in your new column in the top-most cell of that column, and then dragging that cell all the way down the length of your new column.</p>
+<p>In Excel or Google Sheets, you can easily create a new column by <a href="https://support.microsoft.com/en-us/office/insert-or-delete-rows-and-columns-6f40e6e4-85af-45e0-b39d-65dd504a3246#:~:text=To%20insert%20a%20single%20column,and%20then%20select%20Insert%20Columns." target="_blank">following these steps</a>, then typing out the mathematical formula you wish to use to define the values in your new column in the top-most cell of that column, and then dragging that cell all the way down the length of your new column.</p>
 </section>
 <section id="concatenating-and-joining-tables" class="level3">
 <h3 data-anchor-id="concatenating-and-joining-tables">Concatenating and joining tables</h3>
 <p>Much of the time, we are working with multiple sets of data which may overlap in key ways. Perhaps we want to include measures of income in cities, or look at voting patterns - this may require us to combine multiple data frames so we can analyze them.</p>
-<p>Pandas methods to combine data frames are quite similar to that of database operations - if you’ve worked with SQL before, this will come very easily to you. There’s an <a href="https://pandas.pydata.org/docs/user_guide/merging.html#concat">extensive tutorial</a> on this topic, but we’ll focus on simple cases of <code>pd.concat()</code> and <code>pd.merge()</code>.</p>
+<p>Pandas methods to combine data frames are quite similar to that of database operations - if you’ve worked with SQL before, this will come very easily to you. There’s an <a href="https://pandas.pydata.org/docs/user_guide/merging.html#concat" target="_blank">extensive tutorial</a> on this topic, but we’ll focus on simple cases of <code>pd.concat()</code> and <code>pd.merge()</code>.</p>
 <p>First, we can use <code>pd.concat()</code> to stack DataFrames vertically when new data has the same columns but additional rows (e.g., adding cities from another region). This is like adding new entries to a database table.</p>
 <div id="61bb34fc-71a8-4f27-a4e4-8997d6fd7891" class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df_ny_cities <span class="op">=</span> pd.read_csv(<span class="st">"./data/new_york_cities.csv"</span>)</span>
@@ -1485,7 +1472,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<p>If you are curious about how to do this in spreadsheet software like <a href="(https://www.exceldemy.com/merge-two-tables-in-excel/)">Excel or Google Sheets</a>, check out this tutorial, which lays out a few different options. One of the most common approaches for joining two separate datasets is the <code>=VLOOKUP</code> formula.</p>
+<p>If you are curious about how to do this in spreadsheet software like <a href="(https://www.exceldemy.com/merge-two-tables-in-excel/)" target="_blank">Excel or Google Sheets</a>, check out this tutorial, which lays out a few different options. One of the most common approaches for joining two separate datasets is the <code>=VLOOKUP</code> formula.</p>
 </section>
 </section>
 <section id="summary-statistics" class="level2">
@@ -1692,13 +1679,13 @@ Name: Population, 2021, dtype: float64</code></pre>
 <div id="fafec74a-ffa8-4c19-8e85-a378f7195cf8" class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Percent_Growth'</span>] <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> (df[<span class="st">'Population, 2021'</span>] <span class="op">-</span> df[<span class="st">'Population, 2016'</span>]) <span class="op">/</span> df[<span class="st">'Population, 2016'</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In spreadsheet software like Excel or Google Sheets, you can calculate the descriptive statistics for your dataset by using individual formulas that you apply to the specific columns you wish to analyze, such as <a href="https://support.microsoft.com/en-us/office/count-function-a59cd7fc-b623-4d93-87a4-d23bf411294c">=COUNT (count)</a>, <a href="https://support.microsoft.com/en-us/office/min-function-61635d12-920f-4ce2-a70f-96f202dcc152">=MIN (minimum)</a>, <a href="https://support.microsoft.com/en-us/office/max-function-e0012414-9ac8-4b34-9a47-73e662c08098">=MAX (maximum)</a>, <a href="https://support.microsoft.com/en-us/office/average-function-047bac88-d466-426c-a32b-8f33eb960cf6">=AVERAGE (mean)</a>, <a href="https://support.microsoft.com/en-us/office/median-function-d0916313-4753-414c-8537-ce85bdd967d2">=MEDIAN (median)</a>, <a href="https://support.microsoft.com/en-us/office/percentile-function-91b43a53-543c-4708-93de-d626debdddca">=PERCENTILE (percentiles, which can be used for quartiles, quantiles, or any percentile you wish)</a>, <a href="https://support.microsoft.com/en-us/office/stdeva-function-5ff38888-7ea5-48de-9a6d-11ed73b29e9d">=STDEVA (standard deviation)</a> functions. If it’s available to you in your Excel subscription service, you can also explore <a href="https://support.microsoft.com/en-us/office/load-the-analysis-toolpak-in-excel-6a63e598-cd6d-42e3-9317-6b40ba1a66b4">Excel’s Analysis Toolpak</a> add-in, which allows for <a href="https://support.microsoft.com/en-us/office/use-the-analysis-toolpak-to-perform-complex-data-analysis-6c67ccf0-f4a9-487c-8dec-bdb5a2cefab6">more efficient and advanced statistical analysis</a>.</p>
+<p>In spreadsheet software like Excel or Google Sheets, you can calculate the descriptive statistics for your dataset by using individual formulas that you apply to the specific columns you wish to analyze, such as <a href="https://support.microsoft.com/en-us/office/count-function-a59cd7fc-b623-4d93-87a4-d23bf411294c" target="_blank">=COUNT (count)</a>, <a href="https://support.microsoft.com/en-us/office/min-function-61635d12-920f-4ce2-a70f-96f202dcc152" target="_blank">=MIN (minimum)</a>, <a href="https://support.microsoft.com/en-us/office/max-function-e0012414-9ac8-4b34-9a47-73e662c08098" target="_blank">=MAX (maximum)</a>, <a href="https://support.microsoft.com/en-us/office/average-function-047bac88-d466-426c-a32b-8f33eb960cf6" target="_blank">=AVERAGE (mean)</a>, <a href="https://support.microsoft.com/en-us/office/median-function-d0916313-4753-414c-8537-ce85bdd967d2" target="_blank">=MEDIAN (median)</a>, <a href="https://support.microsoft.com/en-us/office/percentile-function-91b43a53-543c-4708-93de-d626debdddca" target="_blank">=PERCENTILE (percentiles, which can be used for quartiles, quantiles, or any percentile you wish)</a>, <a href="https://support.microsoft.com/en-us/office/stdeva-function-5ff38888-7ea5-48de-9a6d-11ed73b29e9d" target="_blank">=STDEVA (standard deviation)</a> functions. If it’s available to you in your Excel subscription service, you can also explore <a href="https://support.microsoft.com/en-us/office/load-the-analysis-toolpak-in-excel-6a63e598-cd6d-42e3-9317-6b40ba1a66b4" target="_blank">Excel’s Analysis Toolpak</a> add-in, which allows for <a href="https://support.microsoft.com/en-us/office/use-the-analysis-toolpak-to-perform-complex-data-analysis-6c67ccf0-f4a9-487c-8dec-bdb5a2cefab6" target="_blank">more efficient and advanced statistical analysis</a>.</p>
 </section>
 <section id="cross-tabulations-and-pivot-tables" class="level2">
 <h2 data-anchor-id="cross-tabulations-and-pivot-tables">Cross tabulations and pivot tables</h2>
 <p>A <em>cross tabulation</em>, also called a <em>frequency table</em> or a <em>contingency table</em>, is a table that summarizes two categorical variables by displaying the number of occurrences in each pair of categories.</p>
 <p>Here’s an example. Let’s count the number of cities in each province by city size.</p>
-<p>We will need two tools to do this: - <a href="https://pandas.pydata.org/docs/reference/api/pandas.cut.html">cut</a>, which bins continuous numbers (like population) into categories (e.g., “Small”/“Medium”/“Large”), turning numbers into meaningful groups. - <a href="https://pandas.pydata.org/docs/reference/api/pandas.crosstab.html">crosstab</a>, which counts how often these groups appear together—like how many “Medium” cities exist per province—revealing patterns that raw numbers hide.</p>
+<p>We will need two tools to do this: - <a href="https://pandas.pydata.org/docs/reference/api/pandas.cut.html" target="_blank">cut</a>, which bins continuous numbers (like population) into categories (e.g., “Small”/“Medium”/“Large”), turning numbers into meaningful groups. - <a href="https://pandas.pydata.org/docs/reference/api/pandas.crosstab.html" target="_blank">crosstab</a>, which counts how often these groups appear together—like how many “Medium” cities exist per province—revealing patterns that raw numbers hide.</p>
 <div id="28f378e8-5684-4f4b-9a65-6b2ca7e38e4c" class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a size category column</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Size'</span>] <span class="op">=</span> pd.cut(df[<span class="st">'Population, 2021'</span>],</span>
@@ -1712,11 +1699,11 @@ Name: Population, 2021, dtype: float64</code></pre>
 <p>Recall that we just created the column <code>'Percent_Growth'</code> as well. <strong>Use these two functions to create different bins for different levels of growth and cross tabulate them</strong>.</p>
 <p>If you’ve worked with Excel or Google Sheets, this is very similar to doing a Pivot Table. Here are a couple tutorials for spreadhseet software:</p>
 <ul>
-<li><p><a href="https://support.microsoft.com/en-us/office/create-a-pivottable-to-analyze-worksheet-data-a9a84538-bfe9-40a9-a8e9-f99134456576">Pivot tables in Excel</a></p></li>
-<li><p><a href="https://support.google.com/docs/answer/1272900?hl=en&amp;co=GENIE.Platform%3DDesktop">Pivot tables in Google Sheets</a></p></li>
+<li><p><a href="https://support.microsoft.com/en-us/office/create-a-pivottable-to-analyze-worksheet-data-a9a84538-bfe9-40a9-a8e9-f99134456576" target="_blank">Pivot tables in Excel</a></p></li>
+<li><p><a href="https://support.google.com/docs/answer/1272900?hl=en&amp;co=GENIE.Platform%3DDesktop" target="_blank">Pivot tables in Google Sheets</a></p></li>
 </ul>
 <p>Pivot tables are able to summarize data across several categories, and for different types of summaries (e.g.&nbsp;<code>sum</code>, <code>mean</code>, <code>median</code>, etc.)</p>
-<p>The <a href="https://pandas.pydata.org/docs/reference/api/pandas.pivot_table.html">pivot_table</a> function in <code>pandas</code> to aggregate data, and has more options than the <a href="https://pandas.pydata.org/docs/reference/api/pandas.crosstab.html">crosstab</a> function. Both are quite similar though. Here’s an example where we are using <code>pivot_table</code> to sum the population in each province by the 3 size groups.</p>
+<p>The <a href="https://pandas.pydata.org/docs/reference/api/pandas.pivot_table.html" target="_blank">pivot_table</a> function in <code>pandas</code> to aggregate data, and has more options than the <a href="https://pandas.pydata.org/docs/reference/api/pandas.crosstab.html" target="_blank">crosstab</a> function. Both are quite similar though. Here’s an example where we are using <code>pivot_table</code> to sum the population in each province by the 3 size groups.</p>
 <p><strong>Try to edit this to compute the mean or median city <code>Percent_Growth</code></strong></p>
 <div id="041ed39f" class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>pd.pivot_table(data <span class="op">=</span> df, values <span class="op">=</span> [<span class="st">'Population, 2021'</span>], index <span class="op">=</span> [<span class="st">'Prov/terr'</span>], columns <span class="op">=</span> [<span class="st">'Size'</span>], aggfunc <span class="op">=</span> <span class="st">'sum'</span>, observed<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

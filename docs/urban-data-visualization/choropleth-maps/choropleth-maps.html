@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d1fcf46c23e38b7e3acfb286f502517d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6fbcbd56e20030bb8c94bdea314e40aa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -304,22 +304,9 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/choropleth-maps/choropleth-maps.html">Choropleth maps</a></li></ol></nav><h1 class="title display-7">Choropleth maps</h1></header>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/choropleth-maps/choropleth-maps.html">Choropleth maps</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Choropleth maps</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
+<header id="title-block-header">
 
 
 </header>
@@ -401,12 +388,12 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="choropleth-maps-in-qgis" class="level2">
 <h2 data-anchor-id="choropleth-maps-in-qgis">Choropleth maps in QGIS</h2>
-<p><a href="data.zip">Click here to download the data for this section</a></p>
+<p><a href="data.zip" target="_blank">Click here to download the data for this section</a></p>
 <section id="with-vector-data" class="level3">
 <h3 data-anchor-id="with-vector-data">With vector data</h3>
 <p>Let’s try to make a map in QGIS! We’ll try to make a map of Toronto showing the percent of people who live in low-income households by neighbourhood relative to major transit lines.</p>
-<p>First, let’s look at the data. We have a polygon layer which represents census tracts. These data are created by Statistics Canada to share aggregated data from the <a href="../../urban-data-analytics/canadian-census-data/canadian-census-data.html">Canadian census</a>. They approximately correspond to neighbourhoods.</p>
-<p>We have a <code>.csv</code> table which contains data linked to the unique identifier, <code>ctuid</code>, of each census tract (CTUID stands for Census Tract Unique ID) . We can use the <code>ctuid</code> to join this tabular data to the spatial boundaries of census tracts. When working with census data or many other data sources, it is quite common that our data do not come prepared as a single data set. We often have to <em>join</em> data from multiple tables or sources like this. (For more details about <em>table joins</em>, check out our <a href="../../urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html">data processing notebook</a>).</p>
+<p>First, let’s look at the data. We have a polygon layer which represents census tracts. These data are created by Statistics Canada to share aggregated data from the <a href="../../urban-data-analytics/canadian-census-data/canadian-census-data.html" target="_blank">Canadian census</a>. They approximately correspond to neighbourhoods.</p>
+<p>We have a <code>.csv</code> table which contains data linked to the unique identifier, <code>ctuid</code>, of each census tract (CTUID stands for Census Tract Unique ID) . We can use the <code>ctuid</code> to join this tabular data to the spatial boundaries of census tracts. When working with census data or many other data sources, it is quite common that our data do not come prepared as a single data set. We often have to <em>join</em> data from multiple tables or sources like this. (For more details about <em>table joins</em>, check out our <a href="../../urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html" target="_blank">data processing notebook</a>).</p>
 <p>To do the join, we first add the table as a layer into QGIS. Then open up the <strong>Properties</strong> of the census tract polygon layer, and go to <strong>Joins</strong>. Add a new join (the <strong>+</strong> at the bottom), using <code>ctuid</code> as the source and target fields. Once complete, we can open up the attribute table and see these additional columns.</p>
 <p>Lastly, we also have a line layer representing major transit lines in Toronto (originally sourced from Metrolinx). We can categorize line data by status, using different colours or line types to display whether the transit route is existing or under construction.</p>
 <p>We can now visualize the census tract polygons as a choropleth map (maps where polygons are shaded by numeric attribute values). Similar to the previous tutorial, open up the layer properties, go to <strong>Symbology</strong>, and style based on <strong>Graduated</strong> symbols.</p>
@@ -449,9 +436,9 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="choropleth-maps-in-python" class="level2">
 <h2 data-anchor-id="choropleth-maps-in-python">Choropleth maps in Python</h2>
-<p>If you’re interested in learning more about creating single-variable choropleth maps in Python, including how to classify data, check out the Geographic Data Science textbook’s <a href="https://geographicdata.science/book/notebooks/05_choropleth.html">chapter</a> on the topic.</p>
-<p>If you’re interested in creating bivariate choropleth maps, maps that show correlations between two variables like income and population density on the same map, check out our <a href="../../urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.html">bivariate choropleth map tutorial</a></p>
-<p>You can also refer to the <code>geopandas.GeoDataFrame.plot</code> <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.plot.html">documentation</a> for more information on how to quickly visualize spatial data in Python.</p>
+<p>If you’re interested in learning more about creating single-variable choropleth maps in Python, including how to classify data, check out the Geographic Data Science textbook’s <a href="https://geographicdata.science/book/notebooks/05_choropleth.html" target="_blank">chapter</a> on the topic.</p>
+<p>If you’re interested in creating bivariate choropleth maps, maps that show correlations between two variables like income and population density on the same map, check out our <a href="../../urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.html" target="_blank">bivariate choropleth map tutorial</a></p>
+<p>You can also refer to the <code>geopandas.GeoDataFrame.plot</code> <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.plot.html" target="_blank">documentation</a> for more information on how to quickly visualize spatial data in Python.</p>
 
 
 </section>

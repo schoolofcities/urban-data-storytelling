@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d1fcf46c23e38b7e3acfb286f502517d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6fbcbd56e20030bb8c94bdea314e40aa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -353,22 +353,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html">Urban Data Analytics</a></li><li class="breadcrumb-item"><a href="../../urban-data-analytics/statistical-foundations/statistical-foundations.html">Statistical foundations</a></li></ol></nav><h1 class="title display-7">Statistical foundations</h1></header>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html">Urban Data Analytics</a></li><li class="breadcrumb-item"><a href="../../urban-data-analytics/statistical-foundations/statistical-foundations.html">Statistical foundations</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Statistical foundations</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
+<header id="title-block-header">
 
 
 </header>
@@ -382,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>For this tutorial, we are going to use election and census data that was adapted for <a href="https://schoolofcities.github.io/gta-immigration/political-shifts">a project</a> published by the School of Cities looking at immigrant vote patterns in the GTA. The data we are using is adapted from the <a href="https://en.wikipedia.org/wiki/2025_Ontario_general_election">2025 Ontario election</a> and the <a href="https://en.wikipedia.org/wiki/2021_Canadian_census">2021 Canadian census</a>. The data frame has the following columns:</p>
+<p>For this tutorial, we are going to use election and census data that was adapted for <a href="https://schoolofcities.github.io/gta-immigration/political-shifts" target="_blank">a project</a> published by the School of Cities looking at immigrant vote patterns in the GTA. The data we are using is adapted from the <a href="https://en.wikipedia.org/wiki/2025_Ontario_general_election" target="_blank">2025 Ontario election</a> and the <a href="https://en.wikipedia.org/wiki/2021_Canadian_census" target="_blank">2021 Canadian census</a>. The data frame has the following columns:</p>
 <ul>
 <li><code>riding_name</code>: the name of the riding</li>
 <li><code>num_pop_tot</code>: the number of people in the riding</li>
@@ -544,8 +531,8 @@ Mode: 3.95 (appears 2 times)</code></pre>
 <p><strong>Try setting the variable <code>party_var</code> to different parties to see how the matter of mean vs.&nbsp;median plays out for different distributions</strong>.</p>
 <p>In spreadsheet software like Excel or Google Sheets, you can also calculate the mean, the median, and mode for a given variable using the appropriate functions (<code>=AVERAGE</code>,<code>=MEDIAN</code>, <code>=MODE</code>). You can also create a histogram (a commonly used chart type that shows frequency distributions, as seen above). To do this, you must select the range of the variable you wish to chart, go to ‘Insert’, then ‘Statistical’ from the Charts group, and then select the chart type ‘Histogram’. You can then modify the Histogram chart elements, such as the number or size of the bins. Learn more here:</p>
 <ul>
-<li><p><a href="https://support.microsoft.com/en-us/office/create-a-histogram-85680173-064b-4024-b39d-80f17ff2f4e8">Create a histogram in Excel, including modifying the bins</a></p></li>
-<li><p><a href="https://support.google.com/docs/answer/9146867?hl=en">Create a histogram in Google Sheets</a></p></li>
+<li><p><a href="https://support.microsoft.com/en-us/office/create-a-histogram-85680173-064b-4024-b39d-80f17ff2f4e8" target="_blank">Create a histogram in Excel, including modifying the bins</a></p></li>
+<li><p><a href="https://support.google.com/docs/answer/9146867?hl=en" target="_blank">Create a histogram in Google Sheets</a></p></li>
 </ul>
 </section>
 <section id="dispersion" class="level3">
@@ -619,7 +606,7 @@ IQR: 18211.50</code></pre>
 </div>
 </div>
 <p>Take a look at how different measures of dispersion capture different parts of the data. <strong>Once again, set <code>col_var</code> to a different variable or two and examine the different measures of dispersion and how they play out</strong>.</p>
-<p>In spreadsheet software like Excel or Google Sheets, you can measure the dispersion of your data using individual formulas that you apply to the specific columns you wish to analyze. You can calculate specific percentiles or the standard deviation using the <a href="https://support.microsoft.com/en-us/office/percentile-function-91b43a53-543c-4708-93de-d626debdddca">=PERCENTILE</a> and <a href="https://support.microsoft.com/en-us/office/stdeva-function-5ff38888-7ea5-48de-9a6d-11ed73b29e9d">=STDEVA</a> functions. As noted in the previous section, a histogram will also allow you to see the overall dispersion of your data.</p>
+<p>In spreadsheet software like Excel or Google Sheets, you can measure the dispersion of your data using individual formulas that you apply to the specific columns you wish to analyze. You can calculate specific percentiles or the standard deviation using the <a href="https://support.microsoft.com/en-us/office/percentile-function-91b43a53-543c-4708-93de-d626debdddca" target="_blank">=PERCENTILE</a> and <a href="https://support.microsoft.com/en-us/office/stdeva-function-5ff38888-7ea5-48de-9a6d-11ed73b29e9d" target="_blank">=STDEVA</a> functions. As noted in the previous section, a histogram will also allow you to see the overall dispersion of your data.</p>
 </section>
 </section>
 <section id="bivariate-analysis-finding-similarities-in-the-data" class="level2">
@@ -642,8 +629,8 @@ IQR: 18211.50</code></pre>
 <p>Here we can see a correlation between the two variables we have chosen. <strong>Try setting <code>census_var</code> and <code>party_var</code> to different column values and see if there is a correlation between those as well, or not!</strong></p>
 <p>In spreadsheet software like Excel or Google Sheets, you can calculate the Pearson correlation using the =PEARSON function for any two variable arrays. Try replicating the analysis above in Excel or Google Sheets. Learn more here:</p>
 <ul>
-<li><p><a href="https://support.microsoft.com/en-us/office/pearson-function-0c3e30fc-e5af-49c4-808a-3ef66e034c18">Pearson correlation in Excel</a></p></li>
-<li><p><a href="https://support.google.com/docs/answer/3093990?hl=en">Pearson correlation in Google Sheets</a></p></li>
+<li><p><a href="https://support.microsoft.com/en-us/office/pearson-function-0c3e30fc-e5af-49c4-808a-3ef66e034c18" target="_blank">Pearson correlation in Excel</a></p></li>
+<li><p><a href="https://support.google.com/docs/answer/3093990?hl=en" target="_blank">Pearson correlation in Google Sheets</a></p></li>
 </ul>
 </section>
 </section>
@@ -710,15 +697,15 @@ p-value = 0.0026 (Significant)</code></pre>
 </ol>
 <p>See this video for a live example of how to do this Excel. Note that similar steps can be followed in Google Sheets.</p>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=JoLpTefCIzk">YouTube tutorial by Steven Bradburn on adding a trendline, equation, and R2 in Excel</a>.</li>
+<li><a href="https://www.youtube.com/watch?v=JoLpTefCIzk" target="_blank">YouTube tutorial by Steven Bradburn on adding a trendline, equation, and R2 in Excel</a>.</li>
 </ul>
 <p>If you have the Data Analysis Toolpak add-on, you can also use this to explore your linear regressions in Excel:</p>
 <ul>
-<li><a href="https://www.datacamp.com/tutorial/linear-regression-in-excel">Data Analysis Toolpak: Linear Regression in Excel</a></li>
+<li><a href="https://www.datacamp.com/tutorial/linear-regression-in-excel" target="_blank">Data Analysis Toolpak: Linear Regression in Excel</a></li>
 </ul>
 <p>And for those using Google Sheets!</p>
 <ul>
-<li><a href="https://www.statology.org/linear-regression-google-sheets/">Linear regression in Google Sheets tutorial</a></li>
+<li><a href="https://www.statology.org/linear-regression-google-sheets/" target="_blank">Linear regression in Google Sheets tutorial</a></li>
 </ul>
 </section>
 <section id="other-kinds-of-regression" class="level3">
@@ -731,7 +718,7 @@ p-value = 0.0026 (Significant)</code></pre>
 <li><p><em>Ridge/Lasso Regression:</em> Handling multicollinearity (e.g., when immigrant population and visible minority numbers are strongly correlated).</p></li>
 <li><p>Many more!</p></li>
 </ul>
-<p>In case you want to do these more complex kinds of regression, the typical go to library in Python is <a href="https://scikit-learn.org/stable/index.html">scikit-learn</a>.</p>
+<p>In case you want to do these more complex kinds of regression, the typical go to library in Python is <a href="https://scikit-learn.org/stable/index.html" target="_blank">scikit-learn</a>.</p>
 </section>
 </section>
 <section id="hypothesis-testing-making-conclusions" class="level2">
@@ -816,7 +803,7 @@ Significantly different!</code></pre>
 <p>As previously noted, it is less common to perform statistical analysis using spreadsheet software. However, some options are available. For example:</p>
 <ul>
 <li><p>You can use the <code>=T.TEST</code> function in Excel and Google Sheets to return the p-value for a two-sample t-test (note that it will only return the p-value, not the t-statistic).</p></li>
-<li><p>For a one-sample t-test, you can calculate the p-value and t-statistic manually. <a href="https://youtu.be/OCSmMABkVqQ?si=raegs2rcv5WaWNsG">This video tutorial</a> provides an example of how to do this.</p></li>
+<li><p>For a one-sample t-test, you can calculate the p-value and t-statistic manually. <a href="https://youtu.be/OCSmMABkVqQ?si=raegs2rcv5WaWNsG" target="_blank">This video tutorial</a> provides an example of how to do this.</p></li>
 <li><p>If you are using the Data Analysis Toolpak add-in in Excel, you can run both one-sample or two-sample t-tests using the add-in features.</p></li>
 </ul>
 

@@ -11,7 +11,7 @@
     "href": "urban-data-analytics/data-ethics-and-literacy/data-ethics-and-literacy.html",
     "title": "Data ethics and literacy",
     "section": "",
-    "text": "This section will include 1) key questions and concepts in data literacy, 2) ethical data practices, and 3) centering equity in data.",
+    "text": "Karen Chapple, Evelyne St. Louis, Michelle Zhang\nThis section will include 1) key questions and concepts in data literacy, 2) ethical data practices, and 3) centering equity in data.",
     "crumbs": [
       "Urban Data Analytics",
       "Data ethics and literacy"
@@ -128,6 +128,17 @@
     ]
   },
   {
+    "objectID": "urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html",
+    "href": "urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html",
+    "title": "Introduction to urban data",
+    "section": "",
+    "text": "Karen Chapple, Julia Greenberg, Jeff Allen",
+    "crumbs": [
+      "Urban Data Analytics",
+      "Introduction to urban data"
+    ]
+  },
+  {
     "objectID": "urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html#where-does-data-come-from",
     "href": "urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html#where-does-data-come-from",
     "title": "Introduction to urban data",
@@ -154,7 +165,7 @@
     "href": "urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html#data-sources-for-urban-analysis",
     "title": "Introduction to urban data",
     "section": "Data sources for urban analysis",
-    "text": "Data sources for urban analysis\nThe table below lists a handful of websites where you can find publicly available data about cities, the environment, land use, transportation, Indigenous communities, housing and homelessness. This is a non-exhaustive list; there are many other great data sources available. Note that municipalities’ open data portals typically contain information on all or most of these topics.\n— | — | — | — |\nTopic | Data sources (Global/Other) | Data sources (Canada-specific) | Data sources (U.S.-specific) |\nDemographic | | - Canadian census data | - U.S. census data - Social Explorer (this is a user-friendly census tool; some universities and institutions have licenses) |\nMunicipal | | - Open data portals (e.g., Toronto, Montreal, or Vancouver) | - Open data portals (e.g., Boston, New York, or San Francisco) |\nEnvironment and health | | - NASA’s Earth Science Data Systems (ESDS) Program - The Canadian Urban Environmental Health Research Consortium - Natural Resources Canada - Environment and Climate Change Canada | - Center for Disease Control (CDC) PLACES data - U.S. Environmental Protection Agency - U.S. Geological Survey - Elevation data for the entire U.S. |\nLand use and built environment | - OpenStreetMap - OSMNx - tool for extracting Open Street Map data for anywhere in the world - Google Maps data access | - Land cover of Canada - Municipal-level zoning maps (e.g., in Toronto) | - OSMNx-derived downloads for the U.S. - Building footprints for the entire U.S. - National Zoning Atlas |\nTransportation | - Transitland | - Metrolinx Open Data for the Greater Toronto Area - Canadian Urban Transit Association - Mobilizing Justice Hub | - National Transit Database - National Household Travel Survey - Bike share data (e.g. from Bay Wheels in San Francisco) - Transportation crash/injury data (e.g. MassDOT, California) |\nIndigenous communities | - Native Land Digital | - First Nations Data Centre | |\nHousing and homelessness | - Airbnb data (Inside Airbnb) | - Housing - Statistics Canada - Housing data from Canada Mortgage and Housing Corporation | - U.S. Department of Housing and Urban Development - Federal Housing Finance Agency - Zillow housing data - Urban Displacement data |\nEconomy and commerce | - Yelp open data | | - U.S. Bureau of Labor Statistics - Longitudinal Employer-Household Dynamics (LEHD) - Federal Reserve Economic Data (FRED) - Annual Business Survey (ABS) - County Business Patterns |\nDatabases | - Google Dataset Search - ArcGIS Open Data Portal | - Open Government Canada (federal open data portal) | - U.S. Data.gov Open Data Portal |\nWeb scraping, or extracting information from the internet, is another method for creating datasets. Since the data do not already exist and must be created, this can be more time-intensive than using existing datasets. However, packages like beautifulsoup or selenium in Python make this process easier.",
+    "text": "Data sources for urban analysis\nThe table below lists a handful of websites where you can find publicly available data about cities, the environment, land use, transportation, Indigenous communities, housing and homelessness. This is a non-exhaustive list; there are many other great data sources available. Note that municipalities’ open data portals typically contain information on all or most of these topics.\n\n\n\nTopic\nData sources (Global/Other)\nData sources (Canada-specific)\nData sources (U.S.-specific)\n\n\nDemographic\n\n- Canadian census data\n- U.S. census data - Social Explorer (this is a user-friendly census tool; some universities and institutions have licenses)\n\n\nMunicipal\n\n- Open data portals (e.g., Toronto, Montreal, or Vancouver)\n- Open data portals (e.g., Boston, New York, or San Francisco)\n\n\nEnvironment and health\n\n- NASA’s Earth Science Data Systems (ESDS) Program - The Canadian Urban Environmental Health Research Consortium - Natural Resources Canada - Environment and Climate Change Canada\n- Center for Disease Control (CDC) PLACES data - U.S. Environmental Protection Agency - U.S. Geological Survey - Elevation data for the entire U.S.\n\n\nLand use and built environment\n- OpenStreetMap - OSMNx - tool for extracting Open Street Map data for anywhere in the world - Google Maps data access\n- Land cover of Canada - Municipal-level zoning maps (e.g., in Toronto)\n- OSMNx-derived downloads for the U.S. - Building footprints for the entire U.S. - National Zoning Atlas\n\n\nTransportation\n- Transitland\n- Metrolinx Open Data for the Greater Toronto Area - Canadian Urban Transit Association - Mobilizing Justice Hub\n- National Transit Database - National Household Travel Survey - Bike share data (e.g. from Bay Wheels in San Francisco) - Transportation crash/injury data (e.g. MassDOT, California)\n\n\nIndigenous communities\n- Native Land Digital\n- First Nations Data Centre\n\n\n\nHousing and homelessness\n- Airbnb data (Inside Airbnb)\n- Housing - Statistics Canada - Housing data from Canada Mortgage and Housing Corporation\n- U.S. Department of Housing and Urban Development - Federal Housing Finance Agency - Zillow housing data - Urban Displacement data\n\n\nEconomy and commerce\n- Yelp open data\n\n- U.S. Bureau of Labor Statistics - Longitudinal Employer-Household Dynamics (LEHD) - Federal Reserve Economic Data (FRED) - Annual Business Survey (ABS) - County Business Patterns\n\n\nDatabases\n- Google Dataset Search - ArcGIS Open Data Portal\n- Open Government Canada (federal open data portal)\n- U.S. Data.gov Open Data Portal\n\n\n\nWeb scraping, or extracting information from the internet, is another method for creating datasets. Since the data do not already exist and must be created, this can be more time-intensive than using existing datasets. However, packages like beautifulsoup or selenium in Python make this process easier.",
     "crumbs": [
       "Urban Data Analytics",
       "Introduction to urban data"
@@ -748,7 +759,7 @@
     "href": "urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.html",
     "title": "The importance of urban data storytelling",
     "section": "",
-    "text": "This page covers 1) an overview of data storytelling, 2) elements of a good data story, and 3) examples of effective data stories.",
+    "text": "Karen Chapple, Evelyne St. Louis, Michelle Zhang\nThis page covers 1) an overview of data storytelling, 2) elements of a good data story, and 3) examples of effective data stories.",
     "crumbs": [
       "Urban Data Storytelling",
       "The importance of urban data storytelling"
@@ -759,7 +770,7 @@
     "href": "urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.html#what-is-urban-data-storytelling",
     "title": "The importance of urban data storytelling",
     "section": "What is urban data storytelling",
-    "text": "What is urban data storytelling\n\n\n \n\n\nTo tell a data story, start by understanding that cities are not just a collection of places but a web of interactions and interconnected systems. To build a coherent and compelling story, we must make a series of thoughtful decisions: how we observe our cities, what we choose to measure, how we analyze that information, and how we communicate our findings to others. This process lays the foundation for meaningful data storytelling that reflects the complexity of urban life.\n\n\n\nFramework for data storytelling",
+    "text": "What is urban data storytelling\n\n\n \n\n\nTo tell a data story, start by understanding that cities are not just a collection of places but a web of interactions and interconnected systems. To build a coherent and compelling story, we must make a series of thoughtful decisions: how we observe our cities, what we choose to measure, how we analyze that information, and how we communicate our findings to others. This process lays the foundation for meaningful data storytelling that reflects the complexity of urban life.",
     "crumbs": [
       "Urban Data Storytelling",
       "The importance of urban data storytelling"
@@ -1085,7 +1096,7 @@
     "href": "urban-data-analytics/intro-to-python-and-jupyter/intro-to-python-and-jupyter.html",
     "title": "Programming with Python and computational notebooks",
     "section": "",
-    "text": "Coding, or computer programming, is the act of giving a computer written instructions for a task or set of tasks. According to Wikipedia, it “involves designing and implementing algorithms, step-by-step specifications of procedures, by writing code in one or more programming languages.”\nProgramming languages, just like Python and R and JavaScript can be thought of similarly to languages that people speak and write, like Spanish or Arabic – each language has its own set of rules and different syntax, but (most) ideas can be translated from one language to another. Instead of using language to communicate with other people, you write code to give directions to a computer. In data analysis, these directions could be to summarize data in a table, create a chart or a map, or generate a statistical model, for example.",
+    "text": "Julia Greenberg\nCoding, or computer programming, is the act of giving a computer written instructions for a task or set of tasks. According to Wikipedia, it “involves designing and implementing algorithms, step-by-step specifications of procedures, by writing code in one or more programming languages.”\nProgramming languages, just like Python and R and JavaScript can be thought of similarly to languages that people speak and write, like Spanish or Arabic – each language has its own set of rules and different syntax, but (most) ideas can be translated from one language to another. Instead of using language to communicate with other people, you write code to give directions to a computer. In data analysis, these directions could be to summarize data in a table, create a chart or a map, or generate a statistical model, for example.",
     "crumbs": [
       "Urban Data Analytics",
       "Programming with Python and computational notebooks"
@@ -1279,13 +1290,6 @@
     ]
   },
   {
-    "objectID": "urban-data-analytics/intro-geopandas/intro-geopandas.html",
-    "href": "urban-data-analytics/intro-geopandas/intro-geopandas.html",
-    "title": "Introduction to Geopandas",
-    "section": "",
-    "text": "GeoPandas is a library for working with spatial (typically geographic) data. It extends the functionality of pandas to support spatial data types and operations, making it easier to analyze, visualize, and manipulate spatial data. Many of the tasks that are typically done within a GIS can be done via geopandas.\n\nimport pandas as pd\nimport geopandas as gpd\nimport matplotlib.pyplot as plt"
-  },
-  {
     "objectID": "urban-data-analytics/intro-geopandas/intro-geopandas.html#loading-exploring-and-geometric-data-types",
     "href": "urban-data-analytics/intro-geopandas/intro-geopandas.html#loading-exploring-and-geometric-data-types",
     "title": "Introduction to Geopandas",
@@ -1318,7 +1322,7 @@
     "href": "urban-data-analytics/measuring-the-city/measuring-the-city.html",
     "title": "Measuring the city: metrics and indicators",
     "section": "",
-    "text": "This page covers 1) common metrics and indicators used in urban analysis, 2) spatial units and measures of aggregation often used for urban analysis, and 3) limitations and biases for working with urban datasets to keep in mind when working with urban data.",
+    "text": "Karen Chapple, Julia Greenberg, Jeff Allen\nThis page covers 1) common metrics and indicators used in urban analysis, 2) spatial units and measures of aggregation often used for urban analysis, and 3) limitations and biases for working with urban datasets to keep in mind when working with urban data.",
     "crumbs": [
       "Urban Data Analytics",
       "Measuring the city: metrics and indicators"

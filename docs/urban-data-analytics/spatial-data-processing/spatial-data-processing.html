@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d1fcf46c23e38b7e3acfb286f502517d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6fbcbd56e20030bb8c94bdea314e40aa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -340,22 +340,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html">Urban Data Analytics</a></li><li class="breadcrumb-item"><a href="../../urban-data-analytics/spatial-data-processing/spatial-data-processing.html">Spatial data processing</a></li></ol></nav><h1 class="title display-7">Spatial data processing</h1></header>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html">Urban Data Analytics</a></li><li class="breadcrumb-item"><a href="../../urban-data-analytics/spatial-data-processing/spatial-data-processing.html">Spatial data processing</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Spatial data processing</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
+<header id="title-block-header">
 
 
 </header>
@@ -377,7 +364,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Let’s remind ourselves of some key concepts to start with. For a broader overview, check out our notebook on <a href="../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">Spatial data and GIS</a>.</p>
+<p>Let’s remind ourselves of some key concepts to start with. For a broader overview, check out our notebook on <a href="../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html" target="_blank">Spatial data and GIS</a>.</p>
 <p>First, there are two major types of spatial data.</p>
 <ul>
 <li><p><em>Vector</em> data represents geographic features as discrete points, lines, and polygons, making it ideal for boundaries, roads, or point locations like cities.</p></li>
@@ -389,14 +376,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><em>Lines</em> are one-dimensional sequences of points (e.g., rivers, roads, or transit routes).</p></li>
 <li><p><em>Polygons</em> are two-dimensional enclosed shapes (e.g., political boundaries, lakes, or census tracts).</p></li>
 </ol>
-<p>These can be projected into different <a href="https://en.wikipedia.org/wiki/Spatial_reference_system">Coordinate Reference Systems (CRS)</a>, which define how spatial data maps to the Earth’s surface. For example, WGS84 (EPSG:4326) is common for global latitude/longitude coordinates, while UTM zones (e.g., EPSG:32617) minimize distortion for local measurements.</p>
+<p>These can be projected into different <a href="https://en.wikipedia.org/wiki/Spatial_reference_system" target="_blank">Coordinate Reference Systems (CRS)</a>, which define how spatial data maps to the Earth’s surface. For example, WGS84 (EPSG:4326) is common for global latitude/longitude coordinates, while UTM zones (e.g., EPSG:32617) minimize distortion for local measurements.</p>
 <p>Choosing the right CRS ensures accurate distances, areas, and spatial relationships.</p>
 <p>When we are comparing and relating multiple spatial datasets to each other, we have to ensure that they are in the same CRS.</p>
 <p>In order to process spatial data we will be working with three datasets today (you can also download them by clicking on the link):</p>
 <ul>
-<li><p>Toronto Public Libraries (TPL) branches (<a href="https://github.com/schoolofcities/urban-data-storytelling/blob/main/notebooks/urban-data-analytics/spatial-data-processing/data/tpl-branch-general-information-2023.csv">tpl-branch-general-information-2023.csv</a>), which contains information about each of the libraries in the TPL</p></li>
-<li><p>Toronto’s wards (<a href="https://github.com/schoolofcities/urban-data-storytelling/blob/main/notebooks/urban-data-analytics/spatial-data-processing/data/city-wards.gpkg">city-wards.gpkg</a>), each of which have a city councillor</p></li>
-<li><p>Toronto’s regions (<a href="https://github.com/schoolofcities/urban-data-storytelling/blob/main/notebooks/urban-data-analytics/spatial-data-processing/data/toronto-regions.gpkg">toronto-regions.gpkg</a>), which are the former municipalities that were amalgamated in 1998 to make modern Toronto</p></li>
+<li><p>Toronto Public Libraries (TPL) branches (<a href="https://github.com/schoolofcities/urban-data-storytelling/blob/main/notebooks/urban-data-analytics/spatial-data-processing/data/tpl-branch-general-information-2023.csv" target="_blank">tpl-branch-general-information-2023.csv</a>), which contains information about each of the libraries in the TPL</p></li>
+<li><p>Toronto’s wards (<a href="https://github.com/schoolofcities/urban-data-storytelling/blob/main/notebooks/urban-data-analytics/spatial-data-processing/data/city-wards.gpkg" target="_blank">city-wards.gpkg</a>), each of which have a city councillor</p></li>
+<li><p>Toronto’s regions (<a href="https://github.com/schoolofcities/urban-data-storytelling/blob/main/notebooks/urban-data-analytics/spatial-data-processing/data/toronto-regions.gpkg" target="_blank">toronto-regions.gpkg</a>), which are the former municipalities that were amalgamated in 1998 to make modern Toronto</p></li>
 </ul>
 <div id="37d09d8c-61f0-4bc5-98a2-506589d23879" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_tpl <span class="op">=</span> pd.read_csv(<span class="st">'./data/tpl-branch-general-information-2023.csv'</span>)</span>
@@ -484,9 +471,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>A geocoding function, either in Python or GIS, typically relies on an external <em>geocoder</em>, a service that turns addresses or place names into map coordinates. Large companies like Google, Apple, and Mapbox provide geocoding services. However, these require an API key and often have a tiered pricing model. There are free tools as well, for example <a href="https://nominatim.org/">Nominatim</a> which queries OpenStreetMap’s database. This is what we will use in this notebook.</p>
-<p>In <code>geopandas</code>, the <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.tools.geocode.html">function for geocoding</a> is <code>geopandas.tools.geocode()</code>. This transforms a DataFrame of addresses into a GeoDataFrame with <code>Point</code> geometries, enabling spatial analysis.</p>
-<p>There are <a href="https://gisgeography.com/qgis-geocoding/">similar tools in QGIS</a> which make use of geocoders like Nominatim and others.</p>
+<p>A geocoding function, either in Python or GIS, typically relies on an external <em>geocoder</em>, a service that turns addresses or place names into map coordinates. Large companies like Google, Apple, and Mapbox provide geocoding services. However, these require an API key and often have a tiered pricing model. There are free tools as well, for example <a href="https://nominatim.org/" target="_blank">Nominatim</a> which queries OpenStreetMap’s database. This is what we will use in this notebook.</p>
+<p>In <code>geopandas</code>, the <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.tools.geocode.html" target="_blank">function for geocoding</a> is <code>geopandas.tools.geocode()</code>. This transforms a DataFrame of addresses into a GeoDataFrame with <code>Point</code> geometries, enabling spatial analysis.</p>
+<p>There are <a href="https://gisgeography.com/qgis-geocoding/" target="_blank">similar tools in QGIS</a> which make use of geocoders like Nominatim and others.</p>
 <p>Free geocoding services usually allow about one query per second, regardless of whether you are accessing them in QGIS or Python. <strong>Try running the code below.</strong> Since we have over 100 library branches, you’ll have to wait a little bit! :)</p>
 <div id="3bb01b85-bb07-4e44-bab1-4a761cf938f6" class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gdf_tpl <span class="op">=</span> gpd.tools.geocode(</span>
@@ -563,7 +550,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="buffer" class="level2">
 <h2 data-anchor-id="buffer">Buffer</h2>
 <p><em>Buffers</em> create zones around geometries at a specified distance.</p>
-<p>For example, if we wanted to map the area that is within 1km of the nearest library, we would compute a buffer with the point locations of libraries as the input using <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.buffer.html">the function</a> <code>.buffer(N)</code> (or <a href="https://docs.qgis.org/3.40/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html">accompanying methods in QGIS</a>).</p>
+<p>For example, if we wanted to map the area that is within 1km of the nearest library, we would compute a buffer with the point locations of libraries as the input using <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.buffer.html" target="_blank">the function</a> <code>.buffer(N)</code> (or <a href="https://docs.qgis.org/3.40/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html" target="_blank">accompanying methods in QGIS</a>).</p>
 <p>Buffers can be super useful on their own, but they can also be important steps in analyses. For example, you could take buffers of library locations and then count the number of households within each buffer.</p>
 <p><strong>Try running the code below to compute buffers for library locations. You can also test different buffer distances! :)</strong></p>
 <div id="1c459d99-a15a-434d-b818-357a6f38ee01" class="cell" data-execution_count="11">
@@ -590,7 +577,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="dissolve" class="level2">
 <h2 data-anchor-id="dissolve">Dissolve</h2>
 <p><strong>Dissolve</strong> merges multiple features into one, either based on a shared attribute or as a single unified shape.</p>
-<p>You might have noticed that many of the buffered library polygons overlapped each other. We can use the method <code>.dissolve()</code> <a href="https://geopandas.org/en/stable/docs/user_guide/aggregation_with_dissolve.html#dissolve-example">from geopandas</a>, to combine all of these polygons into a single polygon. Check out <a href="https://www.geographyrealm.com/dissolve-features-attribute-qgis/">this tutorial for a similar function in QGIS</a>.</p>
+<p>You might have noticed that many of the buffered library polygons overlapped each other. We can use the method <code>.dissolve()</code> <a href="https://geopandas.org/en/stable/docs/user_guide/aggregation_with_dissolve.html#dissolve-example" target="_blank">from geopandas</a>, to combine all of these polygons into a single polygon. Check out <a href="https://www.geographyrealm.com/dissolve-features-attribute-qgis/" target="_blank">this tutorial for a similar function in QGIS</a>.</p>
 <div id="03a661f7-12d1-4c37-9b8d-9638e0a065a2" class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>gdf_tpl_dissolved <span class="op">=</span> gdf_tpl.set_geometry(<span class="st">"buffer_1km"</span>).dissolve()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -609,7 +596,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-anchor-id="centroids">Centroids</h2>
 <p><em>Centroids</em> are the geometric center point of polygons.</p>
 <p>Computing centroids is useful for urban analyses because it gives a single representative point for each area, which is helpful for labeling, spatial joins, spatial selections, or other further processing of spatial data. For example, we could compute the centroid of each ward in Toronto, and then try to find the closest hospital to each.</p>
-<p>In <code>geopandas</code> we can use <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.centroid.html">the method</a> <code>.centroid</code> to return a Point geometry for each feature. Here’s a quick example of finding the centroids of Toronto wards. <a href="https://docs.qgis.org/3.40/en/docs/user_manual/processing_algs/qgis/vectorgeometry.html#centroids">QGIS also has a centroids function</a>.</p>
+<p>In <code>geopandas</code> we can use <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.centroid.html" target="_blank">the method</a> <code>.centroid</code> to return a Point geometry for each feature. Here’s a quick example of finding the centroids of Toronto wards. <a href="https://docs.qgis.org/3.40/en/docs/user_manual/processing_algs/qgis/vectorgeometry.html#centroids" target="_blank">QGIS also has a centroids function</a>.</p>
 <div id="13dbdad3-31cb-4173-a12d-0642aaba3ba1" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to UTM Zone 17N (meters)  </span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>gdf_wards <span class="op">=</span> gdf_wards.to_crs(<span class="st">"EPSG:32617"</span>)  </span>
@@ -641,7 +628,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>And more!</li>
 </ul>
 <p>Below, we’ll show an example with <code>geopandas</code>, selecting libraries that are within a neighbourhood.</p>
-<p>(<a href="https://www.youtube.com/watch?v=zoElYnD2G5o">Check out this video tutorial for doing similar selections in QGIS</a>)</p>
+<p>(<a href="https://www.youtube.com/watch?v=zoElYnD2G5o" target="_blank">Check out this video tutorial for doing similar selections in QGIS</a>)</p>
 <p>Let’s begin by loading in the data, and convert to a common CRS so the data can be related to each other accurately.</p>
 <div id="9278591d-f06f-4137-b0b8-617f3cb510fd" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>gdf_tpl <span class="op">=</span> gpd.read_file(<span class="st">'./data/tpl.gpkg'</span>).to_crs(<span class="st">"EPSG:32617"</span>) </span>
@@ -842,57 +829,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td><code>intersects()</code></td>
 <td>Returns <code>True</code> if geometries intersect</td>
-<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.intersects.html">intersects</a></td>
+<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.intersects.html" target="_blank">intersects</a></td>
 </tr>
 <tr class="even">
 <td><code>contains()</code></td>
 <td><code>True</code> if geometry completely contains the other</td>
-<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.contains.html">contains</a></td>
+<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.contains.html" target="_blank">contains</a></td>
 </tr>
 <tr class="odd">
 <td><code>within()</code></td>
 <td><code>True</code> if geometry is within another</td>
-<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.within.html">within</a></td>
+<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.within.html" target="_blank">within</a></td>
 </tr>
 <tr class="even">
 <td><code>crosses()</code></td>
 <td><code>True</code> if geometry crosses the other</td>
-<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.crosses.html">crosses</a></td>
+<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.crosses.html" target="_blank">crosses</a></td>
 </tr>
 <tr class="odd">
 <td><code>overlaps()</code></td>
 <td><code>True</code> if geometries partially overlap</td>
-<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.overlaps.html">overlaps</a></td>
+<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.overlaps.html" target="_blank">overlaps</a></td>
 </tr>
 <tr class="even">
 <td><code>touches()</code></td>
 <td><code>True</code> if geometries touch at boundary only</td>
-<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.touches.html">touches</a></td>
+<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.touches.html" target="_blank">touches</a></td>
 </tr>
 <tr class="odd">
 <td><code>equals()</code></td>
 <td><code>True</code> if geometries are exactly equal</td>
-<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.equals.html">equals</a></td>
+<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.equals.html" target="_blank">equals</a></td>
 </tr>
 <tr class="even">
 <td><code>disjoint()</code></td>
 <td><code>True</code> if geometries have no overlap at all</td>
-<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.disjoint.html">disjoint</a></td>
+<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.disjoint.html" target="_blank">disjoint</a></td>
 </tr>
 <tr class="odd">
 <td><code>covers()</code></td>
 <td><code>True</code> if geometry covers the other</td>
-<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.covers.html">covers</a></td>
+<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.covers.html" target="_blank">covers</a></td>
 </tr>
 <tr class="even">
 <td><code>covered_by()</code></td>
 <td><code>True</code> if geometry is covered by the other</td>
-<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.covered_by.html">covered_by</a></td>
+<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.covered_by.html" target="_blank">covered_by</a></td>
 </tr>
 <tr class="odd">
 <td><code>distance()</code></td>
 <td>Returns distance to the other geometry</td>
-<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.distance.html">distance</a></td>
+<td><a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoSeries.distance.html" target="_blank">distance</a></td>
 </tr>
 </tbody>
 </table>
@@ -902,14 +889,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>Spatial joins</em> combine data from two spatial datasets based on their spatial (i.e.&nbsp;geographic) relationship, allowing you to connect attributes from different layers. This is similar to a table join, but instead of joining data based tabular data (e.g.&nbsp;matching ID columns), we are joining data based on spatial relationships.</p>
 <p>For example, you can match points (libraries) to polygons (wards) to see which administrative district contains each facility. And further, count how many libraries are in each.</p>
 <p>This is similar to doing spatial selections and queries, but instead of filtering one of our input datasets, we are creating a new dataset.</p>
-<p>We’ll show an example in <code>geopandas</code> but checkout <a href="https://www.qgistutorials.com/en/docs/3/performing_spatial_joins.html">this tutorial for doing spatial joins in QGIS</a></p>
+<p>We’ll show an example in <code>geopandas</code> but checkout <a href="https://www.qgistutorials.com/en/docs/3/performing_spatial_joins.html" target="_blank">this tutorial for doing spatial joins in QGIS</a></p>
 <div id="f077f154-7699-4200-9250-6ba45dd3e368" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>crs <span class="op">=</span> <span class="st">"EPSG:32617"</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>gdf_tpl <span class="op">=</span> gpd.read_file(<span class="st">'./data/tpl.gpkg'</span>).to_crs(crs) </span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>gdf_regions <span class="op">=</span> gpd.read_file(<span class="st">'./data/toronto-regions.gpkg'</span>).to_crs(crs) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We’ll begin by trying to join region names to library locations.</p>
-<p>We can do this using the <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.sjoin.html">geopandas method</a> <code>.sjoin()</code> (see <a href="https://www.qgistutorials.com/en/docs/performing_spatial_joins.html">similar documentation for QGIS</a>).</p>
+<p>We can do this using the <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.sjoin.html" target="_blank">geopandas method</a> <code>.sjoin()</code> (see <a href="https://www.qgistutorials.com/en/docs/performing_spatial_joins.html" target="_blank">similar documentation for QGIS</a>).</p>
 <div id="68490cc6-ec22-4823-966b-570907c6eae0" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>gdf_tpl_with_regions <span class="op">=</span> gpd.sjoin(</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    gdf_tpl, </span>
@@ -981,7 +968,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The parameter <code>predicate=</code> can be one of several options for spatial relationship noted in the above section (e.g.&nbsp;<code>.intersects</code>, <code>.within</code>, <code>.crosses</code>, etc.). The parameter <code>how=</code> is for the type of joining (e.g.&nbsp;left, inner, right, etc.)</p>
-<p>View more in the <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.sjoin.html#geopandas.GeoDataFrame.sjoin">geopandas documentation</a> page for spatial joins.</p>
+<p>View more in the <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.sjoin.html#geopandas.GeoDataFrame.sjoin" target="_blank">geopandas documentation</a> page for spatial joins.</p>
 <p>Doing a spatial join can then lead to a range of subsequent analyses, for example counting the number of libraries in each region. If you had numeric data, for example the number of books in each branch, the following count could be expanded to compute <code>sum</code>, <code>mean</code>, etc. for each group.</p>
 <div id="98557734-348b-4169-90d9-ddc3a71f664c" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>gdf_tpl_with_regions.groupby(<span class="st">'REGION_NAME'</span>).size()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1030,7 +1017,7 @@ dtype: int64</code></pre>
 </tr>
 </tbody>
 </table>
-<p>The image below is adapted from the <a href="https://geopandas.org/en/stable/docs/user_guide/set_operations.html">full tutorial</a> in <code>geopandas</code> on this topic which you can look at for more details. QGIS also has <a href="https://docs.qgis.org/3.40/en/docs/user_manual/processing_algs/qgis/vectoroverlay.html">similar functions available</a>.</p>
+<p>The image below is adapted from the <a href="https://geopandas.org/en/stable/docs/user_guide/set_operations.html" target="_blank">full tutorial</a> in <code>geopandas</code> on this topic which you can look at for more details. QGIS also has <a href="https://docs.qgis.org/3.40/en/docs/user_manual/processing_algs/qgis/vectoroverlay.html" target="_blank">similar functions available</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="spatial-data-processing_files/figure-html/39984d8c-13f4-4ff4-bd11-78e858573cd7-1-65352957-8e74-48cd-a6a6-3d8bdb1b2e3b.png" class="img-fluid figure-img"></p>

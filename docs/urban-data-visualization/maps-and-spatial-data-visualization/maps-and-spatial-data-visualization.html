@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d1fcf46c23e38b7e3acfb286f502517d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6fbcbd56e20030bb8c94bdea314e40aa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -316,22 +316,9 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html">Maps and visualizing spatial data</a></li></ol></nav><h1 class="title display-7">Maps and visualizing spatial data</h1></header>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html">Maps and visualizing spatial data</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Maps and visualizing spatial data</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
+<header id="title-block-header">
 
 
 </header>
@@ -354,11 +341,11 @@ ul.task-list li input[type="checkbox"] {
 <p>The last part of this notebook shows an example in QGIS of how to create maps with data-defined styling, for both categorical and numeric data.</p>
 <p>If you are interested in creating specific types of maps, check out the following notebooks:</p>
 <ul>
-<li><a href="../../urban-data-visualization/choropleth-maps/choropleth-maps.html">Choropleth maps</a></li>
-<li><a href="../../urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.html">Bivariate choropleth maps</a></li>
-<li><a href="../../urban-data-visualization/proportional-symbol-maps/proportional-symbol-maps.html">Proportional symbol maps</a></li>
-<li><a href="../../urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.html">Categorical random dot maps</a></li>
-<li><a href="../../urban-data-visualization/flow-maps/flow-maps.html">Flow maps</a></li>
+<li><a href="../../urban-data-visualization/choropleth-maps/choropleth-maps.html" target="_blank">Choropleth maps</a></li>
+<li><a href="../../urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.html" target="_blank">Bivariate choropleth maps</a></li>
+<li><a href="../../urban-data-visualization/proportional-symbol-maps/proportional-symbol-maps.html" target="_blank">Proportional symbol maps</a></li>
+<li><a href="../../urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.html" target="_blank">Categorical random dot maps</a></li>
+<li><a href="../../urban-data-visualization/flow-maps/flow-maps.html" target="_blank">Flow maps</a></li>
 </ul>
 </section>
 <section id="types-of-maps" class="level2">
@@ -398,9 +385,9 @@ ul.task-list li input[type="checkbox"] {
 <p>Static maps can vary in size from just a few dozen pixels on a screen or a small figure in a report, to graphics in a slide deck, to large maps printed as posters or dozens of maps as part of a series, like in an atlas. The three maps shown above are examples of static maps.</p>
 <p><em>Interactive maps</em> are digital and allow users to engage with the content by zooming, panning, clicking for details, or filtering data. They are best for exploration, real-time applications, user-driven analysis, or providing increased engagement via animation in a data-story. Here are a few examples that we’ve developed at the School of Cities:</p>
 <ul>
-<li><a href="https://schoolofcities.github.io/urban-activity-atlas/">Urban Activity Atlas</a></li>
-<li><a href="https://schoolofcities.github.io/heat-vulnerability-toronto/">Heat Vulnerability in Toronto</a></li>
-<li><a href="https://schoolofcities.github.io/gtha-language-map/">Knowledge of Languages in the Greater Toronto &amp; Hamilton Area</a></li>
+<li><a href="https://schoolofcities.github.io/urban-activity-atlas/" target="_blank">Urban Activity Atlas</a></li>
+<li><a href="https://schoolofcities.github.io/heat-vulnerability-toronto/" target="_blank">Heat Vulnerability in Toronto</a></li>
+<li><a href="https://schoolofcities.github.io/gtha-language-map/" target="_blank">Knowledge of Languages in the Greater Toronto &amp; Hamilton Area</a></li>
 </ul>
 <p>Interactive maps can provide flexibility and deeper engagement with spatial data. However, interactive maps typically are much more work to create than a static map as they include all the visual design thinking in a static map, plus additional thinking about how users interact with them and how the maps respond to user inputs, as well as increased technical development time.</p>
 <p>Our general recommendation is to always start with creating static maps, and then move on to creating an interactive version only if a static version is insufficient at conveying the story in your data that you want to convey.</p>
@@ -466,7 +453,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="single-rule-styling" class="level3">
 <h3 data-anchor-id="single-rule-styling">Single-rule styling</h3>
 <p>Single-rule styling is when we want all features in a dataset to look the same, regardless of how they may different in terms of their attributes</p>
-<p>In the example in <a href="../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">our notebook on introducing spatial data and GIS</a>, we created a simple map of Toronto where we had two vector datasets 1) ward administrative boundaries (polygons) and 2) public libraries (points).</p>
+<p>In the example in <a href="../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html" target="_blank">our notebook on introducing spatial data and GIS</a>, we created a simple map of Toronto where we had two vector datasets 1) ward administrative boundaries (polygons) and 2) public libraries (points).</p>
 <p>Each of these layers is styled via a single rule. For example, all public libraries are shown as blue squares, even though some libraries may be larger than others or have longer opening hours.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -485,19 +472,19 @@ ul.task-list li input[type="checkbox"] {
 <li>Style street network data based on quality and safety of cycling infrastructure</li>
 <li>Many more!</li>
 </ul>
-<p>Many of these options use <em>visual variables</em> like size, hue, saturation, orientation, etc. as shown in our <a href="../../urban-data-visualization/data-visualization/data-visualization.html">data visualization</a> notebook.</p>
-<p>Let’s look at a couple examples in QGIS! (If you haven’t worked with QGIS before, check out our <a href="../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">intro to spatial data and GIS</a> notebook)</p>
+<p>Many of these options use <em>visual variables</em> like size, hue, saturation, orientation, etc. as shown in our <a href="../../urban-data-visualization/data-visualization/data-visualization.html" target="_blank">data visualization</a> notebook.</p>
+<p>Let’s look at a couple examples in QGIS! (If you haven’t worked with QGIS before, check out our <a href="../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html" target="_blank">intro to spatial data and GIS</a> notebook)</p>
 </section>
 <section id="styling-categorical-data" class="level3">
 <h3 data-anchor-id="styling-categorical-data">Styling categorical data</h3>
 <p>For the first example, let’s try to create a map of public washrooms in Toronto in QGIS, using some categorical based styling - where different categories or groups are styled with different colours or symbols.</p>
 <ul>
-<li><a href="./data/Washroom Facilities - 4326.geojson">Washroom facilities</a> (a point dataset of public washroom facilities in Toronto)</li>
-<li><a href="./data/Centreline - Version 2 - 4326.gpkg">Centrelines</a> (a line dataset representing a mix of features like streets, railways, power lines, rivers, etc. in Toronto)</li>
-<li><a href="./data/Green Spaces - 4326.gpkg">Green space</a> (a polygon dataset of green spaces and public parks in Toronto)</li>
-<li><a href="./data/ontario.geojson">Lake Ontario</a> (a polygon of Lake Ontario)</li>
+<li><a href="./data/Washroom Facilities - 4326.geojson" target="_blank">Washroom facilities</a> (a point dataset of public washroom facilities in Toronto)</li>
+<li><a href="./data/Centreline - Version 2 - 4326.gpkg" target="_blank">Centrelines</a> (a line dataset representing a mix of features like streets, railways, power lines, rivers, etc. in Toronto)</li>
+<li><a href="./data/Green Spaces - 4326.gpkg" target="_blank">Green space</a> (a polygon dataset of green spaces and public parks in Toronto)</li>
+<li><a href="./data/ontario.geojson" target="_blank">Lake Ontario</a> (a polygon of Lake Ontario)</li>
 </ul>
-<p>(All of this data is from the <a href="https://open.toronto.ca/catalogue/">City of Toronto</a>, except for the Lake Ontario polygon, which is from <a href="https://www.openstreetmap.org/relation/1206310">OpenStreetMap</a>)</p>
+<p>(All of this data is from the <a href="https://open.toronto.ca/catalogue/" target="_blank">City of Toronto</a>, except for the Lake Ontario polygon, which is from <a href="https://www.openstreetmap.org/relation/1206310" target="_blank">OpenStreetMap</a>)</p>
 <p>Load the data into QGIS and re-order the layers such that the washroom locations are at the top. For our map, the washrooms are the key data we want to show (i.e.&nbsp;the foreground), while the others are visual reference (i.e.&nbsp;the background).</p>
 <p>After loading in the data, right click on each of the layers and then click <strong>Open Attribute Table</strong> to view the what data is linked to each feature.</p>
 <p>While most columns of a spatial dataset could be styled categorically, many wouldn’t be interesting to represent. Alternatively if there are many different categories, showing too many could lead to excessive visual clutter.</p>
@@ -548,7 +535,7 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Map automated speeding tickets by location in Toronto in February 2025</figcaption>
 </figure>
 </div>
-<p>For more ideas and ways on how to classify and map numeric data via data-driven styles, check out our <a href="../../urban-data-visualization/choropleth-maps/choropleth-maps.html">notebook on choropleth maps</a> (maps where areas are shaded based on data values).</p>
+<p>For more ideas and ways on how to classify and map numeric data via data-driven styles, check out our <a href="../../urban-data-visualization/choropleth-maps/choropleth-maps.html" target="_blank">notebook on choropleth maps</a> (maps where areas are shaded based on data values).</p>
 </section>
 </section>
 <section id="layers-and-hierarchy" class="level2">
@@ -583,7 +570,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Not all maps and spatial data visualizations require all of the above, but they can often help communicate what is being shown on the map to your readers and audience.</p>
 <p>The space that you would combine these items on top of map data layers are sometimes called <em>map layouts</em>, with each item sometimes called <em>map elements</em> or <em>layout elements</em></p>
-<p>Most mapping and data analysis software and related libraries (e.g.&nbsp;in QGIS, Python, R, etc.), provide tools for adding elements and creating map layouts. In QGIS you can go to <em>Project</em> then <em>New Print Layout</em>. This gives you a blank canvas for you to add your map data and layout elements. <a href="https://mapscaping.com/custom_map_layout_in_qgis/">Here is a good step-by-step tutorial</a> for layouts and exporting in QGIS.</p>
+<p>Most mapping and data analysis software and related libraries (e.g.&nbsp;in QGIS, Python, R, etc.), provide tools for adding elements and creating map layouts. In QGIS you can go to <em>Project</em> then <em>New Print Layout</em>. This gives you a blank canvas for you to add your map data and layout elements. <a href="https://mapscaping.com/custom_map_layout_in_qgis/" target="_blank">Here is a good step-by-step tutorial</a> for layouts and exporting in QGIS.</p>
 <p>In the layout view in QGIS, you can then export and save your map as <code>.pdf</code>, <code>.png</code>, or <code>.svg</code>.</p>
 <p>While the options in QGIS and similar tools are fairly good, they are limited in terms of customization. If we are making maps for publication and communication material (i.e.&nbsp;for not just our internal research), we typically export our map data layers at a high resolution, and then design the layouts and related elements in a graphic design software (e.g.&nbsp;Inkscape, Illustrator, Canva, etc.). This allows for more customization in the design of layout elements, to help make a more professional final product.</p>
 

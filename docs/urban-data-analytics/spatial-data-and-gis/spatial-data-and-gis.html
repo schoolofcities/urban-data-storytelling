@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d1fcf46c23e38b7e3acfb286f502517d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6fbcbd56e20030bb8c94bdea314e40aa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -349,22 +349,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html">Urban Data Analytics</a></li><li class="breadcrumb-item"><a href="../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">Spatial data and GIS</a></li></ol></nav><h1 class="title display-7">Spatial data and GIS</h1></header>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html">Urban Data Analytics</a></li><li class="breadcrumb-item"><a href="../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html">Spatial data and GIS</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Spatial data and GIS</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
+<header id="title-block-header">
 
 
 </header>
@@ -372,7 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>A lot of urban datasets are directly linked to specific places, e.g.&nbsp;addresses, streets, neighbourhoods, political or administrative boundaries, etc.</p>
 <p>Data that include place-based information are often called <em>spatial</em>, <em>geographic</em>, or <em>geospatial</em> data <em>Geographic Information Systems (GIS)</em> are tools and software for analyzing, processing, and visualizing spatial data.</p>
-<p>This page will cover the basics of spatial data and how we can view and interact with these data in the software <a href="https://qgis.org">QGIS</a>. You will need to download QGIS to work on the hands-on part of this tutorial. We recommend the Long-Term Release (LTR) version.</p>
+<p>This page will cover the basics of spatial data and how we can view and interact with these data in the software <a href="https://qgis.org" target="_blank">QGIS</a>. You will need to download QGIS to work on the hands-on part of this tutorial. We recommend the Long-Term Release (LTR) version.</p>
 <section id="spatial-data" class="level2">
 <h2 data-anchor-id="spatial-data">Spatial data</h2>
 <p>A spatial dataset is a combination of…</p>
@@ -402,10 +389,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Spatial data can be stored as columns in traditional table-based formats (e.g.&nbsp;.csv), but there are also a wide range of data formats specific to spatial data. These are some of the most common:</p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON</a> <code>.geojson</code></li>
-<li><a href="https://en.wikipedia.org/wiki/GeoPackage">GeoPacakge</a> <code>.gpkg</code></li>
-<li><a href="https://en.wikipedia.org/wiki/Shapefile">Shapefile</a> <code>.shapfile</code></li>
-<li><a href="https://en.wikipedia.org/wiki/Geodatabase_(Esri)">Geodatabase</a> <code>.gdb</code></li>
+<li><a href="https://en.wikipedia.org/wiki/GeoJSON" target="_blank">GeoJSON</a> <code>.geojson</code></li>
+<li><a href="https://en.wikipedia.org/wiki/GeoPackage" target="_blank">GeoPacakge</a> <code>.gpkg</code></li>
+<li><a href="https://en.wikipedia.org/wiki/Shapefile" target="_blank">Shapefile</a> <code>.shapfile</code></li>
+<li><a href="https://en.wikipedia.org/wiki/Geodatabase_(Esri)" target="_blank">Geodatabase</a> <code>.gdb</code></li>
 </ul>
 <p>Here is an example of a single point location of a city stored in a <code>.geojson</code> file. <code>.geojson</code> is a standardized data schema <code>.json</code> format for spatial data.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
@@ -461,7 +448,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="coordinate-reference-systems-crs-and-map-projections" class="level2">
 <h2 data-anchor-id="coordinate-reference-systems-crs-and-map-projections">Coordinate Reference Systems (CRS) and map projections</h2>
-<p>A <a href="https://en.wikipedia.org/wiki/Spatial_reference_system">CRS</a> is a framework for describing the geographic position of location-based data. It tells your GIS software where your data are located on the Earth. Without a CRS, your data would just be a bunch of numbers without an ability to place them on a map and relate them to other data.</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Spatial_reference_system" target="_blank">CRS</a> is a framework for describing the geographic position of location-based data. It tells your GIS software where your data are located on the Earth. Without a CRS, your data would just be a bunch of numbers without an ability to place them on a map and relate them to other data.</p>
 <p>There are thousands of CRSs. Each CRS has specific attributes about its position and one main set of spatial units (e.g.&nbsp;a CRS will measure location in degrees longitude/latitude, metres, miles, etc.).</p>
 <p>Probably the most common CRS is WGS84, which uses longitude/latitude to link data to the Earth’s surface.</p>
 <p>When doing spatial analyses and processing where we are comparing two or more datasets to each other, it is important that they are in the same CRS.</p>
@@ -469,7 +456,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-anchor-id="map-projections">Map projections</h3>
 <p>CRS are often paired with map projections. This is sometimes called a <em>Projected CRS</em>.</p>
 <p>The earth is a 3D globe, but most maps are represented on 2D surfaces (e.g.&nbsp;on a screen, piece of paper). Map projections are mathematical models to flatten the earth to create a 2D view.</p>
-<p>Every projection distorts shape, area, distance, or direction in some way or another. Different map projections distort the Earth in different ways. Here are some examples! For more check out this <a href="https://www.jasondavies.com/maps/transition/">projection transition tool</a></p>
+<p>Every projection distorts shape, area, distance, or direction in some way or another. Different map projections distort the Earth in different ways. Here are some examples! For more check out this <a href="https://www.jasondavies.com/maps/transition/" target="_blank">projection transition tool</a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/projections.png" class="img-fluid figure-img"></p>
@@ -484,7 +471,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Screenshots of OpenStreetMap of Toronto, left is in an area-preserving Mercator projection, right is un-projected and distorted</figcaption>
 </figure>
 </div>
-<p>A general recommendation for urban-scale analyses is to use a <a href="https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system">Universal Transverse Mercator (UTM)</a> projected CRS, which conserves area, distance, and direction along bands of the earth. This is a good <a href="https://mangomap.com/robertyoung/maps/69585/what-utm-zone-am-i-in-#">tool for finding</a> which UTM zone your region is in.</p>
+<p>A general recommendation for urban-scale analyses is to use a <a href="https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system" target="_blank">Universal Transverse Mercator (UTM)</a> projected CRS, which conserves area, distance, and direction along bands of the earth. This is a good <a href="https://mangomap.com/robertyoung/maps/69585/what-utm-zone-am-i-in-#" target="_blank">tool for finding</a> which UTM zone your region is in.</p>
 </section>
 </section>
 <section id="working-with-spatial-data-in-qgis" class="level2">
@@ -521,10 +508,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>QGIS with OpenStreetMap</figcaption>
 </figure>
 </div>
-<p>Let’s now add some vector data to the map. We’ve pre-downloaded two datasets from the <a href="https://open.toronto.ca/">City of Toronto’s Open Data Portal</a></p>
+<p>Let’s now add some vector data to the map. We’ve pre-downloaded two datasets from the <a href="https://open.toronto.ca/" target="_blank">City of Toronto’s Open Data Portal</a></p>
 <ul>
-<li><a href="./data/city-wards.geojson">City Wards (polygons)</a></li>
-<li><a href="./data/toronto-libraries-2023.geojson">Library Locations (points)</a></li>
+<li><a href="./data/city-wards.geojson" target="_blank">City Wards (polygons)</a></li>
+<li><a href="./data/toronto-libraries-2023.geojson" target="_blank">Library Locations (points)</a></li>
 </ul>
 <p>These can be added via the <strong>Data Source Manager</strong> - <strong>Vector</strong>, or simply via drag-and-drop from the folder of where they are located on your computer.</p>
 <div class="quarto-figure quarto-figure-center">
