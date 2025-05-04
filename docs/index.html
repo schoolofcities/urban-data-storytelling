@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -289,8 +323,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#contributors-and-citing" id="toc-contributors-and-citing" class="nav-link active" data-scroll-target="#contributors-and-citing">Contributors and citing</a></li>
+  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">Urban Data Storytelling</h1></header>
@@ -301,10 +342,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Welcome to the Urban Data Storytelling online textbook, written and created by the School of Cities at the University of Toronto.</p>
+<p>Welcome to the Urban Data Storytelling online textbook, written and created by the <a href="https://schoolofcities.utoronto.ca/" target="_blank">School of Cities</a> at the University of Toronto.</p>
 <p>Urban data storytelling is the process and practice of using data to craft compelling narratives about cities, in order to communicate key insights, inform policy-making, build public will, or advocate for change.</p>
-<p>Urban data storytelling combines data analysis, data visualization, and narrative techniques to make complex urban trends understandable and engaging for specific audiences, such as policymakers, funders, or community members.</p>
-<p>This online textbook will walk you through three core modules that will help you build and round out your urban data storytelling skills, including:</p>
+<p>Urban data storytelling combines data analytics, data visualization, and narrative techniques to make complex urban trends understandable and engaging for specific audiences, such as policymakers, funders, or community members.</p>
+<p>This online textbook has three core modules, each composed of one or more notebooks or tutorials.</p>
 <ul>
 <li>The importance of urban data storytelling<br>
 </li>
@@ -317,8 +358,47 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Framework for data storytelling</figcaption>
 </figure>
 </div>
+<section id="contributors-and-citing" class="level2">
+<h2 data-anchor-id="contributors-and-citing">Contributors and citing</h2>
+<p>This online textbook was compiled by <a href="https://jamaps.github.io" target="_blank">Jeff Allen</a> with contributions (in alphabetical order) from Karen Chapple, Julia Greenberg, Isabeaux Graham, Aniket Kali, Evelyne St.&nbsp;Louis, Nate Wessel, and Michelle Zhang. Each notebook includes author names of specific contributors to each. The website was built using <a href="https://quarto.org/" target="_blank">Quarto</a>.</p>
+<p>If you want to cite this webpage, here is the recommended citation:</p>
+<p><code>Allen, J. (Eds.). (2025). Urban Data Storytelling. School of Cities, University of Toronto.</code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>@book{allen2025urbandatastorytelling,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  editor    = {Allen, Jeff},</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  title     = {Urban Data Storytelling},</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  year      = {2025},</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  publisher = {School of Cities, University of Toronto},</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  url       = {https://schoolofcities.github.io/urban-data-storytelling/}</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you want to cite a specific page, here is an example of how to cite:</p>
+<p><code>Greenberg, J. &amp; St. Louis, E. (2025). Exploratory data visualization. In Allen, J. (Eds.), Urban Data Storytelling. School of Cities, University of Toronto.</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>@incollection{greenberg2021dataviz,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  author    = {Greenberg, Julia and St. Louis, Evelyne},</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  title     = {Exploratory data visualization},</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  booktitle = {Urban Data Storytelling},</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  editor    = {Allen, Jeff},</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  publisher = {School of Cities, University of Toronto},</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  year      = {2025},</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  url       = {https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.html}</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="license" class="level2">
+<h2 data-anchor-id="license">License</h2>
+<p>This online textbook and its notebooks are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License</a>.</p>
+<p>You are free to:</p>
+<ul>
+<li>Share — copy and redistribute the material in any medium or format</li>
+<li>Adapt — remix, transform, and build upon the material</li>
+</ul>
+<p>Under the following terms:</p>
+<ul>
+<li>Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made.</li>
+<li>NonCommercial — You may not use the material for commercial purposes.</li>
+<li>ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
