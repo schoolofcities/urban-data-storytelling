@@ -1,5 +1,6 @@
 ---
 title: "Data visualization"
+author: "Isabeaux Graham, Jeff Allen"
 ---
 
 Data visualization is the graphical representation of information and data. By using visual elements like charts, graphs, and maps, data visualization tools help people understand patterns, trends, and outliers in data. At its core, data visualization translates abstract numbers into something visible and intuitive, helping our audiences better understand what the data is telling us.

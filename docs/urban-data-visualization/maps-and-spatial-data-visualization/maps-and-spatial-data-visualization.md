@@ -1,5 +1,6 @@
 ---
 title: "Maps and visualizing spatial data"
+author: "Jeff Allen"
 ---
 
 <br>

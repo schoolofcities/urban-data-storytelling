@@ -1,5 +1,6 @@
 ---
 title: "Data visualization"
+author: "Isabeaux Graham, Jeff Allen"
 ---
 
 Data visualization is the graphical representation of information and data. By using visual elements like charts, graphs, and maps, data visualization tools help people understand patterns, trends, and outliers in data. At its core, data visualization translates abstract numbers into something visible and intuitive, helping our audiences better understand what the data is telling us.
@@ -163,7 +164,7 @@ Guide the viewer’s eye by creating a hierarchy between background and foregrou
 
 For example, the line chart in the image above has a strong visual hierarchy between the key data points it wants to show (e.g. the lines for Sweden, the E.U., and Ireland) relative to the rest of the chart components.
 
-When guiding your readers through a story with a series of visualizations, sometimes it is useful to follow a Data Visualization Sandwich metaphor
+When guiding your readers through a story with a series of visualizations, sometimes it is useful to follow a Data Visualization Sandwich metaphor:
 
 ![](img/Sandwich.png)
 
@@ -173,7 +174,7 @@ Let’s look at an example. This is a map of the United States from an article b
 
 ![](img/Sandwich_EX1.png)
 
-The article then takes a deeper look at specific counties that have experienced significant temperature increases via a table
+The article then takes a deeper look at specific counties that have experienced significant temperature increases via a table:
 
 ![](img/Sandwich_EX2.png)
 
@@ -202,7 +203,7 @@ Here are a few recommendations for reducing clutter and increasing data-ink rati
 - Group or collapse less important data to simplify interpretation.
 - Whitespace is your friend
 
-Here's an example of COVID-19 deaths that appeared in [The Guardian](https://www.theguardian.com/us-news/2022/mar/13/how-covid-shook-the-us-charts-graphs) that has limited visual clutter and strong hierarchy.
+Here's an example of a visualization of COVID-19 deaths from [The Guardian](https://www.theguardian.com/us-news/2022/mar/13/how-covid-shook-the-us-charts-graphs) that has limited visual clutter and strong hierarchy.
 
 ![](img/DataInk_EX1.png)
 
@@ -241,7 +242,7 @@ Great charts don’t always speak for themselves. Use clear titles, subtitles, a
 
 ### Choosing charts based on your data
 
-Match the visualization to the type of data and the message you’re trying to convey. Here's a quick overview of very common charts for different types of data
+Match the visualization to the type of data and the message you’re trying to convey. Here's a quick overview of very common charts for different types of data:
 
 ![](img/ChartPurpose.png)
 

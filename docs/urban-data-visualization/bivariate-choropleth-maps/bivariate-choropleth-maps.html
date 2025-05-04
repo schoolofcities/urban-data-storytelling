@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jeff Allen">
 
 <title>Bivariate choropleth maps – Urban Data Storytelling 📊📈🏙️</title>
 <style>
@@ -156,7 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;width:220px"><br>Urban Data Storytelling 📊📈🏙️</a> 
+      <a href="../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;width:250px;margin-left: -20px;"><br>Urban Data Storytelling 📊📈🏙️</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -277,8 +278,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../urban-data-visualization/exploratory-data-visualization-python/exploratory-data-visualization-python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploratory data visualization in Python</span></a>
+  <a href="../../urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploratory data visualization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -344,6 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header">
 
+<p class="author">Jeff Allen</p>
 
 </header>
 
@@ -367,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>In the data download, there is also a standalone Python script, if you want to run the steps all-at-once or integrate with anything else you have cooking.</p>
 <p>If you are running the notebook and/or script locally (generally recommended), you will need to use the following libraries. You’ll have to install them via <code>pip</code> or <code>conda</code> if you do not have them installed already.</p>
-<div id="cell-7" class="cell" data-execution_count="1">
+<div id="cell-6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -394,7 +396,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="https://www.openstreetmap.org/#map=11/49.8787/-97.1514" target="_blank">Rivers from OpenStreetMap</a></li>
 </ul>
 <p>To get started, let’s read the first three data layers and merge them into a single <code>geoDataFrame</code>, joining by the Dissemination Area unique id, <code>dauid</code>. We’ll also load the three cartographic reference layers.</p>
-<div id="cell-9" class="cell" data-execution_count="2">
+<div id="cell-8" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> gpd.read_file(<span class="st">"data/dissemination-area-winnipeg-2016.geojson"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dfm <span class="op">=</span> pd.read_csv(<span class="st">"data/can-marg-manitoba-2016.csv"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>dfb <span class="op">=</span> pd.read_csv(<span class="st">"data/can-bics-winnipeg.csv"</span>)</span>
@@ -411,7 +413,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><em>Can-BICS continuous metric</em> - a weighted sum of the quality of bike infrastructure within a buffer of each DA. The higher the value, the better the infrastructure.</p></li>
 </ol>
 <p>Here’s a subset of what we want to map, the two variables noted above, plus the geometry data required to plot the data.</p>
-<div id="cell-11" class="cell" data-execution_count="4">
+<div id="cell-10" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gdf[[<span class="st">"dauid"</span>,<span class="st">"material_resources_DA16"</span>,<span class="st">"CBICS_cont"</span>,<span class="st">"geometry"</span>]].head(<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
@@ -496,7 +498,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>For a background on single-variable choropleth maps, and how to make them in QGIS, check out <a href="../../urban-data-visualization/choropleth-maps/choropleth-maps.html" target="_blank">our notebook on the subject</a></p>
 <p>In Python, <code>geopandas</code> has a built-in <code>plot</code> function that makes it very easy to create choropleth maps for any quantitative variable. In the code below, we use <strong>quantiles</strong> (equal number of DAs in each coloured group) to create choropleths using <code>geopandas</code> and <code>matplotlib</code>.</p>
 <p>If you’re interested in learning more about creating univariate choropleth maps in Python, including how to classify data, check out the Geographic Data Science textbook’s <a href="https://geographicdata.science/book/notebooks/05_choropleth.html" target="_blank">chapter</a> on the topic. You can also refer to the <code>geopandas.GeoDataFrame.plot</code> <a href="https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.plot.html" target="_blank">documentation</a> for more information.</p>
-<div id="cell-13" class="cell" data-execution_count="7">
+<div id="cell-12" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">6</span>))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>gdf.plot(</span>
@@ -549,7 +551,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/eg-legend-classify.svg" width="310"></p>
 <p>But how do we do this in Python and geopandas? Behind the scenes of the univariate choropleth maps in the previous section is a Python library called <a href="https://github.com/pysal/mapclassify" target="_blank">mapclassify</a>.</p>
 <p>Here’s an example classifying the Can-BICS variable into <code>k = 3</code> quantiles (changing this to k = 5 gives us the same classification in the map above)</p>
-<div id="cell-17" class="cell" data-execution_count="8">
+<div id="cell-16" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mapclassify.Quantiles(gdf[<span class="st">"CBICS_cont"</span>], k <span class="op">=</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>Quantiles
@@ -562,13 +564,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We can use the same function to generate bivariate classifications. Below we create 3x3 square classification using quantiles. A <code>k = 3</code> for each variable <code>X</code> (Can-BICS cycling infrastructure quality) and <code>Y</code> (Can-MARG lack of material resources), and then combine the two together.</p>
-<div id="cell-19" class="cell" data-execution_count="20">
+<div id="cell-18" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gdf[<span class="st">'x_group'</span>] <span class="op">=</span> gdf[[<span class="st">'CBICS_cont'</span>]].<span class="bu">apply</span>(mapclassify.Quantiles.make(rolling<span class="op">=</span><span class="va">True</span>, k <span class="op">=</span> <span class="dv">3</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>gdf[<span class="st">'y_group'</span>] <span class="op">=</span> gdf[[<span class="st">'material_resources_DA16'</span>]].<span class="bu">apply</span>(mapclassify.Quantiles.make(rolling<span class="op">=</span><span class="va">True</span>, k <span class="op">=</span> <span class="dv">3</span>))</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>gdf[<span class="st">'xy_group'</span>] <span class="op">=</span> gdf[<span class="st">'x_group'</span>].astype(<span class="bu">str</span>) <span class="op">+</span> <span class="st">"-"</span> <span class="op">+</span> gdf[<span class="st">'y_group'</span>].astype(<span class="bu">str</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here’s a random sample of the result that we can use to spot check a few results</p>
-<div id="cell-21" class="cell" data-execution_count="22">
+<div id="cell-20" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>gdf[[<span class="st">"dauid"</span>,<span class="st">"material_resources_DA16"</span>,<span class="st">"CBICS_cont"</span>,<span class="st">'x_group'</span>,<span class="st">"y_group"</span>,<span class="st">"xy_group"</span>]].sample(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <div>
@@ -649,7 +651,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/eg-legends.svg" width="620"></p>
 <p>Let’s try to make a simple map using <code>gpd.plot()</code> based on our classified data and the first of these colour schemes.</p>
 <p>The data we have are categorical. To plot categorical data with custom colours, we first have to provide a dictionary to <em>map</em> each category to each colour.</p>
-<div id="cell-26" class="cell" data-execution_count="23">
+<div id="cell-25" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>color_mapping <span class="op">=</span> {</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"0-2"</span>: <span class="st">"#f73593"</span>, </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"0-1"</span>: <span class="st">"#f78fb6"</span>,</span>
@@ -663,7 +665,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can then feed this into our plot. We’re also going to add the reference layers to make the map a bit more intuitive; the Winnipeg boundary, streets, and rivers.</p>
-<div id="cell-28" class="cell" data-execution_count="27">
+<div id="cell-27" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">7</span>))</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Winnipeg border</span></span>
@@ -721,7 +723,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Looks great! One wrinkle, however, is that we had to create a custom legend because simply setting<code>legend = True</code> didn’t work initially. It appears that there is a <a href="https://github.com/geopandas/geopandas/issues/1269" target="_blank">known issue</a> with plotting categorical data with custom colours. We can try to continue to tinker with this map using <code>matplotlib</code>, but personally, I prefer to design more nuanced layout items, such as legends, using graphic design software like Inkscape, particularly if the goal is to create visually appealing “static” maps for an article or report.</p>
-<div id="cell-30" class="cell" data-execution_count="28">
+<div id="cell-29" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">'images/winnipeg-bivariate-map-python-export.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>

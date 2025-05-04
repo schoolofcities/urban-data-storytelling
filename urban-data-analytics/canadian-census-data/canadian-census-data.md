@@ -1,5 +1,6 @@
 ---
 title: "Overview of Canadian census data"
+author: "Jeff Allen"
 ---
 
 National censuses, like the Canadian and U.S. censuses, are very common data sources analyzing demographic and socio-economic data pertaining to specific places.
