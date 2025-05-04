@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Julia Greenberg, Evelyne St.&nbsp;Louis">
 
-<title>Exploratory data visualization in Python – Urban Data Storytelling 📊📈🏙️</title>
+<title>Exploratory data visualization – Urban Data Storytelling 📊📈🏙️</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="description" content="Notebooks on urban data analysis and visualization">
 <meta name="author" content="School of Cities">
 
-<meta property="og:title" content="Exploratory data visualization in Python – Urban Data Storytelling 📊📈🏙️">
+<meta property="og:title" content="Exploratory data visualization – Urban Data Storytelling 📊📈🏙️">
 <meta name="og:description" content="Notebooks on urban data analysis and visualization">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://schoolofcities.github.io/urban-data-storytelling">
@@ -121,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="https://schoolofcities.github.io/urban-data-storytelling">
 <meta name="twitter:creator" content="@UofTCities">
-<meta name="twitter:title" content="Exploratory data visualization in Python – Urban Data Storytelling 📊📈🏙️">
+<meta name="twitter:title" content="Exploratory data visualization – Urban Data Storytelling 📊📈🏙️">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/urban-data-storytelling/refs/heads/main/assets/web-card.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
@@ -141,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/exploratory-data-visualization-python/exploratory-data-visualization-python.html">Exploratory data visualization in Python</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.html">Exploratory data visualization</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -156,7 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;width:220px"><br>Urban Data Storytelling 📊📈🏙️</a> 
+      <a href="../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;width:250px;margin-left: -20px;"><br>Urban Data Storytelling 📊📈🏙️</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -277,8 +278,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../urban-data-visualization/exploratory-data-visualization-python/exploratory-data-visualization-python.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Exploratory data visualization in Python</span></a>
+  <a href="../../urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Exploratory data visualization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -331,19 +332,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#install-and-import-libraries" id="toc-install-and-import-libraries" class="nav-link active" data-scroll-target="#install-and-import-libraries">Install and import libraries</a></li>
   <li><a href="#load-bike-share-data" id="toc-load-bike-share-data" class="nav-link" data-scroll-target="#load-bike-share-data">Load bike share data</a></li>
-  <li><a href="#how-long-do-bike-share-trips-last" id="toc-how-long-do-bike-share-trips-last" class="nav-link" data-scroll-target="#how-long-do-bike-share-trips-last">How long do bike share trips last?</a></li>
-  <li><a href="#how-does-trip-duration-vary-by-user-type" id="toc-how-does-trip-duration-vary-by-user-type" class="nav-link" data-scroll-target="#how-does-trip-duration-vary-by-user-type">How does trip duration vary by user type?</a></li>
-  <li><a href="#how-does-the-number-of-trips-vary-by-day-for-each-user-type" id="toc-how-does-the-number-of-trips-vary-by-day-for-each-user-type" class="nav-link" data-scroll-target="#how-does-the-number-of-trips-vary-by-day-for-each-user-type">How does the number of trips vary by day, for each user type?</a></li>
-  <li><a href="#which-stations-have-the-largest-number-of-trips-that-both-start-and-end-at-that-station" id="toc-which-stations-have-the-largest-number-of-trips-that-both-start-and-end-at-that-station" class="nav-link" data-scroll-target="#which-stations-have-the-largest-number-of-trips-that-both-start-and-end-at-that-station">Which stations have the largest number of trips that both start and end at that station?</a></li>
-  <li><a href="#are-bike-share-trips-more-common-when-the-weather-is-warmer" id="toc-are-bike-share-trips-more-common-when-the-weather-is-warmer" class="nav-link" data-scroll-target="#are-bike-share-trips-more-common-when-the-weather-is-warmer">Are bike share trips more common when the weather is warmer?</a></li>
+  <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram">Histogram</a></li>
+  <li><a href="#stacked-histogram" id="toc-stacked-histogram" class="nav-link" data-scroll-target="#stacked-histogram">Stacked histogram</a></li>
+  <li><a href="#kernel-density-plot" id="toc-kernel-density-plot" class="nav-link" data-scroll-target="#kernel-density-plot">Kernel density plot</a></li>
+  <li><a href="#bar-chart" id="toc-bar-chart" class="nav-link" data-scroll-target="#bar-chart">Bar chart</a></li>
+  <li><a href="#line-chart" id="toc-line-chart" class="nav-link" data-scroll-target="#line-chart">Line chart</a></li>
+  <li><a href="#scatter-plot-with-trend-line" id="toc-scatter-plot-with-trend-line" class="nav-link" data-scroll-target="#scatter-plot-with-trend-line">Scatter plot with trend line</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/exploratory-data-visualization-python/exploratory-data-visualization-python.html">Exploratory data visualization in Python</a></li></ol></nav><h1 class="title display-7">Exploratory data visualization in Python</h1></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.html">Exploratory data visualization</a></li></ol></nav><h1 class="title display-7">Exploratory data visualization</h1></header>
 
 <header id="title-block-header">
 
+<p class="author">Julia Greenberg, Evelyne St.&nbsp;Louis</p>
 
 </header>
 
@@ -352,10 +355,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This notebook explains how to visually explore data by creating plots using the popular <a href="https://seaborn.pydata.org/" target="_blank">seaborn</a> and <a href="https://matplotlib.org/" target="_blank">matplotlib</a> libraries.</p>
 <p>It will include the following plots:</p>
 <ul>
-<li>Histogram &amp; stacked histogram</li>
+<li>Histogram</li>
+<li>Stacked histogram</li>
 <li>Kernel density plot</li>
-<li>Bar charts</li>
-<li>Line charts</li>
+<li>Bar chart</li>
+<li>Line chart</li>
 <li>Scatter plot with trend line</li>
 </ul>
 <section id="install-and-import-libraries" class="level2">
@@ -485,8 +489,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><strong>What do you notice about the data? Which variables are you interested in exploring?</strong></p>
 </section>
-<section id="how-long-do-bike-share-trips-last" class="level2">
-<h2 data-anchor-id="how-long-do-bike-share-trips-last">How long do bike share trips last?</h2>
+<section id="histogram" class="level2">
+<h2 data-anchor-id="histogram">Histogram</h2>
+<p><strong>How long do bike share trips last?</strong></p>
 <p>Let’s start by looking at the trip duration column to see how long people are travelling when using the bike share.</p>
 <p>The “Trip Duration” column is in seconds, which is hard to interpret – to make it easier, let’s create a column for minutes by dividing by 60. We can then compute some simple summary statistics on the column using the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html" target="_blank"><code>describe</code></a> method from <code>pandas</code>.</p>
 <div id="5de36475-c831-41d4-8a9a-24f66f905816" class="cell" data-execution_count="42">
@@ -524,15 +529,26 @@ Name: Trip Duration Minutes, dtype: float64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="exploratory-data-visualization-python_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="exploratory-data-visualization_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>According to this plot, trips are typically fairly short, with the majority of trip durations well below 20 minutes. There are a small number of trips that are longer than 40 minutes but these are relatively rare.</p>
+<p><strong>If you are using spreadsheet software such as Excel and Google Sheets</strong>, try to run the same steps as noted above, using the skills previously covered in this textbook. Here are a few tips and reminders:</p>
+<ul>
+<li><p>Create a new column to calculate trip length in minutes instead of seconds. For example, if trip length in seconds is in an existing column, column C, and you add a new column D, you would write this function for column D, in your D2 cell: D2=C2/60, and then drag it all the way down all your rows.</p></li>
+<li><p>You can then calculate all your key summary statistics manually by using the appropriate Excel or Google Sheets formulas as noted in previous sections of this textbook (e.g.&nbsp;=AVERAGE, =MAX, etc.)</p></li>
+<li><p>You can also create a histogram of the trip length in minutes column by selecting the appropriate data array, clicking ‘Insert’, then selecting ‘Histogram’.</p>
+<ul>
+<li>As noted above, there are outliers in this dataset (e.g.&nbsp;trip lengths of 300 or even 635 hours!) that you may want to delete or exclude from your analysis.</li>
+</ul></li>
+<li><p>If you want to reproduce the histogram shown above (i.e., only trips that are under 120 minutes), you will need to run additional manual steps to exclude trips that are longer than 120 minutes. There are different ways to do this. For example, you could sort the data from smallest to largest and manually select the appropriate array or copy that subset of the dataset you want to manipulate into a new tab. Alternatively, you could create a new column to categorize each trip as either under or over 120 minutes (using the =IF function), and then use this new column to easily filter your data using the Sort &amp; Filter function, and then insert your Histogram after the data is filtered.</p></li>
+</ul>
 </section>
-<section id="how-does-trip-duration-vary-by-user-type" class="level2">
-<h2 data-anchor-id="how-does-trip-duration-vary-by-user-type">How does trip duration vary by user type?</h2>
+<section id="stacked-histogram" class="level2">
+<h2 data-anchor-id="stacked-histogram">Stacked histogram</h2>
+<p><strong>How does trip duration vary by user type?</strong></p>
 <p>Next, let’s create a <em>stacked histogram</em> that shows trip duration for casual versus annual members. Unlike the previous plot, we’ll need more than just the “Trip Duration Minutes” column because we’re also plotting by “User Type”.</p>
 <div id="f0915823" class="cell" data-execution_count="155">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>trips_120 <span class="op">=</span> df.loc[df[<span class="st">"Trip Duration Minutes"</span>] <span class="op">&lt;=</span> <span class="dv">120</span>]</span>
@@ -549,16 +565,23 @@ Name: Trip Duration Minutes, dtype: float64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="exploratory-data-visualization-python_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="exploratory-data-visualization_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>This stacked histogram shows that shorter trips (&lt;20 minutes) are most common for both types of members. There are far fewer trips taken by casual members compared to annual members.</p>
+<p><strong>Note that there is no stacked histogram chart option in Excel or Google Sheets.</strong> However, you can get around this by using the Stacked Column Chart type instead and essentially treating it as a histogram. This requires you to manually ‘bin’ your data into bins prior to the analysis. If you wish to change your bin size, you will need to start over! It’s clunky, but it works. Here is one way to do this:</p>
+<ul>
+<li><p>Create a new column that categorizes your trip length into predefined bins. These will be the bins that will display on your stacked histogram. For example, using an =IF statement, you could create a new column that categorizes trip length into the following 5 categories: Less than 10 min, 10 to 30 min, 30 to 60 min, 60 to 90 minutes, or 90 to 120 minutes.</p></li>
+<li><p>Once your new variable is created, go ahead and create a pivot table. In your pivot table, drag your new variable (categories of trip length) into the ‘Rows’ box. Drag the ‘User Type’ (i.e.&nbsp;Casual or Annual members) into the ‘Column’ box. Finally, drag the Trip Id into the ‘Values’ box, and make sure to select ‘Count’ (not sum, or average).</p></li>
+<li><p>Now, select the appropriate data array, go to Chart Type, ‘Insert’, ‘Stacked Column Chart’. You should now see your 5 bins along the x-axis, and stacked bar charts for each bin showing the total number of trips on the y-axis, broken down between Annual and Casual members.</p></li>
+</ul>
 </section>
-<section id="how-does-the-number-of-trips-vary-by-day-for-each-user-type" class="level2">
-<h2 data-anchor-id="how-does-the-number-of-trips-vary-by-day-for-each-user-type">How does the number of trips vary by day, for each user type?</h2>
-<p>What if we want to plot the number of trips by day of the month, colored by user type? Let’s start with a <a href="https://en.wikipedia.org/wiki/Kernel_density_estimation" target="_blank">kernel density plot</a>.</p>
+<section id="kernel-density-plot" class="level2">
+<h2 data-anchor-id="kernel-density-plot">Kernel density plot</h2>
+<p><strong>How does the number of trips vary by day, for each user type?</strong></p>
+<p>What if we want to plot the number of trips by day of the month, colored by user type? Let’s start with a <em><a href="https://en.wikipedia.org/wiki/Kernel_density_estimation" target="_blank">kernel density plot</a></em>.</p>
 <p>First we need to convert the “Start Time” column to a <em>datetime</em> object using <a href="https://pandas.pydata.org/docs/reference/api/pandas.to_datetime.html" target="_blank"><code>pandas.to_datetime</code></a> so that we can sort by date.</p>
 <div id="0fb8f29f" class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Start Date'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'Start Time'</span>], <span class="bu">format</span><span class="op">=</span><span class="st">'%m/</span><span class="sc">%d</span><span class="st">/%Y %H:%M'</span>)</span>
@@ -580,16 +603,18 @@ Name: Trip Duration Minutes, dtype: float64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="exploratory-data-visualization-python_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="exploratory-data-visualization_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>It appears that trips peak in the first half of the month, with more trips taken by annual members than casual members, and are less frequent in the later half.</p>
+<p><strong>Note that there is no kernel density plot chart option in Excel or Google Sheets.</strong></p>
 </section>
-<section id="which-stations-have-the-largest-number-of-trips-that-both-start-and-end-at-that-station" class="level2">
-<h2 data-anchor-id="which-stations-have-the-largest-number-of-trips-that-both-start-and-end-at-that-station">Which stations have the largest number of trips that both start and end at that station?</h2>
-<p>Now let’s try creating a visualization that’s a bit more analytical. We’ll answer the question: which stations have the largest number of trips that both start and end at that station?</p>
+<section id="bar-chart" class="level2">
+<h2 data-anchor-id="bar-chart">Bar chart</h2>
+<p><strong>Which stations have the largest number of trips that both start and end at that station?</strong></p>
+<p>Now let’s create a <em><a href="https://en.wikipedia.org/wiki/Bar_chart" target="_blank">bar chart</a></em> that answers the question: which stations have the largest number of trips that both start and end at that station?</p>
 <div id="a23a9158-11ad-464d-a5e2-d4fa86df61ed" class="cell" data-execution_count="152">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the data to trips where start station ID = end station ID</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dfs <span class="op">=</span> df.loc[df[<span class="st">"Start Station Id"</span>] <span class="op">==</span> df[<span class="st">"End Station Id"</span>]]</span>
@@ -608,17 +633,25 @@ Name: Trip Duration Minutes, dtype: float64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="exploratory-data-visualization-python_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="exploratory-data-visualization_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Tommy Thompson Park is the station with the most round trip bike rides, followed by Nassau St / Bellevue Ave and Spadina Ave / Adelaide St W.</p>
 <p><strong>Why do you think these stations have the most “round trip” rides? What additional analysis could you do to explore the potential reasons why?</strong></p>
+<p><strong>There are different ways to replicate this analysis In Excel or Google Sheets</strong>, though in most cases it will require additional steps. Here is one way to replicate the analysis:</p>
+<ul>
+<li><p>First, create a new column to categorize whether a trip started and ended at the same station. So for example, if your ‘Start Station’ variable is Column E, your ‘End Station’ variable is Column F, and your new categorization column is Column G, your IF statement should be G2=IF(E2=F2, “Same start and end stations”, “Different stations”). Drag your formula down to all your rows.</p></li>
+<li><p>Second, create a pivot table. Drag your newly created variable into the ‘Filter’ box, and uncheck “Different stations”. Then drag the ‘Start station’ variable into your ‘Rows’ box, and your trip ID into your ‘Values’ box and make sure you select ‘Count’ (as opposed to Sum or Average, for example). This will give you a count of the number of trips that started and ended at the same station, by station.</p></li>
+<li><p>You can then sort your pivot table in descending order based on this count (i.e.&nbsp;largest to smallest number of trips per station).</p></li>
+<li><p>You can then copy-paste this table into a new tab, and use this to create a new bar chart. Select the appropriate data array, click ‘Insert’, then ‘Bar Chart’ under Chart Type.</p></li>
+</ul>
 </section>
-<section id="are-bike-share-trips-more-common-when-the-weather-is-warmer" class="level2">
-<h2 data-anchor-id="are-bike-share-trips-more-common-when-the-weather-is-warmer">Are bike share trips more common when the weather is warmer?</h2>
-<p>What if we are curious about the relationship between bike share trips and temperature? Maybe we have a hypothesis that more people tend to use bike share when it’s warmer. Let’s test this hypothesis by loading in another dataset, which includes the daily temperature in January 2022, and joining it with our bike share data.</p>
+<section id="line-chart" class="level2">
+<h2 data-anchor-id="line-chart">Line chart</h2>
+<p><strong>How does daily average temperature change over time?</strong></p>
+<p>What if we are curious about the relationship between bike share trips and temperature? Maybe we have a hypothesis that more people tend to use bike share when it’s warmer. Let’s test this hypothesis by first loading and examining another dataset, which includes the daily temperature in January 2022, and joining it with our bike share data.</p>
 <p>Let’s load in our weather data, which was already downloaded for you from the federal government’s <a href="https://climate.weather.gc.ca/index_e.html" target="_blank">historical climate data website</a>.</p>
 <div id="650463f0-0040-4927-8665-917cbe082478" class="cell" data-scrolled="true" data-execution_count="77">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_weather <span class="op">=</span> pd.read_csv(<span class="st">"data/toronto-historical-weather-2022.csv"</span>)</span>
@@ -1089,7 +1122,7 @@ Name: Trip Duration Minutes, dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<p>Let’s first explore the average temperature for each day in January 2022.</p>
+<p>Let’s first explore the average temperature for each day in January 2022 by creating a <em><a href="https://en.wikipedia.org/wiki/Line_chart" target="_blank">line chart</a></em>.</p>
 <div id="80a96eed" class="cell" data-execution_count="157">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="dv">5</span>))</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1101,12 +1134,16 @@ Name: Trip Duration Minutes, dtype: float64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="exploratory-data-visualization-python_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="exploratory-data-visualization_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Next, we’ll calculate the number of trips (i.e., rows) for each date, and then plot the number of trips versus the average temperature for every day in January 2022. We’ll include a trend line to illustrate the relationship between the two variables.</p>
+</section>
+<section id="scatter-plot-with-trend-line" class="level2">
+<h2 data-anchor-id="scatter-plot-with-trend-line">Scatter plot with trend line</h2>
+<p><strong>Are bike share trips more common when the weather is warmer?</strong></p>
+<p>Next, we’ll calculate the number of trips (i.e., rows) for each date, and then create a <em><a href="https://en.wikipedia.org/wiki/Scatter_plot" target="_blank">scatter plot</a></em> of the number of trips versus the average temperature for every day in January 2022. We’ll include a <em>trend (or “<a href="https://en.wikipedia.org/wiki/Linear_regression" target="_blank">regression</a>”) line</em> to illustrate the relationship between the two variables.</p>
 <div id="f4d286f3" class="cell" data-execution_count="158">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of rows (trips) by date</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df_ridership_weather[<span class="st">'Count'</span>] <span class="op">=</span> df_ridership_weather.groupby(<span class="st">'date'</span>)[<span class="st">'date'</span>].transform(<span class="st">'count'</span>)</span>
@@ -1119,7 +1156,7 @@ Name: Trip Duration Minutes, dtype: float64</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="exploratory-data-visualization-python_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="exploratory-data-visualization_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1137,6 +1174,17 @@ Name: Trip Duration Minutes, dtype: float64</code></pre>
 <p>The <em>Pearson correlation coefficient</em> (0.65) is positive and relatively close to 1, which means there is a moderately strong positive linear relationship between the number of daily trips and the temperature. A value of 0 would indicate no correlation, while a value close to -1 would indicate a strong negative relationship.</p>
 <p>The <em>p-value</em> is very small (&lt;0.05), meaning the correlation is <em>statistically significant</em> (i.e., there is strong evidence that the correlation is real).</p>
 <p>We can conclude that our hypothesis was correct: more people tend to use bike share when it’s warmer. However, given that we only looked at the <em>correlation</em> between these two variables, we are not able to establish <em>causation</em>. In other words, we can say that there is a relationship, but we cannot say why. We are just in the exploratory phase of the data analysis process, and to say anything more about the reason for the relationship we would need to do more in-depth modeling.</p>
+<p><strong>There are different ways to replicate this analysis In Excel or Google Sheets</strong>, though it will require additional steps. Here is one way to replicate the analysis:</p>
+<ul>
+<li><p>First, as noted above, open the weather dataset and clean it so as to only keep the most relevant columns (date and temperature).</p></li>
+<li><p>Then, as noted above, make sure that the variable you will use to join the datasets - the date - is formatted in the same way in both datasets. This means you will need to adjust the formatting in the bike share dataset to match the way the date variable is formatted in the weather dataset.</p></li>
+<li><p>Then, join the two datasets using the VLOOKUP function. You can review the previously linked VLOOKUP tutorial here.</p></li>
+<li><p>Once your two datasets are joined, create a new pivot table to summarize the number of trips per day. Drag the ‘date’ field into your ‘Rows’ box, and the ‘trip ID’ into your ‘Values’ box, and make sure to select ‘Count’.</p></li>
+<li><p>Copy-paste your pivot table into a new tab. Now, join your temperature variable back into this new table/tab. In other words, you are trying to create a table where each row is a unique day, and the columns are the number of trips, and average temperature.</p></li>
+<li><p>From here, select the appropriate data array to create a scatter plot that charts the number of trips against average temperature. As explained previously, you can do this by clicking on ‘Insert’ under Chart Type, then selecting ‘Scatter Plot’.</p></li>
+<li><p>Once your scatter plot is displayed, you can add a linear trendline, model equation, and R-square value as described previously in this textbook.</p></li>
+<li><p>Finally, you can manually calculate the Pearson correlation coefficient using the =PEARSON function.</p></li>
+</ul>
 
 
 </section>

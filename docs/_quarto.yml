@@ -10,7 +10,7 @@ filters:
 
 website:
   # home: index.md
-  title: "<img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg'  style='height:auto;width:220px'></img><br>Urban Data Storytelling 📊📈🏙️"
+  title: "<img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg' style='height:auto;width:250px;margin-left: -20px;'></img><br>Urban Data Storytelling 📊📈🏙️"
   favicon: assets/favicon.svg
   sidebar:
     style: floating
@@ -36,7 +36,7 @@ website:
       - section: "Urban Data Visualization"
         contents:
           - urban-data-visualization/data-visualization/data-visualization.md
-          - urban-data-visualization/exploratory-data-visualization-python/exploratory-data-visualization-python.ipynb
+          - urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.ipynb
           - urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.md
           - urban-data-visualization/choropleth-maps/choropleth-maps.md
           - urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.ipynb

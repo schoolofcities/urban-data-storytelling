@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Aniket Kali, Jeff Allen">
 
 <title>Processing and analyzing data – Urban Data Storytelling 📊📈🏙️</title>
 <style>
@@ -156,7 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;width:220px"><br>Urban Data Storytelling 📊📈🏙️</a> 
+      <a href="../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;width:250px;margin-left: -20px;"><br>Urban Data Storytelling 📊📈🏙️</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -277,8 +278,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../urban-data-visualization/exploratory-data-visualization-python/exploratory-data-visualization-python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploratory data visualization in Python</span></a>
+  <a href="../../urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploratory data visualization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -350,6 +351,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header">
 
+<p class="author">Aniket Kali, Jeff Allen</p>
 
 </header>
 
@@ -364,7 +366,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Aggregating data via cross-tabulations and pivot tables</li>
 </ul>
 <p>To do this, <strong>we’ll primarily be using <a href="https://pandas.pydata.org/" target="_blank">pandas</a>, a Python library</strong> for analyzing and organizing tabular data. For each section, we’ll also <strong>link to relevant documentation for doing similar tasks in Microsoft Excel and Google Sheets</strong>.</p>
-<p>If you haven’t installed <code>pandas</code> you’ll have to install it.</p>
+<p>If you haven’t installed <code>pandas</code> you’ll have to install it by “un-commenting” the line of code below (i.e., removing the <code>#</code> and following space at the beginning of the line).</p>
 <div id="1fdd66fd" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># !pip install pandas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -372,10 +374,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="1123b26f-d663-411d-a5e6-aa6e6433a265" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><code>pandas</code> is probably the most common library for working with both big and small datasets in Python, and is the basis for working with more analytical packages (e.g.&nbsp;<code>numpy</code>, <code>scipy</code>, <code>scikit-learn</code>) and analyzing geographic data (e.g.&nbsp;<code>geopandas</code>). For each section, we’ll also link to relevant documentation for doing similar tasks in Microsoft Excel and Google Sheets.</p>
-<p>Here are download links to this notebook and example datasets.</p>
+<p><code>pandas</code> is the most common library for working with both big and small datasets in Python, and it is also the basis for working with more analytical packages (e.g.&nbsp;<code>numpy</code>, <code>scipy</code>, <code>scikit-learn</code>) and analyzing geographic data (e.g.&nbsp;<code>geopandas</code>). For each section, we’ll also link to relevant documentation for doing similar tasks in Microsoft Excel and Google Sheets.</p>
+<p>Here are links to download this notebook and example datasets.</p>
 <ul>
-<li><a href="../../urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html" download="">Download Notebook</a><br>
+<li><a href="../../urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html" download="">Download this notebook</a><br>
 </li>
 <li><a href="data/cities.csv" download="">cities.csv</a><br>
 </li>
@@ -385,14 +387,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <section id="tables-dataframes" class="level2">
 <h2 data-anchor-id="tables-dataframes">Tables &amp; DataFrames</h2>
-<p>A very common way of structuring and analyzing a dataset is in a 2-dimensional table format, where rows are individual records or observations, while columns are attributes (often called <em>variables</em>) about those observations. For example, rows could each be a city and columns could indicate the population for different time periods. Data stored in spreadsheets often take this format.</p>
+<p>A very common way of structuring and analyzing a dataset is in a 2-dimensional table format, where rows are individual records or observations, while columns are attributes (often called <em>variables</em>) that describe those observations. For example, each row could represent a city and the columns could indicate the population (column 1 = population) for different time periods (column 2 = year). Data stored in spreadsheets often take this format.</p>
 <p>In <code>pandas</code>, a <code>DataFrame</code> is a tabular data structure similar to a spreadsheet, where data is organized in rows and columns. Columns can contain different kinds of data, such as numbers, strings, dates, and so on. When we load data in <code>pandas</code>, we typically load it into the structure of a <code>DataFrame</code>.</p>
-<p><strong>Let’s first take a look at a small dataset</strong>, Canadian municipalities and their population in 2021 and 2016, based on Census data. In Statistics Canada lingo, these are called <a href="https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo012" target="_blank">Census Subdivisions</a>. This dataset only includes municipalities with a population greater than 25,000 in 2021.</p>
-<p>The main method for loading csv data is to use the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html" target="_blank">read_csv</a> function, but pandas can also read and write <a href="https://pandas.pydata.org/pandas-docs/stable/reference/io.html" target="_blank">many other</a> data formats.</p>
+<p><strong>Let’s first take a look at a small dataset</strong>, which includes Census data about Canadian municipalities and their populations in 2021 and 2016. In Statistics Canada lingo, these are called <a href="https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo012" target="_blank">Census Subdivisions</a>. This dataset only includes municipalities with a population greater than 25,000 in 2021.</p>
+<p>The main method for loading csv data is to use the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html" target="_blank">read_csv</a> function, but pandas can also read and write (export) <a href="https://pandas.pydata.org/pandas-docs/stable/reference/io.html" target="_blank">many other</a> data formats.</p>
 <div id="9113af00-ba82-4adc-83d5-812caf09d720" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/cities.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Great! Now our data is stored in the variable <code>df</code> in the structure of a <code>DataFrame</code>.</p>
+<p>Great! Now our data is stored in the variable <code>df</code> and has the structure of a <code>DataFrame</code>.</p>
 </section>
 <section id="viewing-data" class="level2">
 <h2 data-anchor-id="viewing-data">Viewing data</h2>
@@ -613,13 +615,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Name: Prov/terr, dtype: object</code></pre>
 </div>
 </div>
-<div id="3c75d9c6-ad34-463d-94dc-824d82ad52cb" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Prov/terr'</span>].unique()  <span class="co"># Unique values for the *full* dataset - what happens if you do df['Prov/terr'].head(10).unique()?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3c75d9c6-ad34-463d-94dc-824d82ad52cb" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Prov/terr'</span>].unique() <span class="co"># Unique values for the *full* dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>array(['B.C.', 'Alta.', 'Ont.', 'Que.', 'Man.', nan, 'N.S.', 'P.E.I.',
        'N.L.', 'N.B.', 'Sask.', 'Y.T.'], dtype=object)</code></pre>
 </div>
 </div>
+<p><strong>What happens if you do <code>df['Prov/terr'].head(10).unique()</code> instead?</strong></p>
 </section>
 <section id="filtering-data" class="level2">
 <h2 data-anchor-id="filtering-data">Filtering data</h2>

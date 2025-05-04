@@ -1,5 +1,6 @@
 ---
 title: "Spatial data and GIS"
+author: "Jeff Allen"
 ---
 
 A lot of urban datasets are directly linked to specific places, e.g. addresses, streets, neighbourhoods, political or administrative boundaries, etc.

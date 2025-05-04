@@ -154,7 +154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;width:220px"><br>Urban Data Storytelling 📊📈🏙️</a> 
+      <a href="../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;width:250px;margin-left: -20px;"><br>Urban Data Storytelling 📊📈🏙️</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -275,8 +275,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../urban-data-visualization/exploratory-data-visualization-python/exploratory-data-visualization-python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exploratory data visualization in Python</span></a>
+  <a href="../../urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploratory data visualization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -327,11 +327,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-learn-programming" id="toc-why-learn-programming" class="nav-link active" data-scroll-target="#why-learn-programming">Why learn programming?</a></li>
+  <li><a href="#glossary" id="toc-glossary" class="nav-link active" data-scroll-target="#glossary">Glossary</a></li>
+  <li><a href="#what-is-codingprogramming" id="toc-what-is-codingprogramming" class="nav-link" data-scroll-target="#what-is-codingprogramming">What is coding/programming?</a></li>
+  <li><a href="#why-learn-programming" id="toc-why-learn-programming" class="nav-link" data-scroll-target="#why-learn-programming">Why learn programming?</a></li>
   <li><a href="#why-learn-python" id="toc-why-learn-python" class="nav-link" data-scroll-target="#why-learn-python">Why learn Python?</a></li>
-  <li><a href="#how-does-python-work" id="toc-how-does-python-work" class="nav-link" data-scroll-target="#how-does-python-work">How does Python work?</a></li>
+  <li><a href="#download-python" id="toc-download-python" class="nav-link" data-scroll-target="#download-python">Download Python</a></li>
+  <li><a href="#how-do-i-run-python-code-using-the-terminal" id="toc-how-do-i-run-python-code-using-the-terminal" class="nav-link" data-scroll-target="#how-do-i-run-python-code-using-the-terminal">How do I run Python code using the terminal?</a></li>
   <li><a href="#tools-for-writing-code" id="toc-tools-for-writing-code" class="nav-link" data-scroll-target="#tools-for-writing-code">Tools for writing code</a></li>
   <li><a href="#computational-notebooks" id="toc-computational-notebooks" class="nav-link" data-scroll-target="#computational-notebooks">Computational notebooks</a></li>
+  <li><a href="#how-do-i-run-code-using-a-jupyter-notebook-in-vs-code" id="toc-how-do-i-run-code-using-a-jupyter-notebook-in-vs-code" class="nav-link" data-scroll-target="#how-do-i-run-code-using-a-jupyter-notebook-in-vs-code">How do I run code using a Jupyter Notebook in VS Code?</a></li>
   <li><a href="#python-basics" id="toc-python-basics" class="nav-link" data-scroll-target="#python-basics">Python basics</a>
   <ul class="collapse">
   <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
@@ -357,16 +361,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Coding, or computer programming, is the act of giving a computer written instructions for a task or set of tasks. According to <a href="https://en.wikipedia.org/wiki/Computer_programming" target="_blank">Wikipedia</a>, it “involves designing and implementing algorithms, step-by-step specifications of procedures, by writing code in one or more programming languages.”</p>
-<p>Programming languages, just like <em>Python</em> and <em>R</em> and <em>JavaScript</em> can be thought of similarly to languages that people speak and write, like Spanish or Arabic – each language has its own set of rules and different syntax, but (most) ideas can be translated from one language to another. Instead of using language to communicate with other people, you write code to give directions to a computer. In data analysis, these directions could be to summarize data in a table, create a chart or a map, or generate a statistical model, for example.</p>
-<section id="why-learn-programming" class="level2">
-<h2 data-anchor-id="why-learn-programming">Why learn programming?</h2>
-<p>Spreadsheet software, like <a href="https://www.microsoft.com/en-us/microsoft-365/excel" target="_blank">Excel</a>, <a href="https://workspace.google.com/products/sheets/" target="_blank">Google Sheets</a>, and <a href="https://www.libreoffice.org/discover/calc/" target="_blank">LibreOffice calc</a> can be great for viewing and exploring data, as well as quick analyses, they can be super limited for serious data analysis. They struggle with large datasets, lacks robust tools for cleaning and transforming complex data, have very limited options for spatial/geographic data, and makes reproducibility nearly impossible. Plus, it’s easy to introduce silent errors with formulas or copy-pasting. For anything beyond basic summaries or charts, scripting languages like Python are far more powerful, reliable, and scalable.</p>
-<p>(If you are not interested in learning Python, many of the other notebooks in this online textbook that show Python examples, include links to equivalent examples in QGIS or Excel).</p>
-</section>
-<section id="why-learn-python" class="level2">
-<h2 data-anchor-id="why-learn-python">Why learn Python?</h2>
-<p><a href="https://www.python.org/doc/essays/blurb/" target="_blank">Python</a> is a widely used programming language, especially in urban and spatial analysis because it’s easy to learn relative to other languages and has a strong ecosystem of libraries for working with data, maps, and models. Plus, it’s open source and has a huge community, which means lots of learning resources and support.</p>
 <p>This notebook introduces the Python programming language and Jupyter notebooks. It will cover:</p>
 <ul>
 <li>A brief overview of programming, Python, integrated development environments (IDEs), and computational notebooks</li>
@@ -382,24 +376,143 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Functions</li>
 </ul></li>
 </ul>
-<p>While we’ll mostly be looking at Python, the same concepts are applicable across many other languages and software.</p>
+<section id="glossary" class="level2">
+<h2 data-anchor-id="glossary">Glossary</h2>
+<p>The glossary below lists key terms related to programming and Python as well as their simple definitions. We’ll go into detail about each one later in this section, but feel free to refer to this table whenever you need a quick reminder of what any of these terms mean.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Definition/Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Coding/programming</td>
+<td>The act of giving a computer written instructions for a task or set of tasks using a “language” like Python, R, Javascript, SQL, etc.</td>
+</tr>
+<tr class="even">
+<td>Python</td>
+<td>A widely used programming language</td>
+</tr>
+<tr class="odd">
+<td>Script</td>
+<td>Plain text file with code (a Python script has the <code>.py</code> file extension)</td>
+</tr>
+<tr class="even">
+<td>Terminal</td>
+<td>Application for using the command line</td>
+</tr>
+<tr class="odd">
+<td>Command line</td>
+<td>Interface for inputting commands to computer</td>
+</tr>
+<tr class="even">
+<td>Integrated development environment (IDE)</td>
+<td>An environment to write code in (also known as a “code editor”)</td>
+</tr>
+<tr class="odd">
+<td>Visual Studio Code</td>
+<td>Popular code editor (IDE)</td>
+</tr>
+<tr class="even">
+<td>Computational notebook</td>
+<td>Coding environment (e.g., Jupyter Notebook) that includes code, explanations, and outputs all in one place</td>
+</tr>
+<tr class="odd">
+<td>Jupyter Notebook</td>
+<td>Popular computational notebook application</td>
+</tr>
+<tr class="even">
+<td>Comment</td>
+<td>Written explanation of code that is not implemented (in Python, lines that start with <code>#</code>)</td>
+</tr>
+<tr class="odd">
+<td>Variable</td>
+<td>Labeled entity that stores information (e.g., numbers or text)</td>
+</tr>
+<tr class="even">
+<td>List</td>
+<td>Collection of elements which can be accessed by their position</td>
+</tr>
+<tr class="odd">
+<td>Dictionary</td>
+<td>Object that stores information in “key”/“value” pairs</td>
+</tr>
+<tr class="even">
+<td>If statement</td>
+<td>Code that uses conditional logic</td>
+</tr>
+<tr class="odd">
+<td>For loop</td>
+<td>Code that repeats for each item in a list or range</td>
+</tr>
+<tr class="even">
+<td>While loop</td>
+<td>Code that repeats as long as a condition is true</td>
+</tr>
+<tr class="odd">
+<td>Function</td>
+<td>Reusable block of code that performs a task</td>
+</tr>
+<tr class="even">
+<td>Library</td>
+<td>Collection of related functions that can be imported in your code</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="how-does-python-work" class="level2">
-<h2 data-anchor-id="how-does-python-work">How does Python work?</h2>
-<p>When you write something in English or another language, you need to choose an environment to write in. For example, if you’re writing an email, you might use Gmail or Outlook. If you’re writing a report, you might use Google Docs or Microsoft Word. Or maybe you prefer writing on parchment with a quill pen!</p>
-<p>Python is a programming language that lets you write instructions in a plain text file, often called a <em>script</em>, which the Python interpreter on your computer reads and runs line by line. You don’t need to compile your code like in some other languages—just write it, save it as a <code>.py</code> file, and run it directly.</p>
-<p>For example, I have a file on my computer called <code>my-script.py</code>, a very simple script which simply prints “Hello, world!”</p>
+<section id="what-is-codingprogramming" class="level2">
+<h2 data-anchor-id="what-is-codingprogramming">What is coding/programming?</h2>
+<p>Coding, or computer programming, is the act of giving a computer written instructions for a task or set of tasks. According to <a href="https://en.wikipedia.org/wiki/Computer_programming" target="_blank">Wikipedia</a>, it “involves designing and implementing algorithms, step-by-step specifications of procedures, by writing code in one or more programming languages.”</p>
+<p>Programming languages, just like <em>Python</em> and <em>R</em> and <em>JavaScript</em> can be thought of similarly to languages that people speak and write, like Spanish or Arabic – each language has its own set of rules and different syntax, but (most) ideas can be translated from one language to another. Instead of using language to communicate with other people, you write code to give directions to a computer. In data analysis, these directions could be to summarize data in a table, create a chart or a map, or generate a statistical model, for example.</p>
+</section>
+<section id="why-learn-programming" class="level2">
+<h2 data-anchor-id="why-learn-programming">Why learn programming?</h2>
+<p>Spreadsheet software, like <a href="https://www.microsoft.com/en-us/microsoft-365/excel" target="_blank">Excel</a>, <a href="https://workspace.google.com/products/sheets/" target="_blank">Google Sheets</a>, and <a href="https://www.libreoffice.org/discover/calc/" target="_blank">LibreOffice calc</a> can be great for viewing and exploring data, as well as quick analyses, they can be super limited for serious data analysis. They struggle with large datasets, lacks robust tools for cleaning and transforming complex data, have very limited options for spatial/geographic data, and makes reproducibility nearly impossible. Plus, it’s easy to introduce silent errors with formulas or copy-pasting. For anything beyond basic summaries or charts, scripting languages like Python are far more powerful, reliable, and scalable.</p>
+<p>(If you are not interested in learning Python, many of the other notebooks in this online textbook that show Python examples, include links to equivalent examples in QGIS or Excel).</p>
+</section>
+<section id="why-learn-python" class="level2">
+<h2 data-anchor-id="why-learn-python">Why learn Python?</h2>
+<p><a href="https://www.python.org/doc/essays/blurb/" target="_blank">Python</a> is a widely used programming language, especially in urban and spatial analysis, because it’s easy to learn relative to other languages and has a strong ecosystem of libraries for working with data, maps, and models. Plus, it’s open source and has a huge community of people that use and develop it, which means lots of learning resources and support. While we’ll mostly be looking at Python, the same concepts are applicable across many other languages and software.</p>
+</section>
+<section id="download-python" class="level2">
+<h2 data-anchor-id="download-python">Download Python</h2>
+<p>Before you can run any Python code, download the most recent version of Python from <a href="https://www.python.org/downloads/" target="_blank">this link</a> if you haven’t already. Make sure to choose the correct version for your computer (Windows vs.&nbsp;macOS), and follow the instructions to complete the download.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/python_download.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Screenshot of Python download website</figcaption>
+</figure>
+</div>
+</section>
+<section id="how-do-i-run-python-code-using-the-terminal" class="level2">
+<h2 data-anchor-id="how-do-i-run-python-code-using-the-terminal">How do I run Python code using the terminal?</h2>
+<p>Python lets you write instructions in a plain text file, often called a <em>script</em>, which the Python interpreter on your computer reads and runs line by line. You don’t need to “compile” your code like in some other languages—you can just write it, save it as a <code>.py</code> file, and run it directly.</p>
+<p>For example, create a file on your computer called <code>my-script.py</code>, a very simple script which simply prints “Hello, world!”. You can do this by opening a basic text editor (e.g., TextEdit on macOS or Notepad on Windows), writing (only) the following code, and saving the file as <code>my-script.py</code> in a directory (folder) that you’ll remember. It might make sense to create a new folder on your computer for the work you do in this workshop so that it’s all in one place. Make sure to use that file extension instead of saving it as a <code>.txt</code> text file.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello, world!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>When running this code in your <a href="https://ubuntu.com/tutorials/command-line-for-beginners" target="_blank">command line</a> should result in something like the following.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">your-computer-name:~$</span> python my-script.py </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello,</span> world!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The command line is often referred to as the shell, terminal, console, prompt or various other names.</p>
-<p>If you are new to this, check out this tutorial for more in-depth instructions on <a href="https://vteams.com/blog/how-to-run-a-python-script-in-terminal/" target="_blank">command line Python</a></p>
+<p>Next, run this code using the <em>command line</em> in your <em>terminal</em>. The terminal is an application that provides access to the command line, which is the space where you type instructions for your computer to execute. However, the terms “command line” and “terminal” are often used interchangeably, and are also called the shell, console, prompt, or various other names.</p>
+<p>You can use the terminal/command line to do things like run programs and manipulate files and folders stored on your computer. The command line has its own language and syntax, kind of like how Python is its own language, and some of the commands are slightly different for different operating systems. In other words, they might change depending on whether you have a Mac or a Windows computer.</p>
+<p>To open the terminal on a Mac, follow <a href="https://support.apple.com/en-ca/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac" target="_blank">these instructions</a>. To open the terminal on a Windows computer, follow <a href="https://www.wikihow.com/Open-Terminal-in-Windows" target="_blank">these instructions</a>. <a href="https://ubuntu.com/tutorials/command-line-for-beginners" target="_blank">This link</a> contains a more in-depth explanation of how the terminal works, and <a href="https://vteams.com/blog/how-to-run-a-python-script-in-terminal/" target="_blank">this link</a> explains how to run a Python script in the terminal. If you’re still having trouble, Google your questions (or use ChatGPT!) to troubleshoot.</p>
+<p>First navigate to the folder where you saved the <code>my-script.py</code> file using the <code>cd</code> command, which changes the directory. For example, if you saved the file in a folder called <code>urban-data</code>, type <code>cd urban-data</code> and hit enter. Make sure you’re navigating to the folder according to the full filepath—this is important if it’s not in your root folder. To see what files are located in this directory, use the <code>ls</code> command.</p>
+<p>See a list of Windows commands <a href="https://www.cs.columbia.edu/~sedwards/classes/2015/1102-fall/Command%20Prompt%20Cheatsheet.pdf" target="_blank">here</a> and Mac commands <a href="https://www.geeksforgeeks.org/complete-mac-terminal-commands-cheat-sheet/" target="_blank">here</a>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">your-computer-name</span> ~ % cd urban-data </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">your-computer-name</span> urban-data % ls</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">my-script.py</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Good—the <code>my-script.py</code> is in the <code>urban-data</code> folder. Once you’re in the right folder, type the following: <code>python my-script.py</code>, and then hit enter. This should result in the computer printing out <code>Hello, world!</code> on the next line, like below:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">your-computer-name:~$</span> python my-script.py </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello,</span> world!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This is a very simple example. Usually, you’ll want your code to do more than just print out a statement. However, if you’re running <code>.py</code> scripts in the terminal, it can be hard to see what your code is doing. For example, you won’t be able to see a plot that you create in Python using just the command line. In the following section, we’ll explain how you can use other tools and applications to code in a more interactive way.</p>
 </section>
 <section id="tools-for-writing-code" class="level2">
 <h2 data-anchor-id="tools-for-writing-code">Tools for writing code</h2>
-<p>When coding, you also have to choose an environment to write in. This is typically called a “code editor” or “<a href="https://en.wikipedia.org/wiki/Integrated_development_environment" target="_blank">integrated development environment</a>” (IDE). The simplest editor would simply be the <code>notepad</code> or <code>text editor</code> on your computer. But there are many IDEs to choose from that make coding much easier. Some of the most popular ones for Python are <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> (“VS Code”) and <a href="https://www.jetbrains.com/pycharm/" target="_blank">PyCharm</a>.</p>
-<p>A main benefit for using a code editor is that it highlights different parts of your code in different colours or styles making it much easier to read.</p>
+<p>When you write something in English or another language, you need to choose an environment to write in. For example, if you’re writing an email, you might use Gmail or Outlook. If you’re writing a report, you might use Google Docs or Microsoft Word. Or maybe you prefer writing on parchment with a quill pen!</p>
+<p>When coding, you also have to choose an environment to write in. This is typically called a “code editor” or <em><a href="https://en.wikipedia.org/wiki/Integrated_development_environment" target="_blank">integrated development environment</a></em> (IDE). The simplest editor would simply be the <code>notepad</code> or <code>text editor</code> on your computer. But there are many IDEs to choose from that make coding much easier. Some of the most popular ones for Python are <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> (“VS Code”) and <a href="https://www.jetbrains.com/pycharm/" target="_blank">PyCharm</a>.</p>
+<p>A main benefit for using a code editor is that it highlights different parts of your code in different colours or styles, making it much easier to read.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/vs-code.png" class="img-fluid figure-img"></p>
@@ -413,20 +526,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If you are exploring, analyzing, or visualizing data, it is sometimes easier to work in a <em>computational notebook</em>. Computational notebooks are coding environments that not only allow you to write code, but also let you write explanations and show the outputs of your analysis, very similar to pre-digital formats.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/galileo-nb.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<p><img src="img/galileo-nb.png" class="img-fluid figure-img" style="width:50.0%"></p>
 <figcaption>Notebook by Galileo</figcaption>
 </figure>
 </div>
 <p><a href="https://jupyter.org/" target="_blank">Jupyter Notebooks</a> (named after Galileo’s work!) are often used for data analysis in Python. When using a Jupyter Notebook, you can run code chunk-by-chunk and see the output right below each chunk. For example, you can write a chunk of code that manipulates a dataframe and then look at the first few rows of the dataframe right below the code. The page you are reading now was written in a Jupyter notebook! :)</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/python-nb.png" class="img-fluid figure-img"></p>
+<p><img src="img/jupyter-vscode.png" class="img-fluid figure-img"></p>
 <figcaption>Example of a Jupyter notebook that is plotting a map</figcaption>
 </figure>
 </div>
-<p>You can run Jupyter Notebooks in VS Code via the <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks" target="_blank">Jupyter Notebook “extension”</a>. You can also work with notebooks via <a href="https://jupyterlab.readthedocs.io/en/latest/" target="_blank">Jupyter Lab</a> (a web-based environment for Jupyter Notebooks) or <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a>.</p>
-<p>To get started in VS Code, you can follow <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks" target="_blank">these instructions</a>. To create a notebook, you just need to create a file with the <code>.ipynb</code> extension in whichever directory you want to save it in. To write and run code in the notebook, you will use “cells” that contain chunks of information.</p>
+</section>
+<section id="how-do-i-run-code-using-a-jupyter-notebook-in-vs-code" class="level2">
+<h2 data-anchor-id="how-do-i-run-code-using-a-jupyter-notebook-in-vs-code">How do I run code using a Jupyter Notebook in VS Code?</h2>
+<p>While you can choose to work with notebooks via <a href="https://jupyterlab.readthedocs.io/en/latest/" target="_blank">Jupyter Lab</a> (a web-based environment for Jupyter Notebooks) or other code editors like <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a>, we recommend using Jupyter Notebooks in VS Code via the <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks" target="_blank">Jupyter Notebook “extension”</a>. In other words, you’re using a Jupyter Notebook format (which has the <code>.ipynb</code> file extension, just like how basic Python scripts have the <code>.py</code> extension) in the VS Code IDE.</p>
+<p>To get started in VS Code, first download the appropriate version for your computer from <a href="https://code.visualstudio.com/download" target="_blank">this link</a>. Once you’ve finished setting it up, open the desktop application and open a new folder by clicking on the “Explorer” tab at the top left, clicking “Open Folder”, and navigating to the directory that you want to work in. This essentially pins the folder you’re working in to the left of the screen so that you can easily access all the files within it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/vscode_open.png" class="img-fluid figure-img"></p>
+<figcaption>Opening a folder in VS Code</figcaption>
+</figure>
+</div>
+<p>For example, if you open the <code>urban-data</code> folder from earlier, you should see the <code>my-script.py</code> file within it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/urban-data-vscode.png" class="img-fluid figure-img"></p>
+<figcaption>Opening a <code>.py</code> file in VS Code</figcaption>
+</figure>
+</div>
+<p>To run this <code>.py</code> file directly in VS Code, click the arrow button at the top right of the window and a terminal should show up with the result:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/python_vscode.png" class="img-fluid figure-img"></p>
+<figcaption>Executing a <code>.py</code> file in VS Code</figcaption>
+</figure>
+</div>
+<p>To create a Jupyter Notebook, start by creating a new file in your folder with the <code>.ipynb</code> extension instead of the <code>.py</code> extension. Next, select a Python environment to work in by clicking on the “Select Kernel” button at the top right, “Python Environments”, and then the version of Python that you’ve installed. This essentially tells VS Code which programming language you want it to use to execute your code.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/python_env.png" class="img-fluid figure-img"></p>
+<figcaption>Selecting a Python environment</figcaption>
+</figure>
+</div>
+<p>To write and run code in the notebook, use “cells” that contain chunks of information. For example, write the code from earlier (<code>print("Hello, world!")</code>) in the first cell, and then click the arrow to the left of the cell to run/execute it:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/hello_world_jupyter.png" class="img-fluid figure-img"></p>
+<figcaption>Running a chunk of code in Jupyter Notebook</figcaption>
+</figure>
+</div>
 <p>When you run an individual cell, you are telling the computer to follow the instructions you’ve provided in only that cell, ignoring any other cells that are in the notebook. Be careful of the order in which you “execute” the cells. For example, if you run cell B before running cell A, it doesn’t matter if cell B is located below cell A – the computer will still follow the instructions in B first and A second.</p>
+<p>To create a new cell, click on the <code>+ Code</code> button at the top left:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/new-cell.png" class="img-fluid figure-img"></p>
+<figcaption>Creating a new cell in Jupyter Notebook</figcaption>
+</figure>
+</div>
+<p>For more information about how to use Jupyter Notebook in VS Code (including useful keyboard shortcuts!), see <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks" target="_blank">this link</a>.</p>
 </section>
 <section id="python-basics" class="level2">
 <h2 data-anchor-id="python-basics">Python basics</h2>
@@ -436,56 +594,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-anchor-id="variables">Variables</h3>
 <p>A variable is like a labeled entity that stores information (numbers, text, etc.). You can create a variable, give it a name, and assign it a value.</p>
 <p>Note that in the below code, some of the lines are written with a <code>#</code> at the beginning - these are <em>comments</em>. Putting a <code>#</code> in front of a line of code tells the computer not to execute it. You should use comments often to explain what your code is doing, either for someone else who might need to understand it or for your future self.</p>
-<div id="cell-10" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign a value to a variable</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">"Alice"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">30</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-9" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign a value to a variable</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>city <span class="op">=</span> <span class="st">"Toronto"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In the above cell, we created two variables, one called <code>name</code> and another called <code>age</code>. The <code>name</code> variable is a <em>string</em> because it is a sequence of characters. The computer knows this is a string because we enclosed the text, Alice, in quotes. Single or double quotes both work here.</p>
-<p>The <code>age</code> variable is an <em>integer</em> because it is a numeric value without decimals. You can see the data type with <code>type([name of object])</code> like below:</p>
-<div id="cell-12" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<p>In the above cell, we created two variables, one called <code>city</code> and another called <code>population</code>. The <code>city</code> variable is a <em>string</em> because it is a sequence of characters. The computer knows this is a string because we enclosed the text, Toronto, in quotes. Single or double quotes both work here.</p>
+<p>The <code>population</code> variable is an <em>integer</em> because it is a numeric value without decimals. You can see the data type with <code>type([name of object])</code> like below:</p>
+<div id="cell-11" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>int</code></pre>
 </div>
 </div>
 <p>If we <em>print</em> the variable, it will show us the variable’s value:</p>
-<div id="cell-14" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-13" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>30</code></pre>
+<pre><code>100</code></pre>
 </div>
 </div>
-<p>We can also re-assign variables, which will change their value. Now when we print the value of <code>age</code>, it will show 31 instead of 30:</p>
-<div id="cell-16" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Re-assign `age` variable with a new value</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">31</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can also re-assign variables, which will change their value. Now when we print the value of <code>population</code>, it will show 101 instead of 100:</p>
+<div id="cell-15" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Re-assign `population` variable with a new value</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> <span class="dv">101</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>31</code></pre>
+<pre><code>101</code></pre>
 </div>
 </div>
-<p>Remember that the computer interprets your code in the order you run the cells, not in the order of the cells in the notebook. For example, if you ran the above cell that assigns a value of 31 to the <code>age</code> variable before running the cell that assigns the value of 30 to <code>age</code>, the computer would store the value of 31.</p>
+<p>Remember that the computer interprets your code in the order you run the cells, not in the order of the cells in the notebook. For example, if you ran the above cell that assigns a value of 101 to the <code>population</code> variable before running the cell that assigns the value of 100 to <code>population</code>, the computer would first store the value of 101 before re-assigning it the value of 100.</p>
 </section>
 <section id="simple-math" class="level3">
 <h3 data-anchor-id="simple-math">Simple math</h3>
 <p>Python can do simple math, like a calculator:</p>
-<div id="cell-20" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="op">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-19" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="op">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>7</code></pre>
 </div>
 </div>
-<div id="cell-21" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="op">/</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-20" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="op">/</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>3.3333333333333335</code></pre>
 </div>
 </div>
 <p>You can also use the <a href="https://docs.python.org/3/library/math.html" target="_blank"><code>math</code></a> module to access more advanced functions, like taking the square root. To use this module, you have to import it first:</p>
-<div id="cell-23" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math <span class="co"># import module</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>math.sqrt(<span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-22" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math <span class="co"># import module</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>math.sqrt(<span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>5.0</code></pre>
 </div>
@@ -494,42 +652,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="lists" class="level3">
 <h3 data-anchor-id="lists">Lists</h3>
 <p>A list is a collection of elements which can be accessed by their position. Python uses something called <a href="https://en.wikipedia.org/wiki/Zero-based_numbering" target="_blank">zero-based indexing</a>, which means the first element of a sequence has an index (position) of 0 instead of 1.</p>
-<p>In the below example, <code>fruits</code> is a <em>variable</em> whose type is a <em>list</em>.</p>
-<div id="cell-26" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign list to variable called 'fruits'</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>]</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(fruits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<p>In the below example, <code>transport_modes</code> is a <em>variable</em> whose type is a <em>list</em>.</p>
+<div id="cell-25" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign list to variable called 'transport_modes'</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>transport_modes <span class="op">=</span> [<span class="st">"train"</span>, <span class="st">"car"</span>, <span class="st">"bus"</span>]</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(transport_modes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>list</code></pre>
 </div>
 </div>
-<div id="cell-27" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access first item in list</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruits[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-26" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access first item in list</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(transport_modes[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>apple</code></pre>
+<pre><code>train</code></pre>
 </div>
 </div>
-<div id="cell-28" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access second item in list</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruits[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-27" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access second item in list</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(transport_modes[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>banana</code></pre>
+<pre><code>car</code></pre>
 </div>
 </div>
 <p>Items can be appended to lists:</p>
-<div id="cell-30" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add "orange" to the list</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>fruits.append(<span class="st">"orange"</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-29" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add "streetcar" to the list</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>transport_modes.append(<span class="st">"streetcar"</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(transport_modes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>['apple', 'banana', 'cherry', 'orange']</code></pre>
+<pre><code>['train', 'car', 'bus', 'streetcar']</code></pre>
 </div>
 </div>
 <p>We can check the length of the new list to see how many elements it has:</p>
-<div id="cell-32" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(fruits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div id="cell-31" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(transport_modes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>4</code></pre>
 </div>
 </div>
@@ -537,39 +695,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="dictionaries" class="level3">
 <h3 data-anchor-id="dictionaries">Dictionaries</h3>
-<p>A dictionary is a type of object that stores information in pairs: each “entry” in the dictionary has both a <em>key</em> and a <em>value</em>. In the example below, <code>person</code> is a dictionary that contains characteristics – specifically the name and age – of a person.</p>
-<div id="cell-36" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>person <span class="op">=</span> {<span class="st">"name"</span>: <span class="st">"Alice"</span>, <span class="st">"age"</span>: <span class="dv">30</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A dictionary is a type of object that stores information in pairs: each “entry” in the dictionary has both a <em>key</em> and a <em>value</em>. In the example below, <code>housing_unit</code> is a dictionary that contains characteristics – specifically the address and age – of a housing unit.</p>
+<div id="cell-35" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>housing_unit <span class="op">=</span> {<span class="st">"address"</span>: <span class="st">"605 Main St"</span>, <span class="st">"age"</span>: <span class="dv">70</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We can access the value associated with the <code>name</code> of the person:</p>
-<div id="cell-38" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(person[<span class="st">"name"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can access the value associated with the <code>address</code> of the housing unit:</p>
+<div id="cell-37" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(housing_unit[<span class="st">"address"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Alice</code></pre>
+<pre><code>605 Main St</code></pre>
 </div>
 </div>
-<p>We can also add a new key-value pair to the dictionary that represents, in this case, the person’s job:</p>
-<div id="cell-40" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>person[<span class="st">"job"</span>] <span class="op">=</span> <span class="st">"Engineer"</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(person)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can also add a new key-value pair to the dictionary that represents, in this case, the housing unit type:</p>
+<div id="cell-39" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>housing_unit[<span class="st">"type"</span>] <span class="op">=</span> <span class="st">"condominium"</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(housing_unit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'name': 'Alice', 'age': 30, 'job': 'Engineer'}</code></pre>
+<pre><code>{'address': '605 Main St', 'age': 70, 'type': 'condominium'}</code></pre>
 </div>
 </div>
 <p>Learn more about dictionaries <a href="https://www.w3schools.com/python/python_dictionaries.asp" target="_blank">here</a>.</p>
 </section>
 <section id="if-statements" class="level3">
 <h3 data-anchor-id="if-statements">If statements</h3>
-<p>If statements let your code make decisions. You check a condition (e.g., whether age &gt;= 18), and run different code depending on whether it’s true or false.</p>
-<div id="cell-44" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">18</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> age <span class="op">&gt;=</span> <span class="dv">18</span>:</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"You're an adult!"</span>)</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"You're a minor."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If statements let your code make decisions. You check a condition (e.g., whether income &lt; 30,000), and run different code depending on whether it’s true or false.</p>
+<div id="cell-43" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> <span class="dv">50000</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> income <span class="op">&lt;</span> <span class="dv">30000</span>:</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"You're considered low-income."</span>)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"You're not considered low-income."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>You're an adult!</code></pre>
+<pre><code>You're not considered low-income.</code></pre>
 </div>
 </div>
 <p>Learn more about if statements <a href="https://www.w3schools.com/python/python_conditions.asp" target="_blank">here</a>.</p>
@@ -577,13 +735,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="for-loops" class="level3">
 <h3 data-anchor-id="for-loops">For loops</h3>
 <p>A for loop repeats code for each item in a list or range. For example:</p>
-<div id="cell-48" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fruit <span class="kw">in</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>]:</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(fruit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-47" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reminder of what items are in the 'transport_modes' list:</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>transport_modes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>['train', 'car', 'bus', 'streetcar']</code></pre>
+</div>
+</div>
+<div id="cell-48" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> transport_mode <span class="kw">in</span> transport_modes:</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(transport_mode)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>apple
-banana
-cherry</code></pre>
+<pre><code>train
+car
+bus
+streetcar</code></pre>
 </div>
 </div>
 <p>Learn more about for loops <a href="https://www.w3schools.com/python/python_for_loops.asp" target="_blank">here</a>.</p>
@@ -592,10 +758,10 @@ cherry</code></pre>
 <h3 data-anchor-id="while-loops">While loops</h3>
 <p>A while loop repeats code as long as a condition is true. In the below example, we start with 0 and keep adding 1 until we get to 3, after which we stop counting:</p>
 <div id="cell-52" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> count <span class="op">&lt;=</span> <span class="dv">3</span>:</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Counting:"</span>, count)</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> count <span class="op">&lt;=</span> <span class="dv">3</span>:</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Counting:"</span>, count)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Counting: 0
 Counting: 1
@@ -607,39 +773,39 @@ Counting: 3</code></pre>
 </section>
 <section id="functions" class="level3">
 <h3 data-anchor-id="functions">Functions</h3>
-<p>A function is a reusable block of code that performs a task. You “define” it (write the code that performs the task) once and “call” it (run that pre-defined code) whenever you want. In the below example, we define the function <code>greet</code> so that when it is called, it prints “Hello, [name]!” where <code>name</code> is an <em>argument</em> (also known as a <em>parameter</em>) that’s passed into the function.</p>
-<div id="cell-56" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greet(name):</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Hello, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span>)</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the function</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>greet(<span class="st">"Alice"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A function is a reusable block of code that performs a task. You “define” it (write the code that performs the task) once and “call” it (run that pre-defined code) whenever you want. In the below example, we define the function <code>zoning</code> so that when it is called, it prints “This parcel is zoned as [land_use]!” where <code>land_use</code> is an <em>argument</em> (also known as a <em>parameter</em>) that’s passed into the function.</p>
+<div id="cell-56" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> zoning(land_use):</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"This parcel is zoned as </span><span class="sc">{</span>land_use<span class="sc">}</span><span class="ss">."</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the function</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>zoning(<span class="st">"commercial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Hello, Alice!</code></pre>
+<pre><code>This parcel is zoned as commercial.</code></pre>
 </div>
 </div>
 <p>Not all functions need arguments. For example:</p>
-<div id="cell-58" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> howdy():</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Howdy!"</span>)</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the function</span></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>howdy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-58" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> largest_cities():</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Toronto, Montreal, and Calgary are the largest cities in Canada by population."</span>)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the function</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>largest_cities()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Howdy!</code></pre>
+<pre><code>Toronto, Montreal, and Calgary are the largest cities in Canada by population.</code></pre>
 </div>
 </div>
 <p>Some functions have more than one argument. For example:</p>
 <div id="cell-60" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_numbers(a, b):</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> a <span class="op">+</span> b</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(c)</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the function</span></span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>add_numbers(<span class="dv">8</span>, <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_numbers(a, b):</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> a <span class="op">+</span> b</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(c)</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the function</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>add_numbers(<span class="dv">8</span>, <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>15</code></pre>
 </div>
@@ -654,15 +820,15 @@ Counting: 3</code></pre>
 <p>There are many popular freely available libraries available—like <code>pandas</code> for working with data tables, <code>matplotlib</code> for plotting, and <code>geopandas</code> for spatial data—that can help you do a lot with just a few lines of code.</p>
 <p>To include functions that are part of a library, we use <code>import</code> at the top of our script. For example, let’s import a function for a random number generator, and use it to create our own <a href="https://en.wikipedia.org/wiki/Regular_icosahedron" target="_blank">d20</a> dice rolling function.</p>
 <div id="cell-63" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to roll a 20-sided dice</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> roll_d20():</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> random.randint(<span class="dv">1</span>, <span class="dv">20</span>)</span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate rolling the dice</span></span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>roll <span class="op">=</span> roll_d20()</span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(roll)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to roll a 20-sided dice</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> roll_d20():</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> random.randint(<span class="dv">1</span>, <span class="dv">20</span>)</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate rolling the dice</span></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>roll <span class="op">=</span> roll_d20()</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(roll)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>14</code></pre>
 </div>

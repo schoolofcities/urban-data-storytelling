@@ -1,5 +1,6 @@
 ---
 title: "Choropleth maps"
+author: "Jeff Allen"
 ---
 
 

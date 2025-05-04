@@ -10,7 +10,7 @@ filters:
 
 website:
   # home: index.md
-  title: "<img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg'  style='height:auto;width:220px'></img><br>Urban Data Storytelling 📊📈🏙️"
+  title: "<img src='https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg' style='height:auto;width:250px;margin-left: -20px;'></img><br>Urban Data Storytelling 📊📈🏙️"
   favicon: assets/favicon.svg
   sidebar:
     style: floating
