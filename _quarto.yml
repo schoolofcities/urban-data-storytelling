@@ -36,7 +36,7 @@ website:
       - section: "Urban Data Visualization"
         contents:
           - urban-data-visualization/data-visualization/data-visualization.md
-          - urban-data-visualization/exploratory-data-visualization-python/exploratory-data-visualization-python.ipynb
+          - urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.ipynb
           - urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.md
           - urban-data-visualization/choropleth-maps/choropleth-maps.md
           - urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.ipynb
