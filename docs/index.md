@@ -19,7 +19,7 @@ This online textbook has three core modules, each composed of one or more notebo
 
 ## Contributors and citing
 
-This online textbook was compiled by [Jeff Allen](https://jamaps.github.io) with contributions (in alphabetical order) from Karen Chapple, Isabeaux Graham, Julia Greenberg, Aniket Kali, Evelyne St. Louis, Nate Wessel, and Michelle Zhang. Each page lists its authors. The website was built using [Quarto](https://quarto.org/).
+This online textbook was compiled by [Jeff Allen](https://jamaps.github.io) with content contributions from (in alphabetical order by last name) Jeff Allen, Karen Chapple, Isabeaux Graham, Julia Greenberg, Aniket Kali, Evelyne St. Louis, Nate Wessel, and Michelle Zhang. Each page lists its authors. The website was built using [Quarto](https://quarto.org/).
 
 If you want to cite this webpage, here is the recommended citation:
 
