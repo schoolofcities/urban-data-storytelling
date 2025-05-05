@@ -229,6 +229,8 @@ We often have ordinal or numeric data that we want to use to define our styling.
 
 Let's do a quick example, with data indicating camera locations for automated enforcement of speeding in Toronto. This dataset includes an integer column which denotes the number of speeding tickets for each automated camera in February 2025. 
 
+[Automated enforcement camera locations dataset](./data/automated-speed-enforcement.geojson)
+
 We can colour these using the **Graduated** option in QGIS. This option allows us to pick a numeric column, and then classify or group the data into different "bins" or "breaks", each with a colour, in this case ordered sequentially (more tickets, a darker red).
 
 ![Screenshot of graduated styling in QGIS](img/qgis-graduated.png)

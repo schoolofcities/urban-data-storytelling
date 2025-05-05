@@ -40,7 +40,7 @@ Spatial data can be stored as columns in traditional table-based formats (e.g. .
 
 - [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) `.geojson`
 - [GeoPacakge](https://en.wikipedia.org/wiki/GeoPackage) `.gpkg`
-- [Shapefile](https://en.wikipedia.org/wiki/Shapefile) `.shapfile`
+- [Shapefile](https://en.wikipedia.org/wiki/Shapefile) `.shp`
 - [Geodatabase](https://en.wikipedia.org/wiki/Geodatabase_(Esri)) `.gdb`
 
 Here is an example of a single point location of a city stored in a `.geojson` file. `.geojson` is a standardized data schema `.json` format for spatial data.
