@@ -1,6 +1,6 @@
 ---
 title: "Overview of U.S. census data"
-author: "Evelyne St. Louis"
+author: "Evelyne St-Louis"
 ---
 
 In the U.S., the U.S. Census Bureau is responsible for conducting the [census](https://www.census.gov/programs-surveys/acs/about/acs-and-census.html#:~:text=The%20American%20Community%20Survey%20provides,entire%20U.S.%20population%20to%20Congress.) every ten years. The last decennial census was conducted in 2020. The census is intended to count every person in the U.S. and U.S. territories. It covers a relatively short set of questions, including basic demographic information such as age, sex, race, Hispanic origin, and owner/renter status. 

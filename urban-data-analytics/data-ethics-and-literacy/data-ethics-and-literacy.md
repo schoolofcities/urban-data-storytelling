@@ -1,6 +1,6 @@
 ---
 title: "Data ethics and literacy"
-author: "Karen Chapple, Evelyne St. Louis, Michelle Zhang"
+author: "Karen Chapple, Evelyne St-Louis, Michelle Zhang"
 ---
 
 This section will include 1) key questions and concepts in data literacy, 2) ethical data practices, and 3) centering equity in data.

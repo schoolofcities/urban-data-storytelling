@@ -19,7 +19,7 @@ This online textbook has three core modules, each composed of one or more notebo
 
 ## Contributors and citing
 
-This online textbook was compiled by [Jeff Allen](https://jamaps.github.io) using [Quarto](https://quarto.org/) with content contributions from (in alphabetical order by last name) Jeff Allen, Karen Chapple, Isabeaux Graham, Julia Greenberg, Aniket Kali, Evelyne St. Louis, Nate Wessel, and Michelle Zhang. Each page lists its authors.
+This online textbook was compiled by [Jeff Allen](https://jamaps.github.io) using [Quarto](https://quarto.org/) with content contributions from (in alphabetical order by last name) Jeff Allen, Karen Chapple, Isabeaux Graham, Julia Greenberg, Aniket Kali, Evelyne St-Louis, Nate Wessel, and Michelle Zhang. Each page lists its authors.
 
 If you want to cite this online textbook, here is the recommended citation:
 
@@ -37,11 +37,11 @@ If you want to cite this online textbook, here is the recommended citation:
 
 If you want to cite a specific page, here is an example of a recommended citation:
 
-`Greenberg, J. & St. Louis, E. (2025). Exploratory data visualization. In Allen, J. (Eds.), Urban Data Storytelling. School of Cities, University of Toronto.`
+`Greenberg, J. & St-Louis, E. (2025). Exploratory data visualization. In Allen, J. (Eds.), Urban Data Storytelling. School of Cities, University of Toronto.`
 
 ```latex
 @incollection{greenberg2021dataviz,
-  author    = {Greenberg, Julia and St. Louis, Evelyne},
+  author    = {Greenberg, Julia and St-Louis, Evelyne},
   title     = {Exploratory data visualization},
   booktitle = {Urban Data Storytelling},
   editor    = {Allen, Jeff},
