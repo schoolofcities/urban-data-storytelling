@@ -44,6 +44,12 @@ website:
           - urban-data-visualization/proportional-symbol-maps/proportional-symbol-maps.md
           - urban-data-visualization/flow-maps/flow-maps.ipynb
           - urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.ipynb
+          - urban-data-visualization/webmaps/webmaps.md
+      
+      - section: "Urban Data Management"
+        contents:
+          - urban-data-management/intro-to-spatialdb/intro-to-spatialdb.md
+          - urban-data-management/sql-basics/sql-basics.md
 
 format:
   html:

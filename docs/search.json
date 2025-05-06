@@ -1517,5 +1517,159 @@
       "Urban Data Analytics",
       "Measuring the city: metrics and indicators"
     ]
+  },
+  {
+    "objectID": "urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html",
+    "href": "urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html",
+    "title": "Introduction to spatial databases",
+    "section": "",
+    "text": "Lindsey Smith\nSpatial databases, such as PostGIS, allow us to store, query, and analyze geographic data within a database system.\nUnlike file-based formats such as shapefiles, spatial databases are designed to efficiently handle large volumes of spatial data, support multiple users working simultaneously, and integrate with a range of tools and platforms including Python, QGIS, and web applications. This makes them ideal for collaborative projects, automated/reproducible workflows, and projects where large spatial datasets need to connect with other systems.\nBefore we explore the spatial side of things, these first two pages will cover basics of relational databases and SQL. You will need access to postgres and PgAdmin 4 to work through this part of the tutorial.",
+    "crumbs": [
+      "Urban Data Management",
+      "Introduction to spatial databases"
+    ]
+  },
+  {
+    "objectID": "urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html#relational-database-management-systems",
+    "href": "urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html#relational-database-management-systems",
+    "title": "Introduction to spatial databases",
+    "section": "Relational database management systems",
+    "text": "Relational database management systems\nRelational Database Management Systems (RDBMS) such as PostgreSQL allow us to create, manage, and interact with databases. These systems can store both spatial and non-spatial data, and are especially useful for linking related datasets and enabling analysis across multiple sources.\nWithin a database, data are stored in tables which consist of records (rows) and attributes (columns). In GIS terms, you can think of a feature class or layer as a table, a feature as a record, and an attribute as a field.\nTo connect related data, RDBMSs use keys:\n\nA primary key uniquely identifies each record in a table\nA foreign key links a record in one table to a related record in another table\n\n\n\n\nPrimary and foreign keys in database table\n\n\nBefore creating a database and tables to store your data, it’s helpful to think about appropriate data types. Every attribute must have a defined data type such as an integer, text, date or boolean.",
+    "crumbs": [
+      "Urban Data Management",
+      "Introduction to spatial databases"
+    ]
+  },
+  {
+    "objectID": "urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html#creating-a-database-with-postgresql",
+    "href": "urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html#creating-a-database-with-postgresql",
+    "title": "Introduction to spatial databases",
+    "section": "Creating a database with PostgreSQL",
+    "text": "Creating a database with PostgreSQL\nLet’s use postgreSQl and pgAdmin 4 to set up a new database and create a non-spatial data table. PostreSQl is an open-source RDBMS and pgAdmin 4 is a graphical user interface client that makes it easy to interact our database without using command-line tools.\nOpen the PostgreSQL application and check that the server is running. You may also like to take note of the Port number being used here. For example, mine is connected to Port 5432 which I will reference through the tutorial.\nNext, open pgAdmin 4. Right click Servers &gt; Register &gt; Server. If prompted, create a main password for logging in to pgAdmin 4.\nAdd the server name localhost.\nUnder connection, add the following details, including the main password you just created.\n\n\n\nNew server connection\n\n\nWe will create a new database to store data related to Toronto Public Libraries branches. First, download the CSV files for annual visits and annual circulation of library materials from the City of Toronto’s open data portal:\n\nAnnual visits\nAnnual circulation of library materials\n\nBack in pgAdmin 4, expand the localhost server &gt; Databases. You may see some databases already in your system.\nRight click on Databases &gt; Create &gt; database.\nName the database libraries then click Save.\n\nDefining database tables\nExpand your new database in the navigation tree and open schemas. A schema is a collection of database objects which helps make things more manageable. A table is stored within a schema which is stored in a database.\nExpand public schema. Right click on Tables to create two new tables with fields, data types and constraints (i.e., rules such as keys that help maintain data integrity) for both visits and circulation. The table structure you create must match the structure of the csv file to enable input.\n\n\n\nDefining library visits table structure\n\n\n\n\n\nDefining library circulation table structure\n\n\n\n\nImporting non-spatial data into a database table\nRight click on each table in the navigation tree and select Import/export Data. Make sure import is selected then navigate to relevant file location to import data from CSV files.\n\n\n\nImporting non-spatial data\n\n\nExplore the options and consider how they may be updated depending on the structure of the data being imported.",
+    "crumbs": [
+      "Urban Data Management",
+      "Introduction to spatial databases"
+    ]
+  },
+  {
+    "objectID": "urban-data-management/sql-basics/sql-basics.html",
+    "href": "urban-data-management/sql-basics/sql-basics.html",
+    "title": "SQL fundamentals",
+    "section": "",
+    "text": "Lindsey Smith\nThe Data Manipulation Language (DML) component of SQL is used to interact with and manage the data stored in your tables. These statements form the core of regular SQL tasks and allow you to query, filter, and group your data.\nOn this page, we will focus on the following key statements and clauses:\nWe won’t cover INSERT, UPDATE and DELETE statements today but you can view the syntax required for these operations by right clicking a table name in pgAdmin 4 and selecting Scripts.",
+    "crumbs": [
+      "Urban Data Management",
+      "SQL fundamentals"
+    ]
+  },
+  {
+    "objectID": "urban-data-management/sql-basics/sql-basics.html#select-statement",
+    "href": "urban-data-management/sql-basics/sql-basics.html#select-statement",
+    "title": "SQL fundamentals",
+    "section": "SELECT Statement",
+    "text": "SELECT Statement\nThe SELECT statement is perhaps the most commonly used SQL command. Its purpose is to retrieve and display data from one or more database tables. You can choose to return all fields, or just a subset of specific fields.\nEvery SELECT statement must include two mandatory clauses: - SELECT – specifies the fields (columns) you want to retrieve - FROM – specifies the table where the data is coming from\nAccess the database created in the Introduction to spatial databases tutorial. Within PgAdmin 4, open the Query tool.\n\n\n\nPgAdmin Query Tool\n\n\nWe will check our data were imported correctly into the library visits table by executing the following query to retrieve all data.\nHere, * is a wildcard which means ‘everything’. This is the simplest possible query to execute and returns all rows and fields from our data table.\nSELECT * FROM visits;\nWe can also specify which fields to return which can be especially useful for tables with a large number of fields.\nSELECT branchcode, visits FROM visits;\nOnce you’re comfortable retrieving data, you can start refining what you see in the output.\nIf your data, for example, has repeated values, the DISTINCT keyword allows you to return a list of unique values from the specified column. Any duplicates are automatically removed in the output.\nFor example:\nSELECT DISTINCT branchcode FROM visits;\nYou can also control the order of your query results using the ORDER BY clause. By default, values are sorted in ascending (A–Z or lowest to highest) order. It’s also possible to switch to descending order using the DESC keyword, and to sort based on a number of fields.\nFor example: Sort in ascending order based on single field\nSELECT * FROM visits\nORDER BY visits DESC;\nFor example: Sort with a mix of ascending/descending based on multiple fields\nSELECT * FROM visits\nORDER BY branchcode, year DESC;\n\n\n\nQuery output: Rows sorted alphabetically by branchcode. For each branchcode, rows are ordered to list the most recent year first.\n\n\nWhat we’ve covered here is just the beginning of what you can do with SELECT. These basics are intended to get you started, but there’s much more to explore including how to apply simple functions to create derived values (calculated on the fly as a query runs), and how to check for missing data using conditions. A few examples are shown below, but for a broader understanding of the full range of SQL functions and capabilities, you might also consider resources such as W3Schools or the PostgreSQL documentation.\n-- Derived values\nSELECT visits * 0.1, LEFT(branchcode, 1) FROM visits;\n\n-- Checking for missing data\nSELECT * FROM visits WHERE visits IS NULL;",
+    "crumbs": [
+      "Urban Data Management",
+      "SQL fundamentals"
+    ]
+  },
+  {
+    "objectID": "urban-data-management/sql-basics/sql-basics.html#where-clause",
+    "href": "urban-data-management/sql-basics/sql-basics.html#where-clause",
+    "title": "SQL fundamentals",
+    "section": "WHERE Clause",
+    "text": "WHERE Clause\nPrevious examples have returned all rows but often we need to restrict the rows that we receive from the data. The WHERE clause Limits the records included within the results depending on specified criteria. This is similar to the Select by Attribute option in ArcGIS Pro.\nThe criteria, or search expression, is evaluated as TRUE or FALSE for each row. WHERE may be used with a number of search expressions including comparisons, ranges, lists, patterns, and checks for missing values.\nFor example:\n\n\n\n\n\n\n\n\nType\nOperators / Keywords\nExample\n\n\n\n\nComparison\n=, !=, &lt;, &gt;, &lt;=, &gt;=, NOT, AND, OR\nWHERE visits &gt; 50000\n\n\nRange\nBETWEEN, NOT BETWEEN\nWHERE year BETWEEN 2018 AND 2020\n\n\nMembership\nIN, NOT IN\nWHERE branchcode IN ('MA', 'BE')\n\n\nPattern Match\nLIKE, NOT LIKE\nWHERE branchcode LIKE 'H%'\n\n\nNull Check\nIS NULL, IS NOT NULL\nWHERE visits IS NOT NULL\n\n\n\nBelow is an example query that will return all fields from the visits table for records where the branch code starts with the letter M and the year falls between 2020 to 2023. Results are ordered by year (most recent first) and then by highest number of visits:\nSELECT * FROM visits\nWHERE branchcode LIKE 'M%' AND year BETWEEN 2020 AND 2023\nORDER BY year DESC, visits DESC;\nNow have a go at crafting your own complex search expressions!",
+    "crumbs": [
+      "Urban Data Management",
+      "SQL fundamentals"
+    ]
+  },
+  {
+    "objectID": "urban-data-management/sql-basics/sql-basics.html#aggregate-functions-and-the-group-by-clause",
+    "href": "urban-data-management/sql-basics/sql-basics.html#aggregate-functions-and-the-group-by-clause",
+    "title": "SQL fundamentals",
+    "section": "Aggregate functions and the GROUP BY Clause",
+    "text": "Aggregate functions and the GROUP BY Clause\nAggregate functions are useful when you want to summarize values in a column, for example, to calculate totals, averages, or counts. These functions return a single result based on a single column and multiple rows.\nExample aggregate functions:\n\n\n\nFunction\nDescription\n\n\n\n\nCOUNT()\nCounts rows (can include or exclude duplicates)\n\n\nSUM()\nAdds up numeric values\n\n\nAVG()\nCalculates the average\n\n\nMAX() / MIN()\nFinds the highest or lowest value\n\n\nSTDDEV()\nReturns standard deviation\n\n\nVARIANCE()\nReturns variance\n\n\nCORR(a, b)\nCorrelation between two columns\n\n\nCOVAR(a, b)\nCovariance between two columns\n\n\n\n\nExample application of COUNT() function to data in visits table:\n-- Count all rows in visits table\nSELECT COUNT(*) FROM visits;\n\n-- Count unique banch codes\nSELECT COUNT(DISTINCT branchcode) FROM visits;\n\n-- Count unique branch codes where over 50000 visits have been recorded\nSELECT COUNT(DISTINCT branchcode) FROM visits\nWHERE visits &gt; 50000;\n\n\n\nSingle value returned from an aggregate function. In this case, 94 branches recorded more than 50000 in any year.\n\n\n\nIt’s also possible to use the GROUP BY clause to apply aggregate functions to subsets of your data. Here, aggregate results are grouped by a shared value.\nFor example, the following query sums the number of visits for each library branch code and orders the results alphabetically:\nSELECT branchcode, SUM(visits) FROM visits\nGROUP BY branchcode\nORDER BY branchcode;\n\n\n\nSingle value returned for each unique branchcode, summing total visits across all years",
+    "crumbs": [
+      "Urban Data Management",
+      "SQL fundamentals"
+    ]
+  },
+  {
+    "objectID": "urban-data-management/sql-basics/sql-basics.html#aliases",
+    "href": "urban-data-management/sql-basics/sql-basics.html#aliases",
+    "title": "SQL fundamentals",
+    "section": "Aliases",
+    "text": "Aliases\nIt’s possible to create aliases using the AS keyword (though this is actually optional and a space would work just fine, too).\nAliases let you rename a field or table in your query/output, making results easier to read or simplifying references to tables in complex queries. The latter is particularly useful when using queries to create JOINS which we will come to next.\nIn the example below we create: • Column aliases (branchcode AS branch, visits AS “Total Visits”) • A table alias (FROM visits AS v)\nSELECT v.branchcode AS branch, v.visits AS \"Total Visits\"\nFROM visits AS v;\nWhile the table alias is not necessarily useful in this example, it gives you an idea of the syntax needed for more complex operations such as JOINS. If multiple tables have shared column names, the use of table aliases are important to avoid ambiguity across the tables.",
+    "crumbs": [
+      "Urban Data Management",
+      "SQL fundamentals"
+    ]
+  },
+  {
+    "objectID": "urban-data-management/sql-basics/sql-basics.html#joins",
+    "href": "urban-data-management/sql-basics/sql-basics.html#joins",
+    "title": "SQL fundamentals",
+    "section": "JOINS",
+    "text": "JOINS\nSo far we have explored data within a single table. The real power of relational databases comes from the ability to use JOINs to combine rows of data from multiple tables based on shared values.\nWe will keep things relatively simple in this tutorial and focus on two types of JOINs:\n\nINNER JOIN: Returns records where there is a matching value in table A and table B. Rows without a match are excluded from the results\nLEFT JOIN: returns all rows from table A (this is our left table as stated in the FROM cause) and includes matched data from table B (our right table as stated in the JOIN clause). This includes all rows from Table A in the results and where there’s no match in Table B, this will be shown as NULL\n\n\n\n\nInner and left table joins\n\n\nNow let’s have a go at joining both our library visits and circulation tables. In the following example, both the year and branchcode are used to join the two tables since we want to join the annual circulation value for each branch.\nSELECT v.branchcode, v.year, v.visits, c.circulation\nFROM visits v\nINNER JOIN circulation c\n  ON v.branchcode = c.branchcode\n  AND v.year = c.year;\nNow that you’ve covered the fundamentals of SQL, you can start to think about how different clauses can come together to build more compex queries.\nIn the following example, we sum the total visits and circulation of materials for each branch in the year 2023, helping us identify the busiest libraries based on combined visitation and borrowing activity.\nSELECT v.branchcode,\n       SUM(v.visits + c.circulation) AS total_activity_2023\nFROM visits v\nINNER JOIN circulation c\n  ON v.branchcode = c.branchcode\n  AND v.year = c.year\nWHERE v.year = 2023\nGROUP BY v.branchcode\nORDER BY total_activity_2023 DESC;",
+    "crumbs": [
+      "Urban Data Management",
+      "SQL fundamentals"
+    ]
+  },
+  {
+    "objectID": "urban-data-visualization/webmaps/webmaps.html",
+    "href": "urban-data-visualization/webmaps/webmaps.html",
+    "title": "Web map development",
+    "section": "",
+    "text": "Lindsey Smith\nWeb maps are great for allowing users to explore and interact with spatial data on their own terms. They are openly accessible, eliminating the need for specialised software during development and GIS expertise for interpretation.\nIn this tutorial, you will learn basic web programming and web map development using the MapLibre GL JS library.\nBoth an example web map and supporting code can be found here:",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Web map development"
+    ]
+  },
+  {
+    "objectID": "urban-data-visualization/webmaps/webmaps.html#basic-web-development",
+    "href": "urban-data-visualization/webmaps/webmaps.html#basic-web-development",
+    "title": "Web map development",
+    "section": "Basic web development",
+    "text": "Basic web development\nIn order to build an interactive web map, it’s helpful to learn some basic web programming skills. To construct the client-side architecture (the interface the user interacts with), we can use three coding languages:\n\nHTML\nCSS\nJavaScript\n\nA text editor serves as an ideal development environment – I like to use Visual Studio Code for its auto-completion features.\nWithin Visual Studio Code, set up the following three files in Visual Studio Code a new empty folder.\n\n\n\nNew files in Visual Studio Code file tree\n\n\n\nHTML\nHTML acts as the backbone of our webpage, relying on tags to structure the elements that are included on the page.\nHelpfully, Visual Studio Code offers shortcuts and prompts to streamline our coding. For example, typing “!” and hitting enter generates a basic HTML boilerplate. The boilerplate code includes key tags &lt;head&gt; which holds metadata and links to external resources, and &lt;body&gt; where the main content resides.\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\"&gt;\n&lt;head&gt;\n    &lt;meta charset=\"UTF-8\"&gt;\n    &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"&gt;\n    &lt;title&gt;Document&lt;/title&gt;\n    &lt;link rel=\"stylesheet\" href=\"style.css\"&gt;\n&lt;/head&gt;\n&lt;body&gt;\n\n    &lt;script src=\"script.js\"&gt;&lt;/script&gt;\n&lt;/body&gt;\n&lt;/html&gt;\nLet’s add some simple tags to get started. Within the &lt;body&gt;, add a heading, text, and button. For an understanding of the range of tags that are available, take time to explore alternative options on w3schools. We’ll be using a &lt;div&gt; tag, for example, as a container for our map.\n&lt;h1&gt;This is a heading&lt;/h1&gt;\n&lt;p&gt;This is a paragraph.&lt;/p&gt;\n&lt;button id = \"my-button\"&gt;Click me!&lt;/button&gt;\nYou can view your webpage in the browser by rightclicking on index.html in the navigation tree and selecting Open in default browser. You may need to add the extension ‘Open in browser’ within Visual Studio Code. Alternatively, find your index.html in your file explorer and select Open with &gt; Browser. \n\n\nCSS\nCSS is responsible for adding styling to our webpage and controlling layout. For example, we can apply colours, positioning, fonts etc to our HTML elements using CSS. Again, W3Schools is a great resource to get you started and provide you with an idea of the different properties you can update.\nbody {\n    background-color: lightblue;\n    }\n\nh1 {\n    color: white;\n    text-align: center;\n    }\n                      \np {\n    font-family: verdana;\n    font-size: 20px;\n    }\nTo apply styling to HTML elements, we use selectors (the value preceding the curly braces) in CSS rules. These tell the browser which elements the style rule applies to. The rules inside the curly braces provide style properties.\nSetting an element name (e.g., p) as a selector will apply styling to all &lt;p&gt; elements across our webpage.\nHowever, there are scenarios where we may want to target a specific element uniquely for styling purposes. In such cases, we can assign the element an id in HTML (e.g., &lt;p id=\"unique-para\"&gt;) and use a # adjacent to our selector in CSS.\nSimilarly, if we have multiple elements requiring common styling, we can add a class to the HTML elements (e.g., &lt;p id=\"para-class\"&gt;)* and then refer to the class using dot notation in CSS.\n&lt;p&gt;This is a paragraph. All paragraphs use Verdana font at size 20.&lt;/p&gt;\n\n&lt;p id=\"unique-para\" class=\"para-class\"&gt;\n    This is a separate paragraph. In this case, text will be bold and centred.\n&lt;/p&gt;\n\n&lt;p class=\"para-class\"&gt;In this final paragraph, text will be centred but not bold&lt;p&gt;\n#unique-para {\n    font-weight: bold;\n    }\n                    \n.para-class {\n    text-align: center;\n    }\n\n\n\nJavaScript\nJavaScript is what brings our web page to life. It allows us to build in interactivity, for example, by writing functions that are fired following an event in the browser (e.g., a page load or user mouse click).\nFor today, we’ll just get started with some basics, although I recommend the Codecademy course Learn JavaScript to help deepen your knowledge.\n// Variables\nconst placename = \"Toronto\"; // Value cannot be reassigned\nlet year = 2024; //Value can be reassigned if needed\n\n// Arrays\nlet coords = [-79, 43]\n\n// If statements\nif (year &gt; 2020) {\n    console.log(\"Year is greater than 2020\");\n    }\n\n// For loops\nfor (let i = 0; i &lt; 5; i++) { // 3 args: Initial value i, condition to be met for iteration of loop, increment value i\n    console.log(\"Loop \" + (i + 1));\n    }\n\n// Functions\nfunction message(home) {\n    return \"I live in \" + home;\n    }\n\n    let mytext = message(placename);\n    console.log(mytext);\nOpen the Console via Dev Tools to view the console.log() output. This is a helpful way to test and de-bug!\n\n\nEvent Handlers\nEvent handlers are functions that are executed in response to events occurring in the browser.\nFor example, the JavaScript code below shows how a click of a button by the user triggers an event which in turn evokes a function to update text for HTML element &lt;p id = \"update-text\"&gt;.\nTo build the event handler, we first make reference to the HTML elements using the getElementById method, next we add an event listener to the button’s click event and lastly, we include a callback function () =&gt; {} for the desired action.\nconst myButton = document.getElementById(\"my-button\");\nconst updateText = document.getElementById(\"update-text\");\nlet clickCount = 0;\n\nmyButton.addEventListener(\"click\", () =&gt; {\n    clickCount++;\n    updateText.textContent = \"You clicked me! \" + clickCount + \" times\";\n    });",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Web map development"
+    ]
+  },
+  {
+    "objectID": "urban-data-visualization/webmaps/webmaps.html#web-mapping-api-maplibre",
+    "href": "urban-data-visualization/webmaps/webmaps.html#web-mapping-api-maplibre",
+    "title": "Web map development",
+    "section": "Web mapping API: MapLibre",
+    "text": "Web mapping API: MapLibre\nOk, so now we know the basics of building a web page, let’s have a go at developing a web map!\nThere are a range of different mapping APIs that can help us with this (e.g., Leaflet, OpenLayers, CARTO Maps, D3, and MapLibre). APIs are essentially libraries that have predefined functions to help us do fun things like add our own data layers, listen out for HTML or map events, and respond by filtering data, showing pop-ups etc. Often, working with an API is a case of identifying existing functionality within documentation and adding in your own parameters to suit your data and needs.\nWe will use MapLibre GL which is an opensource alternative to Mapbox offering a comparable range of methods and classes. I encourage you to explore the documentation – the API pages, particularly the methods for the map object, and the examples can be super helpful.\nTo get started, update the code in each of your files:\n\nHTML:\n\n\nAdd CDNCDN links to the MapLibre GL JS package in the &lt;head&gt; tag\nAdd a &lt;div&gt; tag with ID in the &lt;body&gt; tag – this will be the container for our map\n\n&lt;head&gt;\n    &lt;meta charset=\"UTF-8\"&gt;\n    &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"&gt;\n    &lt;title&gt;My webmap&lt;/title&gt;\n    &lt;link rel=\"stylesheet\" href=\"style.css\"&gt;\n    &lt;script src='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js'&gt;&lt;/script&gt;\n    &lt;link href='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css' rel='stylesheet' /&gt;\n&lt;body&gt;\n    &lt;div id='map'&gt;&lt;/div&gt;\n    &lt;script src=\"script.js\"&gt;&lt;/script&gt;\n&lt;/body&gt;\n\n\nCSS:\n\n\nAdd style properties to map ID selector to position map so that it fills the browser window\n\n#map {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    width: 100%;\n    }\n\n\nJavaScript\n\n\nInitialise the map object\n\nconst map = new maplibregl.Map({\n    container: 'map', // container id\n    style: 'https://demotiles.maplibre.org/style.json', // style URL\n    center: [0, 0], // starting position [lng, lat]\n    zoom: 1 // starting zoom\n    });\nTake a look at your map in the browser! This is a good starting point but ideally we want our basemap to suit our map scale, data, and purpose.\nLet’s update the demo basemap provided by MapLibre to a CARTO basemap and position the starting view position and zoom level of our map.\nconst map = new maplibregl.Map({\n    container: 'map', // container id\n    style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json', // style URL\n    center: [-105, 58], // starting position [lng, lat]\n    zoom: 3 // starting zoom\n});\nNow let’s start making use of the MapLibre API.",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Web map development"
+    ]
+  },
+  {
+    "objectID": "urban-data-visualization/webmaps/webmaps.html#add-map-controls",
+    "href": "urban-data-visualization/webmaps/webmaps.html#add-map-controls",
+    "title": "Web map development",
+    "section": "Add map controls",
+    "text": "Add map controls\nmap.addControl(new maplibregl.NavigationControl());",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Web map development"
+    ]
+  },
+  {
+    "objectID": "urban-data-visualization/webmaps/webmaps.html#add-a-data-layer",
+    "href": "urban-data-visualization/webmaps/webmaps.html#add-a-data-layer",
+    "title": "Web map development",
+    "section": "Add a data layer",
+    "text": "Add a data layer\nGeoJSON files work well for web development and we can easily access attribute and geometry properties.\nIf you’re not familiar with GeoJSON files, have a go at creating your own using https://geojson.io/ to plot some different geometry types and add data properties and values. Notice how the text structuring of the file updates as you make edits.\nYou can also create GeoJSON files by exporting them using GIS desktop software such as QGIS. Just be mindful that we don’t want our files to be too large as this will limit the time it takes for our web page to load. If you have a GeoJSON with a large number of nodes, you may find tools such as https://mapshaper.org/ helpful for simplifying your geometries and reducing file size.\n\n\n\nGeoJSON IO tool showing mapped and text format of data points\n\n\nTo add data to our web map, we first want to use the addSource method to access our data. Here, we will need a url to fetch our GeoJSON. Having a GeoJSON stored in an online GitHub repository is a good way to do this.\nOnce we have our data source, we can use the addLayer method to visualize our data. Here, there are a range of arguments we can include. We must have an id and source, and our type must be appropriate for our geometry (e.g., fill = polygon, point = circle).\nAdditional paint and layout properties allow us to customize the appearance of our data. The maplibre layer style spec details the possible arguments.\nI’ve added these methods inside a map load event handler (which is similar to our button event handler above) so that they are fired after the map finishes loading.\nmap.on('load', () =&gt; {\n    map.addSource('canada-provterr', {\n        type: 'geojson',\n        data: 'https://raw.githubusercontent.com/smith-lg/ggr472-wk6-demo/main/data/can-provterr.geojson', //Link to raw github files when in development stage. Update to pages on deployment\n        'generateId': true //Create a unique ID for each feature'\n        });\n\n    map.addLayer({\n        'id': 'provterr-fill',\n        'type': 'fill',\n        'source': 'canada-provterr',\n        'paint': {\n            'fill-color': '#627BC1',\n            'fill-opacity': 0.5,\n            'fill-outline-color': 'white'\n        },\n    });\n});\n\n\nAdding interactivity\n\nUsing event handlers, we can add functionality to our map. Below, we listen out for a click in our data layer on the map and fire a response. For example, we can add a message to the console or add a pop-up window in the map.\nYou can get pretty creative with interactivity. Start to think about adding HTML elements on top of your map and using buttons, drop downs etc to update the map in some way. For example, you may like to change the visibility of a layer (e.g., with setLayoutProperty method) or filter the data shown (e.g., with setFilter method).\n\n// Simple click event\nmap.on('click', 'provterr-fill', (e) =&gt; {\n    //console.log(e);   //e is the event info triggered and is passed to the function as a parameter (e)\n    let provname = e.features[0].properties.PRENAME;\n    console.log(provname);\n});\n\n// Add pop up event\nmap.on('click', 'provterr-fill', (e) =&gt; {\n    new maplibregl.Popup() // Declare new popup object on each click\n        .setLngLat(e.lngLat) // Use method to set coordinates of popup based on mouse click location\n        .setHTML(\"Province/Territory: \" + e.features[0].properties.PRENAME + \" \" + \"Population: \" + e.features[0].properties.POP2021) // Use click event properties to write text for popup\n        .addTo(map); // Show popup on map\n    });",
+    "crumbs": [
+      "Urban Data Visualization",
+      "Web map development"
+    ]
   }
 ]
