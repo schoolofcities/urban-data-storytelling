@@ -35,7 +35,7 @@ When working with urban data, it's essential to consider how geographic boundari
 
 Below are spatial units and types of encoding that are often used for collecting and analyzing urban data. 
 
-In our notebook on [spatial data and GIS](notebooks/urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.md), we go into details on how different spatial data is structured, and how we can begin to view, explore, and analyze different data in GIS.
+In our notebook on [Spatial data and GIS](../spatial-data-and-gis/spatial-data-and-gis.md), we go into details on how different spatial data is structured, and how we can begin to view, explore, and analyze different data in GIS.
 
 
 ### Administrative or political boundaries
