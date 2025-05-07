@@ -40,7 +40,7 @@ Every `SELECT` statement must include two mandatory clauses:
 
 Access the database created in the Introduction to spatial databases tutorial. **Within PgAdmin 4, open the Query tool**. 
 
-![PgAdmin Query Tool](img/querytool.png)
+![PgAdmin Query Tool](img/querytool.png){width=40%}
 
 We will check our data were imported correctly into the library *visits* table by executing the following query to retrieve all data.
 
@@ -79,7 +79,7 @@ SELECT * FROM visits
 ORDER BY branchcode, year DESC;
 ```
 
-![Query output: Rows sorted alphabetically by branchcode. For each branchcode, rows are ordered to list the most recent year first.](img/orderbyresults.png)
+![Query output: Rows sorted alphabetically by branchcode. For each branchcode, rows are ordered to list the most recent year first.](img/orderbyresults.png){width=60%}
 
 What we’ve covered here is just the beginning of what you can do with `SELECT`. These basics are intended to get you started, but there's much more to explore including how to apply simple functions to create *derived values* (calculated on the fly as a query runs), and how to *check for missing data* using conditions. A few examples are shown below, but for a broader understanding of the full range of SQL functions and capabilities, you might also consider resources such as [W3Schools](https://www.w3schools.com/sql/default.asp) or the [PostgreSQL documentation](https://www.postgresql.org/docs/current/queries.html).
 
@@ -149,7 +149,7 @@ SELECT COUNT(DISTINCT branchcode) FROM visits
 WHERE visits > 50000;
 ```
 
-![Single value returned from an aggregate function. In this case, 94 branches recorded more than 50000 in any year.](img/aggregate.png)
+![Single value returned from an aggregate function. In this case, 94 branches recorded more than 50000 in any year.](img/aggregate.png){width=30%}
 
 <br>
 
@@ -163,7 +163,7 @@ GROUP BY branchcode
 ORDER BY branchcode;
 ```
 
-![Single value returned for each unique branchcode, summing total visits across all years](img/groupby.png)
+![Single value returned for each unique branchcode, summing total visits across all years](img/groupby.png){width=50%}
 
 ## Aliases
 
