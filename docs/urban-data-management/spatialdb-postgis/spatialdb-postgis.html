@@ -8,7 +8,7 @@
 
 <meta name="author" content="Lindsey Smith">
 
-<title>SQL fundamentals – Urban Data Storytelling 📊📈🏙️</title>
+<title>Spatial databases and PostGIS – Urban Data Storytelling 📊📈🏙️</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="description" content="Notebooks on urban data analysis and visualization">
 <meta name="author" content="School of Cities">
 
-<meta property="og:title" content="SQL fundamentals – Urban Data Storytelling 📊📈🏙️">
+<meta property="og:title" content="Spatial databases and PostGIS – Urban Data Storytelling 📊📈🏙️">
 <meta name="og:description" content="Notebooks on urban data analysis and visualization">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://schoolofcities.github.io/urban-data-storytelling">
@@ -124,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="https://schoolofcities.github.io/urban-data-storytelling">
 <meta name="twitter:creator" content="@UofTCities">
-<meta name="twitter:title" content="SQL fundamentals – Urban Data Storytelling 📊📈🏙️">
+<meta name="twitter:title" content="Spatial databases and PostGIS – Urban Data Storytelling 📊📈🏙️">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/urban-data-storytelling/refs/heads/main/assets/web-card.png">
 
@@ -141,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html">Urban Data Management</a></li><li class="breadcrumb-item"><a href="../../urban-data-management/sql-basics/sql-basics.html">SQL fundamentals</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html">Urban Data Management</a></li><li class="breadcrumb-item"><a href="../../urban-data-management/spatialdb-postgis/spatialdb-postgis.html">Spatial databases and PostGIS</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -348,13 +348,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../urban-data-management/sql-basics/sql-basics.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../urban-data-management/sql-basics/sql-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">SQL fundamentals</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../urban-data-management/spatialdb-postgis/spatialdb-postgis.html" class="sidebar-item-text sidebar-link">
+  <a href="../../urban-data-management/spatialdb-postgis/spatialdb-postgis.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Spatial databases and PostGIS</span></a>
   </div>
 </li>
@@ -376,17 +376,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#note-on-literals" id="toc-note-on-literals" class="nav-link active" data-scroll-target="#note-on-literals">Note on Literals</a></li>
-  <li><a href="#select-statement" id="toc-select-statement" class="nav-link" data-scroll-target="#select-statement">SELECT Statement</a></li>
-  <li><a href="#where-clause" id="toc-where-clause" class="nav-link" data-scroll-target="#where-clause">WHERE Clause</a></li>
-  <li><a href="#aggregate-functions-and-the-group-by-clause" id="toc-aggregate-functions-and-the-group-by-clause" class="nav-link" data-scroll-target="#aggregate-functions-and-the-group-by-clause">Aggregate functions and the GROUP BY Clause</a></li>
-  <li><a href="#aliases" id="toc-aliases" class="nav-link" data-scroll-target="#aliases">Aliases</a></li>
-  <li><a href="#joins" id="toc-joins" class="nav-link" data-scroll-target="#joins">JOINS</a></li>
+  <li><a href="#postgis" id="toc-postgis" class="nav-link active" data-scroll-target="#postgis">PostGIS</a></li>
+  <li><a href="#importing-spatial-data" id="toc-importing-spatial-data" class="nav-link" data-scroll-target="#importing-spatial-data">Importing spatial data</a></li>
+  <li><a href="#st_-functions" id="toc-st_-functions" class="nav-link" data-scroll-target="#st_-functions">ST_ Functions</a>
+  <ul class="collapse">
+  <li><a href="#exploring-geometries" id="toc-exploring-geometries" class="nav-link" data-scroll-target="#exploring-geometries">Exploring geometries</a></li>
+  <li><a href="#measuring-geometries" id="toc-measuring-geometries" class="nav-link" data-scroll-target="#measuring-geometries">Measuring geometries</a></li>
+  <li><a href="#testing-spatial-relationships" id="toc-testing-spatial-relationships" class="nav-link" data-scroll-target="#testing-spatial-relationships">Testing spatial relationships</a></li>
+  <li><a href="#constructing-new-geometries" id="toc-constructing-new-geometries" class="nav-link" data-scroll-target="#constructing-new-geometries">Constructing new geometries</a></li>
+  </ul></li>
+  <li><a href="#creating-views-and-tables-from-queries" id="toc-creating-views-and-tables-from-queries" class="nav-link" data-scroll-target="#creating-views-and-tables-from-queries">Creating Views and Tables from Queries</a>
+  <ul class="collapse">
+  <li><a href="#fyi" id="toc-fyi" class="nav-link" data-scroll-target="#fyi">FYI!</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html">Urban Data Management</a></li><li class="breadcrumb-item"><a href="../../urban-data-management/sql-basics/sql-basics.html">SQL fundamentals</a></li></ol></nav><h1 class="title display-7">SQL fundamentals</h1></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html">Urban Data Management</a></li><li class="breadcrumb-item"><a href="../../urban-data-management/spatialdb-postgis/spatialdb-postgis.html">Spatial databases and PostGIS</a></li></ol></nav><h1 class="title display-7">Spatial databases and PostGIS</h1></header>
 
 <header id="title-block-header">
 
@@ -395,127 +402,128 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The <em>Data Manipulation Language (DML)</em> component of SQL is used to interact with and manage the data stored in your tables. These statements form the core of regular SQL tasks and allow you to query, filter, and group your data.</p>
-<p>On this page, we will focus on the following key statements and clauses:</p>
+<p>Now that you’re familiar with how to create, query, and manipulate data in relational databases using SQL, we can start to take a look at <em>spatial databases</em>.</p>
+<p>Spatial databases extend traditional databases by allowing you to store and query <em>geographic features</em> such as points (e.g., library locations), lines (e.g., roads), and polygons (e.g., city ward boundaries). They are especially useful for combining spatial and non-spatial data, and exploring spatial questions such as:</p>
 <ul>
-<li>SELECT – to query data from a table
-<ul>
-<li>WHERE – to filter records based on conditions</li>
-<li>ORDER BY – to sort results</li>
-<li>GROUP BY – to group results and apply aggregate functions</li>
-<li>JOIN – to combine rows from two or more tables based on common values in related columns</li>
-</ul></li>
+<li>What is the total area of each city ward?</li>
+<li>Which libraries are located in each ward?</li>
 </ul>
-<p>We won’t cover INSERT, UPDATE and DELETE statements today but you can view the syntax required for these operations by right clicking a table name in pgAdmin 4 and selecting Scripts.</p>
-<section id="note-on-literals" class="level3">
-<h3 data-anchor-id="note-on-literals">Note on Literals</h3>
-<p>Before we start writing SQL statements, it’s important to note that different types of values (literals) require different formatting in order to be interpreted correctly:</p>
-<ul>
-<li><strong>Text</strong> (i.e., string or non-numeric) values must be enclosed in <em>single quotation marks</em></li>
-<li><strong>Numeric values</strong> (e.g., integers, decimals) must <em>not be enclosed in quotation marks</em></li>
-<li><strong>Identifiers</strong> (e.g., table or column names) that contain <strong>spaces</strong> or <strong>special characters</strong>, or are <strong>case-sensitive</strong> should be enclosed in <em>double quotation marks</em></li>
-</ul>
-<p>For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> students(firstname, majorcode, <span class="kw">group</span>, <span class="ot">"Dream Destination"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span> (<span class="st">'David'</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="st">'Spain'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="select-statement" class="level2">
-<h2 data-anchor-id="select-statement">SELECT Statement</h2>
-<p>The <code>SELECT</code> statement is perhaps the most commonly used SQL command. Its purpose is to retrieve and display data from one or more database tables. You can choose to return all fields, or just a subset of specific fields.</p>
-<p>Every <code>SELECT</code> statement must include two mandatory clauses: - <code>SELECT</code> – specifies the <em>fields</em> (columns) you want to retrieve - <code>FROM</code> – specifies the <em>table</em> where the data is coming from</p>
-<p>Access the database created in the Introduction to spatial databases tutorial. <strong>Within PgAdmin 4, open the Query tool</strong>.</p>
+<section id="postgis" class="level2">
+<h2 data-anchor-id="postgis">PostGIS</h2>
+<p><a href="https://postgis.net/" target="_blank">PostGIS</a> is an open-source spatial database extender for PostgreSQL. It adds support for geographic objects so you can store, query, and manipulate spatial data directly in the database.</p>
+<p>PostGIS can be enabled in a PostgreSQl database using pgAdmin 4.</p>
+<p>In the filetree, <strong>extend the libraries database</strong>. Right click on <strong>Extensions &gt; Create &gt; Extension</strong> the search for and add ‘PostGIS’.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/querytool.png" class="img-fluid figure-img" style="width:40.0%"></p>
-<figcaption>PgAdmin Query Tool</figcaption>
+<p><img src="img/extension.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Adding PostGIS extension using PgAdmin interface</figcaption>
 </figure>
 </div>
-<p>We will check our data were imported correctly into the library <em>visits</em> table by executing the following query to retrieve all data.</p>
-<p>Here, <code>*</code> is a wildcard which means ‘everything’. This is the simplest possible query to execute and returns all rows and fields from our data table.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> visits;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We can also specify which fields to return which can be especially useful for tables with a large number of fields.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> branchcode, visits <span class="kw">FROM</span> visits;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Once you’re comfortable retrieving data, you can start refining what you see in the output.</p>
-<p>If your data, for example, has repeated values, the <code>DISTINCT</code> keyword allows you to return a list of <em>unique values</em> from the specified column. Any duplicates are automatically removed in the output.</p>
-<p>For example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> branchcode <span class="kw">FROM</span> visits;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can also control the <em>order</em> of your query results using the <code>ORDER BY</code> clause. By default, values are sorted in ascending (A–Z or lowest to highest) order. It’s also possible to switch to descending order using the <code>DESC</code> keyword, and to sort based on a number of fields.</p>
-<p>For example: Sort in ascending order based on single field</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> visits</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> visits <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>For example: Sort with a mix of ascending/descending based on multiple fields</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> visits</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> branchcode, <span class="dt">year</span> <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Alternatively, use the <strong>Query Tool</strong> to run the following command:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> EXTENSION postgis;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>With the extension now activated, you have access to spatial types and functions. If you refresh the tables in your database, for example, you will now see a new table storing spatial reference system information.</p>
+</section>
+<section id="importing-spatial-data" class="level2">
+<h2 data-anchor-id="importing-spatial-data">Importing spatial data</h2>
+<p>There are several ways to import spatial data into your PostGIS-enabled database, including the use of command line tools <a href="https://postgis.net/workshops/postgis-intro/loading_data.html" target="_blank">shp2pgsql and ogr2ogr</a>.</p>
+<p>For ease, and to learn about the benefits of using QGIS to visualize data, we will use QGIS to load data into PostGIS.</p>
+<p>First, download the following data from the <a href="https://open.toronto.ca/" target="_blank">City of Toronto’s Open Data Portal</a>:</p>
+<ul>
+<li><a href="./data/city-wards.geojson" target="_blank">City Wards (polygons)</a></li>
+<li><a href="./data/toronto-libraries-2023.geojson" target="_blank">Library Locations (points)</a></li>
+</ul>
+<p><strong>Open QGIS and a new empty project</strong>.</p>
+<p>Within the QGIS browser pane, <strong>right click on PostgreSQL</strong> (or PostGIS, depending on version) and <strong>select Connection</strong>.</p>
+<p>Input the following details, substituting your database name.</p>
+<p>Select ‘list tables with no geometry’ as you may also use this approach to import and view non-spatial data in your database (as an alternative to using PgAdmin 4).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/orderbyresults.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption>Query output: Rows sorted alphabetically by branchcode. For each branchcode, rows are ordered to list the most recent year first.</figcaption>
+<p><img src="img/qgisconnection.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Create a new PostGIS connection via QGIS</figcaption>
 </figure>
 </div>
-<p>What we’ve covered here is just the beginning of what you can do with <code>SELECT</code>. These basics are intended to get you started, but there’s much more to explore including how to apply simple functions to create <em>derived values</em> (calculated on the fly as a query runs), and how to <em>check for missing data</em> using conditions. A few examples are shown below, but for a broader understanding of the full range of SQL functions and capabilities, you might also consider resources such as <a href="https://www.w3schools.com/sql/default.asp" target="_blank">W3Schools</a> or the <a href="https://www.postgresql.org/docs/current/queries.html" target="_blank">PostgreSQL documentation</a>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Derived values</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> visits <span class="op">*</span> <span class="fl">0.1</span>, <span class="kw">LEFT</span>(branchcode, <span class="dv">1</span>) <span class="kw">FROM</span> visits;</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Checking for missing data</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> visits <span class="kw">WHERE</span> visits <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You should now see a connection to the public schema in the browser pane.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/qgisfiletree.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>PostGIS connection in QGIS file tree</figcaption>
+</figure>
+</div>
+<p>Within QGIS, select <strong>Database &gt; DBManager</strong>. Expand PostgreSQL/PostGIS &gt; localhost &gt; public schema and explore the metadata and any associated data of the spatial reference tables via the Info and Table panes of the DB Manager.</p>
+<p>Select <strong>Import layer/file</strong> and then navigate to where the geoJSON files are stored.</p>
+<p>Update the output table name to <strong>all lower case and remove any special characters</strong> (e.g., citywards). <strong>Select the following options then Ok</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/importwards.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Importing GeoJSON files into PostGIS database via QGIS DB Manager</figcaption>
+</figure>
+</div>
+<p>You should now see the <em>citywards</em> table under the public schema. The data are now being read from the database. Check the metadata to see if coordinate reference information has been imported.</p>
+<p><strong>Repeat the import process for the library points</strong> using a simplified table name (e.g., librarypnts) and the same options as above.</p>
+<p><strong>Close the DB Manager and QGIS</strong>.</p>
 </section>
-<section id="where-clause" class="level2">
-<h2 data-anchor-id="where-clause">WHERE Clause</h2>
-<p>Previous examples have returned all rows but often we need to restrict the rows that we receive from the data. The <code>WHERE</code> clause Limits the records included within the results depending on specified criteria. This is similar to the <strong>Select by Attribute</strong> option in ArcGIS Pro.</p>
-<p>The criteria, or <strong>search expression</strong>, is evaluated as TRUE or FALSE for each row. <code>WHERE</code> may be used with a number of search expressions including comparisons, ranges, lists, patterns, and checks for missing values.</p>
+<section id="st_-functions" class="level2">
+<h2 data-anchor-id="st_-functions">ST_ Functions</h2>
+<p>PostGIS provides a number of <strong>ST_ (Spatial Type) functions</strong> that allow you to interact with and manipulate geometry data. A full list of functions can be explored via <a href="https://postgis.net/docs/reference.html" target="_blank">PostGIS documentation</a>.</p>
+<section id="exploring-geometries" class="level3">
+<h3 data-anchor-id="exploring-geometries">Exploring geometries</h3>
+<p>Now you’ve imported your spatial data into PostGIS, you’ll see that your geometries are stored in a <em>geometry field</em>. In the case of both the <em>citywards</em> and <em>librarypnts</em> tables, this field is named <em>geom</em>.</p>
+<p>The geometry field contains information about the spatial characteristics of each record, such as location, shape, and extent. The data are stored in <em>binary format</em>, meaning that we can not easily understand it as humans but that it can be easily processed and queried using SQL. We can use ST_ functions to explore the geometry further.</p>
+<p>Back In PGAdmin 4, run each of the following queries separately.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- View geometry information as binary format</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> geom <span class="kw">FROM</span> librarypnts;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- View geometry information as Well-Known Text</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> ST_AsText(geom) <span class="kw">FROM</span> librarypnts;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">-- View spatial reference ID. 4326 = WGS84</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> ST_SRID(geom) <span class="kw">FROM</span> librarypnts;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Notice that there are some library points without a geometry. We can run the following query to delete these:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">DELETE</span> <span class="kw">FROM</span> librarypnts</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> geom <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We will next look at using ST_ functions to measure some geometries but notice that our data are currently stored in geographic coordinate reference system (CRS), WGS84, which uses latitude and longitude.</p>
+<p>To measure areas, distances, or other spatial properties, it’s helpful to transform the data into a projected CRS that uses units such as metres rather than degrees.</p>
+<p>As the data are local to Toronto, we can use a projected coordinate system such as <em>NAD1983 UTM Zone 17N</em>. You can check the following link to identify required EPSG (SRID) codes. In this case, we will use code <em>26917</em>.</p>
+<ul>
+<li>https://spatialreference.org/ref/epsg/</li>
+</ul>
+<p>The following code transforms our spatial data into UTM Zone 17N.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">--Transform library point data to UTM Zone 17N</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> librarypnts</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">COLUMN</span> geom</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">SET</span> <span class="kw">DATA</span> <span class="kw">TYPE</span> geometry(POINT, <span class="dv">26917</span>) </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">USING</span> ST_Transform(geom, <span class="dv">26917</span>);</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">--Transform city ward polygon data to UTM Zone 17N</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> citywards</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">COLUMN</span> geom</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="kw">SET</span> <span class="kw">DATA</span> <span class="kw">TYPE</span> geometry(MULTIPOLYGON, <span class="dv">26917</span>) </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="kw">USING</span> ST_Transform(geom, <span class="dv">26917</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that if you were not comfortable transforming your data, you could also use ST_Transform on the fly by adding it as a parameter into</p>
+</section>
+<section id="measuring-geometries" class="level3">
+<h3 data-anchor-id="measuring-geometries">Measuring geometries</h3>
+<p>Now that are data are in a projected CRS, we can use ST_ functions to measure geometries.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">--Calculate city ward areas in sq m</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> area_name, ST_Area(geom) <span class="kw">AS</span> area_sqm</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> citywards;</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">--Calculate city ward areas in sq km</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> area_name, ST_Area(geom) <span class="op">/</span> <span class="dv">1000000</span> <span class="kw">AS</span> area_sqm_km</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> citywards;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Other functions to measure geometries include ST_Length and ST_Distance.</p>
+<p>Note that while we transformed our data into a projected CRS, it is also possible to maintain the original CRS and transform on the fly (e.g., <code>ST_Area(ST_Transform(geom, 26917))</code>).</p>
+</section>
+<section id="testing-spatial-relationships" class="level3">
+<h3 data-anchor-id="testing-spatial-relationships">Testing spatial relationships</h3>
+<p>PostGIS provides a variety of ST_ functions that allow us to test different spatial relationships between geometries.</p>
 <p>For example:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 17%">
-<col style="width: 46%">
-<col style="width: 36%">
+<col style="width: 18%">
+<col style="width: 81%">
 </colgroup>
-<thead>
-<tr class="header">
-<th>Type</th>
-<th>Operators / Keywords</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Comparison</strong></td>
-<td><code>=</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>NOT</code>, <code>AND</code>, <code>OR</code></td>
-<td><code>WHERE visits &gt; 50000</code></td>
-</tr>
-<tr class="even">
-<td><strong>Range</strong></td>
-<td><code>BETWEEN</code>, <code>NOT BETWEEN</code></td>
-<td><code>WHERE year BETWEEN 2018 AND 2020</code></td>
-</tr>
-<tr class="odd">
-<td><strong>Membership</strong></td>
-<td><code>IN</code>, <code>NOT IN</code></td>
-<td><code>WHERE branchcode IN ('MA', 'BE')</code></td>
-</tr>
-<tr class="even">
-<td><strong>Pattern Match</strong></td>
-<td><code>LIKE</code>, <code>NOT LIKE</code></td>
-<td><code>WHERE branchcode LIKE 'H%'</code></td>
-</tr>
-<tr class="odd">
-<td><strong>Null Check</strong></td>
-<td><code>IS NULL</code>, <code>IS NOT NULL</code></td>
-<td><code>WHERE visits IS NOT NULL</code></td>
-</tr>
-</tbody>
-</table>
-<p>Below is an example query that will return all fields from the <em>visits</em> table for records where the branch code <strong>starts with the letter M and the year falls between 2020 to 2023</strong>. Results are ordered by year (most recent first) and then by highest number of visits:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> visits</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> branchcode <span class="kw">LIKE</span> <span class="st">'M%'</span> <span class="kw">AND</span> <span class="dt">year</span> <span class="kw">BETWEEN</span> <span class="dv">2020</span> <span class="kw">AND</span> <span class="dv">2023</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">year</span> <span class="kw">DESC</span>, visits <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now have a go at crafting your own complex search expressions!</p>
-</section>
-<section id="aggregate-functions-and-the-group-by-clause" class="level2">
-<h2 data-anchor-id="aggregate-functions-and-the-group-by-clause">Aggregate functions and the GROUP BY Clause</h2>
-<p>Aggregate functions are useful when you want to <strong>summarize</strong> values in a column, for example, to calculate totals, averages, or counts. These functions return a single result based on a single column and multiple rows.</p>
-<p>Example aggregate functions:</p>
-<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Function</th>
@@ -524,111 +532,121 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>COUNT()</code></td>
-<td>Counts rows (can include or exclude duplicates)</td>
+<td><strong>ST_Intersects</strong></td>
+<td>Returns <code>TRUE</code> if two geometries intersect (share any space)</td>
 </tr>
 <tr class="even">
-<td><code>SUM()</code></td>
-<td>Adds up numeric values</td>
+<td><strong>ST_Within</strong></td>
+<td>Returns <code>TRUE</code> if one geometry is within another (i.e., completely inside)</td>
 </tr>
 <tr class="odd">
-<td><code>AVG()</code></td>
-<td>Calculates the average</td>
+<td><strong>ST_Contains</strong></td>
+<td>Returns <code>TRUE</code> if one geometry completely contains another</td>
 </tr>
 <tr class="even">
-<td><code>MAX()</code> / <code>MIN()</code></td>
-<td>Finds the highest or lowest value</td>
+<td><strong>ST_Distance</strong></td>
+<td>Returns the minimum distance between two geometries</td>
 </tr>
 <tr class="odd">
-<td><code>STDDEV()</code></td>
-<td>Returns standard deviation</td>
-</tr>
-<tr class="even">
-<td><code>VARIANCE()</code></td>
-<td>Returns variance</td>
-</tr>
-<tr class="odd">
-<td><code>CORR(a, b)</code></td>
-<td>Correlation between two columns</td>
-</tr>
-<tr class="even">
-<td><code>COVAR(a, b)</code></td>
-<td>Covariance between two columns</td>
+<td><strong>ST_Equals</strong></td>
+<td>Returns <code>TRUE</code> if two geometries are exactly equal</td>
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<p>Example application of <code>COUNT()</code> function to data in <em>visits</em> table:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Count all rows in visits table</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">FROM</span> visits;</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Count unique banch codes</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> branchcode) <span class="kw">FROM</span> visits;</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">-- Count unique branch codes where over 50000 visits have been recorded</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> branchcode) <span class="kw">FROM</span> visits</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> visits <span class="op">&gt;</span> <span class="dv">50000</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Previously we learnt how to JOIN two tables based on a common value using <code>JOIN</code> and <code>ON</code>. To check for spatial relationships, we will use the <code>JOIN</code> clause combined with an ST_ function.</p>
+<p>In the following examples, we return the branchcode for library points within each ward using ST_Contains:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> w.area_name <span class="kw">AS</span> ward_name, l.branchcode <span class="kw">AS</span> branch_code</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> citywards w</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> librarypnts l</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> ST_Contains(w.geom, l.geom);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>So now we can get really fancy and start joining additional data from non-spatial tables. In the following example, the query returns the <em>total visits and circulation for each library branch, grouped by the city ward it is located in, for the year 2023</em>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  w.area_name <span class="kw">AS</span> ward_name,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  l.branchcode <span class="kw">AS</span> branch_code,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">SUM</span>(v.visits) <span class="kw">AS</span> total_visits,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">SUM</span>(c.circulation) <span class="kw">AS</span> total_circulation</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> citywards w</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> librarypnts l</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ON</span> ST_Contains(w.geom, l.geom)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> visits v</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ON</span> l.branchcode <span class="op">=</span> v.branchcode</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> circulation c</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ON</span> v.branchcode <span class="op">=</span> c.branchcode <span class="kw">AND</span> v.<span class="dt">year</span> <span class="op">=</span> c.<span class="dt">year</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> v.<span class="dt">year</span> <span class="op">=</span> <span class="dv">2023</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> w.area_name, l.branchcode</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> ward_name;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/aggregate.png" class="img-fluid figure-img" style="width:30.0%"></p>
-<figcaption>Single value returned from an aggregate function. In this case, 94 branches recorded more than 50000 in any year.</figcaption>
-</figure>
-</div>
-<p><br></p>
-<p>It’s also possible to use the <code>GROUP BY</code> clause to apply aggregate functions to <strong>subsets of your data</strong>. Here, aggregate results are grouped by a shared value.</p>
-<p>For example, the following query sums the number of visits for each library branch code and orders the results alphabetically:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> branchcode, <span class="fu">SUM</span>(visits) <span class="kw">FROM</span> visits</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> branchcode</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> branchcode;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/groupby.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption>Single value returned for each unique branchcode, summing total visits across all years</figcaption>
+<p><img src="img/spatialandnonspatialq.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Output from complex query combining spatial and non-spatial relationships</figcaption>
 </figure>
 </div>
 </section>
-<section id="aliases" class="level2">
-<h2 data-anchor-id="aliases">Aliases</h2>
-<p>It’s possible to create aliases using the <code>AS</code> keyword (though this is actually optional and a space would work just fine, too).</p>
-<p>Aliases let you <strong>rename a field or table</strong> in your query/output, making results easier to read or simplifying references to tables in complex queries. The latter is particularly useful when using queries to create JOINS which we will come to next.</p>
-<p>In the example below we create: • <strong>Column aliases</strong> (branchcode AS branch, visits AS “Total Visits”) • A <strong>table alias</strong> (FROM visits AS v)</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> v.branchcode <span class="kw">AS</span> branch, v.visits <span class="kw">AS</span> <span class="ot">"Total Visits"</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> visits <span class="kw">AS</span> v;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>While the table alias is not necessarily useful in this example, it gives you an idea of the syntax needed for more complex operations such as JOINS. If multiple tables have shared column names, the use of table aliases are important to avoid ambiguity across the tables.</p>
+<section id="constructing-new-geometries" class="level3">
+<h3 data-anchor-id="constructing-new-geometries">Constructing new geometries</h3>
+<p>Lastly, we can use ST_ functions to create new geometries from existing ones.</p>
+<p>For example:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ST_Buffer(geom, distance)</code></td>
+<td>Creates a polygon around the input geometry at the specified distance.</td>
+</tr>
+<tr class="even">
+<td><code>ST_Centroid(geom)</code></td>
+<td>Returns the center point of a geometry.</td>
+</tr>
+<tr class="odd">
+<td><code>ST_Union(geom)</code></td>
+<td>Merges multiple geometries into one (e.g., dissolve boundaries).</td>
+</tr>
+<tr class="even">
+<td><code>ST_Intersection(geomA, geomB)</code></td>
+<td>Returns the geometry of overlapping areas between two input geometries.</td>
+</tr>
+</tbody>
+</table>
+<p>In the case of our data, we may want to create buffers for each library point. Since our data are stored in CRS UTM 17 N, the distance is in metres.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> ST_Buffer(geom, <span class="dv">100</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> librarypnts;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="joins" class="level2">
-<h2 data-anchor-id="joins">JOINS</h2>
-<p>So far we have explored data within a single table. The real power of relational databases comes from the ability to use <code>JOIN</code>s to combine rows of data from multiple tables based on shared values.</p>
-<p>We will keep things relatively simple in this tutorial and focus on two types of <code>JOIN</code>s:</p>
-<ul>
-<li><code>INNER JOIN</code>: Returns records where there is a <strong>matching value in table A and table B</strong>. Rows without a match are excluded from the results</li>
-<li><code>LEFT JOIN</code>: returns <strong>all rows from table A</strong> (this is our left table as stated in the <code>FROM</code> cause) and includes matched data from table B (our right table as stated in the <code>JOIN</code> clause). This includes all rows from Table A in the results and where there’s no match in Table B, this will be shown as NULL</li>
-</ul>
+</section>
+<section id="creating-views-and-tables-from-queries" class="level2">
+<h2 data-anchor-id="creating-views-and-tables-from-queries">Creating Views and Tables from Queries</h2>
+<p>Sometimes we may want to save the results of a spatial query, such as a buffer, either as a <em>view</em> (a virtual table that updates when the underlying data changes) or as a <em>new table</em>.</p>
+<p><strong>A view is a saved SQL query</strong>. It does not store the data itself but references the data in real time, which means any changes to the underlying tables will be reflected in the view.</p>
+<p>We can create a view in the following way:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">VIEW</span> librarybuffers <span class="kw">AS</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span>, ST_Buffer(geom, <span class="dv">800</span>) <span class="kw">AS</span> buffer</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> librarypnts;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And query the data as we would from a table:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> librarybuffers;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Similarly, it’s possible to store the results permanently in a new table. Unlike a VIEW, which dynamically reflects changes in the underlying data, a table created in this way is static.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> librarybuffers <span class="kw">AS</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span>, ST_Buffer(geom, <span class="dv">800</span>) <span class="kw">AS</span> buffer</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> librarypnts;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="fyi" class="level3">
+<h3 data-anchor-id="fyi">FYI!</h3>
+<p>While we have been working with our PostGIS data using PgAdmin, it’s also possible to perform the same queries and functionality from within the QGIS DB Manager:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/joins.png" class="img-fluid figure-img"></p>
-<figcaption>Inner and left table joins</figcaption>
+<p><img src="img/qgisdbmanager.png" class="img-fluid figure-img"></p>
+<figcaption>QGIS DB Manager interface for querying PostGIS data</figcaption>
 </figure>
 </div>
-<p>Now let’s have a go at joining both our library <em>visits</em> and <em>circulation</em> tables. In the following example, both the year and branchcode are used to join the two tables since we want to join the annual circulation value for each branch.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> v.branchcode, v.<span class="dt">year</span>, v.visits, c.circulation</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> visits v</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> circulation c</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ON</span> v.branchcode <span class="op">=</span> c.branchcode</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> v.<span class="dt">year</span> <span class="op">=</span> c.<span class="dt">year</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now that you’ve covered the fundamentals of SQL, you can start to think about how different clauses can come together to build more compex queries.</p>
-<p>In the following example, we sum the total visits and circulation of materials for each branch in the year 2023, helping us identify the busiest libraries based on combined visitation and borrowing activity.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> v.branchcode,</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">SUM</span>(v.visits <span class="op">+</span> c.circulation) <span class="kw">AS</span> total_activity_2023</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> visits v</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> circulation c</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ON</span> v.branchcode <span class="op">=</span> c.branchcode</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> v.<span class="dt">year</span> <span class="op">=</span> c.<span class="dt">year</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> v.<span class="dt">year</span> <span class="op">=</span> <span class="dv">2023</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> v.branchcode</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> total_activity_2023 <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

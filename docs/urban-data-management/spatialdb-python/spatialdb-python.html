@@ -8,7 +8,7 @@
 
 <meta name="author" content="Lindsey Smith">
 
-<title>SQL fundamentals – Urban Data Storytelling 📊📈🏙️</title>
+<title>Accessing PostGIS with Python – Urban Data Storytelling 📊📈🏙️</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="description" content="Notebooks on urban data analysis and visualization">
 <meta name="author" content="School of Cities">
 
-<meta property="og:title" content="SQL fundamentals – Urban Data Storytelling 📊📈🏙️">
+<meta property="og:title" content="Accessing PostGIS with Python – Urban Data Storytelling 📊📈🏙️">
 <meta name="og:description" content="Notebooks on urban data analysis and visualization">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://schoolofcities.github.io/urban-data-storytelling">
@@ -124,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="https://schoolofcities.github.io/urban-data-storytelling">
 <meta name="twitter:creator" content="@UofTCities">
-<meta name="twitter:title" content="SQL fundamentals – Urban Data Storytelling 📊📈🏙️">
+<meta name="twitter:title" content="Accessing PostGIS with Python – Urban Data Storytelling 📊📈🏙️">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/urban-data-storytelling/refs/heads/main/assets/web-card.png">
 
@@ -141,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html">Urban Data Management</a></li><li class="breadcrumb-item"><a href="../../urban-data-management/sql-basics/sql-basics.html">SQL fundamentals</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html">Urban Data Management</a></li><li class="breadcrumb-item"><a href="../../urban-data-management/spatialdb-python/spatialdb-python.html">Accessing PostGIS with Python</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -348,7 +348,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../urban-data-management/sql-basics/sql-basics.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../urban-data-management/sql-basics/sql-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">SQL fundamentals</span></a>
   </div>
 </li>
@@ -360,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../urban-data-management/spatialdb-python/spatialdb-python.html" class="sidebar-item-text sidebar-link">
+  <a href="../../urban-data-management/spatialdb-python/spatialdb-python.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Accessing PostGIS with Python</span></a>
   </div>
 </li>
@@ -376,17 +376,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#note-on-literals" id="toc-note-on-literals" class="nav-link active" data-scroll-target="#note-on-literals">Note on Literals</a></li>
-  <li><a href="#select-statement" id="toc-select-statement" class="nav-link" data-scroll-target="#select-statement">SELECT Statement</a></li>
-  <li><a href="#where-clause" id="toc-where-clause" class="nav-link" data-scroll-target="#where-clause">WHERE Clause</a></li>
-  <li><a href="#aggregate-functions-and-the-group-by-clause" id="toc-aggregate-functions-and-the-group-by-clause" class="nav-link" data-scroll-target="#aggregate-functions-and-the-group-by-clause">Aggregate functions and the GROUP BY Clause</a></li>
-  <li><a href="#aliases" id="toc-aliases" class="nav-link" data-scroll-target="#aliases">Aliases</a></li>
-  <li><a href="#joins" id="toc-joins" class="nav-link" data-scroll-target="#joins">JOINS</a></li>
+  <li><a href="#establish-a-connection-and-access-the-data-from-the-database" id="toc-establish-a-connection-and-access-the-data-from-the-database" class="nav-link active" data-scroll-target="#establish-a-connection-and-access-the-data-from-the-database">1. Establish a connection and access the data from the database</a></li>
+  <li><a href="#store-the-queried-data-in-a-dataframe" id="toc-store-the-queried-data-in-a-dataframe" class="nav-link" data-scroll-target="#store-the-queried-data-in-a-dataframe">2. Store the queried data in a dataframe</a></li>
+  <li><a href="#save-the-geodataframe" id="toc-save-the-geodataframe" class="nav-link" data-scroll-target="#save-the-geodataframe">3. Save the geodataframe</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html">Urban Data Management</a></li><li class="breadcrumb-item"><a href="../../urban-data-management/sql-basics/sql-basics.html">SQL fundamentals</a></li></ol></nav><h1 class="title display-7">SQL fundamentals</h1></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html">Urban Data Management</a></li><li class="breadcrumb-item"><a href="../../urban-data-management/spatialdb-python/spatialdb-python.html">Accessing PostGIS with Python</a></li></ol></nav><h1 class="title display-7">Accessing PostGIS with Python</h1></header>
 
 <header id="title-block-header">
 
@@ -395,238 +392,106 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The <em>Data Manipulation Language (DML)</em> component of SQL is used to interact with and manage the data stored in your tables. These statements form the core of regular SQL tasks and allow you to query, filter, and group your data.</p>
-<p>On this page, we will focus on the following key statements and clauses:</p>
+<p>In this code, the <a href="https://www.psycopg.org/docs/" target="_blank">psycopg2</a> library is used to access spatial and non-spatial data from a PostgreSQL database.</p>
+<p>In order to establish a connection with the database and successfully access data using <strong>psycopg2</strong>, the execution environment of the Python script or Jupyter Notebook must align with the hosting environment of the target database. For example, if the database is hosted locally (e.g., on your machine), ensure that the Python code using psycopg2 is executed within this local environment. I recommend installing and using tools such as <a href="https://docs.anaconda.com/free/navigator/index.html" target="_blank">Anaconda Navigator</a> or <a href="https://jupyter.org/install" target="_blank">Jupyter Labs</a> to maintain this consistency.</p>
+<p>Note that you will not be able to establish a connection with a database on your local machine if working in The University of Toronto’s Jupyter Hub.</p>
 <ul>
-<li>SELECT – to query data from a table
-<ul>
-<li>WHERE – to filter records based on conditions</li>
-<li>ORDER BY – to sort results</li>
-<li>GROUP BY – to group results and apply aggregate functions</li>
-<li>JOIN – to combine rows from two or more tables based on common values in related columns</li>
-</ul></li>
+<li><a href="../../urban-data-management/spatialdb-python/spatialdb-python.html" download="">Here is the link to download this notebook</a></li>
 </ul>
-<p>We won’t cover INSERT, UPDATE and DELETE statements today but you can view the syntax required for these operations by right clicking a table name in pgAdmin 4 and selecting Scripts.</p>
-<section id="note-on-literals" class="level3">
-<h3 data-anchor-id="note-on-literals">Note on Literals</h3>
-<p>Before we start writing SQL statements, it’s important to note that different types of values (literals) require different formatting in order to be interpreted correctly:</p>
-<ul>
-<li><strong>Text</strong> (i.e., string or non-numeric) values must be enclosed in <em>single quotation marks</em></li>
-<li><strong>Numeric values</strong> (e.g., integers, decimals) must <em>not be enclosed in quotation marks</em></li>
-<li><strong>Identifiers</strong> (e.g., table or column names) that contain <strong>spaces</strong> or <strong>special characters</strong>, or are <strong>case-sensitive</strong> should be enclosed in <em>double quotation marks</em></li>
-</ul>
-<p>For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> students(firstname, majorcode, <span class="kw">group</span>, <span class="ot">"Dream Destination"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span> (<span class="st">'David'</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="st">'Spain'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="select-statement" class="level2">
-<h2 data-anchor-id="select-statement">SELECT Statement</h2>
-<p>The <code>SELECT</code> statement is perhaps the most commonly used SQL command. Its purpose is to retrieve and display data from one or more database tables. You can choose to return all fields, or just a subset of specific fields.</p>
-<p>Every <code>SELECT</code> statement must include two mandatory clauses: - <code>SELECT</code> – specifies the <em>fields</em> (columns) you want to retrieve - <code>FROM</code> – specifies the <em>table</em> where the data is coming from</p>
-<p>Access the database created in the Introduction to spatial databases tutorial. <strong>Within PgAdmin 4, open the Query tool</strong>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/querytool.png" class="img-fluid figure-img" style="width:40.0%"></p>
-<figcaption>PgAdmin Query Tool</figcaption>
-</figure>
+<div id="673135b5" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If not already installed</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install psycopg2<span class="op">-</span>binary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We will check our data were imported correctly into the library <em>visits</em> table by executing the following query to retrieve all data.</p>
-<p>Here, <code>*</code> is a wildcard which means ‘everything’. This is the simplest possible query to execute and returns all rows and fields from our data table.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> visits;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We can also specify which fields to return which can be especially useful for tables with a large number of fields.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> branchcode, visits <span class="kw">FROM</span> visits;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Once you’re comfortable retrieving data, you can start refining what you see in the output.</p>
-<p>If your data, for example, has repeated values, the <code>DISTINCT</code> keyword allows you to return a list of <em>unique values</em> from the specified column. Any duplicates are automatically removed in the output.</p>
-<p>For example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> branchcode <span class="kw">FROM</span> visits;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can also control the <em>order</em> of your query results using the <code>ORDER BY</code> clause. By default, values are sorted in ascending (A–Z or lowest to highest) order. It’s also possible to switch to descending order using the <code>DESC</code> keyword, and to sort based on a number of fields.</p>
-<p>For example: Sort in ascending order based on single field</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> visits</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> visits <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>For example: Sort with a mix of ascending/descending based on multiple fields</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> visits</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> branchcode, <span class="dt">year</span> <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/orderbyresults.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption>Query output: Rows sorted alphabetically by branchcode. For each branchcode, rows are ordered to list the most recent year first.</figcaption>
-</figure>
+<div id="5e154ada" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pip install geopandas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>What we’ve covered here is just the beginning of what you can do with <code>SELECT</code>. These basics are intended to get you started, but there’s much more to explore including how to apply simple functions to create <em>derived values</em> (calculated on the fly as a query runs), and how to <em>check for missing data</em> using conditions. A few examples are shown below, but for a broader understanding of the full range of SQL functions and capabilities, you might also consider resources such as <a href="https://www.w3schools.com/sql/default.asp" target="_blank">W3Schools</a> or the <a href="https://www.postgresql.org/docs/current/queries.html" target="_blank">PostgreSQL documentation</a>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Derived values</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> visits <span class="op">*</span> <span class="fl">0.1</span>, <span class="kw">LEFT</span>(branchcode, <span class="dv">1</span>) <span class="kw">FROM</span> visits;</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Checking for missing data</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> visits <span class="kw">WHERE</span> visits <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="where-clause" class="level2">
-<h2 data-anchor-id="where-clause">WHERE Clause</h2>
-<p>Previous examples have returned all rows but often we need to restrict the rows that we receive from the data. The <code>WHERE</code> clause Limits the records included within the results depending on specified criteria. This is similar to the <strong>Select by Attribute</strong> option in ArcGIS Pro.</p>
-<p>The criteria, or <strong>search expression</strong>, is evaluated as TRUE or FALSE for each row. <code>WHERE</code> may be used with a number of search expressions including comparisons, ranges, lists, patterns, and checks for missing values.</p>
-<p>For example:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 46%">
-<col style="width: 36%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Type</th>
-<th>Operators / Keywords</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Comparison</strong></td>
-<td><code>=</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>NOT</code>, <code>AND</code>, <code>OR</code></td>
-<td><code>WHERE visits &gt; 50000</code></td>
-</tr>
-<tr class="even">
-<td><strong>Range</strong></td>
-<td><code>BETWEEN</code>, <code>NOT BETWEEN</code></td>
-<td><code>WHERE year BETWEEN 2018 AND 2020</code></td>
-</tr>
-<tr class="odd">
-<td><strong>Membership</strong></td>
-<td><code>IN</code>, <code>NOT IN</code></td>
-<td><code>WHERE branchcode IN ('MA', 'BE')</code></td>
-</tr>
-<tr class="even">
-<td><strong>Pattern Match</strong></td>
-<td><code>LIKE</code>, <code>NOT LIKE</code></td>
-<td><code>WHERE branchcode LIKE 'H%'</code></td>
-</tr>
-<tr class="odd">
-<td><strong>Null Check</strong></td>
-<td><code>IS NULL</code>, <code>IS NOT NULL</code></td>
-<td><code>WHERE visits IS NOT NULL</code></td>
-</tr>
-</tbody>
-</table>
-<p>Below is an example query that will return all fields from the <em>visits</em> table for records where the branch code <strong>starts with the letter M and the year falls between 2020 to 2023</strong>. Results are ordered by year (most recent first) and then by highest number of visits:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> visits</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> branchcode <span class="kw">LIKE</span> <span class="st">'M%'</span> <span class="kw">AND</span> <span class="dt">year</span> <span class="kw">BETWEEN</span> <span class="dv">2020</span> <span class="kw">AND</span> <span class="dv">2023</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">year</span> <span class="kw">DESC</span>, visits <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now have a go at crafting your own complex search expressions!</p>
-</section>
-<section id="aggregate-functions-and-the-group-by-clause" class="level2">
-<h2 data-anchor-id="aggregate-functions-and-the-group-by-clause">Aggregate functions and the GROUP BY Clause</h2>
-<p>Aggregate functions are useful when you want to <strong>summarize</strong> values in a column, for example, to calculate totals, averages, or counts. These functions return a single result based on a single column and multiple rows.</p>
-<p>Example aggregate functions:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>COUNT()</code></td>
-<td>Counts rows (can include or exclude duplicates)</td>
-</tr>
-<tr class="even">
-<td><code>SUM()</code></td>
-<td>Adds up numeric values</td>
-</tr>
-<tr class="odd">
-<td><code>AVG()</code></td>
-<td>Calculates the average</td>
-</tr>
-<tr class="even">
-<td><code>MAX()</code> / <code>MIN()</code></td>
-<td>Finds the highest or lowest value</td>
-</tr>
-<tr class="odd">
-<td><code>STDDEV()</code></td>
-<td>Returns standard deviation</td>
-</tr>
-<tr class="even">
-<td><code>VARIANCE()</code></td>
-<td>Returns variance</td>
-</tr>
-<tr class="odd">
-<td><code>CORR(a, b)</code></td>
-<td>Correlation between two columns</td>
-</tr>
-<tr class="even">
-<td><code>COVAR(a, b)</code></td>
-<td>Covariance between two columns</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<p>Example application of <code>COUNT()</code> function to data in <em>visits</em> table:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Count all rows in visits table</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">FROM</span> visits;</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Count unique banch codes</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> branchcode) <span class="kw">FROM</span> visits;</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">-- Count unique branch codes where over 50000 visits have been recorded</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span> branchcode) <span class="kw">FROM</span> visits</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> visits <span class="op">&gt;</span> <span class="dv">50000</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/aggregate.png" class="img-fluid figure-img" style="width:30.0%"></p>
-<figcaption>Single value returned from an aggregate function. In this case, 94 branches recorded more than 50000 in any year.</figcaption>
-</figure>
+<div id="cb60fbb0" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import required libraries</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> psycopg2</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd  </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
-<p>It’s also possible to use the <code>GROUP BY</code> clause to apply aggregate functions to <strong>subsets of your data</strong>. Here, aggregate results are grouped by a shared value.</p>
-<p>For example, the following query sums the number of visits for each library branch code and orders the results alphabetically:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> branchcode, <span class="fu">SUM</span>(visits) <span class="kw">FROM</span> visits</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> branchcode</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> branchcode;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/groupby.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption>Single value returned for each unique branchcode, summing total visits across all years</figcaption>
-</figure>
+<section id="establish-a-connection-and-access-the-data-from-the-database" class="level3">
+<h3 data-anchor-id="establish-a-connection-and-access-the-data-from-the-database">1. Establish a connection and access the data from the database</h3>
+<div id="d1b9d74f" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create variables for database connection parameters</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dbname <span class="op">=</span> <span class="st">"libraries"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>user <span class="op">=</span> <span class="st">"postgres"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#password = ""</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>host <span class="op">=</span> <span class="st">"localhost"</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>port <span class="op">=</span> <span class="st">"5432"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="78021d4b-244d-4a4a-8adf-e239d4c273de" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Establish a connection to the database</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Add paramter password=password if needed</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>conn <span class="op">=</span> psycopg2.<span class="ex">connect</span>(dbname<span class="op">=</span>dbname, user<span class="op">=</span>user, host<span class="op">=</span>host, port<span class="op">=</span>port)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="9f9599d8-c201-4526-85c5-a9241348ed75" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a cursor object to interact with the database</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>cur <span class="op">=</span> conn.cursor()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="2b99c2e1-351e-4608-9240-7efc7b8a1fde" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example query: get library names and ST_AsText of their geometries</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT branchcode, ST_AsText(geom) AS geom_wkt</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="st">FROM librarypnts</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="st">LIMIT 5;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the query</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>cur.execute(query)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch the results and store in a new variable</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> cur.fetchall()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="94e116e6-0e58-4799-9798-fe49bd4d2d36" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a quick look at the results</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> results:</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="aliases" class="level2">
-<h2 data-anchor-id="aliases">Aliases</h2>
-<p>It’s possible to create aliases using the <code>AS</code> keyword (though this is actually optional and a space would work just fine, too).</p>
-<p>Aliases let you <strong>rename a field or table</strong> in your query/output, making results easier to read or simplifying references to tables in complex queries. The latter is particularly useful when using queries to create JOINS which we will come to next.</p>
-<p>In the example below we create: • <strong>Column aliases</strong> (branchcode AS branch, visits AS “Total Visits”) • A <strong>table alias</strong> (FROM visits AS v)</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> v.branchcode <span class="kw">AS</span> branch, v.visits <span class="kw">AS</span> <span class="ot">"Total Visits"</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> visits <span class="kw">AS</span> v;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>While the table alias is not necessarily useful in this example, it gives you an idea of the syntax needed for more complex operations such as JOINS. If multiple tables have shared column names, the use of table aliases are important to avoid ambiguity across the tables.</p>
-</section>
-<section id="joins" class="level2">
-<h2 data-anchor-id="joins">JOINS</h2>
-<p>So far we have explored data within a single table. The real power of relational databases comes from the ability to use <code>JOIN</code>s to combine rows of data from multiple tables based on shared values.</p>
-<p>We will keep things relatively simple in this tutorial and focus on two types of <code>JOIN</code>s:</p>
-<ul>
-<li><code>INNER JOIN</code>: Returns records where there is a <strong>matching value in table A and table B</strong>. Rows without a match are excluded from the results</li>
-<li><code>LEFT JOIN</code>: returns <strong>all rows from table A</strong> (this is our left table as stated in the <code>FROM</code> cause) and includes matched data from table B (our right table as stated in the <code>JOIN</code> clause). This includes all rows from Table A in the results and where there’s no match in Table B, this will be shown as NULL</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/joins.png" class="img-fluid figure-img"></p>
-<figcaption>Inner and left table joins</figcaption>
-</figure>
+<section id="store-the-queried-data-in-a-dataframe" class="level3">
+<h3 data-anchor-id="store-the-queried-data-in-a-dataframe">2. Store the queried data in a dataframe</h3>
+<p>For further analysis, it’s helpful to store data in a dataframe. If the data are non-spatial, a <a href="https://pandas.pydata.org/docs/reference/frame.html" target="_blank">pandas dataframe</a> is appropriate, but if the data include a geometry field then a <a href="https://geopandas.org/en/stable/docs/reference/geodataframe.html" target="_blank">geopandas dataframe</a> must be used.</p>
+<div id="f6116826" class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Store non-spatial data in pandas dataframe</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract column names from the cursor description (cur.description) and store them in a list </span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>column_names <span class="op">=</span> [desc[<span class="dv">0</span>] <span class="cf">for</span> desc <span class="kw">in</span> cur.description]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a pandas DataFrame with the fetched results and column names</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(results, columns<span class="op">=</span>column_names)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># View the dataframe</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now let’s have a go at joining both our library <em>visits</em> and <em>circulation</em> tables. In the following example, both the year and branchcode are used to join the two tables since we want to join the annual circulation value for each branch.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> v.branchcode, v.<span class="dt">year</span>, v.visits, c.circulation</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> visits v</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> circulation c</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ON</span> v.branchcode <span class="op">=</span> c.branchcode</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> v.<span class="dt">year</span> <span class="op">=</span> c.<span class="dt">year</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now that you’ve covered the fundamentals of SQL, you can start to think about how different clauses can come together to build more compex queries.</p>
-<p>In the following example, we sum the total visits and circulation of materials for each branch in the year 2023, helping us identify the busiest libraries based on combined visitation and borrowing activity.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> v.branchcode,</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">SUM</span>(v.visits <span class="op">+</span> c.circulation) <span class="kw">AS</span> total_activity_2023</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> visits v</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> circulation c</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ON</span> v.branchcode <span class="op">=</span> c.branchcode</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> v.<span class="dt">year</span> <span class="op">=</span> c.<span class="dt">year</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> v.<span class="dt">year</span> <span class="op">=</span> <span class="dv">2023</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> v.branchcode</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> total_activity_2023 <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that if you store a geometry field within a pandas dataframe, the data type of the field (accessible using df.dtype) will be an <strong>object</strong> for storing strings (text values).</p>
+<p>In order to store spatial data in a geopandas dataframe, data can be converted from WKB or WKT into a format compatible with geopandas. To check whether data are in WKB or WKT, look at the values in the geometry field in the pandas dataframe above.</p>
+<p>WKB is a binary format representing geometry data as a sequence of hexadecimal values (e.g., 0101000000…) WKT data often starts with a specific geometry type, such as POINT, LINESTRING, POLYGON, etc., followed by the coordinates that define the geometry (e.g., POINT (30 10))</p>
+<div id="4c548f28" class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Store spatial data in geopandas dataframe</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert geometry data into a format compatible with geopandas (e.g., WKB or WKT. Adjust depending on your data)</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'geometry'</span>] <span class="op">=</span> gpd.GeoSeries.from_wkt(df[<span class="st">'geom_wkt'</span>])</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new geodpandas dataframe from the pandas dataframe, specifying the geometry column</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> gpd.GeoDataFrame(df, geometry<span class="op">=</span><span class="st">'geometry'</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># View the geodataframe with additional new field 'geometry'</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>gdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="156e0b75-81bf-4829-8fa4-e1f1ab74010d" class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's take a quick look at those points</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>gdf.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="save-the-geodataframe" class="level3">
+<h3 data-anchor-id="save-the-geodataframe">3. Save the geodataframe</h3>
+<p>If you plan to access the queried data from another notebook, you may wish to save the data as a shapefile for future use.</p>
+<div id="85747d74" class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save geodataframe to shapefile</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>gdf.to_file(<span class="st">'output.shp'</span>) <span class="co"># stored in same folder as python notebook</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>

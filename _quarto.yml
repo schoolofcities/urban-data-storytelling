@@ -50,6 +50,8 @@ website:
         contents:
           - urban-data-management/intro-to-spatialdb/intro-to-spatialdb.md
           - urban-data-management/sql-basics/sql-basics.md
+          - urban-data-management/spatialdb-postgis/spatialdb-postgis.md
+          - urban-data-management/spatialdb-python/spatialdb-python.ipynb
 
 format:
   html:
