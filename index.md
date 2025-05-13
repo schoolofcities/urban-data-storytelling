@@ -14,9 +14,11 @@ This online textbook has several core modules, each composed of one or more note
 - Urban data analysis
 - Urban data visualization
 
+Note that this is a *living textbook* - we will likely be updating and adding new sections to it in the near future.
+
+
 ![Framework for data storytelling](assets/uds-framework-diagram.png)
 
-This is a 'living' textbook - we will likely be updating and adding new sections to it in the near future.
 
 
 ## Contributors and citing
