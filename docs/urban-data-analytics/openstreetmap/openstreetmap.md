@@ -3,6 +3,11 @@ title: "OpenStreetMap"
 author: "Nate Wessel"
 ---
 
+[📥 Click here to download this document and any associated data and images](/downloads/openstreetmap.zip)
+
+<br>
+
+
 This notebook is meant to introduce the reader to OpenStreetMap - what it is, how to use it, and when and why you might want to. This is written for an audience that has some familiarity with spatial data and its applications.
 
 
@@ -19,6 +24,7 @@ You might think of it as Wikipedia, if Wikipedia were a map instead of a written
 This openness has led to a huge number of applications based on OSM, ranging from large companies offering maps or navigation services, to many thousands of smaller projects started by software developers, activists, academics, and hobbyists.
 
 At the technical level, OSM is just a big spatial database run by the OpenStreetMap Foundation. It sits on a server somewhere and people access it over the web to make edits and download data. But OSM is also a community and a practice. Decisions about how it runs and what gets mapped are largely decentralized, and often local.
+
 
 ## What's on the map?
 

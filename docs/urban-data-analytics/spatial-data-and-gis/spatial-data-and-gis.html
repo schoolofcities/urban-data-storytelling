@@ -73,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f0889954e944715e6573538586b573ff.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6fbcbd56e20030bb8c94bdea314e40aa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -406,6 +406,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p><a href="../../downloads/spatial-data-and-gis.zip" target="_blank">📥 Click here to download this document and any associated data and images</a></p>
+<p><br></p>
 <p>A lot of urban datasets are directly linked to specific places, e.g.&nbsp;addresses, streets, neighbourhoods, political or administrative boundaries, etc.</p>
 <p>Data that include place-based information are often called <em>spatial</em>, <em>geographic</em>, or <em>geospatial</em> data <em>Geographic Information Systems (GIS)</em> are tools and software for analyzing, processing, and visualizing spatial data.</p>
 <p>This page will cover the basics of spatial data and how we can view and interact with these data in the software <a href="https://qgis.org" target="_blank">QGIS</a>. You will need to download QGIS to work on the hands-on part of this tutorial. We recommend the Long-Term Release (LTR) version.</p>
@@ -484,12 +486,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>GIS is often thought of as more than just a tool or piece of software. It can refer to all aspects of managing and analyzing digital spatially referenced data.</p>
 <p>The power of GIS software and tools is the ability to work with data stored in different layers (e.g.&nbsp;a layer for roads, another for buildings, and so on) in conjunction with each other. These layers can be visualized and analyzed relative to each other based on their spatial relationships.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/layer-example.jpeg" class="img-fluid figure-img"></p>
-<figcaption>Simple AI generated schematic of layers</figcaption>
-</figure>
-</div>
 <p>GIS software usually links to data stored elsewhere on a computer, rather than in a project file. If the source location of the data (i.e.&nbsp;which folder it’s in) changes, then this will have to be updated in the GIS project. If data are edited in GIS, it will update the data in its source location.</p>
 <p>The open-source QGIS and the proprietary ESRI ArcGIS are the two most used desktop GIS software. ESRI’s suite of tools are often used by larger corporate and government organizations while QGIS is often used by small consultants and freelancers, non-profits, and academia. Many spatial data processing, visualization, and analyses steps also have equivalents in <code>Python</code>, <code>R</code>, <code>SQL</code> and other programming languages via specific libraries</p>
 <p>We’ll be working with QGIS and Python, because they free and work across multiple operating systems, and are commonly used across different areas of work and research. But pretty much everything we’ll show can be accomplished across different software options, the buttons and steps will just be a bit different.</p>
@@ -559,9 +555,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Let’s now add some vector data to the map. We’ve pre-downloaded two datasets from the <a href="https://open.toronto.ca/" target="_blank">City of Toronto’s Open Data Portal</a></p>
 <ul>
-<li><a href="./data/city-wards.geojson" target="_blank">City Wards (polygons)</a></li>
-<li><a href="./data/toronto-libraries-2023.geojson" target="_blank">Library Locations (points)</a></li>
+<li>City Wards (polygons)</li>
+<li>Library Locations (points)</li>
 </ul>
+<p><a href="../../downloads/spatial-data-and-gis.zip" target="_blank">Click here to download this data</a></p>
 <p>These can be added via the <strong>Data Source Manager</strong> - <strong>Vector</strong>, or simply via drag-and-drop from the folder of where they are located on your computer.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">

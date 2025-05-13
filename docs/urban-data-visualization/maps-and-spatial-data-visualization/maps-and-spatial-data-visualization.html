@@ -39,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f0889954e944715e6573538586b573ff.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6fbcbd56e20030bb8c94bdea314e40aa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -375,6 +375,8 @@ ul.task-list li input[type="checkbox"] {
 
 <p><br></p>
 <p><img src="img/maps-mini-examples.png" class="img-fluid"></p>
+<p><strong><a href="../../downloads/maps-and-spatial-data-visualization.zip" target="_blank">📥 Click here to download this document and any associated data and images</a></strong></p>
+<p><br></p>
 <section id="overview" class="level2">
 <h2 data-anchor-id="overview">Overview</h2>
 <p>Maps and spatial data visualizations can either be created at the research stage when we are trying to uncover patterns in the data, or as polished communication visuals, when we want to convey patterns in the data to our intended audience.</p>
@@ -528,11 +530,12 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-anchor-id="styling-categorical-data">Styling categorical data</h3>
 <p>For the first example, let’s try to create a map of public washrooms in Toronto in QGIS, using some categorical based styling - where different categories or groups are styled with different colours or symbols.</p>
 <ul>
-<li><a href="./data/Washroom Facilities - 4326.geojson" target="_blank">Washroom facilities</a> (a point dataset of public washroom facilities in Toronto)</li>
-<li><a href="./data/Centreline - Version 2 - 4326.gpkg" target="_blank">Centrelines</a> (a line dataset representing a mix of features like streets, railways, power lines, rivers, etc. in Toronto)</li>
-<li><a href="./data/Green Spaces - 4326.gpkg" target="_blank">Green space</a> (a polygon dataset of green spaces and public parks in Toronto)</li>
-<li><a href="./data/ontario.geojson" target="_blank">Lake Ontario</a> (a polygon of Lake Ontario)</li>
+<li>Washroom facilities (a point dataset of public washroom facilities in Toronto)</li>
+<li>Centrelines (a line dataset representing a mix of features like streets, railways, power lines, rivers, etc. in Toronto)</li>
+<li>Green space (a polygon dataset of green spaces and public parks in Toronto)</li>
+<li>Lake Ontario (a polygon of Lake Ontario)</li>
 </ul>
+<p><strong><a href="../../downloads/maps-and-spatial-data-visualization.zip" target="_blank">📥 Click here to download this data</a></strong></p>
 <p>(All of this data is from the <a href="https://open.toronto.ca/catalogue/" target="_blank">City of Toronto</a>, except for the Lake Ontario polygon, which is from <a href="https://www.openstreetmap.org/relation/1206310" target="_blank">OpenStreetMap</a>)</p>
 <p>Load the data into QGIS and re-order the layers such that the washroom locations are at the top. For our map, the washrooms are the key data we want to show (i.e.&nbsp;the foreground), while the others are visual reference (i.e.&nbsp;the background).</p>
 <p>After loading in the data, right click on each of the layers and then click <strong>Open Attribute Table</strong> to view the what data is linked to each feature.</p>

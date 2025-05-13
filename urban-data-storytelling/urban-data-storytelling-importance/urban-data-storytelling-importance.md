@@ -3,6 +3,10 @@ title: "The importance of urban data storytelling"
 author: "Karen Chapple, Evelyne St-Louis, Michelle Zhang"
 ---
 
+[📥 Click here to download this document and any associated data and images](/downloads/urban-data-storytelling-importance.zip)
+
+<br>
+
 This page covers 1) an overview of data storytelling, 2) elements of a good data story, and 3) examples of effective data stories. 
 
 ![Framework for data storytelling](img/Urban%20Data%20Storytelling%20Definition%20Diagram.png)

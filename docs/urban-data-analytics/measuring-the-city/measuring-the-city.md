@@ -3,6 +3,13 @@ title: "Measuring the city: metrics and indicators"
 author: "Karen Chapple, Julia Greenberg, Jeff Allen"
 ---
 
+
+[📥 Click here to download this document and any associated data and images](/downloads/measuring-the-city.zip)
+
+<br>
+
+
+
 This page covers 1) common metrics and indicators used in urban analysis, 2) spatial units and measures of aggregation often used for urban analysis, and 3) limitations and biases for working with urban datasets to keep in mind when working with urban data.
 
 

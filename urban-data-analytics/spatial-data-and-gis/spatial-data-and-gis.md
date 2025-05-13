@@ -3,6 +3,12 @@ title: "Spatial data and GIS"
 author: "Jeff Allen"
 ---
 
+
+[📥 Click here to download this document and any associated data and images](/downloads/spatial-data-and-gis.zip)
+
+<br>
+
+
 A lot of urban datasets are directly linked to specific places, e.g. addresses, streets, neighbourhoods, political or administrative boundaries, etc.
 
 Data that include place-based information are often called *spatial*, *geographic*, or *geospatial* data *Geographic Information Systems (GIS)* are tools and software for analyzing, processing, and visualizing spatial data.
@@ -88,8 +94,6 @@ GIS is often thought of as more than just a tool or piece of software. It can re
 
 The power of GIS software and tools is the ability to work with data stored in different layers (e.g. a layer for roads, another for buildings, and so on) in conjunction with each other. These layers can be visualized and analyzed relative to each other based on their spatial relationships.
 
-![Simple AI generated schematic of layers](img/layer-example.jpeg)
-
 GIS software usually links to data stored elsewhere on a computer, rather than in a project file. If the source location of the data (i.e. which folder it's in) changes, then this will have to be updated in the GIS project. If data are edited in GIS, it will update the data in its source location.
 
 The open-source QGIS and the proprietary ESRI ArcGIS are the two most used desktop GIS software. ESRI's suite of tools are often used by larger corporate and government organizations while QGIS is often used by small consultants and freelancers, non-profits, and academia. Many spatial data processing, visualization, and analyses steps also have equivalents in `Python`, `R`, `SQL` and other programming languages via specific libraries
@@ -158,8 +162,10 @@ When you click 'Add' it should be added to the map. You can use the navigation b
 
 Let's now add some vector data to the map. We've pre-downloaded two datasets from the [City of Toronto's Open Data Portal](https://open.toronto.ca/)
 
-- [City Wards (polygons)](./data/city-wards.geojson)
-- [Library Locations (points)](./data/toronto-libraries-2023.geojson)
+- City Wards (polygons)
+- Library Locations (points)
+
+[Click here to download this data](/downloads/spatial-data-and-gis.zip)
 
 These can be added via the **Data Source Manager** - **Vector**, or simply via drag-and-drop from the folder of where they are located on your computer.
 

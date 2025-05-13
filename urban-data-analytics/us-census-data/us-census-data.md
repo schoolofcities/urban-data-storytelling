@@ -3,6 +3,10 @@ title: "Overview of U.S. census data"
 author: "Evelyne St-Louis"
 ---
 
+**[📥 Click here to download this document and any associated data and images](/downloads/us-census-data.zip)**
+
+<br>
+
 In the U.S., the U.S. Census Bureau is responsible for conducting the [census](https://www.census.gov/programs-surveys/acs/about/acs-and-census.html#:~:text=The%20American%20Community%20Survey%20provides,entire%20U.S.%20population%20to%20Congress.) every ten years. The last decennial census was conducted in 2020. The census is intended to count every person in the U.S. and U.S. territories. It covers a relatively short set of questions, including basic demographic information such as age, sex, race, Hispanic origin, and owner/renter status. 
 
 The Census Bureau also conducts additional surveys and programs. One of the most commonly used is the [American Community Survey (ACS)](https://www.census.gov/programs-surveys/acs/about.html), which is an annual demographics survey that covers a much wider range of questions typically not included in the full census, such as education, employment, internet access, or transportation. It is important to remember that the ACS is sent to a sample of about 3.5 million household addresses every year. As such, the ACS is reported in estimates for different time periods, most typically 1-year, 3-year, and 5-year periods. For example, you can use the 2013-2018 5-year ACS estimates to describe demographic characteristics for 2018. 

@@ -73,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f0889954e944715e6573538586b573ff.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6fbcbd56e20030bb8c94bdea314e40aa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -394,17 +394,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p><strong><a href="../../downloads/flow-maps.zip" target="_blank">📥 Click here to download this document and any associated data and images</a></strong></p>
+<p><br></p>
 <p>Flow maps are one such way that we can visualize connections and travel between different sets of locations.</p>
 <p>In the example below, we are mapping travel to hospitals in Calgary. Each line represents a single trip from someone’s home neighbourhood to a hospital, visualized with a very faint transparency, but when overlaid on top of each other, they highlight overall patterns of visits to these five hospitals.</p>
 <p>Charts like these are sometimes called hub-and-spoke maps or spider diagrams. In the tutorial that follows, we will learn about the data structures behind these maps and how to visualize them, specifically replicating this example.</p>
 <p><img src="images/calgary-hospital-map-multipes-python-export.png" class="img-fluid"></p>
 <section id="prerequisites" class="level2">
 <h2 data-anchor-id="prerequisites">Prerequisites</h2>
-<p>Prior knowledge of <code>pandas</code>, <code>geopandas</code>, QGIS, and Inkscape (or similar graphic design software) would be helpful for the following tutorial. Here are the links to download this notebook and data.</p>
-<ul>
-<li><a href="../../urban-data-visualization/flow-maps/flow-maps.html" target="_blank">Jupyter notebook</a></li>
-<li><a href="./data.zip" target="_blank">Datasets</a></li>
-</ul>
+<p>Prior knowledge of <code>pandas</code>, <code>geopandas</code>, QGIS, and Inkscape (or similar graphic design software) would be helpful for the following tutorial.</p>
+<p><strong><a href="../../downloads/flow-maps.zip" target="_blank">📥 Click here to download this notebook and data</a></strong></p>
 <p>If you are running the notebook and/or script locally (generally recommended), you will need to use the following libraries. You’ll have to install them (e.g.&nbsp;via <code>pip</code> or <code>conda</code>) if you do not have them installed already.</p>
 <div id="71a56f71-3ad2-4ba7-9dbc-2ef16673346a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>

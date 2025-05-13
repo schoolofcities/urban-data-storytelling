@@ -3,6 +3,10 @@ title: "Choropleth maps"
 author: "Jeff Allen"
 ---
 
+**[📥 Click here to download this document and any associated data and images](/downloads/choropleth-maps.zip)**
+
+<br>
+
 
 Choropleth maps use color to show how a variable changes across geographic areas — perfect for spotting patterns, trends, and regional differences at a glance. These are one of the most common types of thematic maps.
 
@@ -95,7 +99,7 @@ If we choose to bin or group our numeric data, we have a further set of choices 
 
 ## Choropleth maps in QGIS
 
-[Click here to download the data for this section](data.zip)
+**[📥 Click here to download data for this tutorial](/downloads/choropleth-maps.zip)**
 
 
 

@@ -3,6 +3,11 @@ title: "Overview of Canadian census data"
 author: "Jeff Allen"
 ---
 
+[📥 Click here to download this document and any associated data and images](/downloads/canadian-census-data.zip)
+
+<br>
+
+
 National censuses, like the Canadian and U.S. censuses, are very common data sources analyzing demographic and socio-economic data pertaining to specific places.
 
 [Statistics Canada](https://www12.statcan.gc.ca/census-recensement/index-eng.cfm) conducts a national census of the population every five years, asking a range of demographic and socio-economic questions. The results paint a demographic portrait of the country at the time period the census was conducted.

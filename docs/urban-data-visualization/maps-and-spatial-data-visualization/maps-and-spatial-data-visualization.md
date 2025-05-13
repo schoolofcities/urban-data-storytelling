@@ -8,6 +8,10 @@ author: "Jeff Allen"
 ![](img/maps-mini-examples.png)
 
 
+**[📥 Click here to download this document and any associated data and images](/downloads/maps-and-spatial-data-visualization.zip)**
+
+<br>
+
 ## Overview
 
 Maps and spatial data visualizations can either be created at the research stage when we are trying to uncover patterns in the data, or as polished communication visuals, when we want to convey patterns in the data to our intended audience.
@@ -182,10 +186,13 @@ Let's look at a couple examples in QGIS! (If you haven't worked with QGIS before
 
 For the first example, let's try to create a map of public washrooms in Toronto in QGIS, using some categorical based styling - where different categories or groups are styled with different colours or symbols.
 
-- [Washroom facilities](./data/Washroom%20Facilities%20-%204326.geojson) (a point dataset of public washroom facilities in Toronto)
-- [Centrelines](./data/Centreline%20-%20Version%202%20-%204326.gpkg) (a line dataset representing a mix of features like streets, railways, power lines, rivers, etc. in Toronto)
-- [Green space](./data/Green%20Spaces%20-%204326.gpkg) (a polygon dataset of green spaces and public parks in Toronto)
-- [Lake Ontario](./data/ontario.geojson) (a polygon of Lake Ontario)
+- Washroom facilities (a point dataset of public washroom facilities in Toronto)
+- Centrelines (a line dataset representing a mix of features like streets, railways, power lines, rivers, etc. in Toronto)
+- Green space (a polygon dataset of green spaces and public parks in Toronto)
+- Lake Ontario (a polygon of Lake Ontario)
+
+**[📥 Click here to download this data](/downloads/maps-and-spatial-data-visualization.zip)**
+
 
 (All of this data is from the [City of Toronto](https://open.toronto.ca/catalogue/), except for the Lake Ontario polygon, which is from [OpenStreetMap](https://www.openstreetmap.org/relation/1206310))
 

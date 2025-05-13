@@ -3,6 +3,10 @@ title: "Introduction to urban data"
 author: "Karen Chapple, Julia Greenberg, Jeff Allen"
 ---
 
+[📥 Click here to download this document and any associated data and images](/downloads/what-and-where-of-data.zip)
+
+<br>
+
 <br>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe 
@@ -145,6 +149,21 @@ When choosing which software to use to analyze or visualize data, one of the mai
 Spreadsheet software, like [Excel](https://www.microsoft.com/en-us/microsoft-365/excel), [Google Sheets](https://workspace.google.com/products/sheets/), and [LibreOffice calc](https://www.libreoffice.org/discover/calc/), can be great for viewing and exploring data and doing quick analyses. However, they can be very limited for serious data analysis. They struggle with large datasets, lack robust tools for cleaning and transforming complex data, have very limited options for spatial/geographic data, and make reproducibility nearly impossible. Plus, it's easy to introduce silent errors with formulas or copy-pasting. For anything beyond basic summaries or charts, scripting languages like `R` or `Python` are far more powerful, reliable, and scalable.
 
 Geographic information systems (GIS) are tools and software specifically designed for analyzing, processing, and visualizing spatial data. There are desktop point-and-click software like [QGIS](https://qgis.org/) that are great for exploratory and smaller-scale analyses and visualization, and programming languages like `Python` have many libraries for working with spatial data.
+
+There are also a number of online mapping, data analytics, and visualization tools operated by private companies and used by a variety of organizations. These are a few that can be used to create great products. H
+
+- ArcGIS (Online, Pro, etc.)
+- ArcGIS Story Maps
+- CARTO
+- Datawrapper
+- Felt
+- Google Maps API
+- Google Earth
+- Mapbox
+- Observable
+- Tableau
+
+However, many of these require expensive software licenses and/or have tiered pricing models often based on number of projects, services offered, upload limits, or page views. Some have free tiers.
 
 In this course, other than common spreadsheet software, we will focus on *open source* software because it is free and available to everyone. Below is a list of some of the main open source programming languages, software, and tools that we recommend using for data analysis and mapping.
 

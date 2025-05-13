@@ -3,6 +3,10 @@ title: "Web map development"
 author: "Lindsey Smith"
 ---
 
+**[📥 Click here to download this document and any associated data and images](/downloads/webmaps.zip)**
+
+<br>
+
 Web maps are great for allowing users to explore and interact with spatial data on their own terms. They are openly accessible, eliminating the need for specialised software during development and GIS expertise for interpretation.
 
 In this tutorial, you will learn basic web programming and web map development using the [MapLibre GL JS library](https://maplibre.org/maplibre-gl-js/docs/).
