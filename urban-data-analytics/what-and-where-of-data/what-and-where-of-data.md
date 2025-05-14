@@ -150,22 +150,22 @@ Spreadsheet software, like [Excel](https://www.microsoft.com/en-us/microsoft-365
 
 Geographic information systems (GIS) are tools and software specifically designed for analyzing, processing, and visualizing spatial data. There are desktop point-and-click software like [QGIS](https://qgis.org/) that are great for exploratory and smaller-scale analyses and visualization, and programming languages like `Python` have many libraries for working with spatial data.
 
-There are also a number of online mapping, data analytics, and visualization tools operated by private companies and used by a variety of organizations. These are a few that can be used to create great products. H
+There are also a number of mapping, data analytics, and visualization tools developed by private companies and used by a variety of organizations. These are a few that can be used for analysis and create great products.
 
-- ArcGIS (Online, Pro, etc.)
-- ArcGIS Story Maps
-- CARTO
-- Datawrapper
-- Felt
-- Google Maps API
-- Google Earth
-- Mapbox
-- Observable
-- Tableau
+- [ArcGIS (Online, Pro, etc.)](https://www.esri.com/en-us/arcgis/geospatial-platform/overview)
+- [ArcGIS Story Maps](https://storymaps.arcgis.com/)
+- [CARTO](https://carto.com/)
+- [Datawrapper](https://www.datawrapper.de/)
+- [Felt](https://felt.com/  )
+- [Google Maps API](https://mapsplatform.google.com/lp/maps-apis/)
+- [Google Earth](https://earth.google.com/web/)
+- [Mapbox](https://www.mapbox.com/)
+- [Observable](https://observablehq.com/)
+- [Tableau](https://www.tableau.com/)
 
 However, many of these require expensive software licenses and/or have tiered pricing models often based on number of projects, services offered, upload limits, or page views. Some have free tiers.
 
-In this course, other than common spreadsheet software, we will focus on *open source* software because it is free and available to everyone. Below is a list of some of the main open source programming languages, software, and tools that we recommend using for data analysis and mapping.
+In this textbook, other than common spreadsheet software, we will focus on *open source* software because it is free and available to everyone. Below is a list of some of the main open source programming languages, software, and tools that we recommend using for data analysis and mapping.
 
 | Purpose | Software/Tools |
 |--------------|------------|
