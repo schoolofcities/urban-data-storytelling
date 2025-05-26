@@ -83,13 +83,53 @@ One issue to be aware of is that census boundaries can change over time each tim
 
 ## Making maps with CensusMapper
 
-[CensusMapper](https://censusmapper.ca/) is a website for exploring and downloading census data across Canada. When we first land on the website, it defaults to a map of Population Density in Vancouver and it shares a number of preset options for making maps.
+[CensusMapper](https://censusmapper.ca/) is a website for exploring and downloading census data across Canada. When we first land on the website, it defaults to a map of population density in Vancouver and shares a number of preset options for making maps.
 
-If we want to search for a specific census variable, we can click **Make a Map** in the top right, and then select the year (e.g. 2021). Here we can search and explore all available data. By using the search icon at the top-left to search for a specific geography, or by clicking the inset Canada map (top right of the map), we can navigate elsewhere in the country. Just through a few clicks, I was able to create this map of knowledge of Portuguese in Toronto. Try making your own map!
+![Default view of Census Mapper](img/censusmapper_default.png)
 
-![Portuguese in Toronto on CensusMapper](img/portuguese-toronto.png)
+### Make a quick map
 
-We can also use CensusMapper to download census data for specified geographic boundaries. To do so, click on **API** on the top right. First select the census year. Variable Selection is used for searching for and selecting the variables (i.e. attribute data such as knowledge of a particular language) to download. Region Selection is the geographic area that we want download data for (e.g. for Toronto). In the Overview panel, we can view what we've selected as well as pick the geographic aggregation level (e.g. Census Tracts, Dissemination Areas, etc.). Once selected, we can then download the attribute table and/or geographic boundaries. 
+If we want to search for a specific census variable, we can click **Make a Map** at the top right of the screen, and then select the year (e.g. 2021):
+
+![Making a map in Census Mapper](img/censusmapper_startmap.png)
+
+Here we can search and explore all available data. By using the search icon at the top-left to search for a specific geography, or by clicking the inset Canada map (top right of the map), we can navigate elsewhere in the country. For example, let's type "Toronto" in the search bar to change from Vancouver to Toronto:
+
+![Changing geographies in Census Mapper](img/censusmapper_toronto.png){width=80%}
+
+Now let's pick a variable from the "Available Data" list to map. Here we'll select "Average age", but click around to see which other variables are available.
+
+![Mapping average age in Toronto in Census Mapper](img/censusmapper_avg_age.png)
+
+To determine what geographic scale of aggregation is being mapped, click on one of the polygons in the map and see what the pop-up says:
+
+![Determining geographic scale in Census Mapper](img/censusmapper_da.png){width=60%}
+
+This pop-up lists the identification number of the "DA", which is a dissemination area. The dissemination area is one of the smallest levels of geographic aggregation available through the Census. See this Census [hierarchy](https://www150.statcan.gc.ca/n1/pub/92-195-x/2011001/other-autre/hierarch/h-eng.htm) of geographic units to understand how they relate to each other.
+
+### Download Census data
+
+We can also use CensusMapper to download census data for specified geographic boundaries. To do so, click on **API** at the top right. An [API](https://en.wikipedia.org/wiki/API), or "application programming interface", is a connection between computers or programs and is often used to download data from online sources. To use the API, you'll need to create a (free) account and log in. Do this by clicking "Log in" at the top right.
+
+![Using the Census Mapper API](img/censusmapper_login.png){width=80%}
+
+After logging into your account, select a year you want to download data for and click on the "Overview" tab. It should look like this:
+
+![Census Mapper overview tab](img/censusmapper_overview.png){width=80%}
+
+To select the variable(s) you want to download, click on the "Variable Selection" tab. Navigate to the variable(s) of interest and click on the variable code, which is typically a green, blue or pink box. For example, let's select "Population percentage change, 2016 to 2021" (v_CA21_3) and "Total - Age (Male)" (v_CA21_9). Note the "21" in the variable codes, which represents the data year. This would change to "v_CA16_" for 2016 data.
+
+![Selecting variables to download in Census Mapper](img/censusmapper_vars.png){width=60%}
+
+To select the region you want to download data for, zoom to the appropriate geographic level on the map using the "+" and "-" buttons at the top left of the map and click on the region. For example, to download data for the entire city of Toronto, zoom out until the outline of the city boundary is visible and click on it.
+
+To see our selections of region and variable(s), go back to the "Overview" tab. The variable(s) you selected should be listed in the "Selected Variables" section, and the region you selected (the city of Toronto) should still be highlighted on the map as well as listed in the "Selected Regions" section. Take note of the year that's selected at the top right of the screen; this is the year you will download the data for.
+
+![Region and variables selected in Census Mapper](img/censusmapper_final.png)
+
+When you're ready to download the data, click on the geographic unit you want (again, see this explanation of the Census [hierarchy](https://www150.statcan.gc.ca/n1/pub/92-195-x/2011001/other-autre/hierarch/h-eng.htm)). If you want to download data at the census tract level, for example, click on the "CT" button and then either click on "Download Variables Data" (for non-spatial data, formatted as a CSV file) or "Download Geographic Data" (for spatial data, formatted as a geojson file).
+
+![Data ready to download in Census Mapper](img/censusmapper_download.png){width=50%}
 
 CensusMapper is partly built on an`R` library for downloading census data called [cancensus](https://github.com/mountainMath/cancensus). If you work with `R`, it is definitely worth checking out!
 
