@@ -121,7 +121,7 @@ To select the variable(s) you want to download, click on the "Variable Selection
 
 ![Selecting variables to download in Census Mapper](img/censusmapper_vars.png){width=60%}
 
-To select the region you want to download data for, zoom to the appropriate geographic level on the map using the "+" and "-" buttons at the top left of the map and click on the region. For example, to download data for the entire city of Toronto, zoom out until the outline of the city boundary is visible and click on it.
+To select the region you want to download data for, navigate to the "Region Selection" tab, zoom to the appropriate geographic level on the map using the "+" and "-" buttons at the top left of the map, and click on the region. For example, to download data for the entire city of Toronto, zoom out until the outline of the city boundary is visible and click on it.
 
 To see our selections of region and variable(s), go back to the "Overview" tab. The variable(s) you selected should be listed in the "Selected Variables" section, and the region you selected (the city of Toronto) should still be highlighted on the map as well as listed in the "Selected Regions" section. Take note of the year that's selected at the top right of the screen; this is the year you will download the data for.
 
