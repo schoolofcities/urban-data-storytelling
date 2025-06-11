@@ -23,15 +23,15 @@ Note that this is a *living textbook* - we will likely be updating and adding ne
 
 ## Contributors and citing
 
-This online textbook was compiled by [Jeff Allen](https://jamaps.github.io) using [Quarto](https://quarto.org/) with content contributions from (in alphabetical order by last name) Jeff Allen, Karen Chapple, Isabeaux Graham, Julia Greenberg, Aniket Kali, Lindsey Smith, Evelyne St-Louis, Nate Wessel, and Michelle Zhang. Each page lists its authors.
+This online textbook was compiled by [Jeff Allen](https://jamaps.github.io) and Julia Greenberg using [Quarto](https://quarto.org/) with content contributions from (in alphabetical order by last name) Jeff Allen, Karen Chapple, Isabeaux Graham, Julia Greenberg, Aniket Kali, Lindsey Smith, Evelyne St-Louis, Nate Wessel, and Michelle Zhang. Each page lists its authors.
 
 If you want to cite this online textbook, here is the recommended citation:
 
-`Allen, J. (Eds.). (2025). Urban Data Storytelling. School of Cities, University of Toronto.`
+`Allen, J. & Greenberg, J. (Eds.). (2025). Urban Data Storytelling. School of Cities, University of Toronto.`
 
 ```latex
 @book{allen2025urbandatastorytelling,
-  editor    = {Allen, Jeff},
+  editor    = {Allen, Jeff and Greenberg, Julia},
   title     = {Urban Data Storytelling},
   year      = {2025},
   publisher = {School of Cities, University of Toronto},
@@ -41,7 +41,7 @@ If you want to cite this online textbook, here is the recommended citation:
 
 If you want to cite a specific page, here is an example of a recommended citation:
 
-`Greenberg, J. & St-Louis, E. (2025). Exploratory data visualization. In Allen, J. (Eds.), Urban Data Storytelling. School of Cities, University of Toronto.`
+`Greenberg, J. & St-Louis, E. (2025). Exploratory data visualization. In Allen, J. & Greenberg, J. (Eds.), Urban Data Storytelling. School of Cities, University of Toronto.`
 
 ```latex
 @incollection{greenberg2021dataviz,
