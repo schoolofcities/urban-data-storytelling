@@ -26,7 +26,7 @@ The learning outcomes for the course include the abilities to:
 
 - Each week has a short assignment that will be graded, except for module 5, where extra time is given to work on the final project due for module 6. Assignments are scaffolded to lead to this final project, which will be focused on analyzing and visualizing data on a specific theme (housing, transport, sustainability, etc.) for your city. Examples and grading rubrics will be provided for each assignment.
 
-- Each week has TA office hours (calendly sign up?)
+- Each week has TA office hours for technical help, assignment, and project feedback
 
 
 To do / create:
@@ -40,6 +40,8 @@ To do / create:
 - The two data exercises
 
 - Slides for the 2 short lectures (have most of this already)
+
+- Decide on logistics for TA office hours
 
 
 
@@ -198,13 +200,13 @@ This module will overview more advanced methods and options for visualizing geog
 
 These are tutorials for more advanced maps that you can create. You don't have to do them all in detail, but it is recommended you try at least one.
 
-[Proportional symbol maps](https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/proportional-symbol-maps/proportional-symbol-maps.html)
+- [Proportional symbol maps](https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/proportional-symbol-maps/proportional-symbol-maps.html)
 
-[Bivariate maps](https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.html)
+- [Bivariate maps](https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.html)
 
-[Flow maps](https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/flow-maps/flow-maps.html)
+- [Flow maps](https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/flow-maps/flow-maps.html)
 
-[Categorical dot maps](https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.html)
+- [Categorical dot maps](https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.html)
 
 
 ### Synchronous (1 hour)
