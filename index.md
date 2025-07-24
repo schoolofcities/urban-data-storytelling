@@ -48,7 +48,7 @@ If you want to cite a specific page, here is an example of a recommended citatio
   author    = {Greenberg, Julia and St-Louis, Evelyne},
   title     = {Exploratory data visualization},
   booktitle = {Urban Data Storytelling},
-  editor    = {Allen, Jeff},
+  editor    = {Allen, Jeff and Greenberg, Julia},
   publisher = {School of Cities, University of Toronto},
   year      = {2025},
   url		= {https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.html}
