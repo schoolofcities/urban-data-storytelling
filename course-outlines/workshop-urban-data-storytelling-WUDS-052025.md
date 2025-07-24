@@ -1,3 +1,6 @@
+## Original for pre-(hybrid)-work for June 2025 workshop on Urban Data Storytelling (WUDS)
+
+
 *Data storytelling (V1, V2)*
 
 Assessment:
@@ -10,7 +13,6 @@ Mandatory readings:
 - data ethics / literacy (videos)
 Optional readings (if they want a background in coding)
 - intro to python and jupyter (notebook)
-
 
 
 *Data analysis (V3)*
@@ -30,7 +32,6 @@ Optional readings (pick and choose depending on which relate to your project):
 - spatial data processing (notebook)
 
 
-
 *Data visualization (V4, V5)*
 
 Assessment:
@@ -45,12 +46,3 @@ Optional readings (pick and choose depending on which relate to your project):
 - proportional symbol maps (notebook)
 - mapping density (notebook)
 (might add 1 or 2 more in this section depending on time)
-
-
-
-
-To do?
-- stats page - list other examples of hypoth tests?
-- excel/sheets data viz without code
-- density mapping
-- multiviarate methods - overview of what, with links?
