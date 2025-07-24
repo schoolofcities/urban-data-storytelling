@@ -16,22 +16,28 @@ The learning outcomes for the course include the abilities to:
 
 ### Components 
 
-- Each week has a 1 hour synch time, which include walkthroughs of technical material (2) or a short lectures (2) and breakout group discussions (2). The last week will be 2 hour session to include time for final presentations.
+- Each week has a 1 hour synch time, which will some combination of walkthroughs of technical material (2/6 weeks), short lectures (2/6 weeks), and breakout group discussions (3/6 weeks). The last week will be 2 hour session to include time for final presentations.
 
-- Two weeks will have short exercises aimed at practicing data analytic skills.
+- Each week will have 2-3 self-directed readings and/or technical tutorials
 
-- Each week has a short assignment that will be graded, except for module 5, where extra time is given to work on the final project. Assignments are scaffolded to lead to a final project. An example will be provided for each assignment.
+- Two weeks will have short exercises aimed at practicing data analytic skills learned during tutorials.
+
+- Each week has a short assignment that will be graded, except for module 5, where extra time is given to work on the final project due for module 6. Assignments are scaffolded to lead to this final project, which will be focused on analyzing and visualizing data on a specific theme (housing, transport, sustainability, etc.) for your city. Examples and grading rubrics will be provided for each assignment.
 
 - Each week has TA office hours (calendly sign up?)
 
 
-To do:
+To do / create:
 
-- Details about final project / and scaffolded assignments
+- Detailed instructions about final project / and scaffolded assignments
 
-- Create the two data exercises
+- Rubrics for the assignments
 
-- Create slides for the 2 short lectures (have most of this already)
+- Assignment examples
+
+- The two data exercises
+
+- Slides for the 2 short lectures (have most of this already)
 
 
 
@@ -190,13 +196,13 @@ This module will overview more advanced methods and options for visualizing geog
 
 These are tutorials for more advanced maps that you can create. You don't have to do them all in detail, but it is recommended you try at least one.
 
-[Proportional symbol maps]
+[Proportional symbol maps](https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/proportional-symbol-maps/proportional-symbol-maps.html)
 
-[Bivariate maps]
+[Bivariate maps](https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.html)
 
-[Flow maps]
+[Flow maps](https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/flow-maps/flow-maps.html)
 
-[Categorical dot maps]
+[Categorical dot maps](https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.html)
 
 
 ### Synchronous (1 hour)
