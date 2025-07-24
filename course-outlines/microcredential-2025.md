@@ -16,7 +16,9 @@ The learning outcomes for the course include the abilities to:
 
 ### Components 
 
-- Each week has a 1 hour synchronous time, which will be some combination of walkthroughs of technical material (2/6 weeks), short lectures (2/6 weeks), and breakout group discussions (3/6 weeks). The last week will be 2 hour session to include time for final presentations.
+6 weeks / modules:
+
+- Each week has a 1 hour synchronous time, which will be some combination of walkthroughs of technical material (2 of 6 weeks), short lectures (2 of 6 weeks), and breakout group discussions (3 of 6 weeks). The last week will be 2 hour session to include time for final presentations.
 
 - Each week will have 2-3 self-directed readings and/or technical tutorials
 
