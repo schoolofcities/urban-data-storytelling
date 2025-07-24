@@ -20,11 +20,11 @@ The learning outcomes for the course include the abilities to:
 
 - Each week has a 1 hour synchronous time, which will be some combination of walkthroughs of technical material (2 of 6 weeks), short lectures (2 of 6 weeks), and breakout group discussions (3 of 6 weeks). The last week will be 2 hour session to include time for final presentations.
 
-- Each week will have 2-3 self-directed readings and/or technical tutorials
+- Each week will have 2-3 self-directed readings and/or technical tutorials (link to website)
 
-- Two weeks will have short exercises aimed at practicing data analytic skills learned during tutorials.
+- Two weeks will have short exercises aimed at practicing data analytic skills learned during tutorials (details on Quercus).
 
-- Each week has a short assignment that will be graded, except for module 5, where extra time is given to work on the final project due for module 6. Assignments are scaffolded to lead to this final project, which will be focused on analyzing and visualizing data on a specific theme (housing, transport, sustainability, etc.) for your city. Examples and grading rubrics will be provided for each assignment.
+- Each week has a short assignment that will be graded, except for module 5, where extra time is given to work on the final project due for module 6. Assignments are scaffolded to lead to this final project, which will be focused on analyzing and visualizing data on a specific theme (housing, transport, sustainability, etc.) for your city. Examples and grading rubrics will be provided for each assignment (details and submission and grading all on Quercus).
 
 - Each week has TA office hours for technical help, assignment, and project feedback
 
