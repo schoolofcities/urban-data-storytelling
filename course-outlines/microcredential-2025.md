@@ -92,7 +92,7 @@ This module will cover ...
 - Best practices on how to communicate urban data via a range of charts and graphs, including histograms, bar charts, stacked and group bar charts, line charts and scatter plots, area charts, and small multiples, among others; as well as include discussion on visual accessibility, graphic design elements, and aesthetics.
 
 
-### Synchronous (1 hour)
+### Synchronous (1 hour) (Optional)
 
 Python demo and Q/A. Step by step walkthrough of the Python tutorials in the readings. Come with questions!
 
