@@ -63,6 +63,8 @@ Showcase a variety of examples of how exploring and analyzing data can lead to (
 
 Introduce common data formats and sources (e.g. demographic data from national census, municipal open, and built environment data from OpenStreetMap, etc.) used for urban analysis.
 
+Include resources section, how to get help and troubleshoot. Benefits and limitations of AI for help, etc.
+
 
 ### Video
 
