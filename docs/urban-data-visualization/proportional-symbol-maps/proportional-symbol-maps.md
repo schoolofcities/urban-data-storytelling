@@ -119,7 +119,7 @@ Great! Let's take a look at an example of how to make a proportional symbol map 
 
 Good prerequisites for this tutorial would be our [introductory GIS](../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.md) and [spatial data visualization](../maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.md) notebooks.
 
-[Click here to download data for census tracts in Edmonton](./data/edmonton-ct-population-96-21.geojson). The data includes the following columns, sourced from the Canadian census. Check out [our notebook on Canadian census data](../../urban-data-analytics/canadian-census-data/canadian-census-data.md) for more details on this data source.
+[Click here to download data for census tracts in Edmonton](./data/edmonton-ct-population-96-21.geojson). The data includes the following columns, sourced from the Canadian census. Check out [our notebook on Canadian census data](../../urban-data-analytics/canadian-census-data/canadian-census-data.ipynb) for more details on this data source.
 
 - `CTUID` unique identifier for each census tract (which can be used to join with other data)
 
