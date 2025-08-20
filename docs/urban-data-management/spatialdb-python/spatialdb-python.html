@@ -390,6 +390,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>This section will cover:</p>
+<ul>
+<li>how to use the <code>psycopg2</code> Python library to access data from a PostgreSQL database</li>
+<li>how to store the queried data in a <code>pandas</code> or <code>geopandas</code> dataframe</li>
+</ul>
 <p>In this code, the <a href="https://www.psycopg.org/docs/" target="_blank">psycopg2</a> library is used to access spatial and non-spatial data from a PostgreSQL database.</p>
 <p>In order to establish a connection with the database and successfully access data using <strong>psycopg2</strong>, the execution environment of the Python script or Jupyter Notebook must align with the hosting environment of the target database. For example, if the database is hosted locally (e.g., on your machine), ensure that the Python code using psycopg2 is executed within this local environment. I recommend installing and using tools such as <a href="https://docs.anaconda.com/free/navigator/index.html" target="_blank">Anaconda Navigator</a> or <a href="https://jupyter.org/install" target="_blank">Jupyter Labs</a> to maintain this consistency.</p>
 <p>Note that you will not be able to establish a connection with a database on your local machine if working in The University of Toronto’s Jupyter Hub.</p>

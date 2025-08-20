@@ -5,8 +5,12 @@ author: "Jeff Allen"
 
 **[📥 Click here to download this document and any associated data and images](/downloads/choropleth-maps.zip)**
 
-<br>
+This section will cover:
 
+- how to create choropleth maps, which use color to show how the value of a variable changes across space
+- how to choose colors for your choropleth map
+- how to create choropleth maps in QGIS (using both raster and vector data)
+- resources for creating choropleth maps in Python
 
 Choropleth maps use color to show how a variable changes across geographic areas — perfect for spotting patterns, trends, and regional differences at a glance. These are one of the most common types of thematic maps.
 

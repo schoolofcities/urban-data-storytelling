@@ -5,7 +5,11 @@ author: "Jeff Allen"
 
 **[📥 Click here to download this document and any associated data and images](/downloads/proportional-symbol-maps.zip)**
 
-<br>
+This section will cover:
+
+- "proportional symbol maps", which show symbols whose sizes correspond with a numeric value
+- different ways to size the symbols
+- how to create proportional symbol maps in QGIS
 
 Proportional symbol maps are an intuitive way to visualize quantitative data on a map or visualization. Instead of relying on color gradients like choropleth maps, proportional symbol maps use symbols (most often circles) sized in direct proportion to the data they represent. 
 

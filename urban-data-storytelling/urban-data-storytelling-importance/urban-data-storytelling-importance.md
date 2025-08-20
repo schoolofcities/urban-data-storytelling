@@ -5,9 +5,12 @@ author: "Karen Chapple, Evelyne St-Louis, Michelle Zhang"
 
 [📥 Click here to download this document and any associated data and images](/downloads/urban-data-storytelling-importance.zip)
 
-<br>
 
-This page covers 1) an overview of data storytelling, 2) elements of a good data story, and 3) examples of effective data stories. 
+This section will cover:
+
+- an overview of data storytelling
+- elements of a good data story
+- examples of effective data stories
 
 ![Framework for data storytelling](img/Urban%20Data%20Storytelling%20Definition%20Diagram.png)
 
@@ -73,7 +76,7 @@ To build an effective data story, it is important to always start with identifyi
 
 10. *Query, process, and analyze your data.* Now is the time to dig into your dataset to understand and uncover trends, patterns, and findings for your story. Using spreadsheet software, geographic information system (GIS) software, and/or coding, start cleaning, querying, and processing your data. Explore your data by creating basic summary statistics, pivot tables, maps, etc. Identify the key findings from your data.
 
-11. *Create data visualizations.* Now that you have analyzed your data and decided what findings you want to highlight, create your data visualizations (charts and/or maps) and apply the principles of effective data visualization (uncluttered visuals, cohesive colors and fonts, etc.) 
+11. *Create data visualizations.* Now that you have analyzed your data and decided what findings you want to highlight, create your data visualizations (charts and/or maps) and apply the principles of effective data visualization (uncluttered visuals, cohesive colors and fonts, etc.).
 
     - Create non-spatial data visualizations 
 
@@ -85,7 +88,7 @@ To build an effective data story, it is important to always start with identifyi
 
 12. *Wrap up your final deliverable.* Discuss and iterate your data insights with your team and partners. Integrate your data visualizations within your narrative to bring together your final story. Finalize your story in the form of the final deliverable of your choosing - this could be a story map, webpage, slide deck, report, etc. 
 
-13. *Communicate using your final deliverable.* Circling back to steps 1-12, implement tips for effective visual deliverables (e.g. reduce visual clutter, minimize words on slides, etc.) and, if applicable, apply tips for effective verbal presentations (e.g. tone, voice, etc.) 
+13. *Communicate using your final deliverable.* Circling back to steps 1-12, implement tips for effective visual deliverables (e.g. reduce visual clutter, minimize words on slides, etc.) and, if applicable, apply tips for effective verbal presentations (e.g. tone, voice, etc.).
 
 <br>
 

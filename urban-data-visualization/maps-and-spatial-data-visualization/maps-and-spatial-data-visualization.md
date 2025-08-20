@@ -3,14 +3,19 @@ title: "Maps and visualizing spatial data"
 author: "Jeff Allen"
 ---
 
-<br>
-
 ![](img/maps-mini-examples.png)
 
+<br>
 
 **[📥 Click here to download this document and any associated data and images](/downloads/maps-and-spatial-data-visualization.zip)**
 
-<br>
+This section will cover:
+
+- different types of maps
+- how to decide what to show (or not show) on a map
+- how to style a map
+- including multiple layers on a single map
+- what to include in finalized map layouts
 
 ## Overview
 

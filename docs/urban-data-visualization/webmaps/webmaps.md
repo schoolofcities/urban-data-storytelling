@@ -5,16 +5,16 @@ author: "Lindsey Smith"
 
 **[📥 Click here to download this document and any associated data and images](/downloads/webmaps.zip)**
 
-<br>
+This section will cover:
+
+- how to create an interactive web map using HTML, CSS, JavaScript, and MapLibre GL
+- how to add geojson data to the web map
 
 Web maps are great for allowing users to explore and interact with spatial data on their own terms. They are openly accessible, eliminating the need for specialised software during development and GIS expertise for interpretation.
 
 In this tutorial, you will learn basic web programming and web map development using the [MapLibre GL JS library](https://maplibre.org/maplibre-gl-js/docs/).
 
-Both an example web map and supporting code can be found here:
-
-- https://smith-lg.github.io/webmap-demo/
-- https://github.com/smith-lg/webmap-demo/
+Both an example web map and supporting code can be found [here](https://smith-lg.github.io/webmap-demo/) and [here](https://github.com/smith-lg/webmap-demo/).
 
 ## Basic web development
 

@@ -404,8 +404,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><a href="../../downloads/data-analytics-and-processing.zip" target="_blank">📥 Click here to download this document and any associated data and images</a></p>
-<p><br></p>
-<p>This notebook provides an introduction for analyzing urban data. It will cover …</p>
+<p>This section will cover:</p>
 <ul>
 <li>Exploring, filtering, and sorting data</li>
 <li>Cleaning data and removing missing data</li>
@@ -799,7 +798,6 @@ dtype: int64</code></pre>
 <section id="sorting-data" class="level2">
 <h2 data-anchor-id="sorting-data">Sorting data</h2>
 <p>You might have noticed that these cities are in alphabetical order - what if we wanted to see them in the order of population? In pandas, we do this using the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html" target="_blank">sort_values</a> function. The default is to sort in ascending order, so we set this to be <code>False</code> (i.e.&nbsp;descending) so the most populous cities are at the top.</p>
-<p>Check out these links for sorting data in Excel and Google Sheets - <a href="https://support.microsoft.com/en-us/office/sort-data-in-a-range-or-table-62d0b95d-2a90-4610-a6ae-2e545c4a4654" target="_blank">Sorting in Excel</a> - <a href="https://support.google.com/docs/answer/3540681?hl=en&amp;co=GENIE.Platform%3DDesktop" target="_blank">Sorting in Google Sheets</a></p>
 <div id="b287a54b-b162-4fd5-9b84-7100f148e2ac" class="cell" data-scrolled="true">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df.sort_values(by<span class="op">=</span><span class="st">'Population, 2021'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -901,6 +899,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
+<p>You can also sort data in <a href="https://support.microsoft.com/en-us/office/sort-data-in-a-range-or-table-62d0b95d-2a90-4610-a6ae-2e545c4a4654" target="_blank">Excel</a> or <a href="https://support.google.com/docs/answer/3540681?hl=en&amp;co=GENIE.Platform%3DDesktop" target="_blank">Google Sheets</a>.</p>
 <p>Let’s put some of this together now.</p>
 <p><strong>Filter the data to show all cities which are in the province of Quebec with at least a population of 50,000 in 2016, and then try to sort the cities by their 2016 population</strong>.</p>
 <p>HINT: You can do this in two steps (which is more readable) by storing the data that you filter into a variable called <code>df_filtered</code>, then running the command to sort the values on <code>df_filtered</code>.</p>
@@ -919,8 +918,8 @@ dtype: int64</code></pre>
 </section>
 <section id="updating-and-renaming-columns" class="level2">
 <h2 data-anchor-id="updating-and-renaming-columns">Updating and renaming columns</h2>
-<p>Often, the data we have might not be in the condition we want it to be in. Some data might be missing, and other data might have odd naming conventions. In Excel or Google Sheets, you can simply change a column name by typing the edits you want in the appropriate cell. However, Python requires different steps.</p>
-<p>Here’s a simple example. We might want all city names to be in lowercase - the code below does this for us.</p>
+<p>Often, the data we have might not be in the condition we want it to be in. For example, data could be missing or have odd naming conventions. In Excel or Google Sheets, you can simply change a column name by typing the edits you want in the appropriate cell. However, Python requires different steps.</p>
+<p>Here’s a simple example. We might want all city names to be in lowercase:</p>
 <div id="8b5a6d07-f1c7-4967-98d8-89838a4801c8" class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Name'</span>] <span class="op">=</span> df[<span class="st">'Name'</span>].<span class="bu">str</span>.lower()</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1023,12 +1022,12 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<p>DataFrames are easily modifiable. <code>pandas</code> has a number of methods like <code>str.lower()</code> to do so (see the <a href="https://pandas.pydata.org/docs/reference/index.html" target="_blank">full documentation</a>). The important thing to note here is that we directly modified the existing values of a column. We might not always want to do this, but it is often a good way of saving computer memory by not duplicating data.</p>
+<p>The <a href="https://pandas.pydata.org/docs/reference/index.html" target="_blank"><code>pandas</code></a> library has a number of methods like <code>str.lower()</code> that can be used to modify dataframes. The important thing to note here is that we directly modified the existing values of a column by reassigning the column’s new values to the column. Sometimes we might want to create a new column with the modified information, but by not creating more data than we need to, we can save computer memory.</p>
 <p>Likewise, we might want better names for the columns we have. <strong>Take a look at the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rename.html" target="_blank">documentation for <code>.rename()</code></a> and modify the data frame <code>df</code> such that we rename the column <code>Name</code> to <code>City</code></strong>. Pandas has more methods than we could ever remember, so learning to navigate the documentation is a crucial part of using the library.</p>
 </section>
 <section id="handling-missing-data" class="level2">
 <h2 data-anchor-id="handling-missing-data">Handling missing data</h2>
-<p>Unfortunately, it is pretty common that the datasets we work with will be missing data values for some rows and columns. This can create complications when we want to produce summary statistics or visualizations. There are different strategies for dealing with this (i.e., imputing data), but the easiest is simply to remove missing values. But first let’s check how much data is missing.</p>
+<p>Unfortunately, real-world datasets are often missing data in some rows and columns. This can create complications when we want to produce summary statistics or visualizations. There are different strategies for dealing with this (i.e., imputing data), but the easiest is simply to remove missing values. First, let’s check how much data is missing in all columns of our dataset.</p>
 <div id="6107e955-fdb9-458e-a4a2-ed614b8f9c6b" class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -1039,7 +1038,7 @@ Population, 2016    4
 dtype: int64</code></pre>
 </div>
 </div>
-<p>It seems that each column has a couple of data points missing. Let’s take a look at which rows these occur in. Similar to how we created a condition to filter for certain data, the code below creates a condition to filter for rows with missing data.</p>
+<p>Each column has between 3 and 4 missing values. Let’s take a look at which rows these missing values are from. Similarly to how we created a condition to filter for certain data, the code below creates a condition to filter for rows with missing data.</p>
 <div id="b67e69d4-22ce-47b6-9f8c-8f983e1e4d86" class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df.loc[df.isnull().<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
@@ -1147,25 +1146,26 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<p>You can see that some rows are missing multiple values, while others are just missing one. We can remove rows which have missing data using the function <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html" target="_blank">dropna</a> and assign it to <code>df</code> so that we will be working only with complete data going forward. <strong>Try to modify the code below to drop rows that contain empty values in one of the two population columns. Put another way, we want to keep rows with population values, even if the name or province values are missing</strong>. Look at the documentation to figure this out, specifically the argument <code>subset</code> for <code>.dropna()</code></p>
+<p>You can see that some rows are missing multiple values, while others are just missing one. We can remove rows that have missing data using the function <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html" target="_blank"><code>dropna</code></a> so that we will be working only with complete data going forward.</p>
+<p><strong>Try to modify the code below to drop rows that contain empty values in one of the two population columns. In other words, we want to keep rows with population values, even if the name or province values are missing</strong>. Look at the documentation to figure this out, specifically the argument <code>subset</code> for <code>.dropna()</code>.</p>
 <div id="064cd644-4e56-4c2c-8479-68de04c28a3a" class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Great. Now let’s reset to our original data frame and exclude any rows with missing values.</p>
+<p>Great. Now let’s reset by re-loading our original dataframe and exclude any rows with missing values.</p>
 <div id="dcf9e83d-59b2-47f9-ae25-56cc4632732d" class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/cities.csv"</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Instead of dropping (i.e.&nbsp;removing) rows with missing values, we can instead replace them with specific values with <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html" target="_blank">fillna</a>. For example, <code>df.fillna(0)</code> would replace all missing data values with a <code>0</code>. This wouldn’t make sense in our data of Canadian cities, but can be useful in other contexts.</p>
-<p>Similarly we can programatically find and replace data in any other column or across our dataset. For example, if we wanted to rename <code>'Y.T.'</code> to <code>'Yukon'</code> we would run the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.replace.html#pandas.DataFrame.replace" target="_blank">replace</a> function as so <code>df = df.replace('Y.T.', 'Yukon')</code></p>
-<p><br> If you are using spreadsheet software such as Excel or Google Sheets, there are different ways of approaching this problem. Explore some of the common ways to clean data and handle missing values in the following resources:</p>
+<p>Instead of removing rows with missing values, we can instead replace them with specific values using <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.fillna.html" target="_blank"><code>fillna</code></a>. For example, <code>df.fillna(0)</code> would replace all missing data values with a <code>0</code>. This wouldn’t make sense for our Canadian cities data, but can be useful in other contexts.</p>
+<p>Similarly, we can find and replace data in any other column or across our dataset. For example, if we wanted to rename <code>'Y.T.'</code> to <code>'Yukon'</code> we would run the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.replace.html#pandas.DataFrame.replace" target="_blank"><code>replace</code></a> function: <code>df = df.replace('Y.T.', 'Yukon')</code>.</p>
+<p><br> If you are using spreadsheet software such as Excel or Google Sheets, there are different ways of approaching this problem. Explore some of the common ways to clean data and handle missing values using the following resources:</p>
 <ul>
 <li><p><a href="https://support.microsoft.com/en-us/office/top-ten-ways-to-clean-your-data-2844b620-677c-47a7-ac3e-c2e157d1db19" target="_blank">Top ten ways of cleaning your data in Excel</a></p></li>
 <li><p><a href="https://exceljet.net/formulas/find-missing-values" target="_blank">Find missing values in Excel</a></p></li>
 </ul>
 <section id="creating-new-columns" class="level3">
 <h3 data-anchor-id="creating-new-columns">Creating new columns</h3>
-<p>We can add or delete columns as needed. Let’s first add a column which shows the change in population between 2021 and 2016 and then sort by the cities that experienced the greatest population loss. We can calculate this via a simple subtraction as follows.</p>
+<p>We can add or delete columns as needed. Let’s first add a column which shows the change in population between 2021 and 2016 and then sort by the cities that experienced the greatest population loss. We can calculate this via simple subtraction as follows.</p>
 <div id="91f7bffb-dc82-49bb-b10d-a21382d192d3" class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"pop_change"</span>] <span class="op">=</span> df[<span class="st">"Population, 2021"</span>] <span class="op">-</span> df[<span class="st">"Population, 2016"</span>]</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df.sort_values(<span class="st">"pop_change"</span>, ascending <span class="op">=</span> <span class="va">False</span>).head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1231,9 +1231,10 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<p>Pandas supports mathematical equations between columns, just like the subtraction we did above. <strong>Create a new column called <code>pct_pop_change</code> that computes the percentage change in population between 2016 and 2021, and sort by the cities with the greatest increase</strong>.</p>
+<p>Pandas supports mathematical equations between columns, just like the subtraction we did above.</p>
+<p><strong>Create a new column called <code>pct_pop_change</code> that computes the percentage change in population between 2016 and 2021, and sort by the cities with the greatest increase</strong>.</p>
 <p>HINT: the way to compute percent change is <code>100 * (Y - X) / X</code>.</p>
-<p>Now let’s clear these new columns out using <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop.html" target="_blank">drop</a> to return to what we had originally.</p>
+<p>Now let’s clear these new columns out using the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop.html" target="_blank"><code>drop</code></a> function to return to what we had originally.</p>
 <div id="2599339d" class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop(columns<span class="op">=</span>[<span class="st">'pop_change'</span>, <span class="st">'pct_pop_change'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1241,8 +1242,8 @@ dtype: int64</code></pre>
 </section>
 <section id="concatenating-and-joining-tables" class="level3">
 <h3 data-anchor-id="concatenating-and-joining-tables">Concatenating and joining tables</h3>
-<p>Much of the time, we are working with multiple sets of data which may overlap in key ways. Perhaps we want to include measures of income in cities, or look at voting patterns - this may require us to combine multiple data frames so we can analyze them.</p>
-<p>Pandas methods to combine data frames are quite similar to that of database operations - if you’ve worked with SQL before, this will come very easily to you. There’s an <a href="https://pandas.pydata.org/docs/user_guide/merging.html#concat" target="_blank">extensive tutorial</a> on this topic, but we’ll focus on simple cases of <code>pd.concat()</code> and <code>pd.merge()</code>.</p>
+<p>Much of the time, we are working with multiple datasets which may relate to one another. For example, perhaps we want to measure income in cities, or look at voting patterns - this may require us to combine multiple dataframes so we can analyze multiple factors at once.</p>
+<p><code>pandas</code> methods to combine data frames are quite similar to that of database operations - if you’ve worked with SQL before, this will come very easily to you. There’s an <a href="https://pandas.pydata.org/docs/user_guide/merging.html#concat" target="_blank">extensive tutorial</a> on this topic, but we’ll focus on simple cases of <code>pd.concat()</code> and <code>pd.merge()</code>.</p>
 <p>First, we can use <code>pd.concat()</code> to stack DataFrames vertically when new data has the same columns but additional rows (e.g., adding cities from another region). This is like adding new entries to a database table.</p>
 <div id="61bb34fc-71a8-4f27-a4e4-8997d6fd7891" class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df_ny_cities <span class="op">=</span> pd.read_csv(<span class="st">"./data/new_york_cities.csv"</span>)</span>

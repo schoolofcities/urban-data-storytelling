@@ -3,6 +3,11 @@ title: "Spatial databases and PostGIS"
 author: "Lindsey Smith"
 ---
 
+This section will cover:
+
+- an introduction to relational database management systems
+- how to create a database with PostgreSQL and import non-spatial data
+
 Now that you’re familiar with how to create, query, and manipulate data in relational databases using SQL, we can start to take a look at *spatial databases*.
 
 Spatial databases extend traditional databases by allowing you to store and query *geographic features* such as points (e.g., library locations), lines (e.g., roads), and polygons (e.g., city ward boundaries). They are especially useful for combining spatial and non-spatial data, and exploring spatial questions such as:

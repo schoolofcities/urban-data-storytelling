@@ -6,8 +6,12 @@ author: "Jeff Allen"
 
 [📥 Click here to download this document and any associated data and images](/downloads/spatial-data-and-gis.zip)
 
-<br>
+This section will cover:
 
+- the main types of spatial data, vector and raster
+- the basics of GIS (geographic information systems)
+- coordinate reference systems and projections
+- how to map, style, project, and export data in a particular GIS software, QGIS
 
 A lot of urban datasets are directly linked to specific places, e.g. addresses, streets, neighbourhoods, political or administrative boundaries, etc.
 

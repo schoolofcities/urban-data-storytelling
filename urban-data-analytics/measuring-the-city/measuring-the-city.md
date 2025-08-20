@@ -6,11 +6,11 @@ author: "Karen Chapple, Julia Greenberg, Jeff Allen"
 
 [📥 Click here to download this document and any associated data and images](/downloads/measuring-the-city.zip)
 
-<br>
+This section will cover:
 
-
-
-This page covers 1) common metrics and indicators used in urban analysis, 2) spatial units and measures of aggregation often used for urban analysis, and 3) limitations and biases for working with urban datasets to keep in mind when working with urban data.
+- common metrics and indicators used in urban analysis,
+- spatial units and measures of aggregation often used for urban analysis, and 
+- limitations and biases for working with urban datasets to keep in mind when working with urban data.
 
 
 
@@ -54,7 +54,9 @@ Political boundaries that delineate jurisdictions for different levels of govern
 
 ### Census geographies
 
-National censuses aggregate data to a variety of spatial units ranging in size, many are the same as administrative and political boundaries, as well as many smaller-geography boundaries that are super useful for urban- and neighbourhood-scale maps and analyses. Census tracts (usually in the range of 2,500 and 8,000 persons) and Dissemination Areas (400 to 700 persons) are two scales that are often used. Check out ([Statistics Canada documentation](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21), [U.S. Census documentation](https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html)) or see our notebook on [Canadian census data](../canadian-census-data/canadian-census-data.ipynb) for more information.
+National censuses aggregate data to a variety of spatial units ranging in size, many are the same as administrative and political boundaries, as well as many smaller-geography boundaries that are super useful for urban- and neighbourhood-scale maps and analyses. Census tracts (usually in the range of 2,500 and 8,000 persons) and Dissemination Areas (400 to 700 persons) are two scales that are often used in Canada. 
+
+For more information about geographic boundaries of Canadian census data, check out [Statistics Canada's documentation](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index2021-eng.cfm?year=21) or see our chapter on [Canadian census data](../canadian-census-data/canadian-census-data.ipynb). For more information about U.S. census boundaries, see the [U.S. Census documentation](https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html) or our chapter on [U.S. census data](../us-census-data/us-census-data.md).
 
 ![Common census boundaries in Toronto](img/census-boundaries-legend-eg.png)
 
@@ -79,7 +81,7 @@ While streets are often added to maps to provide geographic context, streets can
 
 ### Addresses
 
-Some urban data is measured or collected at the address level. For example, address of businesses, non-profits, or community facilities. To map them and compare with other spatial data, addresses are often *[geocoded](https://en.wikipedia.org/wiki/Address_geocoding)*, where their names are converted into geographic coordinates (latitude and longitude). See our [Spatial data and GIS](../spatial-data-and-gis/spatial-data-and-gis.md) tutorial for more.
+Some urban data is measured or collected at the address level (e.g., the locations of businesses, non-profits, or community facilities). To map this kind of data or compare address locations with other spatial data, addresses are often *[geocoded](https://en.wikipedia.org/wiki/Address_geocoding)*, or converted into geographic coordinates (latitude and longitude). See our [Spatial data and GIS](../spatial-data-and-gis/spatial-data-and-gis.md) tutorial for more on geocoding.
 
 ![Geocoded addresses of businesses in Mississauga from the Canadian Urban Institutes [Measuring Main Streets](https://measuringmainstreets.ca/casestudies/toronto/mississaugadundas/) project](img/addresses-mississauga.png)
 
@@ -88,11 +90,11 @@ Some urban data is measured or collected at the address level. For example, addr
 
 When collecting and analyzing data, it is important to verify the quality of the dataset. Some data is incomplete or has missing values, which can bias the results, especially if data from certain categories is missing disproportionately. For example, if income data is missing more often for lower-income individuals, the results may overestimate average income and under-represent vulnerable populations.
 
-These are a few important sources of bias or limitations when working with spatial data that are super important to be aware of when working with data linked to places.
+These are a few important sources of bias or limitations when working with spatial data that are important to be aware of when working with data linked to places.
 
-- *Self-reporting bias* which is when individuals report inaccurate information about themselves in a survey. This can be intentional (e.g., under-reporting income or over-reporting education) or unintentional (e.g., forgetting details). This can lead to biases in the final dataset and any subsequent analysis.
+- *Self-reporting bias*, when individuals report inaccurate information about themselves in a survey. This can be intentional (e.g., under-reporting income or over-reporting education) or unintentional (e.g., forgetting details). This can lead to biases in the final dataset and any subsequent analysis.
 
-- *[Ecological fallacy](https://en.wikipedia.org/wiki/Ecological_fallacy)* is the phenomenon of drawing conclusions about individuals based on the group they belong to. For example, one might infer that everyone in a census tract with an overall high median income is wealthy. Although the median income is high, there may be low income residents who live in the tract who are not close to the median.
+- *[Ecological fallacy](https://en.wikipedia.org/wiki/Ecological_fallacy)* is the phenomenon of drawing conclusions about individuals based on the group they belong to. For example, one might infer that everyone in a census tract with an overall high median income is wealthy. Although the median income is high, there may be low income residents who live in the tract whose incomes are not close to the median.
 
 - *[Edge effects](https://en.wikipedia.org/wiki/Boundary_problem_(spatial_analysis)#Types_and_examples)*  in spatial analysis refer to the limitations or distortions that occur at the boundaries of a study area. They can bias results or reduce accuracy, especially when spatial patterns or processes extend beyond the area being analyzed. For example, let's say you were mapping access to healthy food in a city. Your map may show that one corner of your city does not have a grocery store, leading to a conclusion of it being a food dessert. But if you didn't consider grocery stores just outside the edge or boundary of your city adjacent to this corner, this may not be the case. 
 

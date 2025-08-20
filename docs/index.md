@@ -20,6 +20,44 @@ Note that this is a *living textbook* - we will likely be updating and adding ne
 ![Framework for data storytelling](assets/uds-framework-diagram.png)
 
 
+## How to use this textbook
+
+The table below tells you which textbook section to reference based on what you want to learn or do. For example, if you're interested in learning how to do some basic analysis of your data in Python, go to the *Processing and analyzing data* section.
+
+| What do you want to learn or do? | Textbook section |
+|----------------------------|--------|
+| **Urban Data Storytelling** |
+| - How can I start creating a "data story"?<br>- What are the overall steps involved and what should I be thinking about as I do this work? | [The importance of urban data storytelling](urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.md) |
+| **Urban Data Analytics** |
+| - Where can I find relevant data sources?<br>- Now that I've found the right data, how do I understand its format?<br>- What tools should I use to analyze my data?<br>- How do I get help when struggling with coding or analysis? | [Introduction to urban data](urban-data-analytics/what-and-where-of-data/what-and-where-of-data.md) |
+| - Which variables should I analyze?<br>- What should the geographic level of my analysis be?| [Measuring the city: metrics and indicators](urban-data-analytics/measuring-the-city/measuring-the-city.md) |
+| - How do I make sure my analysis is ethical and centers equity? | [Data ethics and literacy](urban-data-analytics/data-ethics-and-literacy/data-ethics-and-literacy.md) |
+| - What is coding, and how can I use it to analyze my data?<br>- What is Python, and how do I use it? | [Programming with Python and computational notebooks](urban-data-analytics/intro-to-python-and-jupyter/intro-to-python-and-jupyter.ipynb) |
+| - How do I do basic analysis of my data in Python or Excel?<br>- For example, how do I remove unnecessary information from my dataset or rename some variables? | [Processing and analyzing data](urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.ipynb) |
+| - How do I understand the structure of my data and relationships among variables?<br>- In other words, how can I examine some basic statistics? | [Statistical foundations](urban-data-analytics/statistical-foundations/statistical-foundations.ipynb) |
+| - I want to create a map but I don't understand how to get the right data for it - what do I do?<br>- What is spatial data?<br>- What is GIS (geographic information systems) and how do I use it? | [Spatial data and GIS](urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.md) |
+| - How do I explore, analyze or manipulate spatial data by coding in Python? | [Spatial data in Python](urban-data-analytics/spatial-data-in-python/spatial-data-in-python.ipynb) |
+| - How do I do something to my spatial data, like create a buffer or find the intersection of two polygons?<br>- How do I convert a list of addresses into points that can be mapped? | [Spatial data processing](urban-data-analytics/spatial-data-processing/spatial-data-processing.ipynb) |
+| - What is OpenStreetMap (the Wikipedia of maps and spatial data) and how can I get data from it? | [OpenStreetMap](urban-data-analytics/openstreetmap/openstreetmap.md) |
+| - How do I download data from the Canadian census? | [Overview of Canadian census data](urban-data-analytics/canadian-census-data/canadian-census-data.ipynb) |
+| - How do I download data from the U.S. census? | [Overview of U.S. census data](urban-data-analytics/us-census-data/us-census-data.md) |
+| **Urban Data Visualization** |
+| - What are some ways I can visualize my non-spatial data (in a plot, for example)?<br>- What should I be thinking about as I create my data visualizations? | [Data visualization](urban-data-visualization/data-visualization/data-visualization.md) |
+| - How do I create some basic plots to explore my data in Python? | [Exploratory data visualization](urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.ipynb) |
+| - What kinds of maps can I make?<br>- What are the different elements of an effective map? | [Maps and visualizing spatial data](urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.md) |
+| - How do I make a map that shows... | |
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...different colors for different values? | [Choropleth maps](urban-data-visualization/choropleth-maps/choropleth-maps.md) |
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...different colors for two different values at once? | [Bivariate choropleth maps](urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.ipynb) |
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...symbols whose sizes correspond to some value? | [Proportional symbol maps](urban-data-visualization/proportional-symbol-maps/proportional-symbol-maps.md) |
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...lines representing travel between locations? | [Flow maps](urban-data-visualization/flow-maps/flow-maps.ipynb) |
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...dots whose colors represent some value? | [Categorical dot maps](urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.ipynb) |
+- How do I make an interactive online map? | [Web map development](urban-data-visualization/webmaps/webmaps.md) |
+| **Urban Data Management** |
+| - How do I store, query, or analyze geographic data within a database system? | [Introduction to spatial databases](urban-data-management/intro-to-spatialdb/intro-to-spatialdb.md) |
+| - How do I manage and interact with databases using SQL? | [SQL fundamentals](urban-data-management/sql-basics/sql-basics.md) |
+| - How do I manage and interact with spatial databases? | [Spatial databases and PostGIS](urban-data-management/spatialdb-postgis/spatialdb-postgis.md) |
+| - How do I access a spatial database using Python? | [Accessing PostGIS with Python](urban-data-management/spatialdb-python/spatialdb-python.ipynb) |
+
 
 ## Contributors and citing
 

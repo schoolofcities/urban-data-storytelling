@@ -5,7 +5,14 @@ author: "Karen Chapple, Julia Greenberg, Jeff Allen"
 
 [📥 Click here to download this document and any associated data and images](/downloads/what-and-where-of-data.zip)
 
-<br>
+This section will cover:
+
+- where to find data, including specific data sources relevant to urban planning and policy
+- various data formats
+- variable types
+- what kinds of software and tools are useful for analyzing data
+- the data analysis process, step-by-step
+- how to find help with coding and data analysis
 
 <br>
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
