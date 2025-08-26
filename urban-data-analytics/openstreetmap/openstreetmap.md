@@ -5,10 +5,12 @@ author: "Nate Wessel"
 
 [📥 Click here to download this document and any associated data and images](/downloads/openstreetmap.zip)
 
-<br>
+This section will cover:
 
+- what OpenStreetMap is, how to use it, and when and why you might want to
+- the strengths and weaknesses of OpenStreetMap
 
-This notebook is meant to introduce the reader to OpenStreetMap - what it is, how to use it, and when and why you might want to. This is written for an audience that has some familiarity with spatial data and its applications.
+This is written for an audience that has some familiarity with spatial data and its applications.
 
 
 ## What is OpenStreetMap?

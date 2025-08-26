@@ -5,7 +5,11 @@ author: "Jeff Allen"
 
 **[📥 Click here to download this document and any associated data and images](/downloads/proportional-symbol-maps.zip)**
 
-<br>
+This section will cover:
+
+- "proportional symbol maps", which show symbols whose sizes correspond with a numeric value
+- different ways to size the symbols
+- how to create proportional symbol maps in QGIS
 
 Proportional symbol maps are an intuitive way to visualize quantitative data on a map or visualization. Instead of relying on color gradients like choropleth maps, proportional symbol maps use symbols (most often circles) sized in direct proportion to the data they represent. 
 
@@ -119,7 +123,7 @@ Great! Let's take a look at an example of how to make a proportional symbol map 
 
 Good prerequisites for this tutorial would be our [introductory GIS](../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.md) and [spatial data visualization](../maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.md) notebooks.
 
-[Click here to download data for census tracts in Edmonton](./data/edmonton-ct-population-96-21.geojson). The data includes the following columns, sourced from the Canadian census. Check out [our notebook on Canadian census data](../../urban-data-analytics/canadian-census-data/canadian-census-data.md) for more details on this data source.
+[Click here to download data for census tracts in Edmonton](./data/edmonton-ct-population-96-21.geojson). The data includes the following columns, sourced from the Canadian census. Check out [our notebook on Canadian census data](../../urban-data-analytics/canadian-census-data/canadian-census-data.ipynb) for more details on this data source.
 
 - `CTUID` unique identifier for each census tract (which can be used to join with other data)
 

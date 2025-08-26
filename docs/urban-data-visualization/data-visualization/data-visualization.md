@@ -5,7 +5,12 @@ author: "Isabeaux Graham, Jeff Allen"
 
 [📥 Click here to download this document and any associated data and images](/downloads/data-visualization.zip)
 
-<br>
+This section will cover:
+
+- why you might want to visualize data: to explore internally or communicate to an external audience
+- data visualization theory, including elements that make visualizations effective
+- the different components that make up a plot
+- practical guidance for creating good data visualizations
 
 Data visualization is the graphical representation of information and data. By using visual elements like charts, graphs, and maps, data visualization tools help people understand patterns, trends, and outliers in data. At its core, data visualization translates abstract numbers into something visible and intuitive, helping our audiences better understand what the data is telling us.
 

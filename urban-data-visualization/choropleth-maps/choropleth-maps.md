@@ -5,8 +5,12 @@ author: "Jeff Allen"
 
 **[📥 Click here to download this document and any associated data and images](/downloads/choropleth-maps.zip)**
 
-<br>
+This section will cover:
 
+- how to create choropleth maps, which use color to show how the value of a variable changes across space
+- how to choose colors for your choropleth map
+- how to create choropleth maps in QGIS (using both raster and vector data)
+- resources for creating choropleth maps in Python
 
 Choropleth maps use color to show how a variable changes across geographic areas — perfect for spotting patterns, trends, and regional differences at a glance. These are one of the most common types of thematic maps.
 
@@ -107,7 +111,7 @@ If we choose to bin or group our numeric data, we have a further set of choices 
 
 Let's try to make a map in QGIS! We'll try to make a map of Toronto showing the percent of people who live in low-income households by neighbourhood relative to major transit lines.
 
-First, let’s look at the data. We have a polygon layer which represents census tracts. These data are created by Statistics Canada to share aggregated data from  the [Canadian census](../../urban-data-analytics/canadian-census-data/canadian-census-data.md). They approximately correspond to neighbourhoods.
+First, let’s look at the data. We have a polygon layer which represents census tracts. These data are created by Statistics Canada to share aggregated data from  the [Canadian census](../../urban-data-analytics/canadian-census-data/canadian-census-data.ipynb). They approximately correspond to neighbourhoods.
 
 We have a `.csv` table which contains data linked to the unique identifier, `ctuid`, of each census tract (CTUID stands for Census Tract Unique ID) . We can use the `ctuid` to join this tabular data to the spatial boundaries of census tracts. When working with census data or many other data sources, it is quite common that our data do not come prepared as a single data set. We often have to *join* data from multiple tables or sources like this. (For more details about *table joins*, check out our [data processing notebook](../../urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.ipynb)).
 

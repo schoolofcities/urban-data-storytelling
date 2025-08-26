@@ -5,7 +5,11 @@ author: "Evelyne St-Louis"
 
 **[📥 Click here to download this document and any associated data and images](/downloads/us-census-data.zip)**
 
-<br>
+This section will cover:
+
+- basics of the U.S. census
+- census geographies
+- how to download census data
 
 In the U.S., the U.S. Census Bureau is responsible for conducting the [census](https://www.census.gov/programs-surveys/acs/about/acs-and-census.html#:~:text=The%20American%20Community%20Survey%20provides,entire%20U.S.%20population%20to%20Congress.) every ten years. The last decennial census was conducted in 2020. The census is intended to count every person in the U.S. and U.S. territories. It covers a relatively short set of questions, including basic demographic information such as age, sex, race, Hispanic origin, and owner/renter status. 
 
@@ -17,9 +21,15 @@ To learn more about the Census, check out these two video series by the U.S. Cen
 
 - [Census Academy: Discovering the American Community Survey](https://www.youtube.com/playlist?list=PLewV-zKXDZkgRKWVb2oVppxJPpp0w3xoS)
 
+## Census geographies
+
 As you begin using census data, you will also want to learn more about the different census geographies. Here is an overview of select geographic entities commonly used in the ACS and how they relate to each other. For city or regional-level analyses, commonly used geographies include *Counties*, *Places* (which often overlap with a city boundary), *Census Tracts*, and *Census Block Groups*. 
 
 ![U.S. Census Bureau,  Geography and the American Community Survey: What Data Users Need to Know (2020) ([Source](https://www.census.gov/programs-surveys/acs/library/handbooks/geography.html)) ](./img/us-census-geog-diagram.png)
+
+The `pygris` Python package allows you to easily access census geographic data in spatial format. To learn how to use it, read through the package's [documentation](https://walker-data.com/pygris/).
+
+## How to download census data
 
 For beginners looking to get started with exploring, downloading, or using the census and ACS data, check out these tutorials: 
 
@@ -30,6 +40,8 @@ For beginners looking to get started with exploring, downloading, or using the c
 For more advanced users, or those seeking to access the ACS programmatically, the Census Bureau API webpage (Application Programming Interface) provides an easy way to search and download data more efficiently: 
 
 - [Census data API user guide](https://www.census.gov/data/developers/guidance/api-user-guide.html)
+
+If you're familiar with the R programming language, check out the `tidycensus` package, which allows you to download census data via the API. See the [documentation](https://walker-data.com/tidycensus/) for more information.
 
 Finally, note that certain universities and institutions also provide their students or employees access to [Social Explorer](https://www.socialexplorer.com/explore-maps), a very user-friendly platform for downloading and visualizing Census data. It’s worth looking into whether your organization would provide you with an account!
 
