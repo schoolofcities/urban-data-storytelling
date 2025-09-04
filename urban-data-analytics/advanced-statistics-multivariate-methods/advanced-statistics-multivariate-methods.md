@@ -19,7 +19,7 @@ In the previous section on statistical foundations, we learned how to describe, 
 
 Multivariate methods are tools for analyzing situations where many variables operate together. Cities are intrinsically multivariate systems: built environment, demographics, infrastructure, mobility patterns, environmental factors - these are all interdependent, and a single one rarely tells the full story.
 
-In this chapter, we’ll introduce three major families of multivariate methods:
+In this chapter, we'll introduce three major families of multivariate methods:
 
  - Regression and classification models, which explain or predict outcomes based on multiple predictors.
  - Clustering methods, which group similar observations without pre-defined categories.
@@ -168,6 +168,25 @@ What exactly makes up those latent factors? In a paper examining Alzheimer's ris
 Once we've created these factors, we can similarly plot them in lower dimensions using the factor scores.
 
 ## Advanced machine learning
+
+So far, we've worked with statistical and multivariate methods that emphasize explanation and interpretation. That makes sense for a certain size of data. But after a certain point, especially when variables get into the tens of thousands and data into the millions, we're just happy with good predictions. This is where advanced machine learning methods come in.
+
+In this section, we only give a brief overview of several common approaches. These are deep topics and fluency requires a lot more study and practice.
+
+| Method | What it is / When to use | Example |
+|--------|---------------------------|---------|
+| [Decision Trees](https://scikit-learn.org/stable/modules/tree.html) | Splits data into simple “if–then” rules. Easy to understand but can become too tailored to the training data. | Predicting whether a neighborhood is likely to have high bike-share use based on density, income, and distance to transit. |
+| [Random Forests](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) | Builds many decision trees and averages them. More stable and accurate than a single tree. | Classifying land parcels as residential, commercial, or industrial using zoning data and nearby amenities. |
+| [Gradient Boosting](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html) | Builds trees one after another, each fixing the mistakes of the last. Often very accurate, but harder to interpret. | Forecasting housing prices by combining information on location, building features, and neighborhood demographics. |
+| [Neural Networks](https://scikit-learn.org/stable/modules/neural_networks.html) | Layers of “neurons” that can learn complex, nonlinear patterns. Best with very large datasets. | Predicting daily traffic volumes across a city from weather, events, and past traffic data. |
+| [Computer Vision (CNNs)](https://pytorch.org/vision/stable/index.html) | A type of neural network that works especially well on images. Good for extracting information from aerial or street imagery. | Measuring tree canopy cover in a city using satellite images, or detecting bus stops from street-view photos. |
+
+In case you'd like to learn more, you can take a look at various machine learning libraries to begin.
+
+- [Scikit-learn User Guide](https://scikit-learn.org/stable/user_guide.html) - for decision trees, random forests, boosting, and simpler neural networks.  
+- [XGBoost Documentation](https://xgboost.readthedocs.io/) - for gradient boosting.  
+- [PyTorch](https://pytorch.org/) and [TensorFlow](https://www.tensorflow.org/) - popular frameworks for building neural networks and deep learning models.  
+- [Torchvision](https://pytorch.org/vision/stable/index.html) -  for computer vision tasks.  
 
 ## Choosing the right tool
 
