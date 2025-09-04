@@ -190,3 +190,14 @@ In case you'd like to learn more, you can take a look at various machine learnin
 
 ## Choosing the right tool
 
+Every method has advantages and drawbacks - what might be great for one set of task can fail at another. It's always important to think about these trade-offs - interpretability versus prediction, simplicity versus complexity, and so on - to ensure your analysis is effective. 
+
+There's a few rules of thumb we can keep in mind when applying these methods:
+
+ - Always check for overfitting by using cross validation; a model that predicts housing prices perfectly in one city may fail in another.
+ - Ensure reproducibility by documenting data sources, parameters, and code.
+ - Be transparent about assumptions and limitations - a clustering result, for example, may reflect the method’s settings more than real-world categories.
+ - Validate results against independent data or ground truth wherever possible.
+
+There is no one-size-fits-all approach here. Each tool reveals certain patterns and hides others. The key is knowing what matters most in your analysis.
+
