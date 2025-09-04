@@ -59,6 +59,54 @@ Spatial regression is just an extension of the classical models. It recognizes t
 
 ## Cluster analysis
 
+Clustering methods are ways of finding structure in data when we don’t have predefined categories. Instead of telling the model what groups exist, clustering lets the data speak for itself by revealing neighborhoods, patterns, or “types” of observations.
+
+### Partitioning Methods
+
+#### K-Means
+
+K-means is one of the simplest clustering algorithms. It works by guessing k centers, assigning each data point to the closest center, then shifting the centers to better fit their assigned points. This repeats until the clusters stabilize. The method is fast and intuitive but requires knowing k in advance - but you can always test multiple k-values.
+
+ - *Example*: segmenting neighborhoods into five socio-economic profiles based on census variables (income, education, housing type, etc.).
+
+*To do: add a photo*
+
+#### Expectation-Maximization (EM)
+
+Expectation-Maximization is a softer alternative. Instead of assigning each point to exactly one cluster, it estimates probabilities of belonging to each cluster. It’s particularly useful when groups overlap or boundaries are fuzzy.
+
+ - *Example*: classifying areas of a city into “residential,” “commercial,” and “mixed” land-use types when some zones share characteristics of both
+
+*To do: add a photo*
+
+### Density-Based Methods
+
+#### DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
+
+DBSCAN finds clusters by looking for areas where points are densely packed together, separated by regions of lower density. It doesn’t require specifying the number of clusters and can handle irregular shapes. Importantly, it also identifies “noise” points that don’t belong to any cluster.
+
+ - *Example 1*: detecting hotspots of nightlife venues in a city, where bars and clubs naturally cluster.
+ - *Example 2*: identifying clusters of traffic accidents along a road network.
+
+*To do: add a photo*
+
+### Hierarchical Clustering
+
+Hierarchical clustering builds clusters step by step, either starting from individual points and merging them (agglomerative) or starting from the whole dataset and splitting it (divisive). The result is a tree (dendrogram) that shows groupings at different levels of granularity.
+
+ - *Example*: creating a hierarchy of neighborhood types, from very fine-grained (street blocks) to broad categories (inner city vs. suburbs).
+
+*To do: add a photo*
+
+### Comparison of Clustering Methods
+
+| Method | Advantage / Purpose | Limitation |
+|--------|---------------------|------------|
+| [K-Means](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html) | Simple, fast, works well when clusters are spherical and roughly equal in size. | Must predefine number of clusters (*k*), struggles with irregular shapes. |
+| [Expectation-Maximization](https://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html) | Allows soft assignment (probabilities), good for overlapping or fuzzy clusters. | More computationally intensive; still requires specifying the number of clusters. |
+| [DBSCAN](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html) | Finds clusters of arbitrary shape, automatically detects noise/outliers, no need to predefine number of clusters. | Sensitive to parameter choices; struggles with varying cluster densities. |
+| [Hierarchical Clustering](https://docs.scipy.org/doc/scipy/reference/cluster.hierarchy.html) | Produces a full tree of groupings, doesn't require predefining number of clusters, intuitive visualization. | Can be computationally heavy for large datasets; once merged or split, groups can't be undone. |
+
 ## Dimensionality reduction
 
 ## Advanced machine learning
