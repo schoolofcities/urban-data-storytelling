@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.23">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Aniket Kali">
+
+<title>Advanced statistics and multivariate methods – Urban Data Storytelling 📊📈🏙️</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-37d396b9bd9d8499210613c9f6c50fd5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XB09CWTEWB"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XB09CWTEWB');
+</script>
+
+<meta name="description" content="Notebooks on urban data analysis and visualization">
+<meta name="author" content="School of Cities">
+
+<meta property="og:title" content="Advanced statistics and multivariate methods – Urban Data Storytelling 📊📈🏙️">
+<meta name="og:description" content="Notebooks on urban data analysis and visualization">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://schoolofcities.github.io/urban-data-storytelling">
+<meta property="og:image" content="https://raw.githubusercontent.com/schoolofcities/urban-data-storytelling/refs/heads/main/assets/web-card.png">
+<meta property="og:locale" content="en_CA">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="https://schoolofcities.github.io/urban-data-storytelling">
+<meta name="twitter:creator" content="@UofTCities">
+<meta name="twitter:title" content="Advanced statistics and multivariate methods – Urban Data Storytelling 📊📈🏙️">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/urban-data-storytelling/refs/heads/main/assets/web-card.png">
+
+
+<link rel="stylesheet" href="../../assets/styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Advanced statistics and multivariate methods</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Storytelling</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The importance of urban data storytelling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Analytics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to urban data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/measuring-the-city/measuring-the-city.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Measuring the city: metrics and indicators</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/data-ethics-and-literacy/data-ethics-and-literacy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data ethics and literacy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/intro-to-python-and-jupyter/intro-to-python-and-jupyter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Programming with Python and computational notebooks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing and analyzing data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/statistical-foundations/statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical foundations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial data and GIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/spatial-data-in-python/spatial-data-in-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial data in Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/spatial-data-processing/spatial-data-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial data processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/openstreetmap/openstreetmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OpenStreetMap</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/canadian-census-data/canadian-census-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of Canadian census data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/us-census-data/us-census-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of U.S. census data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/data-visualization/data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploratory data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Maps and visualizing spatial data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/choropleth-maps/choropleth-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Choropleth maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bivariate choropleth maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/proportional-symbol-maps/proportional-symbol-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Proportional symbol maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/flow-maps/flow-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flow maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Categorical dot maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/webmaps/webmaps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Web map development</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Management</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to spatial databases</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-management/sql-basics/sql-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL fundamentals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-management/spatialdb-postgis/spatialdb-postgis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial databases and PostGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-management/spatialdb-python/spatialdb-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accessing PostGIS with Python</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-use-more-advanced-models" id="toc-why-use-more-advanced-models" class="nav-link active" data-scroll-target="#why-use-more-advanced-models">Why use more advanced models?</a></li>
+  <li><a href="#regression-and-classification-models" id="toc-regression-and-classification-models" class="nav-link" data-scroll-target="#regression-and-classification-models">Regression and classification models</a>
+  <ul class="collapse">
+  <li><a href="#classical-regression" id="toc-classical-regression" class="nav-link" data-scroll-target="#classical-regression">Classical regression</a></li>
+  <li><a href="#spatial-regression" id="toc-spatial-regression" class="nav-link" data-scroll-target="#spatial-regression">Spatial regression</a></li>
+  </ul></li>
+  <li><a href="#cluster-analysis" id="toc-cluster-analysis" class="nav-link" data-scroll-target="#cluster-analysis">Cluster analysis</a>
+  <ul class="collapse">
+  <li><a href="#partitioning-methods" id="toc-partitioning-methods" class="nav-link" data-scroll-target="#partitioning-methods">Partitioning Methods</a></li>
+  <li><a href="#density-based-methods" id="toc-density-based-methods" class="nav-link" data-scroll-target="#density-based-methods">Density-Based Methods</a></li>
+  <li><a href="#hierarchical-clustering" id="toc-hierarchical-clustering" class="nav-link" data-scroll-target="#hierarchical-clustering">Hierarchical Clustering</a></li>
+  <li><a href="#comparison-of-clustering-methods" id="toc-comparison-of-clustering-methods" class="nav-link" data-scroll-target="#comparison-of-clustering-methods">Comparison of Clustering Methods</a></li>
+  </ul></li>
+  <li><a href="#dimensionality-reduction" id="toc-dimensionality-reduction" class="nav-link" data-scroll-target="#dimensionality-reduction">Dimensionality reduction</a>
+  <ul class="collapse">
+  <li><a href="#dimensionality-reduction-techniques" id="toc-dimensionality-reduction-techniques" class="nav-link" data-scroll-target="#dimensionality-reduction-techniques">Dimensionality Reduction Techniques</a></li>
+  <li><a href="#visualization-and-interpretation" id="toc-visualization-and-interpretation" class="nav-link" data-scroll-target="#visualization-and-interpretation">Visualization and Interpretation</a></li>
+  </ul></li>
+  <li><a href="#advanced-machine-learning" id="toc-advanced-machine-learning" class="nav-link" data-scroll-target="#advanced-machine-learning">Advanced machine learning</a></li>
+  <li><a href="#choosing-the-right-tool" id="toc-choosing-the-right-tool" class="nav-link" data-scroll-target="#choosing-the-right-tool">Choosing the right tool</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">Advanced statistics and multivariate methods</h1></header>
+
+<header id="title-block-header">
+
+<p class="author">Aniket Kali</p>
+
+</header>
+
+
+<p>This section will cover:</p>
+<ul>
+<li>the utility and limitations of multivariate statistical models</li>
+<li>key statistical approaches including regression, clustering, and dimensionality reduction techniques</li>
+<li>a high-level introduction to advanced machine learning methods</li>
+</ul>
+<p>In the previous section on statistical foundations, we provided a detailed overview with lots of practice. The content of this section is much more advanced; each subsection often ends up being weeks of university courses. Here, we’ll just be providing an overview of different methods, intuition, applications, and resources for you to learn more and apply these methods yourself.</p>
+<section id="why-use-more-advanced-models" class="level2">
+<h2 data-anchor-id="why-use-more-advanced-models">Why use more advanced models?</h2>
+<p>The previous section taught us how to describe, find relationships, and test hypotheses in the data. Much of the time, this will get you quite far. Sometimes, however, it won’t be enough: suppose you want to understand housing prices, where income, education, distance to downtown, and neighborhood crime, all interact. Or, perhaps you want to discern which neighborhoods are similar based on many demographic variables. These kinds of questions require us to go beyond the simple one variable methods we’ve seen.</p>
+<p>Multivariate methods are tools for analyzing situations where many variables operate together. Cities are intrinsically multivariate systems: built environment, demographics, infrastructure, mobility patterns, environmental factors - these are all interdependent, and a single one rarely tells the full story.</p>
+<p>In this chapter, we’ll introduce three major families of multivariate methods:</p>
+<ul>
+<li>Regression and classification models, which explain or predict outcomes based on multiple predictors.</li>
+<li>Clustering methods, which group similar observations without pre-defined categories.</li>
+<li>Dimensionality reduction techniques, which simplify complex, high-dimensional data into a smaller set of underlying structures.</li>
+</ul>
+<p>Each of these approaches has a trade-off between interpretability and predictive power. Regression, for example, allows us to easily observe the relationship between particular variables, but loses nuance. That nuance might be preserved in other methods, but at the loss of direct causal interpretation. The key to using these methods effectively is to know what it is you’re trying to achieve, as that will tell you what is a priority in your analysis.</p>
+</section>
+<section id="regression-and-classification-models" class="level2">
+<h2 data-anchor-id="regression-and-classification-models">Regression and classification models</h2>
+<p>In the previous chapter, we talked about simple linear regression. The goal was straightforward: figure out how one variable affects another. It isn’t a big leap toward more advanced regression models. Instead of that one variable, now we ask questions like:</p>
+<ul>
+<li>How do multiple variables affect another?</li>
+<li>Is a certain outcome likelier because of multiple variables?</li>
+<li>What is the role of distance and spatial relationships in predicting an outcome?</li>
+</ul>
+<p>Below, you can see an overview of different methods and a link to libraries used to implement them.</p>
+<section id="classical-regression" class="level3">
+<h3 data-anchor-id="classical-regression">Classical regression</h3>
+<p>Classical regression models let us study how multiple predictors together influence an outcome. They’re useful when we want to isolate the effect of individual factors - like income, education, or transit access - while holding others constant.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>What it is / When to use</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html" target="_blank">Linear regression</a></td>
+<td>Models a continuous outcome predicted by one or more variables. Works best when relationships are roughly straight line.</td>
+<td>Estimating how housing price varies with distance to city center, number of rooms, and neighborhood crime rate.</td>
+</tr>
+<tr class="even">
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html" target="_blank">Logistic regression</a></td>
+<td>Models the probability of a binary outcome (yes/no). Useful when the dependent variable has two categories.</td>
+<td>Predicting whether or not a household owns a car based on income, household size, and transit accessibility.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html" target="_blank">Multinomial regression</a></td>
+<td>Logistic regression but generalized to more than two, unordered categories</td>
+<td>Predicting primary commuting mode choice (car, bus, subway, bike, walking) based on demographic and location variables.</td>
+</tr>
+<tr class="even">
+<td><a href="https://www.statsmodels.org/stable/examples/notebooks/generated/ordinal_regression.html" target="_blank">Ordinal regression</a></td>
+<td>Handles outcomes that are ordinal (ranked categories). Assumes the “distance” between categories may not be equal.</td>
+<td>Modeling residents’ reported satisfaction with local services (e.g., “poor,” “fair,” “good,” “excellent”).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="spatial-regression" class="level3">
+<h3 data-anchor-id="spatial-regression">Spatial regression</h3>
+<p>Spatial regression is just an extension of the classical models. It recognizes that places are not just independent, and that in cities, what might happen in one neighborhood can spill over to another.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>What it is / When to use</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://pysal.org/spreg/generated/spreg.ML_Lag.html" target="_blank">Spatial lag model</a></td>
+<td>Adds the influence of nearby areas’ outcomes into the model. Use when you think what happens in one place directly affects its neighbors.</td>
+<td>Housing prices in one neighborhood tend to rise if surrounding neighborhoods also become more expensive.</td>
+</tr>
+<tr class="even">
+<td><a href="https://pysal.org/spreg/generated/spreg.ML_Error.html" target="_blank">Spatial error model</a></td>
+<td>Adjusts for unmeasured factors that are clustered in space. Use when missing variables or regional patterns cause neighboring areas to have similar errors.</td>
+<td>Air pollution levels in adjacent districts may be correlated because of wind patterns or shared industrial sources, even after controlling for known predictors.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="cluster-analysis" class="level2">
+<h2 data-anchor-id="cluster-analysis">Cluster analysis</h2>
+<p>Clustering methods are ways of finding structure in data when we don’t have predefined categories. Instead of telling the model what groups exist, clustering lets the data speak for itself by revealing neighborhoods, patterns, or “types” of observations.</p>
+<section id="partitioning-methods" class="level3">
+<h3 data-anchor-id="partitioning-methods">Partitioning Methods</h3>
+<section id="k-means" class="level4">
+<h4 data-anchor-id="k-means">K-Means</h4>
+<p>K-means is one of the simplest clustering algorithms. It works by guessing k centers, assigning each data point to the closest center, then shifting the centers to better fit their assigned points. This repeats until the clusters stabilize. The method is fast and intuitive but requires knowing k in advance - but you can always test multiple k-values.</p>
+<p><img src="img/k-means.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://www.bishopbook.com/" target="_blank">Deep Learning: Foundations and Concepts</a></small></p>
+<p>For example, segmenting neighborhoods into five socio-economic profiles based on census variables (income, education, housing type, etc.).</p>
+</section>
+<section id="expectation-maximization-em" class="level4">
+<h4 data-anchor-id="expectation-maximization-em">Expectation-Maximization (EM)</h4>
+<p>Expectation-Maximization is a softer alternative. Instead of assigning each point to exactly one cluster, it estimates probabilities of belonging to each cluster. It’s particularly useful when groups overlap or boundaries are fuzzy.</p>
+<p><img src="img/em.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://www.bishopbook.com/" target="_blank">Deep Learning: Foundations and Concepts</a></small></p>
+<p>For example, classifying areas of a city into “residential,” “commercial,” and “mixed” land-use types when some zones share characteristics of both</p>
+</section>
+</section>
+<section id="density-based-methods" class="level3">
+<h3 data-anchor-id="density-based-methods">Density-Based Methods</h3>
+<section id="dbscan-density-based-spatial-clustering-of-applications-with-noise" class="level4">
+<h4 data-anchor-id="dbscan-density-based-spatial-clustering-of-applications-with-noise">DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</h4>
+<p>DBSCAN finds clusters by looking for areas where points are densely packed together, separated by regions of lower density. It doesn’t require specifying the number of clusters and can handle irregular shapes. Importantly, it also identifies “noise” points that don’t belong to any cluster.</p>
+<p>Two examples could be:</p>
+<ul>
+<li>detecting hotspots of nightlife venues in a city, where bars and clubs naturally cluster.</li>
+<li>identifying clusters of traffic accidents along a road network.</li>
+</ul>
+</section>
+</section>
+<section id="hierarchical-clustering" class="level3">
+<h3 data-anchor-id="hierarchical-clustering">Hierarchical Clustering</h3>
+<p>Hierarchical clustering builds clusters step by step, either starting from individual points and merging them (agglomerative) or starting from the whole dataset and splitting it (divisive). The result is a tree (dendrogram) that shows groupings at different levels of granularity.</p>
+<p><img src="img/dendogram.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://towardsdatascience.com/hierarchical-clustering-explained-e59b13846da8/" target="_blank">Towards Data Science</a></small></p>
+<p>An example of this is creating a hierarchy of neighborhood types, from very fine-grained (street blocks) to broad categories (inner city vs.&nbsp;suburbs).</p>
+</section>
+<section id="comparison-of-clustering-methods" class="level3">
+<h3 data-anchor-id="comparison-of-clustering-methods">Comparison of Clustering Methods</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Advantage / Purpose</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html" target="_blank">K-Means</a></td>
+<td>Simple, fast, works well when clusters are spherical and roughly equal in size.</td>
+<td>Must predefine number of clusters (<em>k</em>), struggles with irregular shapes.</td>
+</tr>
+<tr class="even">
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html" target="_blank">Expectation-Maximization</a></td>
+<td>Allows soft assignment (probabilities), good for overlapping or fuzzy clusters.</td>
+<td>More computationally intensive; still requires specifying the number of clusters.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html" target="_blank">DBSCAN</a></td>
+<td>Finds clusters of arbitrary shape, automatically detects noise/outliers, no need to predefine number of clusters.</td>
+<td>Sensitive to parameter choices; struggles with varying cluster densities.</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.scipy.org/doc/scipy/reference/cluster.hierarchy.html" target="_blank">Hierarchical Clustering</a></td>
+<td>Produces a full tree of groupings, doesn’t require predefining number of clusters, intuitive visualization.</td>
+<td>Can be computationally heavy for large datasets; once merged or split, groups can’t be undone.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="dimensionality-reduction" class="level2">
+<h2 data-anchor-id="dimensionality-reduction">Dimensionality reduction</h2>
+<p>Considering the following problem: you have a large data set of neighborhoods in a city, each with information on demographics, housing characteristics, transit accessibility, pollution, and so on. It’s hard to just plot on one variable, and it’s also not clear which of these variables depend on each other. This is where dimensionality reduction comes in handy: we can summarize the most important information and relationships of a large multi-dimensional data set by looking at what patterns matter.</p>
+<section id="dimensionality-reduction-techniques" class="level3">
+<h3 data-anchor-id="dimensionality-reduction-techniques">Dimensionality Reduction Techniques</h3>
+<section id="principal-component-analysis-pca" class="level4">
+<h4 data-anchor-id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h4>
+<p>The goal of PCA is to capture the essence of the data; it creates a new (and smaller) set of axes based on what will capture the most variation in the high-dimensional data. The first component (or axis) captures the largest amount of variance, the second component captures the second largest, and so on. The goal is to preserve as much information as possible.</p>
+<p>Let’s take our neighborhood example again - we have census data on income, education, housing size, and other details, for each neighborhood. There’s three steps that happen here, usually implemented through <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html" target="_blank">existing libraries</a>.</p>
+<ol type="1">
+<li>Standardize variables to the same range (otherwise there is artificial variance).</li>
+<li>Compute the n principal components that capture the most variance - you get to choose n.&nbsp;Intuitively, they might combine different salient input variables (eg. PC1 may represent income and education)</li>
+<li>Project the data from high dimensions onto the n principal components and observe how they cluster.</li>
+</ol>
+<p>Below, we can see an example of how PCA groups similar data points, and the risks of forgetting to standardize variables.</p>
+<p><img src="img/PCA-scaling.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html#effect-of-rescaling-on-a-pca-dimensional-reduction" target="_blank">scikit-learn</a></small></p>
+</section>
+<section id="factor-analysis" class="level4">
+<h4 data-anchor-id="factor-analysis">Factor Analysis</h4>
+<p>Instead of trying to capture the maximum variance - that is, preserve the most amount of information - factor analysis assumes the list of variables we know exist are influenced by a smaller set of latent factors.</p>
+<p>For example, census variables like income and education could be a proxy for economic class. Likewise, variables like housing size, age of building, and length of occupancy, could be grouped together as housing characteristics.</p>
+<p>The resulting factors show how strongly each variable relates to particular factors. The hope is that these latent factors capture major underlying trends and provide an interpretable and low dimensional method to understanding the data. <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FactorAnalysis.html" target="_blank">You can find an implementation here</a>.</p>
+</section>
+</section>
+<section id="visualization-and-interpretation" class="level3">
+<h3 data-anchor-id="visualization-and-interpretation">Visualization and Interpretation</h3>
+<section id="determinism-and-visual-clusters-in-pca" class="level4">
+<h4 data-anchor-id="determinism-and-visual-clusters-in-pca">Determinism and visual clusters in PCA</h4>
+<p>In the image above come out we saw a successful case of PCA neatly categorizing data. Sometimes, however, peculiarities in the higher dimensions of the data make it hard for PCA to categorize as easily. It can end up looking something like this:</p>
+<p><img src="img/PCA-failure.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://towardsdatascience.com/how-t-sne-outperforms-pca-in-dimensionality-reduction-7a3975e8cbdb/" target="_blank">Towards Data Science</a></small></p>
+<p>PCA is effective because it’s pretty simple. The method draws lines in higher dimensions which capture the most variants (“linear components”). This means it’s computationally straightforward, and always results in the same output for the same data. It also means that if the data is shaped in circles, curves, other formats, PCA misses out.</p>
+<p>This is where t-SNE (t-distributed Stochastic Neighbor Embedding) comes in. It’s a machine learning algorithm that finds these peculiar local shapes and relationships and preserves them. For the same data, we get something much more visually interpretable. <a href="https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html" target="_blank">You can find an implementation here</a>.</p>
+<p><img src="img/tsne-success.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://towardsdatascience.com/how-t-sne-outperforms-pca-in-dimensionality-reduction-7a3975e8cbdb/" target="_blank">Towards Data Science</a></small></p>
+<p>But this comes at a cost. Unlike PCA, it relies on statistical processes to identify these patterns. That is, every time you run t-SNE, you might get a different output.</p>
+</section>
+<section id="understanding-latent-factors" class="level4">
+<h4 data-anchor-id="understanding-latent-factors">Understanding latent factors</h4>
+<p>What exactly makes up those latent factors? In a paper examining Alzheimer’s risks, the authors used a factor analysis to identify how different variables relate. Below, we can see the relative contribution of different variables into different factors - notice that some variables can be prominent across multiple factors.</p>
+<p><img src="img/factor-analysis.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://www.medrxiv.org/content/10.1101/2021.02.23.21252211v1.full" target="_blank">Foote et al.&nbsp;(2021)</a></small></p>
+<p>Once we’ve created these factors, we can similarly plot them in lower dimensions using the factor scores.</p>
+</section>
+</section>
+</section>
+<section id="advanced-machine-learning" class="level2">
+<h2 data-anchor-id="advanced-machine-learning">Advanced machine learning</h2>
+<p>So far, we’ve worked with statistical and multivariate methods that emphasize explanation and interpretation. That makes sense for a certain size of data. But after a certain point, especially when variables get into the tens of thousands and data into the millions, we’re just happy with good predictions. This is where advanced machine learning methods come in.</p>
+<p>In this section, we only give a brief overview of several common approaches. These are deep topics and fluency requires a lot more study and practice.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>What it is / When to use</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://scikit-learn.org/stable/modules/tree.html" target="_blank">Decision Trees</a></td>
+<td>Splits data into simple “if–then” rules. Easy to understand but can become too tailored to the training data.</td>
+<td>Predicting whether a neighborhood is likely to have high bike-share use based on density, income, and distance to transit.</td>
+</tr>
+<tr class="even">
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html" target="_blank">Random Forests</a></td>
+<td>Builds many decision trees and averages them. More stable and accurate than a single tree.</td>
+<td>Classifying land parcels as residential, commercial, or industrial using zoning data and nearby amenities.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html" target="_blank">Gradient Boosting</a></td>
+<td>Builds trees one after another, each fixing the mistakes of the last. Often very accurate, but harder to interpret.</td>
+<td>Forecasting housing prices by combining information on location, building features, and neighborhood demographics.</td>
+</tr>
+<tr class="even">
+<td><a href="https://scikit-learn.org/stable/modules/neural_networks.html" target="_blank">Neural Networks</a></td>
+<td>Layers of “neurons” that can learn complex, nonlinear patterns. Best with very large datasets.</td>
+<td>Predicting daily traffic volumes across a city from weather, events, and past traffic data.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://pytorch.org/vision/stable/index.html" target="_blank">Computer Vision (CNNs)</a></td>
+<td>A type of neural network that works especially well on images. Good for extracting information from aerial or street imagery.</td>
+<td>Measuring tree canopy cover in a city using satellite images, or detecting bus stops from street-view photos.</td>
+</tr>
+</tbody>
+</table>
+<p>In case you’d like to learn more, you can take a look at various machine learning libraries to begin.</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/user_guide.html" target="_blank">Scikit-learn User Guide</a> - for decision trees, random forests, boosting, and simpler neural networks.<br>
+</li>
+<li><a href="https://xgboost.readthedocs.io/" target="_blank">XGBoost Documentation</a> - for gradient boosting.<br>
+</li>
+<li><a href="https://pytorch.org/" target="_blank">PyTorch</a> and <a href="https://www.tensorflow.org/" target="_blank">TensorFlow</a> - popular frameworks for building neural networks and deep learning models.<br>
+</li>
+<li><a href="https://pytorch.org/vision/stable/index.html" target="_blank">Torchvision</a> - for computer vision tasks.</li>
+</ul>
+</section>
+<section id="choosing-the-right-tool" class="level2">
+<h2 data-anchor-id="choosing-the-right-tool">Choosing the right tool</h2>
+<p>Every method has advantages and drawbacks - what might be great for one set of task can fail at another. It’s always important to think about these trade-offs - interpretability versus prediction, simplicity versus complexity, and so on - to ensure your analysis is effective.</p>
+<p>There’s a few rules of thumb we can keep in mind when applying these methods:</p>
+<ul>
+<li>Always check for overfitting by using cross validation; a model that predicts housing prices perfectly in one city may fail in another.</li>
+<li>Ensure reproducibility by documenting data sources, parameters, and code.</li>
+<li>Be transparent about assumptions and limitations - a clustering result, for example, may reflect the method’s settings more than real-world categories.</li>
+<li>Validate results against independent data or ground truth wherever possible.</li>
+</ul>
+<p>There is no one-size-fits-all approach here. Each tool reveals certain patterns and hides others. The key is knowing what matters most in your analysis.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
