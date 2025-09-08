@@ -3,19 +3,17 @@ title: "Advanced statistics and multivariate methods"
 author: "Aniket Kali"
 ---
 
-[📥 Click here to download this document and any associated data and images](/downloads/advanced-statistics-multivariate-methods.zip)
-
 This section will cover:
  
 - the utility and limitations of multivariate statistical models
 - key statistical approaches including regression, clustering, and dimensionality reduction techniques
 - a high-level introduction to advanced machine learning methods
 
-In the previous section on statistical foundations, we provided a detailed overview with lots of practice. The content of this section is much more advanced; each subsection often ends up being weeks of university courses. In this chapter then, we'll just be providing an overview of different methods, intuition, applications, and resources for you to learn more and apply these methods yourself.
+In the previous section on statistical foundations, we provided a detailed overview with lots of practice. The content of this section is much more advanced; each subsection often ends up being weeks of university courses. Here, we'll just be providing an overview of different methods, intuition, applications, and resources for you to learn more and apply these methods yourself.
 
 ## Why use more advanced models?
 
-In the previous section on statistical foundations, we learned how to describe, find relationships, and test hypotheses in the data. Much of the time, this will get you quite far. Sometimes, however, it won’t be enough: suppose you want to understand housing prices, where income, education, distance to downtown, and neighborhood crime, all interact. Or, perhaps you want to discern which neighborhoods are similar based on many demographic variables. These kinds of questions require us to go beyond the simple one variable methods we've seen.
+The previous section taught us how to describe, find relationships, and test hypotheses in the data. Much of the time, this will get you quite far. Sometimes, however, it won’t be enough: suppose you want to understand housing prices, where income, education, distance to downtown, and neighborhood crime, all interact. Or, perhaps you want to discern which neighborhoods are similar based on many demographic variables. These kinds of questions require us to go beyond the simple one variable methods we've seen.
 
 Multivariate methods are tools for analyzing situations where many variables operate together. Cities are intrinsically multivariate systems: built environment, demographics, infrastructure, mobility patterns, environmental factors - these are all interdependent, and a single one rarely tells the full story.
 
@@ -67,17 +65,21 @@ Clustering methods are ways of finding structure in data when we don’t have pr
 
 K-means is one of the simplest clustering algorithms. It works by guessing k centers, assigning each data point to the closest center, then shifting the centers to better fit their assigned points. This repeats until the clusters stabilize. The method is fast and intuitive but requires knowing k in advance - but you can always test multiple k-values.
 
- - *Example*: segmenting neighborhoods into five socio-economic profiles based on census variables (income, education, housing type, etc.).
+![](img/k-means.png)
 
-*To do: add a photo*
+<small>Source: [Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)</small>
+
+For example, segmenting neighborhoods into five socio-economic profiles based on census variables (income, education, housing type, etc.).
 
 #### Expectation-Maximization (EM)
 
 Expectation-Maximization is a softer alternative. Instead of assigning each point to exactly one cluster, it estimates probabilities of belonging to each cluster. It’s particularly useful when groups overlap or boundaries are fuzzy.
 
- - *Example*: classifying areas of a city into “residential,” “commercial,” and “mixed” land-use types when some zones share characteristics of both
+![](img/em.png)
 
-*To do: add a photo*
+<small>Source: [Deep Learning: Foundations and Concepts](https://www.bishopbook.com/)</small>
+
+For example, classifying areas of a city into “residential,” “commercial,” and “mixed” land-use types when some zones share characteristics of both
 
 ### Density-Based Methods
 
@@ -85,18 +87,20 @@ Expectation-Maximization is a softer alternative. Instead of assigning each poin
 
 DBSCAN finds clusters by looking for areas where points are densely packed together, separated by regions of lower density. It doesn’t require specifying the number of clusters and can handle irregular shapes. Importantly, it also identifies “noise” points that don’t belong to any cluster.
 
- - *Example 1*: detecting hotspots of nightlife venues in a city, where bars and clubs naturally cluster.
- - *Example 2*: identifying clusters of traffic accidents along a road network.
+Two examples could be:
 
-*To do: add a photo*
+ - detecting hotspots of nightlife venues in a city, where bars and clubs naturally cluster.
+ - identifying clusters of traffic accidents along a road network.
 
 ### Hierarchical Clustering
 
 Hierarchical clustering builds clusters step by step, either starting from individual points and merging them (agglomerative) or starting from the whole dataset and splitting it (divisive). The result is a tree (dendrogram) that shows groupings at different levels of granularity.
 
- - *Example*: creating a hierarchy of neighborhood types, from very fine-grained (street blocks) to broad categories (inner city vs. suburbs).
+![](img/dendogram.png)
 
-*To do: add a photo*
+<small>Source: [Towards Data Science](https://towardsdatascience.com/hierarchical-clustering-explained-e59b13846da8/)</small>
+
+An example of this is creating a hierarchy of neighborhood types, from very fine-grained (street blocks) to broad categories (inner city vs. suburbs).
 
 ### Comparison of Clustering Methods
 
