@@ -27,6 +27,7 @@ website:
           - urban-data-analytics/intro-to-python-and-jupyter/intro-to-python-and-jupyter.ipynb
           - urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.ipynb
           - urban-data-analytics/statistical-foundations/statistical-foundations.ipynb
+          - urban-data-analytics/statistical-foundations/advanced-statistics-multivariate-methods.md
           - urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.md
           - urban-data-analytics/spatial-data-in-python/spatial-data-in-python.ipynb
           - urban-data-analytics/spatial-data-processing/spatial-data-processing.ipynb
