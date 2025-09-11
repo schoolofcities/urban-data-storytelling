@@ -45,6 +45,7 @@ website:
           - urban-data-visualization/proportional-symbol-maps/proportional-symbol-maps.md
           - urban-data-visualization/flow-maps/flow-maps.ipynb
           - urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.ipynb
+          - urban-data-visualization/visualizing-and-mapping-density/visualizing-and-mapping-density.md
           - urban-data-visualization/webmaps/webmaps.md
       
       - section: "Urban Data Management"
