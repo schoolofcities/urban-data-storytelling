@@ -7,7 +7,7 @@ author: "Aniket Kali"
 
 This section will cover:
 
-- Different methods for mapping density, including: dot/point maps, binning data to grids/hexagons, contour maps, heat maps, and 3D bins/grids
+- Different methods for mapping density, including: dot/point maps, binning data to grids/hexagons, 3D bins/grids, contour maps, and heat maps
 - Trade-offs, advantages, limitations, and considerations in determining what density mapping approach to use
 
 ## Why map density?
@@ -108,3 +108,15 @@ Unlike contour maps, which connect precise lines of equal value, heat maps blend
 | Normalization              | How values are adjusted relative to the total or per area                                     | Without normalization, very dense areas can dominate, hiding other patterns               |
 
 ## Choosing the right density map
+
+Each of the density mapping methods we’ve reviewed has its own strengths and limitations. They offer different perspectives on spatial data, emphasizing precise locations, broad trends, or gradients. Understanding these trade-offs is critical to ensure your map communicates the patterns you care about without misleading or overwhelming the reader.
+
+| Method                           | When to Use                                                                                                                                  | Limitations                                                                                                          |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Dot / Point Maps                 | Useful for seeing both the location and distribution of individual items, giving a tangible sense of where things occur.                     | Can become cluttered with large datasets; hard to see overall patterns in very dense areas.                          |
+| Binning Data to Grids / Hexagons | Helps reveal broader patterns and trends by aggregating many points into spatial units, making dense data easier to interpret.               | Choice of bin size and shape affects interpretation; may smooth out local variation.                                 |
+| 3D Bins / Grids                  | Captures patterns that vary along a third dimension, like building floors, elevation, or stacked activity, adding depth to spatial analysis. | Can be harder to interpret visually; may require interactive or 3D visualization tools.                              |
+| Contour Maps                     | Emphasizes gradual changes or gradients across space, helping to understand areas of increase or decrease in continuous phenomena.           | Assumes smooth variation between points; small-scale variation may be hidden; interpolation can introduce artifacts. |
+| Heat Maps                        | Highlights overall intensity or density trends, allowing viewers to quickly grasp where concentrations are higher or lower.                  | Lose precise thresholds and fine-grained values; smoothing can exaggerate or hide patterns.                          |
+
+No single method is inherently the best; the right choice depends on the story you want your map to tell. It’s essential to clarify your goals, experiment with different approaches, and adjust design choices to find the representation that conveys your data most clearly and effectively.
