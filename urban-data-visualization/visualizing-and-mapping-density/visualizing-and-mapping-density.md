@@ -16,13 +16,15 @@ This section will cover:
 
 <small>Source: [School of Cities](https://schoolofcities.github.io/dot-density/)</small>
 
-Take a look at this map of Toronto: it's obvious at first glance that some parts of the city are different than others. This is a map of people in Toronto shown through dots (per 10 individuals). It tells you where people live, and in doing so, shows us that some areas in spatial geography are different from others.
+Take a look at this map of Toronto: at first glance, it's obvious that some parts of the city are different than others. It's a map that tells you where people live and concentrate - equally, where they don't live, and don't concentrate. And it's pretty simple: just one dot per 10 individuals. 
 
-Mapping density is a way for us to go beyond how much of something there is, to know where it is distributed geographically. It lets us go beyond a simple table of numbers to see the density of events like collisions, 311 requests, or trees, to reveal clusters and gaps.
-
-At the same time, density maps come with challenges. Overcrowded dots might give the impression of overwhelming density, while a smooth heat map and obscure key local variation. In other words, the map choice matters: different conclusions can be drawn from different representations.
+What density maps let us do is go beyond simple tables of numbers to understand how data is distributed geographically. We can get a feel for where events like traffic collisions 311 requests, or entities like trees, occur and exist - revealing clusters and gaps.
 
 ## Methods for mapping density
+
+In this chapter, we will cover five different methods. The choice of map matters: different conclusions can be drawn from different representations.
+
+There's numerous ways to implement these, whether you feel more fluent in coding, or GIS software. Since there's no one size fits all approach, we're going to focus on the intuition and design choices for each method rather than technical implementation details.
 
 ### Dot/Point Maps
 
@@ -30,7 +32,7 @@ At the same time, density maps come with challenges. Overcrowded dots might give
 
 <small>Source: [School of Cities](https://schoolofcities.github.io/dot-density/)</small>
 
-Dot maps are a method of seeing both concentration and distribution at the same time intuitively—each dot feels like a tangible "unit" of whatever we're measuring. In the example above, we've added colors to represent ethnicity. At first glance, you can get a feel of where different groups cluster and mix across Toronto. Beyond population, dot maps can also be used to show things like the distribution of trees, crime incidents, or service requests - anything that could be an object or entity in space. 
+Dot maps are a method of seeing both concentration and distribution at the same time intuitively - each dot feels like a tangible "unit" of whatever we're measuring. In the example above, we've added colors to represent ethnicity. At first glance, you can get a feel of where different groups cluster and mix across Toronto. Beyond population, dot maps can also be used to show things like the distribution of trees, crime incidents, or service requests - anything that could be an object or entity in space. 
 
 When designing a dot map, there are a few key choices to consider:
 
