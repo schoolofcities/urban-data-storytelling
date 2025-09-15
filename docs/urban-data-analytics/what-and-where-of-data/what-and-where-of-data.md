@@ -99,6 +99,29 @@ Some of the most common data formats for *non-spatial* data are:
 - [JSON (JavaScript Object Notation)](https://en.wikipedia.org/wiki/JSON) `.json`
 - [XML (Extensible Markup Language)](https://en.wikipedia.org/wiki/XML) `.xml`
 
+### Example: CSV vs JSON structure
+
+To illustrate how different formats organize data, here's the same city data represented in both CSV and JSON:
+
+**CSV format (tabular structure):**
+```csv
+city,population,country
+Toronto,2930000,Canada
+Boston,685000,USA
+Montreal,1780000,Canada
+```
+
+**JSON format (key-value structure):**
+```json
+[
+  {"city": "Toronto", "population": 2930000, "country": "Canada"},
+  {"city": "Boston", "population": 685000, "country": "USA"},
+  {"city": "Montreal", "population": 1780000, "country": "Canada"}
+]
+```
+
+Notice how CSV organizes data in rows and columns (like a spreadsheet), while JSON uses nested key-value pairs with more flexibility for complex data structures. JSONs can be especially useful when the relationship between different parts of the data is dependent - you can have the value in a key-value pair itself be a key-value pair, to infinite depth. CSVs only allow for linear structure.
+
 Some of the most common data formats for *spatial* data are (see *[Spatial data & GIS](../spatial-data-and-gis/spatial-data-and-gis.md)* for more information):
 
 - [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) `.geojson`

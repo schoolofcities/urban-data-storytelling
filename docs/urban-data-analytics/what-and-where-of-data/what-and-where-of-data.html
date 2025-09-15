@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -345,7 +380,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#where-does-data-come-from" id="toc-where-does-data-come-from" class="nav-link active" data-scroll-target="#where-does-data-come-from">Where does data come from?</a></li>
   <li><a href="#data-availability" id="toc-data-availability" class="nav-link" data-scroll-target="#data-availability">Data availability</a></li>
   <li><a href="#data-sources-for-urban-analysis" id="toc-data-sources-for-urban-analysis" class="nav-link" data-scroll-target="#data-sources-for-urban-analysis">Data sources for urban analysis</a></li>
-  <li><a href="#data-formats" id="toc-data-formats" class="nav-link" data-scroll-target="#data-formats">Data formats</a></li>
+  <li><a href="#data-formats" id="toc-data-formats" class="nav-link" data-scroll-target="#data-formats">Data formats</a>
+  <ul class="collapse">
+  <li><a href="#example-csv-vs-json-structure" id="toc-example-csv-vs-json-structure" class="nav-link" data-scroll-target="#example-csv-vs-json-structure">Example: CSV vs JSON structure</a></li>
+  </ul></li>
   <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types">Data types</a></li>
   <li><a href="#levels-of-measurement" id="toc-levels-of-measurement" class="nav-link" data-scroll-target="#levels-of-measurement">Levels of measurement</a></li>
   <li><a href="#software-and-tools" id="toc-software-and-tools" class="nav-link" data-scroll-target="#software-and-tools">Software and tools</a></li>
@@ -527,6 +565,21 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://en.wikipedia.org/wiki/JSON" target="_blank">JSON (JavaScript Object Notation)</a> <code>.json</code></li>
 <li><a href="https://en.wikipedia.org/wiki/XML" target="_blank">XML (Extensible Markup Language)</a> <code>.xml</code></li>
 </ul>
+<section id="example-csv-vs-json-structure" class="level3">
+<h3 data-anchor-id="example-csv-vs-json-structure">Example: CSV vs JSON structure</h3>
+<p>To illustrate how different formats organize data, here’s the same city data represented in both CSV and JSON:</p>
+<p><strong>CSV format (tabular structure):</strong></p>
+<pre class="csv"><code>city,population,country
+Toronto,2930000,Canada
+Boston,685000,USA
+Montreal,1780000,Canada</code></pre>
+<p><strong>JSON format (key-value structure):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">"city"</span><span class="fu">:</span> <span class="st">"Toronto"</span><span class="fu">,</span> <span class="dt">"population"</span><span class="fu">:</span> <span class="dv">2930000</span><span class="fu">,</span> <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"Canada"</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">"city"</span><span class="fu">:</span> <span class="st">"Boston"</span><span class="fu">,</span> <span class="dt">"population"</span><span class="fu">:</span> <span class="dv">685000</span><span class="fu">,</span> <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"USA"</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">"city"</span><span class="fu">:</span> <span class="st">"Montreal"</span><span class="fu">,</span> <span class="dt">"population"</span><span class="fu">:</span> <span class="dv">1780000</span><span class="fu">,</span> <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"Canada"</span><span class="fu">}</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Notice how CSV organizes data in rows and columns (like a spreadsheet), while JSON uses nested key-value pairs with more flexibility for complex data structures. JSONs can be especially useful when the relationship between different parts of the data is dependent - you can have the value in a key-value pair itself be a key-value pair, to infinite depth. CSVs only allow for linear structure.</p>
 <p>Some of the most common data formats for <em>spatial</em> data are (see <em><a href="../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html" target="_blank">Spatial data &amp; GIS</a></em> for more information):</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/GeoJSON" target="_blank">GeoJSON</a> <code>.geojson</code></li>
@@ -535,6 +588,7 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://en.wikipedia.org/wiki/Geodatabase_(Esri)" target="_blank">Geodatabase</a> <code>.gdb</code></li>
 </ul>
 <p>While the file formats above suffice for relatively small or simple datasets, very large or complex datasets require more efficient storage via formats like <a href="https://en.wikipedia.org/wiki/Apache_Parquet" target="_blank">Parquet</a> (see <a href="https://arrow.apache.org/docs/python/parquet.html" target="_blank">instructions for Python</a>). <a href="https://en.wikipedia.org/wiki/Relational_database" target="_blank">Relational databases</a> are another commonly used data storage format for “big data” because they are more efficient, faster to query, more secure, and can be accessed by multiple users.</p>
+</section>
 </section>
 <section id="data-types" class="level2">
 <h2 data-anchor-id="data-types">Data types</h2>
