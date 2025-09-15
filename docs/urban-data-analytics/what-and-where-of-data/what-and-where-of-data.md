@@ -99,6 +99,15 @@ Some of the most common data formats for *non-spatial* data are:
 - [JSON (JavaScript Object Notation)](https://en.wikipedia.org/wiki/JSON) `.json`
 - [XML (Extensible Markup Language)](https://en.wikipedia.org/wiki/XML) `.xml`
 
+Some of the most common data formats for *spatial* data are (see *[Spatial data & GIS](../spatial-data-and-gis/spatial-data-and-gis.md)* for more information):
+
+- [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) `.geojson`
+- [GeoPackage](https://en.wikipedia.org/wiki/GeoPackage) `.gpkg`
+- [Shapefile](https://en.wikipedia.org/wiki/Shapefile) `.shapfile`
+- [Geodatabase](https://en.wikipedia.org/wiki/Geodatabase_(Esri)) `.gdb`
+
+While the file formats above suffice for relatively small or simple datasets, very large or complex datasets require more efficient storage via formats like [Parquet](https://en.wikipedia.org/wiki/Apache_Parquet) (see [instructions for Python](https://arrow.apache.org/docs/python/parquet.html)). [Relational databases](https://en.wikipedia.org/wiki/Relational_database) are another commonly used data storage format for "big data" because they are more efficient, faster to query, more secure, and can be accessed by multiple users.
+
 ### Example: CSV vs JSON structure
 
 To illustrate how different formats organize data, here's the same city data represented in both CSV and JSON:
@@ -121,16 +130,6 @@ Montreal,1780000,Canada
 ```
 
 Notice how CSV organizes data in rows and columns (like a spreadsheet), while JSON uses nested key-value pairs with more flexibility for complex data structures. JSONs can be especially useful when the relationship between different parts of the data is dependent - you can have the value in a key-value pair itself be a key-value pair, to infinite depth. CSVs only allow for linear structure.
-
-Some of the most common data formats for *spatial* data are (see *[Spatial data & GIS](../spatial-data-and-gis/spatial-data-and-gis.md)* for more information):
-
-- [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) `.geojson`
-- [GeoPackage](https://en.wikipedia.org/wiki/GeoPackage) `.gpkg`
-- [Shapefile](https://en.wikipedia.org/wiki/Shapefile) `.shapfile`
-- [Geodatabase](https://en.wikipedia.org/wiki/Geodatabase_(Esri)) `.gdb`
-
-While the file formats above suffice for relatively small or simple datasets, very large or complex datasets require more efficient storage via formats like [Parquet](https://en.wikipedia.org/wiki/Apache_Parquet) (see [instructions for Python](https://arrow.apache.org/docs/python/parquet.html)). [Relational databases](https://en.wikipedia.org/wiki/Relational_database) are another commonly used data storage format for "big data" because they are more efficient, faster to query, more secure, and can be accessed by multiple users.
-
 
 
 ## Data types

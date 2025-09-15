@@ -565,6 +565,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="https://en.wikipedia.org/wiki/JSON" target="_blank">JSON (JavaScript Object Notation)</a> <code>.json</code></li>
 <li><a href="https://en.wikipedia.org/wiki/XML" target="_blank">XML (Extensible Markup Language)</a> <code>.xml</code></li>
 </ul>
+<p>Some of the most common data formats for <em>spatial</em> data are (see <em><a href="../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html" target="_blank">Spatial data &amp; GIS</a></em> for more information):</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/GeoJSON" target="_blank">GeoJSON</a> <code>.geojson</code></li>
+<li><a href="https://en.wikipedia.org/wiki/GeoPackage" target="_blank">GeoPackage</a> <code>.gpkg</code></li>
+<li><a href="https://en.wikipedia.org/wiki/Shapefile" target="_blank">Shapefile</a> <code>.shapfile</code></li>
+<li><a href="https://en.wikipedia.org/wiki/Geodatabase_(Esri)" target="_blank">Geodatabase</a> <code>.gdb</code></li>
+</ul>
+<p>While the file formats above suffice for relatively small or simple datasets, very large or complex datasets require more efficient storage via formats like <a href="https://en.wikipedia.org/wiki/Apache_Parquet" target="_blank">Parquet</a> (see <a href="https://arrow.apache.org/docs/python/parquet.html" target="_blank">instructions for Python</a>). <a href="https://en.wikipedia.org/wiki/Relational_database" target="_blank">Relational databases</a> are another commonly used data storage format for “big data” because they are more efficient, faster to query, more secure, and can be accessed by multiple users.</p>
 <section id="example-csv-vs-json-structure" class="level3">
 <h3 data-anchor-id="example-csv-vs-json-structure">Example: CSV vs JSON structure</h3>
 <p>To illustrate how different formats organize data, here’s the same city data represented in both CSV and JSON:</p>
@@ -580,14 +588,6 @@ Montreal,1780000,Canada</code></pre>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">"city"</span><span class="fu">:</span> <span class="st">"Montreal"</span><span class="fu">,</span> <span class="dt">"population"</span><span class="fu">:</span> <span class="dv">1780000</span><span class="fu">,</span> <span class="dt">"country"</span><span class="fu">:</span> <span class="st">"Canada"</span><span class="fu">}</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Notice how CSV organizes data in rows and columns (like a spreadsheet), while JSON uses nested key-value pairs with more flexibility for complex data structures. JSONs can be especially useful when the relationship between different parts of the data is dependent - you can have the value in a key-value pair itself be a key-value pair, to infinite depth. CSVs only allow for linear structure.</p>
-<p>Some of the most common data formats for <em>spatial</em> data are (see <em><a href="../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html" target="_blank">Spatial data &amp; GIS</a></em> for more information):</p>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/GeoJSON" target="_blank">GeoJSON</a> <code>.geojson</code></li>
-<li><a href="https://en.wikipedia.org/wiki/GeoPackage" target="_blank">GeoPackage</a> <code>.gpkg</code></li>
-<li><a href="https://en.wikipedia.org/wiki/Shapefile" target="_blank">Shapefile</a> <code>.shapfile</code></li>
-<li><a href="https://en.wikipedia.org/wiki/Geodatabase_(Esri)" target="_blank">Geodatabase</a> <code>.gdb</code></li>
-</ul>
-<p>While the file formats above suffice for relatively small or simple datasets, very large or complex datasets require more efficient storage via formats like <a href="https://en.wikipedia.org/wiki/Apache_Parquet" target="_blank">Parquet</a> (see <a href="https://arrow.apache.org/docs/python/parquet.html" target="_blank">instructions for Python</a>). <a href="https://en.wikipedia.org/wiki/Relational_database" target="_blank">Relational databases</a> are another commonly used data storage format for “big data” because they are more efficient, faster to query, more secure, and can be accessed by multiple users.</p>
 </section>
 </section>
 <section id="data-types" class="level2">
