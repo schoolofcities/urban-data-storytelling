@@ -23,8 +23,8 @@ We live in a world increasingly shaped by data – from climate change and publi
 
 We visualize data to help us understand it better. When we turn numbers into pictures like charts or graphs, it becomes easier to see patterns, trends, or problems. Broadly speaking, visualization can serve two major goals:
 
-1. *Exploration* – Using charts to help make sense of the data. It helps you find interesting things or answer questions
-2. *Communication* – Using visuals to help other people understand what you found in the data
+1. *Exploration* – Using charts to help make sense of the data. It helps you find interesting things or answer questions.
+2. *Communication* – Using visuals to help other people understand what you found in the data.
 
 These goals are not mutually exclusive. The best data work is iterative. We often begin by visualizing data to explore patterns, test ideas, and uncover insights. Once we have made sense of the data ourselves, we can use visualizations to communicate key findings, tell a compelling story, or make a case for action. Whether the goal is understanding, persuasion, or advocacy, good data visualization helps bridge the gap between raw information and meaningful insight.
 
@@ -36,7 +36,7 @@ Visualizing data is ultimately about communication and striking the right balanc
 
 2. *Visualization*: How can this data be represented graphically to communicate findings effectively?
 
-3. *Narrative*: What story does the data tell? What’s your argument or takeaway? Who is your target audience?
+3. *Narrative*: What story does the data tell? What's your argument or takeaway? Who is your target audience?
 
 This framework helps situate visualization as part of a broader storytelling or decision-making process. Whether you are creating a data story with multiple visuals or a single chart for a report, it is important to keep all of these things in mind. The purpose behind your visualization determines everything from the chart type you use to the level of detail, annotation, and tone you adopt.
 
@@ -60,7 +60,7 @@ Once we’ve explored the data and identified key findings, the next step is to 
 
 Data stories combine charts and text to walk the audience through a narrative arc. These stories often include:
 
-1. *Context* – What’s the issue or question?
+1. *Context* – What's the issue or question?
 2. *Data* – What patterns or evidence are we seeing?
 3. *Insight* – Why does it matter?
 4. *Action* – What should happen next?
@@ -125,19 +125,19 @@ Research has established a hierarchy of visual channels based on their accuracy 
 
 Understanding these perceptual principles ensures that visualizations communicate information clearly and intuitively, aligning with how viewers naturally process visual stimuli.
 
-For example, based on this research, position on a common scale is easier to interpret than size or area for quantitative data. Comparing volumes is also relatively difficult. This leads to two recommendations...
+For example, based on this research, position on a common scale is easier to interpret than size or area for quantitative data. Comparing volumes is also relatively difficult. This leads to two recommendations:
 
-- Avoid pie charts (especially for more 3 categories) since they can be less effective than alternatives (e.g. bar charts)
-- Avoid 3D charts in most cases because they tend to over-complicate, be difficult to read, and add extra visual clutter compared to 2D alternatives
+- Avoid pie charts (especially for more than 3 categories) since they can be less effective than alternatives (e.g. bar charts).
+- Avoid 3D charts in most cases because they tend to over-complicate, be difficult to read, and add extra visual clutter compared to 2D alternatives.
 
 
 ### Visual accessibility
 
 Your data visualizations should be readable by everyone, which means thinking beyond aesthetics and into the realm of inclusive design. 
 
-For charts and maps, there are two main things to consider
+For charts and maps, there are two main things to consider:
 
-1. Using colourblind safe colours. Tools, such as [ColorBrewer](https://colorbrewer2.org) can be used to pick safe colours. There are also [tools for uploading images](https://www.color-blindness.com/coblis-color-blindness-simulator/) (e.g. of a chart or a map), and test how it is viewed for different types of colourblindness. Highly recommend using this for any graphics that will appear in publications
+1. Using colourblind safe colours. Tools, such as [ColorBrewer](https://colorbrewer2.org) can be used to pick safe colours. There are also [tools for uploading images](https://www.color-blindness.com/coblis-color-blindness-simulator/) (e.g. of a chart or a map), and test how it is viewed for different types of colourblindness. Highly recommend using this for any graphics that will appear in publications.
 
 2. Using adequate font sizes and making sure there is adequate level of contrast between foreground and background, especially with text. The greater the contrast between the foreground and background, the easier it is to read. For text, keep in mind that font size plays a significant role: smaller fonts require even higher contrast between the text color and background to maintain readability. There are online [tools for checking contrast ratios](https://webaim.org/resources/contrastchecker/) between background and foreground that are useful for design.
 
@@ -160,6 +160,8 @@ Thinking about and directly designing each of the different components of a char
 
 A strong visualization can make complex data accessible; however, without care, the message can get lost. Great visualizations balance clarity, precision, and aesthetics. This section offers practical tips and guiding principles to elevate your data visualizations.
 
+The Financial Times also has a ["visual vocabulary" guide](https://ft-interactive.github.io/visual-vocabulary/) for which approach to take to visualizing data.
+
 Note that these are general recommendations and rules of thumb, not rules that you must follow 100% of the time! Data visualization is a combination of technical, design, and artistic skills, and there are often exceptions to the rules :)
 
 
@@ -169,7 +171,7 @@ Guide the viewer’s eye by creating a hierarchy between background and foregrou
 
 - Bold or highlight key data points.
 - Use size, contrast, and colour to signal importance.
-- De-emphasize secondary elements like gridlines, minor tick marks, or axis labels
+- De-emphasize secondary elements like gridlines, minor tick marks, or axis labels.
 
 For example, the line chart in the image above has a strong visual hierarchy between the key data points it wants to show (e.g. the lines for Sweden, the E.U., and Ireland) relative to the rest of the chart components.
 
@@ -208,9 +210,9 @@ Here are a few recommendations for reducing clutter and increasing data-ink rati
 - Choose simple chart types unless complexity is truly needed.
 - Use subtle formatting of reference information like gridlines to keep the audience focused on the data itself.
 - Avoid overuse of colors, labels, and gridlines.
-- You don't need to visualize every possible variable or data point, focus on the story you're trying to tell.
+- You don't need to visualize every possible variable or data point; focus on the story you're trying to tell.
 - Group or collapse less important data to simplify interpretation.
-- Whitespace is your friend
+- Whitespace is your friend.
 
 Here's an example of a visualization of COVID-19 deaths from [The Guardian](https://www.theguardian.com/us-news/2022/mar/13/how-covid-shook-the-us-charts-graphs) that has limited visual clutter and strong hierarchy.
 
@@ -220,9 +222,9 @@ Here's an example of a visualization of COVID-19 deaths from [The Guardian](http
 
 ### Design for your output
 
-Effective visualization isn’t one-size-fits-all. Always consider where and how your work will be seen. Tailor your design choices to the medium and the audience:
+Effective visualization isn't one-size-fits-all. Always consider where and how your work will be seen. Tailor your design choices to the medium and the audience:
 
-- *Print vs digital*: Pick fonts, line weights, and colors that are clear at the specific resolution and/or paper size that you are designing for. What works on a low-resolution screen may not translate well to paper. 
+- *Print vs digital*: Pick fonts, line weights, and colors that are clear at the specific resolution and/or paper size that you are designing for. What works on a low-resolution screen may not translate well to paper.
 
 - *Presentations vs. reports*: Slides call for bold, minimal visuals with large text and fewer details. Reports allow for more complexity and written explanation.
 
