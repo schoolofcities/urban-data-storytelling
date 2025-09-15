@@ -42,6 +42,10 @@ The table below tells you which textbook section to reference based on what you 
 | - What is OpenStreetMap (the Wikipedia of maps and spatial data) and how can I get data from it? | [OpenStreetMap](urban-data-analytics/openstreetmap/openstreetmap.md) |
 | - How do I download data from the Canadian census? | [Overview of Canadian census data](urban-data-analytics/canadian-census-data/canadian-census-data.ipynb) |
 | - How do I download data from the U.S. census? | [Overview of U.S. census data](urban-data-analytics/us-census-data/us-census-data.md) |
+| - How do I store, query, or analyze geographic data within a database system? | [Introduction to spatial databases](urban-data-analytics/intro-to-spatialdb/intro-to-spatialdb.md) |
+| - How do I manage and interact with databases using SQL? | [SQL fundamentals](urban-data-analytics/sql-basics/sql-basics.md) |
+| - How do I manage and interact with spatial databases? | [Spatial databases and PostGIS](urban-data-analytics/spatialdb-postgis/spatialdb-postgis.md) |
+| - How do I access a spatial database using Python? | [Accessing PostGIS with Python](urban-data-analytics/spatialdb-python/spatialdb-python.ipynb) |
 | **Urban Data Visualization** |
 | - What are some ways I can visualize my non-spatial data (in a plot, for example)?<br>- What should I be thinking about as I create my data visualizations? | [Data visualization](urban-data-visualization/data-visualization/data-visualization.md) |
 | - How do I create some basic plots to explore my data in Python? | [Exploratory data visualization](urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.ipynb) |
@@ -53,11 +57,6 @@ The table below tells you which textbook section to reference based on what you 
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...lines representing travel between locations? | [Flow maps](urban-data-visualization/flow-maps/flow-maps.ipynb) |
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...dots whose colors represent some value? | [Categorical dot maps](urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.ipynb) |
 - How do I make an interactive online map? | [Web map development](urban-data-visualization/webmaps/webmaps.md) |
-| **Urban Data Management** |
-| - How do I store, query, or analyze geographic data within a database system? | [Introduction to spatial databases](urban-data-management/intro-to-spatialdb/intro-to-spatialdb.md) |
-| - How do I manage and interact with databases using SQL? | [SQL fundamentals](urban-data-management/sql-basics/sql-basics.md) |
-| - How do I manage and interact with spatial databases? | [Spatial databases and PostGIS](urban-data-management/spatialdb-postgis/spatialdb-postgis.md) |
-| - How do I access a spatial database using Python? | [Accessing PostGIS with Python](urban-data-management/spatialdb-python/spatialdb-python.ipynb) |
 
 
 ## Contributors and citing

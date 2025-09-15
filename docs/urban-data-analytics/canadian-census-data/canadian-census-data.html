@@ -273,6 +273,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Overview of U.S. census data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/intro-to-spatialdb/intro-to-spatialdb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to spatial databases</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/sql-basics/sql-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL fundamentals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/spatialdb-postgis/spatialdb-postgis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial databases and PostGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/spatialdb-python/spatialdb-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accessing PostGIS with Python</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -346,41 +370,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Urban Data Management</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to spatial databases</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../urban-data-management/sql-basics/sql-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SQL fundamentals</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../urban-data-management/spatialdb-postgis/spatialdb-postgis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spatial databases and PostGIS</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../urban-data-management/spatialdb-python/spatialdb-python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Accessing PostGIS with Python</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -392,8 +381,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#overview-of-the-canadian-census" id="toc-overview-of-the-canadian-census" class="nav-link active" data-scroll-target="#overview-of-the-canadian-census">Overview of the Canadian census</a></li>
-  <li><a href="#finding-census-data" id="toc-finding-census-data" class="nav-link" data-scroll-target="#finding-census-data">Finding census data</a></li>
   <li><a href="#census-geography" id="toc-census-geography" class="nav-link" data-scroll-target="#census-geography">Census geography</a></li>
+  <li><a href="#finding-census-data" id="toc-finding-census-data" class="nav-link" data-scroll-target="#finding-census-data">Finding census data</a></li>
+  <li><a href="#historical-census-data" id="toc-historical-census-data" class="nav-link" data-scroll-target="#historical-census-data">Historical census data</a>
+  <ul class="collapse">
+  <li><a href="#canadian-longitudinal-tract-database-cltd" id="toc-canadian-longitudinal-tract-database-cltd" class="nav-link" data-scroll-target="#canadian-longitudinal-tract-database-cltd">Canadian Longitudinal Tract Database (CLTD)</a></li>
+  <li><a href="#unicen" id="toc-unicen" class="nav-link" data-scroll-target="#unicen">UNI·CEN</a></li>
+  </ul></li>
   <li><a href="#making-maps-and-downloading-data" id="toc-making-maps-and-downloading-data" class="nav-link" data-scroll-target="#making-maps-and-downloading-data">Making maps and downloading data</a>
   <ul class="collapse">
   <li><a href="#make-a-quick-map" id="toc-make-a-quick-map" class="nav-link" data-scroll-target="#make-a-quick-map">Make a quick map</a></li>
@@ -453,20 +447,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>There are two parts to the census, the short-form survey and the long-form survey. The short-form survey asks a set of basic household and demographic questions (e.g.&nbsp;address, age, marital status, etc.) and is sent to all households in Canada. The long-from survey is sent to 25% of households in Canada. It asks additional questions pertaining to a broader range of demographic, social, and economic topics (e.g.&nbsp;religion, education, journey to work, etc.). Statistics Canada also augments collected census survey data by joining in data from other administrative sources, including income data collected by the Canadian Revenue Agency (CRA).</p>
 <p>Census data are collected primarily on a household-by-household basis (one adult member in each household usually fills out the census on behalf of everyone in the household). Data of individual responses from the census are often called census “micro-data”. Because of personal identification concerns, this data is only accessible by accredited researchers. (However, note that a public use microdata file called the PUMF is available. It is a random sample of the overall population, with several of the identifying variables removed, such as home addresses and postal code).</p>
 </section>
-<section id="finding-census-data" class="level2">
-<h2 data-anchor-id="finding-census-data">Finding census data</h2>
-<p>Summaries (i.e.&nbsp;aggregations) of census data to a range of geographic areas are publicly available to view online or download. These are super useful for understanding the demographics of a place. For example, the total population in a province, the number of people who speak Spanish in Toronto, or the average income in a specific neighbourhood.</p>
-<p>The <a href="https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/index.cfm?Lang=E" target="_blank">Census Profile</a> tables on Statistics Canada’s website allow for searching for census data for specific variables and geographic areas. For example, here’s an output of “Knowledge of Official Languages” in Ontario.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/ontario-language.png" class="img-fluid figure-img"></p>
-<figcaption>Table of knowledge of language in Ontario</figcaption>
-</figure>
-</div>
-<p>When working with census data, it’s often advisable to use the <a href="https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/index-eng.cfm" target="_blank">Census Dictionary</a>, the main reference guidebook, to understand what different data variables and geographies in the census represent. For example, here’s the entry for <a href="https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=pop055" target="_blank">Knowledge of official languages</a>.</p>
-<p>Census profile data is typically limited to single categories totals (e.g.&nbsp;number of people who speak French by gender), as shown in the table above. However, if you are interested in cross-tabulations, that is, summaries across multiple categories (e.g.&nbsp;number of people who have knowledge of French who also speak French at work, e.g.&nbsp;total number low-income residents who live in different types of housing), then there are a variety of <a href="https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/dt-td/index-eng.cfm" target="_blank">Data Tables</a> available for this purpose.</p>
-<p>If neither the Census Profile or Data Tables fit your purpose, there is also a <a href="https://www150.statcan.gc.ca/n1/pub/98m0001x/index-eng.htm" target="_blank">Public Use Microdata File (PUMF)</a>. This is a non-aggregated (i.e.&nbsp;each row is a disaggregated individual-level response) dataset covering a sample of the Canadian population. This data can be queried and cross-tabulated across any number of categories included. For privacy reasons, the data only include larger geographic linkages (e.g.&nbsp;provinces, large metro areas), and are only a sample of the overall census.</p>
-</section>
 <section id="census-geography" class="level2">
 <h2 data-anchor-id="census-geography">Census geography</h2>
 <p>There are a number of <a href="https://www12.statcan.gc.ca/census-recensement/2021/geo/ref/index-eng.cfm" target="_blank">geographic boundaries</a> available with associated census data, ranging in scale from city blocks to the entire country. Below is an example of commonly used boundaries for urban-scale maps and analysis.</p>
@@ -485,6 +465,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Example of census tract boundaries changing in Victoria</figcaption>
 </figure>
 </div>
+</section>
+<section id="finding-census-data" class="level2">
+<h2 data-anchor-id="finding-census-data">Finding census data</h2>
+<p>Summaries (i.e.&nbsp;aggregations) of census data to a range of geographic areas are publicly available to view online or download. These are super useful for understanding the demographics of a place. For example, the total population in a province, the number of people who speak Spanish in Toronto, or the average income in a specific neighbourhood.</p>
+<p>The <a href="https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/index.cfm?Lang=E" target="_blank">Census Profile</a> tables on Statistics Canada’s website allow for searching for census data for specific variables and geographic areas. For example, here’s an output of “Knowledge of Official Languages” in Ontario.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/ontario-language.png" class="img-fluid figure-img"></p>
+<figcaption>Table of knowledge of language in Ontario</figcaption>
+</figure>
+</div>
+<p>When working with census data, it’s often advisable to use the <a href="https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/index-eng.cfm" target="_blank">Census Dictionary</a>, the main reference guidebook, to understand what different data variables and geographies in the census represent. For example, here’s the entry for <a href="https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=pop055" target="_blank">Knowledge of official languages</a>.</p>
+<p>Census profile data is typically limited to single categories totals (e.g.&nbsp;number of people who speak French by gender), as shown in the table above. However, if you are interested in cross-tabulations, that is, summaries across multiple categories (e.g.&nbsp;number of people who have knowledge of French who also speak French at work, e.g.&nbsp;total number low-income residents who live in different types of housing), then there are a variety of <a href="https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/dt-td/index-eng.cfm" target="_blank">Data Tables</a> available for this purpose.</p>
+<p>If neither the Census Profile or Data Tables fit your purpose, there is also a <a href="https://www150.statcan.gc.ca/n1/pub/98m0001x/index-eng.htm" target="_blank">Public Use Microdata File (PUMF)</a>. This is a non-aggregated (i.e.&nbsp;each row is a disaggregated individual-level response) dataset covering a sample of the Canadian population. This data can be queried and cross-tabulated across any number of categories included. For privacy reasons, the data only include larger geographic linkages (e.g.&nbsp;provinces, large metro areas), and are only a sample of the overall census.</p>
+</section>
+<section id="historical-census-data" class="level2">
+<h2 data-anchor-id="historical-census-data">Historical census data</h2>
+<section id="canadian-longitudinal-tract-database-cltd" class="level3">
+<h3 data-anchor-id="canadian-longitudinal-tract-database-cltd">Canadian Longitudinal Tract Database (CLTD)</h3>
+<p>Census geographies change over time, and this is where the <a href="https://github.com/jamaps/CLTD" target="_blank">Canadian Longitudinal Tract Database (CLTD)</a> comes in handy. Using areal interpolation methods, it’s standardizes historical census tract data from 1971 to 2016 to a common set of geographic boundaries - namely 2021.</p>
+<p>Standard geography across time allows for easy comparison of changing demographic variables. This could include an analysis of how a neighborhood has changed over time, which would otherwise be difficult if the boundary for that neighborhood changes every 5 years.</p>
+</section>
+<section id="unicen" class="level3">
+<h3 data-anchor-id="unicen">UNI·CEN</h3>
+<p>Likewise, historical census data generally can be a little bit hard to come across and organize. <a href="https://observatory.uwo.ca/unicen/index.html" target="_blank">Unified Infrastructure for Canadian Census Research (UNI·CEN)</a> compiles a huge amount of historical data - with standard census tables from 1951 to 2021, and historical boundaries from 1851 to 2021.</p>
+</section>
 </section>
 <section id="making-maps-and-downloading-data" class="level2">
 <h2 data-anchor-id="making-maps-and-downloading-data">Making maps and downloading data</h2>
@@ -571,18 +577,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="join-spatial-and-non-spatial-census-data-in-python" class="level3">
 <h3 data-anchor-id="join-spatial-and-non-spatial-census-data-in-python">Join spatial and non-spatial census data in Python</h3>
 <p>Because Census Mapper does not allow you to download a spatial dataset that already includes the variables you selected, you’ll need to join the spatial data (<code>geos.geojson</code>) with the non-spatial data (<code>data.csv</code>). Here’s how you would do that in Python:</p>
-<div id="cell-2" class="cell" data-execution_count="62">
+<div id="cell-11" class="cell" data-execution_count="62">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd  <span class="co"># for spatial data</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd      <span class="co"># for non-spatial data</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Load the data:</p>
-<div id="cell-5" class="cell" data-execution_count="64">
+<div id="cell-14" class="cell" data-execution_count="64">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filepath = "" # replace this with the directory where these files are located</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>spatial <span class="op">=</span> gpd.read_file(filepath <span class="op">+</span> <span class="st">"geos.geojson"</span>)  <span class="co"># spatial data</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">vars</span> <span class="op">=</span> pd.read_csv(filepath <span class="op">+</span> <span class="st">"data.csv"</span>)           <span class="co"># non-spatial data</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="cell-6" class="cell" data-execution_count="65">
+<div id="cell-15" class="cell" data-execution_count="65">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>spatial.head(<span class="dv">2</span>) <span class="co"># look at the first two rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="65">
 <div>
@@ -652,7 +658,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-7" class="cell" data-execution_count="66">
+<div id="cell-16" class="cell" data-execution_count="66">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>spatial2 <span class="op">=</span> spatial[[<span class="st">"id"</span>, <span class="st">"geometry"</span>]] <span class="co"># only keep relevant columns</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>spatial2.head(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="66">
@@ -684,7 +690,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-8" class="cell" data-execution_count="67">
+<div id="cell-17" class="cell" data-execution_count="67">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">vars</span>.head(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="67">
 <div>
@@ -737,7 +743,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Let’s only keep the variables we actually care about - <code>GeoUID</code>, which we’ll use to join with the spatial data, plus the two variables we selected in CensusMapper. We’ll rename these columns because the current names are too long.</p>
-<div id="cell-10" class="cell" data-execution_count="80">
+<div id="cell-19" class="cell" data-execution_count="80">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>vars2 <span class="op">=</span> <span class="bu">vars</span>[[<span class="st">"GeoUID"</span>, </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>              <span class="st">"v_CA21_3: Population percentage change, 2016 to 2021"</span>, </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">"v_CA21_9: Total - Age"</span>]]</span>
@@ -779,30 +785,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We want to join these datasets together, but first let’s make sure that the columns we’re joining them on have the same data type:</p>
-<div id="cell-12" class="cell" data-execution_count="69">
+<div id="cell-21" class="cell" data-execution_count="69">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>spatial2[<span class="st">"id"</span>].dtype</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="69">
 <pre><code>dtype('O')</code></pre>
 </div>
 </div>
-<div id="cell-13" class="cell" data-execution_count="70">
+<div id="cell-22" class="cell" data-execution_count="70">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>vars2[<span class="st">"GeoUID"</span>].dtype</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="70">
 <pre><code>dtype('float64')</code></pre>
 </div>
 </div>
 <p>The <code>id</code> column in <code>spatial2</code> is a string while the <code>GeoUID</code> column in <code>vars2</code> is a float (or numeric value). Let’s turn <code>GeoUID</code> into a string so the join will work correctly.</p>
-<div id="cell-15" class="cell" data-execution_count="82">
+<div id="cell-24" class="cell" data-execution_count="82">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>vars2.loc[:, <span class="st">"GeoUID"</span>] <span class="op">=</span> vars2[<span class="st">"GeoUID"</span>].astype(<span class="bu">str</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="cell-16" class="cell" data-execution_count="72">
+<div id="cell-25" class="cell" data-execution_count="72">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>vars2[<span class="st">"GeoUID"</span>].dtype</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="72">
 <pre><code>dtype('O')</code></pre>
 </div>
 </div>
 <p>Now let’s take another look at the two dataframes to make sure their tract ID columns look the same:</p>
-<div id="cell-18" class="cell" data-execution_count="83">
+<div id="cell-27" class="cell" data-execution_count="83">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>vars2.head(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="83">
 <div>
@@ -836,7 +842,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-19" class="cell" data-execution_count="75">
+<div id="cell-28" class="cell" data-execution_count="75">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>spatial2.head(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="75">
 <div>
@@ -868,7 +874,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Notice that the <code>GeoUID</code> column only has one 0 after the decimal, whereas the <code>id</code> column has two 0s after the decimal. Let’s check to see how many characters are in the <code>GeoUID</code> column versus the <code>id</code> column:</p>
-<div id="cell-21" class="cell" data-execution_count="85">
+<div id="cell-30" class="cell" data-execution_count="85">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>vars2[<span class="st">"GeoUID"</span>].<span class="bu">str</span>.<span class="bu">len</span>().value_counts()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="85">
 <pre><code>GeoUID
@@ -877,7 +883,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Name: count, dtype: int64</code></pre>
 </div>
 </div>
-<div id="cell-22" class="cell" data-execution_count="86">
+<div id="cell-31" class="cell" data-execution_count="86">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>spatial2[<span class="st">"id"</span>].<span class="bu">str</span>.<span class="bu">len</span>().value_counts()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="86">
 <pre><code>id
@@ -886,11 +892,11 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>The values in <code>GeoUID</code> column in <code>vars2</code> have either 9 or 10 characters, while the values in the <code>id</code> column in <code>spatial2</code> always have 10 characters. This means we have to “pad” the <code>GeoUID</code> column with 0s at the end:</p>
-<div id="cell-24" class="cell" data-execution_count="87">
+<div id="cell-33" class="cell" data-execution_count="87">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>vars2[<span class="st">"GeoUID"</span>] <span class="op">=</span> vars2[<span class="st">"GeoUID"</span>].<span class="bu">str</span>.ljust(<span class="dv">10</span>, <span class="st">'0'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Now let’s see if they match:</p>
-<div id="cell-26" class="cell" data-execution_count="88">
+<div id="cell-35" class="cell" data-execution_count="88">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>vars2.head(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="88">
 <div>
@@ -924,7 +930,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-27" class="cell" data-execution_count="89">
+<div id="cell-36" class="cell" data-execution_count="89">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>spatial2.head(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="89">
 <div>
@@ -956,7 +962,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>This looks good, so let’s finally join (or “merge”) the dataframes. Below, <code>how="left"</code> means we’re keeping all rows from the first dataset (<code>spatial2</code>) and any matching rows from <code>vars2</code>. Both datasets should contain the same number of tracts, but let’s do this just in case there are some tracts in <code>spatial2</code> that are not in <code>vars2</code>. If we make a map, for example, we would want to show all of the tracts even if some don’t have data.</p>
-<div id="cell-29" class="cell" data-execution_count="90">
+<div id="cell-38" class="cell" data-execution_count="90">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>new_df <span class="op">=</span> pd.merge(spatial2, vars2, left_on<span class="op">=</span><span class="st">"id"</span>, right_on<span class="op">=</span><span class="st">"GeoUID"</span>, how<span class="op">=</span><span class="st">"left"</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>new_df.head(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="90">
@@ -998,14 +1004,14 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>Let’s make sure the new dataframe is a <code>GeoDataFrame</code>, which is spatial and can be mapped, and not a non-spatial <code>DataFrame</code>.</p>
-<div id="cell-31" class="cell" data-execution_count="91">
+<div id="cell-40" class="cell" data-execution_count="91">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(new_df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="91">
 <pre><code>geopandas.geodataframe.GeoDataFrame</code></pre>
 </div>
 </div>
 <p>Great! Time to export this spatial dataset that now contains the two variables we downloaded from CensusMapper:</p>
-<div id="cell-33" class="cell">
+<div id="cell-42" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>new_df.to_file(filepath <span class="op">+</span> <span class="st">"census_data.geojson"</span>, driver<span class="op">=</span><span class="st">"GeoJSON"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Now we can use this file to create a map. For example, see the chapter in this textbook on <a href="../../urban-data-visualization/choropleth-maps/choropleth-maps.html" target="_blank">how to create a choropleth map</a>.</p>

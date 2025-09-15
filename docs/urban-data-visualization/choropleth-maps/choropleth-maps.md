@@ -12,6 +12,8 @@ This section will cover:
 - how to create choropleth maps in QGIS (using both raster and vector data)
 - resources for creating choropleth maps in Python
 
+**NOTE**: This is an introductory tutorial that focuses primarily on creating choropleth maps in QGIS, with basic Python resources provided at the end. For more advanced mapping techniques, take a look at the chapters: Bivariate choropleth maps, categorical maps, and flow maps.
+
 Choropleth maps use color to show how a variable changes across geographic areas — perfect for spotting patterns, trends, and regional differences at a glance. These are one of the most common types of thematic maps.
 
 Here are a couple examples. 

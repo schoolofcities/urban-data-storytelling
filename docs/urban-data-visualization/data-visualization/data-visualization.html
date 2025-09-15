@@ -235,6 +235,30 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Overview of U.S. census data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/intro-to-spatialdb/intro-to-spatialdb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to spatial databases</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/sql-basics/sql-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL fundamentals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/spatialdb-postgis/spatialdb-postgis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial databases and PostGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/spatialdb-python/spatialdb-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accessing PostGIS with Python</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -308,41 +332,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Urban Data Management</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to spatial databases</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../urban-data-management/sql-basics/sql-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SQL fundamentals</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../urban-data-management/spatialdb-postgis/spatialdb-postgis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spatial databases and PostGIS</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../urban-data-management/spatialdb-python/spatialdb-python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Accessing PostGIS with Python</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -404,8 +393,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-anchor-id="why-visualize-data">Why visualize data?</h2>
 <p>We visualize data to help us understand it better. When we turn numbers into pictures like charts or graphs, it becomes easier to see patterns, trends, or problems. Broadly speaking, visualization can serve two major goals:</p>
 <ol type="1">
-<li><em>Exploration</em> – Using charts to help make sense of the data. It helps you find interesting things or answer questions</li>
-<li><em>Communication</em> – Using visuals to help other people understand what you found in the data</li>
+<li><em>Exploration</em> – Using charts to help make sense of the data. It helps you find interesting things or answer questions.</li>
+<li><em>Communication</em> – Using visuals to help other people understand what you found in the data.</li>
 </ol>
 <p>These goals are not mutually exclusive. The best data work is iterative. We often begin by visualizing data to explore patterns, test ideas, and uncover insights. Once we have made sense of the data ourselves, we can use visualizations to communicate key findings, tell a compelling story, or make a case for action. Whether the goal is understanding, persuasion, or advocacy, good data visualization helps bridge the gap between raw information and meaningful insight.</p>
 <p>Visualizing data is ultimately about communication and striking the right balance between analysis, design, and narrative. To share data in a clear and meaningful way, it helps to think through this data storytelling framework:</p>
@@ -511,18 +500,18 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p>Understanding these perceptual principles ensures that visualizations communicate information clearly and intuitively, aligning with how viewers naturally process visual stimuli.</p>
-<p>For example, based on this research, position on a common scale is easier to interpret than size or area for quantitative data. Comparing volumes is also relatively difficult. This leads to two recommendations…</p>
+<p>For example, based on this research, position on a common scale is easier to interpret than size or area for quantitative data. Comparing volumes is also relatively difficult. This leads to two recommendations:</p>
 <ul>
-<li>Avoid pie charts (especially for more 3 categories) since they can be less effective than alternatives (e.g.&nbsp;bar charts)</li>
-<li>Avoid 3D charts in most cases because they tend to over-complicate, be difficult to read, and add extra visual clutter compared to 2D alternatives</li>
+<li>Avoid pie charts (especially for more than 3 categories) since they can be less effective than alternatives (e.g.&nbsp;bar charts).</li>
+<li>Avoid 3D charts in most cases because they tend to over-complicate, be difficult to read, and add extra visual clutter compared to 2D alternatives.</li>
 </ul>
 </section>
 <section id="visual-accessibility" class="level3">
 <h3 data-anchor-id="visual-accessibility">Visual accessibility</h3>
 <p>Your data visualizations should be readable by everyone, which means thinking beyond aesthetics and into the realm of inclusive design.</p>
-<p>For charts and maps, there are two main things to consider</p>
+<p>For charts and maps, there are two main things to consider:</p>
 <ol type="1">
-<li><p>Using colourblind safe colours. Tools, such as <a href="https://colorbrewer2.org" target="_blank">ColorBrewer</a> can be used to pick safe colours. There are also <a href="https://www.color-blindness.com/coblis-color-blindness-simulator/" target="_blank">tools for uploading images</a> (e.g.&nbsp;of a chart or a map), and test how it is viewed for different types of colourblindness. Highly recommend using this for any graphics that will appear in publications</p></li>
+<li><p>Using colourblind safe colours. Tools, such as <a href="https://colorbrewer2.org" target="_blank">ColorBrewer</a> can be used to pick safe colours. There are also <a href="https://www.color-blindness.com/coblis-color-blindness-simulator/" target="_blank">tools for uploading images</a> (e.g.&nbsp;of a chart or a map), and test how it is viewed for different types of colourblindness. Highly recommend using this for any graphics that will appear in publications.</p></li>
 <li><p>Using adequate font sizes and making sure there is adequate level of contrast between foreground and background, especially with text. The greater the contrast between the foreground and background, the easier it is to read. For text, keep in mind that font size plays a significant role: smaller fonts require even higher contrast between the text color and background to maintain readability. There are online <a href="https://webaim.org/resources/contrastchecker/" target="_blank">tools for checking contrast ratios</a> between background and foreground that are useful for design.</p></li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
@@ -547,6 +536,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="practical-tips-for-effective-data-visualization" class="level2">
 <h2 data-anchor-id="practical-tips-for-effective-data-visualization">Practical tips for effective data visualization</h2>
 <p>A strong visualization can make complex data accessible; however, without care, the message can get lost. Great visualizations balance clarity, precision, and aesthetics. This section offers practical tips and guiding principles to elevate your data visualizations.</p>
+<p>The Financial Times also has a <a href="https://ft-interactive.github.io/visual-vocabulary/" target="_blank">“visual vocabulary” guide</a> for which approach to take to visualizing data.</p>
 <p>Note that these are general recommendations and rules of thumb, not rules that you must follow 100% of the time! Data visualization is a combination of technical, design, and artistic skills, and there are often exceptions to the rules :)</p>
 <section id="hierarchy-in-graphics-and-stories" class="level3">
 <h3 data-anchor-id="hierarchy-in-graphics-and-stories">Hierarchy in graphics and stories</h3>
@@ -554,7 +544,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Bold or highlight key data points.</li>
 <li>Use size, contrast, and colour to signal importance.</li>
-<li>De-emphasize secondary elements like gridlines, minor tick marks, or axis labels</li>
+<li>De-emphasize secondary elements like gridlines, minor tick marks, or axis labels.</li>
 </ul>
 <p>For example, the line chart in the image above has a strong visual hierarchy between the key data points it wants to show (e.g.&nbsp;the lines for Sweden, the E.U., and Ireland) relative to the rest of the chart components.</p>
 <p>When guiding your readers through a story with a series of visualizations, sometimes it is useful to follow a Data Visualization Sandwich metaphor:</p>
@@ -584,9 +574,9 @@ ul.task-list li input[type="checkbox"] {
 <li>Choose simple chart types unless complexity is truly needed.</li>
 <li>Use subtle formatting of reference information like gridlines to keep the audience focused on the data itself.</li>
 <li>Avoid overuse of colors, labels, and gridlines.</li>
-<li>You don’t need to visualize every possible variable or data point, focus on the story you’re trying to tell.</li>
+<li>You don’t need to visualize every possible variable or data point; focus on the story you’re trying to tell.</li>
 <li>Group or collapse less important data to simplify interpretation.</li>
-<li>Whitespace is your friend</li>
+<li>Whitespace is your friend.</li>
 </ul>
 <p>Here’s an example of a visualization of COVID-19 deaths from <a href="https://www.theguardian.com/us-news/2022/mar/13/how-covid-shook-the-us-charts-graphs" target="_blank">The Guardian</a> that has limited visual clutter and strong hierarchy.</p>
 <p><img src="img/DataInk_EX1.png" class="img-fluid"></p>

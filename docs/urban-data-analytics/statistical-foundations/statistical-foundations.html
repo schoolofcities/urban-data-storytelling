@@ -273,6 +273,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Overview of U.S. census data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/intro-to-spatialdb/intro-to-spatialdb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to spatial databases</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/sql-basics/sql-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL fundamentals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/spatialdb-postgis/spatialdb-postgis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial databases and PostGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/spatialdb-python/spatialdb-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accessing PostGIS with Python</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -346,41 +370,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Urban Data Management</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../urban-data-management/intro-to-spatialdb/intro-to-spatialdb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to spatial databases</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../urban-data-management/sql-basics/sql-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SQL fundamentals</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../urban-data-management/spatialdb-postgis/spatialdb-postgis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spatial databases and PostGIS</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../urban-data-management/spatialdb-python/spatialdb-python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Accessing PostGIS with Python</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -410,6 +399,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#one-sample-t-test" id="toc-one-sample-t-test" class="nav-link" data-scroll-target="#one-sample-t-test">One-Sample t-test</a></li>
   <li><a href="#two-sample-t-test" id="toc-two-sample-t-test" class="nav-link" data-scroll-target="#two-sample-t-test">Two-Sample t-test</a></li>
+  <li><a href="#other-hypothesis-tests" id="toc-other-hypothesis-tests" class="nav-link" data-scroll-target="#other-hypothesis-tests">Other hypothesis tests</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -876,6 +866,46 @@ Significantly different!</code></pre>
 <li><p>For a one-sample t-test, you can calculate the p-value and t-statistic manually. <a href="https://youtu.be/OCSmMABkVqQ?si=raegs2rcv5WaWNsG" target="_blank">This video tutorial</a> provides an example of how to do this.</p></li>
 <li><p>If you are using the Data Analysis Toolpak add-in in Excel, you can run both one-sample or two-sample t-tests using the add-in features.</p></li>
 </ul>
+</section>
+<section id="other-hypothesis-tests" class="level3">
+<h3 data-anchor-id="other-hypothesis-tests">Other hypothesis tests</h3>
+<p>There are numerous other statistical hypothesis tests, which might be more advantageous in different cases. We’ve outlined a few below, which you can look into further yourself.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Purpose/When to Use</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><a href="https://docs.scipy.org/doc/scipy-1.11.2/reference/generated/scipy.stats.binom_test.html" target="_blank">Two-proportion z-test</a></strong></td>
+<td>Compares whether two groups have significantly different rates or percentages (e.g., comparing voter turnout rates between urban vs rural areas).</td>
+<td>Requires large sample sizes and doesn’t work well when success rates are very low or very high (near 0% or 100%).</td>
+</tr>
+<tr class="even">
+<td><strong><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chisquare.html" target="_blank">Chi-square test</a></strong></td>
+<td>Tests whether categorical variables are independent of each other (e.g., is party preference related to education level?).</td>
+<td>Cannot determine the direction or strength of association, only whether variables are related.</td>
+</tr>
+<tr class="odd">
+<td><strong><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html" target="_blank">Mann-Whitney U test</a></strong></td>
+<td>Compares two groups when data is not normally distributed or when dealing with ranked/ordinal data (e.g., comparing median income rankings between ridings).</td>
+<td>Less powerful than t-tests when data actually is normally distributed, potentially missing real differences.</td>
+</tr>
+<tr class="even">
+<td><strong><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.f_oneway.html" target="_blank">ANOVA (Analysis of Variance)</a></strong></td>
+<td>Compares means across three or more groups simultaneously (e.g., comparing average vote share across Conservative, Liberal, and NDP stronghold ridings).</td>
+<td>Only tells you that groups differ somewhere, not which specific groups are different from each other.</td>
+</tr>
+<tr class="odd">
+<td><strong><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.fisher_exact.html" target="_blank">Fisher’s exact test</a></strong></td>
+<td>Compares proportions in small samples or when expected counts are low (e.g., comparing candidate gender across small rural vs urban samples).</td>
+<td>Computationally intensive and conservative, potentially missing real differences in favor of avoiding false positives.</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
