@@ -1,12 +1,12 @@
 ---
-title: "Urban Data Storytelling"
+title: "Urban Data Storytelling, Analytics, and Visualization"
 ---
 
-Welcome to the Urban Data Storytelling online textbook, written and created by the [School of Cities](https://schoolofcities.utoronto.ca/) at the University of Toronto. 
+Welcome to the Urban Data Storytelling, Analytics, and Visualization online textbook, written and created by the [School of Cities](https://schoolofcities.utoronto.ca/) at the University of Toronto. 
 
 Urban data storytelling is the process and practice of using data to craft compelling narratives about cities, in order to communicate research and key insights, inform policy-making, build public will, or advocate for change. 
 
-Urban data storytelling combines data analytics, data visualization, and narrative techniques to make complex urban trends understandable and engaging for specific audiences, such as policymakers, funders, or community members.
+It combines data analytics, data visualization, and narrative techniques to make complex urban trends understandable and engaging for specific audiences, such as policymakers, funders, or community members.
 
 This online textbook has several core modules, each composed of one or more notebooks or tutorials.
 
@@ -65,12 +65,12 @@ This online textbook was compiled by [Jeff Allen](https://jamaps.github.io) and 
 
 If you want to cite this online textbook, here is the recommended citation:
 
-**Allen, J., Greenberg, J., St-Louis, E., Zhang, M., & Chapple, K. (Eds.). (2025). *Urban Data Storytelling*. School of Cities, University of Toronto.**
+**Allen, J., Greenberg, J., St-Louis, E., Zhang, M., & Chapple, K. (Eds.). (2025). *Urban Data Storytelling, Analytics, and Visualization*. School of Cities, University of Toronto.**
 
 ```latex
 @book{allen2025urbandatastorytelling,
   editor    = {Allen, Jeff and Greenberg, Julia and St-Louis, Evelyne and Zhang, Michelle and Chapple, Karen},
-  title     = {Urban Data Storytelling},
+  title     = {Urban Data Storytelling, Analytics, and Visualization},
   year      = {2025},
   publisher = {School of Cities, University of Toronto},
   url		= {https://schoolofcities.github.io/urban-data-storytelling/}
@@ -79,13 +79,13 @@ If you want to cite this online textbook, here is the recommended citation:
 
 If you want to cite a specific page, here is an example of a recommended citation:
 
-**Greenberg, J. & St-Louis, E. (2025). Exploratory data visualization. In Allen, J., Greenberg, J., St-Louis, E., Zhang, M., & Chapple, K. (Eds.), *Urban Data Storytelling*. School of Cities, University of Toronto.**
+**Greenberg, J. & St-Louis, E. (2025). Exploratory data visualization. In Allen, J., Greenberg, J., St-Louis, E., Zhang, M., & Chapple, K. (Eds.), *Urban Data Storytelling, Analytics, and Visualization*. School of Cities, University of Toronto.**
 
 ```latex
 @incollection{greenberg2021dataviz,
   author    = {Greenberg, Julia and St-Louis, Evelyne},
   title     = {Exploratory data visualization},
-  booktitle = {Urban Data Storytelling},
+  booktitle = {Urban Data Storytelling, Analytics, and Visualization},
   editor    = {Allen, Jeff and Greenberg, Julia and St-Louis, Evelyne and Zhang, Michelle and Chapple, Karen},
   publisher = {School of Cities, University of Toronto},
   year      = {2025},

@@ -14,18 +14,6 @@ This section will cover:
 - the data analysis process, step-by-step
 - how to find help with coding and data analysis
 
-<br>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe 
-    src="https://www.youtube.com/embed/a2o8OKAH2RE" 
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-  </iframe>
-</div>
-<br>
-
 
 ## Where does data come from?
 

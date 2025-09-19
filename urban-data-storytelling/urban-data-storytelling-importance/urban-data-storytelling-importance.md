@@ -17,18 +17,6 @@ This section will cover:
 
 ## What is urban data storytelling
 
-<br>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe 
-    src="https://www.youtube.com/embed/NoCYA42sbkY" 
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-  </iframe>
-</div>
-<br>
-
 To tell a data story, start by understanding that cities are not just a collection of places but a web of interactions and interconnected systems. To build a coherent and compelling story, we must make a series of thoughtful decisions: how we observe our cities, what we choose to measure, how we analyze that information, and how we communicate our findings to others. This process lays the foundation for meaningful data storytelling that reflects the complexity of urban life.
 
 
