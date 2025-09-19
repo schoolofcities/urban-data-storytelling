@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.23">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Karen Chapple">
+
+<title>Creating shared ground through data storytelling – Urban Data Storytelling 📊📈🏙️</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-37d396b9bd9d8499210613c9f6c50fd5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XB09CWTEWB"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XB09CWTEWB');
+</script>
+
+<meta name="description" content="Notebooks on urban data analysis and visualization">
+<meta name="author" content="School of Cities">
+
+<meta property="og:title" content="Creating shared ground through data storytelling – Urban Data Storytelling 📊📈🏙️">
+<meta name="og:description" content="Notebooks on urban data analysis and visualization">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://schoolofcities.github.io/urban-data-storytelling">
+<meta property="og:image" content="https://raw.githubusercontent.com/schoolofcities/urban-data-storytelling/refs/heads/main/assets/web-card.png">
+<meta property="og:locale" content="en_CA">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="https://schoolofcities.github.io/urban-data-storytelling">
+<meta name="twitter:creator" content="@UofTCities">
+<meta name="twitter:title" content="Creating shared ground through data storytelling – Urban Data Storytelling 📊📈🏙️">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/urban-data-storytelling/refs/heads/main/assets/web-card.png">
+
+
+<link rel="stylesheet" href="../../assets/styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.html">Urban Data Storytelling</a></li><li class="breadcrumb-item"><a href="../../urban-data-storytelling/creating-shared-ground-data-storytelling/creating-shared-ground-data-storytelling.html">Creating shared ground through data storytelling</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Storytelling</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to urban data storytelling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-storytelling/creating-shared-ground-data-storytelling/creating-shared-ground-data-storytelling.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Creating shared ground through data storytelling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-storytelling/data-literacy/data-literacy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data literacy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-storytelling/data-ethics-and-equity/data-ethics-and-equity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data ethics and equity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-storytelling/communicating-data-in-presentations/communicating-data-in-presentations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Communicating data in presentations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Analytics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to urban data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/measuring-the-city/measuring-the-city.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Measuring the city: metrics and indicators</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/data-ethics-and-literacy/data-ethics-and-literacy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data ethics and literacy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/intro-to-python-and-jupyter/intro-to-python-and-jupyter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Programming with Python and computational notebooks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing and analyzing data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/statistical-foundations/statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical foundations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/advanced-statistics-multivariate-methods/advanced-statistics-multivariate-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Advanced statistics and multivariate methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial data and GIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/spatial-data-in-python/spatial-data-in-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial data in Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/spatial-data-processing/spatial-data-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial data processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/openstreetmap/openstreetmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OpenStreetMap</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/canadian-census-data/canadian-census-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of Canadian census data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/us-census-data/us-census-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of U.S. census data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/intro-to-spatialdb/intro-to-spatialdb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to spatial databases</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/sql-basics/sql-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL fundamentals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/spatialdb-postgis/spatialdb-postgis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial databases and PostGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-analytics/spatialdb-python/spatialdb-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accessing PostGIS with Python</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/data-visualization/data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploratory data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Maps and visualizing spatial data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/choropleth-maps/choropleth-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Choropleth maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bivariate choropleth maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/proportional-symbol-maps/proportional-symbol-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Proportional symbol maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/flow-maps/flow-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flow maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Categorical dot maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/visualizing-and-mapping-density/visualizing-and-mapping-density.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing and mapping density</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/webmaps/webmaps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Web map development</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#understanding-diverse-audiences-and-their-experience-of-data-stories" id="toc-understanding-diverse-audiences-and-their-experience-of-data-stories" class="nav-link active" data-scroll-target="#understanding-diverse-audiences-and-their-experience-of-data-stories">Understanding diverse audiences and their experience of data stories</a></li>
+  <li><a href="#types-of-stories" id="toc-types-of-stories" class="nav-link" data-scroll-target="#types-of-stories">Types of stories</a></li>
+  <li><a href="#shifting-from-a-deficit--to-an-abundance-or-asset-based-mindset" id="toc-shifting-from-a-deficit--to-an-abundance-or-asset-based-mindset" class="nav-link" data-scroll-target="#shifting-from-a-deficit--to-an-abundance-or-asset-based-mindset">Shifting from a deficit- to an abundance or asset-based mindset</a>
+  <ul class="collapse">
+  <li><a href="#rethinking-categories" id="toc-rethinking-categories" class="nav-link" data-scroll-target="#rethinking-categories">Rethinking categories</a></li>
+  <li><a href="#refocusing-on-system-impacts" id="toc-refocusing-on-system-impacts" class="nav-link" data-scroll-target="#refocusing-on-system-impacts">Refocusing on system impacts</a></li>
+  <li><a href="#highlighting-invisible-patterns" id="toc-highlighting-invisible-patterns" class="nav-link" data-scroll-target="#highlighting-invisible-patterns">Highlighting invisible patterns</a></li>
+  <li><a href="#reframing-trends" id="toc-reframing-trends" class="nav-link" data-scroll-target="#reframing-trends">Reframing trends</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.html">Urban Data Storytelling</a></li><li class="breadcrumb-item"><a href="../../urban-data-storytelling/creating-shared-ground-data-storytelling/creating-shared-ground-data-storytelling.html">Creating shared ground through data storytelling</a></li></ol></nav><h1 class="title display-7">Creating shared ground through data storytelling</h1></header>
+
+<header id="title-block-header">
+
+<p class="author">Karen Chapple</p>
+
+</header>
+
+
+<p><a href="../../downloads/creating-shared-ground-data-storytelling.zip" target="_blank">📥 Click here to download this document and any associated data and images</a></p>
+<p>The purpose of constructing a compelling data narrative is often to enable change, whether through advocating for new policies or simply building consensus around an issue. To persuade people to change their hearts, minds, and actions, we need to start by creating shared ground. We do this by telling data stories in which everyone can see themselves. The challenge is not just that people bring different perspectives, but also that they may interpret data visualizations differently from how the author intends.</p>
+<p>This section examines the diversity of audiences and how they experience data stories. After outlining three different types of stories that speak to everyone, the chapter explains a key technique for overcoming division: shifting from a deficit- to an abundance or asset-based mindset.</p>
+<section id="understanding-diverse-audiences-and-their-experience-of-data-stories" class="level2">
+<h2 data-anchor-id="understanding-diverse-audiences-and-their-experience-of-data-stories">Understanding diverse audiences and their experience of data stories</h2>
+<p>People are diverse in terms of age, class, ability, race/ethnicity, gender, education, beliefs, culture, faith, experience, and many other characteristics. This is particularly true of cities. Each person may have their own story about their community, and some of these stories likely conflict. How, then, can we create data stories that speak to everyone?</p>
+<p>The first strategy is to meet audiences where they are. To Sandercock, this means telling more inclusive stories of cities by developing a “multicultural literacy,” or deep familiarity with the histories of different social groups, leading to storytelling that acknowledges diverse experiences. Starting the conversation from a familiar place helps our audience integrate new knowledge into their existing belief systems.</p>
+<p>We often feel like if we just had the data, we could change people’s minds. This idea is called the <em>information deficit model</em> – the belief that all our audience needs to come around to our point of view is more complete information. But it’s not that simple. When we present evidence that challenges people’s current beliefs, they often double down – a phenomenon psychologists call the <em>backfire effect</em>. The backfire can be particularly extreme in the context of urban data, since people may be incredulous if they can’t envision themselves in the data.</p>
+<p>In contrast, when people see new data or a visualization that confirms their existing views, they are less skeptical. This confirmation can actually produce a rush of dopamine, a neurotransmitter made by the brain that acts as a hormone, stimulating attention, motivation, and pleasure.</p>
+<p>The second strategy is to be engaging! Agreement on facts is not the only way to produce a dopamine rush. The same effect occurs when stories are told, particularly with a data visualization. Unlike dry facts, stories engage regions of the brain associated with smell, touch, and movement. This not only grabs audience attention, but also improves their concentration and thus learning. In other words, stories create an opportunity to engage audiences and create buy-in.</p>
+<p>When a storyteller and a listener communicate successfully, neural coupling, or sort of a synchronization of brains, occurs. This alignment creates understanding and often agreement and empathy. In other words, it can create a sense of shared ground.</p>
+<p>Stories also generate emotional reactions, which aids audience retention of the story and thus can motivate action. As listeners become immersed in a narrative, they can be “transported” – and in the process, realign their beliefs to accord with the story.</p>
+</section>
+<section id="types-of-stories" class="level2">
+<h2 data-anchor-id="types-of-stories">Types of stories</h2>
+<p>There are three types of stories that we can tell to create shared ground: Core stories, foundational stories, and future stories.</p>
+<p>Each one of us has a core story: We’re actually creating a story with our own life. Communities and nation states also have core stories that give shape to their collective life.</p>
+<p>Here’s a simple example. Toronto is often called a “city within a park,” and this map gives a sense of the ravine system and the city parks that create that identity. Torontonians celebrate this core story through a culture that embraces outdoor activity, regardless of the season. The creation, expression, and sharing of stories about the city’s parks and open spaces is key to local culture. Spatial data visualizations like this one illustrate that shared meaning.</p>
+<p><img src="img/land-cover.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://schoolofcities.github.io/historical-land-cover-toronto/" target="_blank">School of Cities</a>.</small></p>
+<p>A second type of story is a foundational story of how we came into being, or what we might call a mythopoetic story. In the urban context, foundational stories often draw from longstanding fables about home – for example, the single-family home on a large lot surrounded by a white picket fence – and community – for example, building out on the periphery, evoking the frontier myth. This simple visualization of where single-family homes are exclusively permitted in Vancouver, Canada draws from both of those foundational stories.</p>
+<p><img src="img/vancouver.png" class="img-fluid"></p>
+<p>Future stories catalyze change, helping us to imagine different alternatives, as well as our own agency in the service of change. Future stories may evoke success in order to counter the dominant narrative or culture and show a different way forward.</p>
+<p>For example, here is a map of the sites that could accommodate infill housing in Berkeley, California. In purple are the sites potentially for apartment buildings (called conventional infill development on the map). In red are the sites that have potential for backyard cottages. This shows a future story in which more backyard cottages are possible than conventional infill units. It’s meant to both tell a story about the potential of backyard cottages and inspire individual homeowners to take action.</p>
+<p><img src="img/development-cottages.png" class="img-fluid"></p>
+<p><small>Source: Karen Chapple. <em>Planning sustainable cities and regions: Towards more equitable development</em>. New York and London: Routledge, 2014.</small></p>
+</section>
+<section id="shifting-from-a-deficit--to-an-abundance-or-asset-based-mindset" class="level2">
+<h2 data-anchor-id="shifting-from-a-deficit--to-an-abundance-or-asset-based-mindset">Shifting from a deficit- to an abundance or asset-based mindset</h2>
+<p>A key obstacle to finding shared ground is the perception that there aren’t enough resources for everybody (time, money, expertise, and so forth). For example, if you build your house, I’ll lose my view (or my parking spot!). TheCaseMade calls this the scarcity narrative (or a deficit mindset), and suggests that to enable change, we need to refocus people on the abundance of choices we actually have. This idea is not actually new in urban studies: asset-based community development means looking inward to draw upon existing strengths.</p>
+<p>Data can reinforce deficit thinking. We often categorize data about people or communities, defining groups by what they have (or have not). Data is divisive, creating false binaries that obscure the grey areas. This is particularly problematic with urban data since sample sizes for many urban phenomena are very small (e.g., number of pedestrians on a block). Census data are often partly imputed (meaning many values are estimated rather than real), and survey data may not be representative. When we create categories from this data with large (and sometimes unknown) error, it suggests a kind of scientific certainty that actually doesn’t exist.</p>
+<p>The data, metrics, and indicators we typically use often perpetuate deficit thinking. But it is possible to refocus on assets and abundance even with the data we have access to already. We can do this by rethinking categories, refocusing on system impacts, highlighting hitherto invisible patterns, and reframing trends.</p>
+<section id="rethinking-categories" class="level3">
+<h3 data-anchor-id="rethinking-categories">Rethinking categories</h3>
+<p>To simplify and communicate data, we often organize it into categories. But these categories can actually reinforce a deficit mindset by focusing on certain classes instead of adopting a more holistic approach, by choosing inappropriate groupings, or by omitting some types altogether.</p>
+<p>For example, censuses around the world, particularly in the Anglosphere, tend to emphasize variables measuring income and poverty. A visualization of this data might look like this, where the darker red areas are the neighbourhoods with concentrations of poverty.</p>
+<p><img src="img/poverty.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://schoolofcities.github.io/neighbourhood-income-toronto-2020/" target="_blank">School of Cities</a>.</small></p>
+<p>There’s a long history behind this focus on poverty. Beginning in the 1850s, public health practitioners started studying and mapping where poor people lived because they blamed the poor for the spreading of disease, like cholera. The Canadian census included data on earnings when it launched in 1871, and both Canada and the U.S. began collecting extensive data on income beginning in the 1940s. Sociologists soon began studying concentrations of disadvantage at the neighbourhood level in order to shed light on what they considered to be pathological disorder. Often, though, this focus on concentrated poverty shifted attention away from concentrations of affluence.</p>
+<p>A simple shift to visualizing median income across neighbourhoods, rather than just poverty, makes the more affluent residents more visible (in blue, below).</p>
+<p><img src="img/median-income.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://schoolofcities.github.io/neighbourhood-income-toronto-2020/" target="_blank">School of Cities</a>.</small></p>
+<p>Sometimes the categories chosen can be inappropriate reflections of life on the ground. A classic example of deficit thinking is mapping food deserts, which reveal long distances to the nearest grocery store from disadvantaged neighbourhoods. This deficit thinking is reflected in the language we use, in terms like “food desert,” which fails to acknowledge that communities may have an abundance of places, such as convenience stores, where healthy food choices could be made available. In some cases the “desert” may actually contain lots of food options but for either junk food or ethnic products not readily available in chain grocery stores. The naturalistic desert metaphor also minimizes the role that planners and retailers have played – in the context of the racial and economic inequities in the U.S. – in reducing access to food in some communities. But counting just the number of grocery stores doesn’t capture that complexity. To illustrate this, we created a map of where residents of East Greensboro, North Carolina, shop, using cell phone data to record their activity. It turns out that even though the neighbourhood doesn’t have as many stores as West Greensboro, its two large chain stores, Walmart and Food Lion, receive far more visits than other stores in the city.</p>
+<p><img src="img/greensboro-food.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://schoolofcities.github.io/eddit/greensboro-nc" target="_blank">School of Cities</a>.</small></p>
+<p>Sometimes the categories where we see ourselves belonging do not even exist in the data. Many datasets are constructed from a mainstream point of view that doesn’t take into account culturally-specific norms. For example, the U.S. census collects data on families and sex with categories that might not work for everyone: the standard decennial census form (from 2020) asks about stepdaughters but not stepmothers, and only allows a binary choice for sex. Another oft-cited example is the census categories for race and ethnicity (or visible minorities in Canada), which include rich detail on some ethnic groups while omitting others.</p>
+<p><img src="img/person-2.png" class="img-fluid"></p>
+</section>
+<section id="refocusing-on-system-impacts" class="level3">
+<h3 data-anchor-id="refocusing-on-system-impacts">Refocusing on system impacts</h3>
+<p>Data analysis can also reinforce deficit thinking by highlighting specific data points rather than the connections between phenomena that can lead to impacts on the wider system. Often, visualization depicts inputs and outputs rather than outcomes.</p>
+<p>For example, at the School of Cities we love to map trees. A simple map like this can powerfully illustrate the uneven distribution of trees across the city.</p>
+<p><img src="img/toronto-trees.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://schoolofcities.github.io/trees-toronto/dot-map" target="_blank">School of Cities</a>.</small></p>
+<p>We can make a more powerful case for the abundance of trees if we use data to link trees to outcomes. It turns out that more trees can reduce the incidence of asthma and improve mental health, among other outcomes.</p>
+<p><img src="img/trees-mental.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://schoolofcities.github.io/eddit/bridgeport-ct" target="_blank">School of Cities</a>.</small></p>
+<p>It also helps to show connections rather than differences. Often, communities portray themselves as islands, depicting their own economic and demographic patterns without acknowledging connections with neighbouring cities. In western Cook County, Illinois, a group of suburban municipalities decided to work together on climate action. However, they had a hard time understanding how they were connected to each other, partly because of their differences in land use, resident race/ethnicity, and income.</p>
+<p>Visualizing the commute patterns among the cities clarified their close connections and helped motivate the collaboration. Understanding their connectedness can help these communities work together to adapt to climate change and strategically prioritize action.</p>
+<p><img src="img/cook-county-commute.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://schoolofcities.github.io/eddit/cook-county-il" target="_blank">School of Cities</a>.</small></p>
+<p>Another way to shift focus to assets is to visualize outcomes and system impacts instead of inputs and outputs. Too often, visualizations simply depict what is happening, rather than telling a story about what it really means. For example, here’s a map of shooting incidents in Champaign, Illinois. A map like this helps raise awareness about the prevalence of violence in certain neighbourhoods. However, it leaves several questions unanswered: What exactly is going on in those areas without the red dots? What are the assets in those areas, and why can’t we get more of them in the other neighborhoods? And, why should we care about shooting incidents?</p>
+<p><img src="img/shooting-incidents.png" class="img-fluid"></p>
+<p>A different way to tell the story focuses attention on the deaths that resulted and the number of years of life stolen from the victims. Like the first figure, this is providing evidence that gun deaths are a threat, but it reframes the problem around an emotion: loss – the loss of the remaining time on earth. The story is simple: leaving gun violence unresolved leads to more lives being cut short. Revisiting the elements of data storytelling, this story presents a strong moral tension that demands action to protect our greatest asset: human life.</p>
+<p><img src="img/champaign-gun-violence.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://schoolofcities.github.io/eddit/champaign-il" target="_blank">School of Cities</a>.</small></p>
+</section>
+<section id="highlighting-invisible-patterns" class="level3">
+<h3 data-anchor-id="highlighting-invisible-patterns">Highlighting invisible patterns</h3>
+<p>To present an argument for more equitable outcomes, data visualizations often compare groups to show uneven distribution. For example, in the case of business ownership in High Point, North Carolina, a bar chart could show that the percentage of female and Black business owners is lower than that of White owners (the green bar in the figure). But it would be even more effective to make that comparison in terms of each group’s distribution in the overall population (the blue bar). Only through visualizing the lack of parity does it become clear that resource hoarding is occurring (likely because of inequities built into the system).</p>
+<p><img src="img/high-point-business.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://schoolofcities.github.io/eddit/high-point-nc" target="_blank">School of Cities</a>.</small></p>
+<p>Sometimes the costs and benefits of behaviour are not entirely clear, complicating the argument for an asset-based mindset. One classic example is the costs of driving. Not only is the cost of auto-related infrastructure subsidized heavily by federal government, but also households tend not to incorporate the full array of costs associated with owning a car – car payments, insurance, and repairs, in addition to gasoline – into their decisions. In our work for Eau Claire, Wisconsin, we describe the range of car costs and compare it to the cost of bus ridership.</p>
+<p><img src="img/eau-claire-bus.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://schoolofcities.github.io/eddit/eau-claire-wi" target="_blank">School of Cities</a>.</small></p>
+</section>
+<section id="reframing-trends" class="level3">
+<h3 data-anchor-id="reframing-trends">Reframing trends</h3>
+<p>Finally, examining trends thoughtfully can help point towards abundance while also showing us how we can act now to change the future. Data visualization can achieve this by showing activity patterns behind the trend depicted, and also by suggesting that a trend is not necessarily inevitable. For example, downtown Halifax, Canada is benefitting from increased visitor activity year over year, but examining monthly patterns tells us even more: their greatest asset is the summer months of July and August.</p>
+<p><img src="img/halifax-visits.png" class="img-fluid"></p>
+<p><small>Source: <a href="https://schoolofcities.github.io/eddit/halifax-ns" target="_blank">School of Cities</a>.</small></p>
+<p>Trends are a powerful reminder of where we are headed. Yet, those lines often seem to imply the inevitability of the future, rather than allowing for agency and intervention to change the future. A line chart that maps alternative future trajectories can help people to think about the future and inspire action.</p>
+<p><img src="img/canada-rental-prices.png" class="img-fluid"></p>
+</section>
+<section id="conclusion" class="level3">
+<h3 data-anchor-id="conclusion">Conclusion</h3>
+<p>It remains important to understand deficits, or where people and places lack the basic services and opportunities they need to thrive. However, only highlighting deficits may be divisive and fail to create shared ground. Using data stories to reframe the conversation towards assets helps to remind stakeholders of the values they hold in common. Asset-based data stories suggest situations where we can all win, and thus can inspire communities to work together towards a brighter future.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

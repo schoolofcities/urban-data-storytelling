@@ -13,18 +13,6 @@ This section will cover:
 
 ## Data literacy
 
-<br>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe 
-    src="https://www.youtube.com/embed/e5qrOM9SPC0" 
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-  </iframe>
-</div>
-<br>
-
 Data literacy begins with *applying a critical lens* and *asking the right questions* about data. Before using a dataset, you should always ask yourself: (1) who collected the data, (2) why did they collect the data, (3) what does the data say, (4) what does it leave out, and (5) how can it be used to support your goals? 
 
 Next, it is important to consider the limitations of the *scale*, or *geography*, used for analysis. When analyzing communities, census tracts are often considered the gold standard. However, they come with sampling limitations, especially at smaller scales. Not everyone responds to the census, so a lot of data is imputed. Aggregating data can also lead to misleading generalizations about neighbourhoods that don’t ring true from one block to another. It’s important to consider context and local definitions of the neighbourhood, since that can drastically change the story your data tells.
@@ -33,18 +21,6 @@ Finally, *effective and trustworthy communication* is the final step in building
 
 
 ## Data ethics
-
-<br>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe 
-    src="https://www.youtube.com/embed/mKx6A-hUpxw" 
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-  </iframe>
-</div>
-<br>
 
 Using data ethically starts with *recognizing the people behind the numbers*. Behind every dataset are many people: data generators (that’s often you and me), data collectors, and data utilizers. *Each group brings different intentions and potential biases, which can shape how data is framed and interpreted. Each time you encounter a new dataset, take a moment to reflect on who collected the data, who is represented in the data, who benefits, and who might be harmed.*
 
