@@ -27,7 +27,6 @@ website:
         contents:
           - urban-data-analytics/what-and-where-of-data/what-and-where-of-data.md
           - urban-data-analytics/measuring-the-city/measuring-the-city.md
-          - urban-data-analytics/data-ethics-and-literacy/data-ethics-and-literacy.md
           - urban-data-analytics/intro-to-python-and-jupyter/intro-to-python-and-jupyter.ipynb
           - urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.ipynb
           - urban-data-analytics/statistical-foundations/statistical-foundations.ipynb
