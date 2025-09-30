@@ -30,7 +30,7 @@ Another resource, this time specifically for spatial data, is the [Locus Charter
 
 The production of urban data involves many different actors, often with different purposes, across time periods with changing norms and places with different histories and cultures. Given this complexity, the data portrayed and visualized may fail to acknowledge not just community assets, but also systemic and structural injustices, including inequality and racism. Some injustice is obvious to all (for example, hate crimes or job discrimination) but most is not – and thus can be perpetuated in data analysis and visualization.
 
-In cities, systemic injustice manifests primarily in where you live; some evidence suggests that your zip code determines your destiny, since where you grow up shapes access to the opportunities that promote thriving. But too often the data is inadequate both for demonstrating entrenched inequalities and acknowledging the complexities of people’s identities.
+In cities, systemic injustice manifests primarily in where you live; some evidence suggests that your zip code determines your destiny, since where you grow up shapes access to the opportunities that promote thriving.<sup>1</sup> But too often the data is inadequate both for demonstrating entrenched inequalities and acknowledging the complexities of people’s identities.
 
 New data sources are emerging to help reveal systemic injustices. For example, in the U.S., we can access maps of Home Owners’ Loan Corporation (HOLC) redlining – a 1930s system of designating neighbourhoods according to what was considered a rating of investment risk, but was really a reflection of societal misconceptions about race and ethnicity. This then created a system which was self-perpetuating, by denying access to mortgages and financial services to those in neighbourhood deemed higher risk.
 
@@ -49,3 +49,7 @@ The videos and content above represent a brief introduction to the topics of dat
  - [Schwabish, J. (2018)](https://urban-institute.medium.com/form-and-function-let-your-audiences-needs-drive-your-data-visualization-choices-3c0603745822). Form and Function: Let Your Audience’s Needs Drive Your Visualization Choices. The Urban Institute, Data@Urban Medium. Retrieved from:
  - [Schwabish, J., & Feng, A. (2020)](https://osf.io/preprints/osf/x8tbw). Applying Racial Equity Awareness in Data Visualization.
  - [Schwabish, J. & Feng, A. (2021)](https://www.urban.org/research/publication/do-no-harm-guide-applying-equity-awareness-data-visualization). Do No Harm Guide: Applying Racial Equity Awareness in Data Visualization. The Urban Institute. Retrieved from:
+
+## Footnotes
+
+<sup>1</sup> Chetty, R., & Hendren, N. (2018). The impacts of neighborhoods on intergenerational mobility I: Childhood exposure effects. *The quarterly journal of economics*, 133(3), 1107-1162.

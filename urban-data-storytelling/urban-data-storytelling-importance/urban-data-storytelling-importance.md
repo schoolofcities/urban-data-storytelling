@@ -22,7 +22,7 @@ In the following sections we explain why urban data storytelling is special, its
 
 ## The uniqueness of urban data storytelling
 
-Storytelling is part of human life, key to building relationships and collective identity). We live in places where  we experience everyday life, and storytelling can strengthen the sense of belonging to our places and  neighbourhoods. The experience of crafting stories is typically a collaborative social exercise, involving both storyteller and audience, and in the process forges connections between communities and their environment, often bridging private and public spheres. 
+Storytelling is part of human life, key to building relationships and collective identity).<sup>1</sup> We live in places where  we experience everyday life, and storytelling can strengthen the sense of belonging to our places and neighbourhoods.<sup>2</sup> The experience of crafting stories is typically a collaborative social exercise, involving both storyteller and audience, and in the process forges connections between communities and their environment, often bridging private and public spheres.<sup>3</sup>
 
 Effective data storytelling in cities similarly grows out of collaboration and builds connections to place. The process of selecting a dataset, constructing variables, and designing visualizations does not happen in a vacuum, but is based on community norms and draws from local meanings. Even if the data storyteller technically works alone, familiarity with the community and the place will shape ways of representing it.
 
@@ -30,15 +30,15 @@ Because urban data stories are closely connected to specific places, we experien
 
 And if we don’t see ourselves, then we are likely to be skeptical of the data. This also makes urban data stories special. Researchers and their audiences can often  validate tables, charts, and maps about a place through ground truthing, or the process of verifying accuracy via direct, on-the-ground observation. This creates unique pressure on the data storyteller to communicate accurately and clearly–and even more so if the data story contradicts lived experience (or a community member’s skewed perception of reality). 
 
-Even if we see ourselves in the data, the data story will need to build on something that we already believe. For example, a single parent will not just see their lives in a bar chart about the household budget (below), but might also feel affirmed in their belief that they are paying too much for rent (38% of income, compared to 31% for a family of four). A good data story will also help the audience expand their perspective by introducing new and unexpected findings that create surprise and thus engagement.
+Even if we see ourselves in the data, the data story will need to build on something that we already believe.<sup>4</sup> For example, a single parent will not just see their lives in a bar chart about the household budget (below), but might also feel affirmed in their belief that they are paying too much for rent (38% of income, compared to 31% for a family of four). A good data story will also help the audience expand their perspective by introducing new and unexpected findings that create surprise and thus engagement.<sup>5</sup>
 
 ## Why tell urban data stories?
 
 *“You can’t really change the heart without telling a story” (Nussbaum, 2007:176).*
 
-We tell urban data stories for many different reasons – rallying the community around a cause, explaining problems to elected officials and policymakers, informing a new advocacy campaign, spurring others to share their own stories, or just communicating generally to anyone who will listen. Whoever the audience is, the story helps to raise awareness of our shared values, and thus often becomes a call to protect those values.
+We tell urban data stories for many different reasons – rallying the community around a cause, explaining problems to elected officials and policymakers, informing a new advocacy campaign, spurring others to share their own stories, or just communicating generally to anyone who will listen. Whoever the audience is, the story helps to raise awareness of our shared values, and thus often becomes a call to protect those values.<sup>6</sup>
  
-When storytelling has a purpose, planning professor (and former Iowa City mayor!) Jim Throgmorton calls it persuasive storytelling. As we give data meaning via visualization, we create a story around our moral concerns and thus impel action. This then becomes a two-way process with responsibilities on all sides: how we tell the story shapes action, so ethical principles need to guide the story. Later sections on Creating Shared Ground and Data Ethics will explore these concepts in more detail.
+When storytelling has a purpose, planning professor (and former Iowa City mayor!) Jim Throgmorton calls it persuasive storytelling. As we give data meaning via visualization, we create a story around our moral concerns and thus impel action.<sup>7</sup> This then becomes a two-way process with responsibilities on all sides: how we tell the story shapes action, so ethical principles need to guide the story.<sup>8</sup> Later sections on Creating Shared Ground and Data Ethics will explore these concepts in more detail.
 
 ![](img/alberta-budget.png)
 
@@ -126,3 +126,21 @@ To build an effective data story, first identify your goals and your audience (S
 <br>
 
 ![](img/framework.png)
+
+## Footnotes
+
+<sup>1</sup> Ganz, M. (2009). Why stories matter. *Sojourners*, 38(3), 16.
+
+<sup>2</sup> Ball-Rokeach, S. J., Kim, Y., & Matei, S. (2001). Storytelling neighborhood: Paths to belonging in diverse urban environments. *Communication Research*, 28(4), 392–428. https://doi.org/10.1177/009365001028004003 
+
+<sup>3</sup> Daskolia, M., Dettori, G., & Lejano, R. P. (2017). Urban digital storytelling. In *Urban Environmental Education Review* (pp. 271-278). Cornell University Press.
+
+<sup>4</sup> Andrews, R. J. (2019). *Info we trust: How to inspire the world with data*. John Wiley & Sons.
+
+<sup>5</sup> Matei, S. A., & Hunter, L. (2021). Data storytelling is not storytelling with data: A framework for storytelling in science communication and data journalism. *The Information Society*, 37(5), 312-322.
+
+<sup>6</sup> Ganz, M. (2010). Leading change: Leadership, organization, and social movements. In N. Nohria & R. Khurana (Eds.), *Handbook of leadership theory and practice: A harvard business school centennial colloquium* (pp. 1–42). Harvard Business Press. 
+
+<sup>7</sup> Throgmorton, J. A. (2003). Planning as persuasive storytelling in a global-scale web of relationships. *Planning Theory*, 2(2), 125-151.
+
+<sup>8</sup> Sandercock, L. (2004). Out of the closet: The importance of stories and storytelling in planning practice. In *Dialogues in urban and regional planning* (pp. 315-337). Routledge.
