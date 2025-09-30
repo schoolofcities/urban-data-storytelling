@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My webmap</title>
+    <link rel="stylesheet" href="style.css">
+    <script src='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js'></script>
+    <link href='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css' rel='stylesheet' />
+<body>
+    <!-- MAP CONTAINER -->
+    <div id='map' class='map-container'></div>
+
+
+    <!-- INTERACTIVITY -->
+    <div class='map-data-container'>
+        <label>Filter map view</label>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="layercheck" checked>
+            Show layer
+        </div>
+
+        <form>
+            <fieldset id="boundaryfieldset">
+                <label>Select Province/Territory</label>
+                <select id="boundary" name="boundary">
+                    <option value="" disabled selected>Select boundary...</option>
+                    <option value="Ontario">Ontario</option>
+                    <option value="Quebec">Quebec</option>
+                    <option value="Yukon">Yukon</option>
+                    <option value="All">Show all</option>
+                </select>
+            </fieldset>
+        </form>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
