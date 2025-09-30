@@ -42,6 +42,8 @@ A second type of story is a foundational story of how we came into being, or wha
 
 ![](img/vancouver.png)
 
+<small>Source: [School of Cities](https://schoolofcities.github.io/yellowbelt-canadian-cities-2022/).</small>
+
 Future stories catalyze change, helping us to imagine different alternatives, as well as our own agency in the service of change. Future stories may evoke success in order to counter the dominant narrative or culture and show a different way forward.
 
 For example, here is a map of the sites that could accommodate infill housing in Berkeley, California. In purple are the sites potentially for apartment buildings (called conventional infill development on the map). In red are the sites that have potential for backyard cottages. This shows a future story in which more backyard cottages are possible than conventional infill units. It’s meant to both tell a story about the potential of backyard cottages and inspire individual homeowners to take action.
@@ -86,6 +88,8 @@ Sometimes the categories where we see ourselves belonging do not even exist in t
 
 ![](img/person-2.png)
 
+<small>Source: American Community Survey.</small>
+
 ### Refocusing on system impacts
 
 Data analysis can also reinforce deficit thinking by highlighting specific data points rather than the connections between phenomena that can lead to impacts on the wider system. Often, visualization depicts inputs and outputs rather than outcomes.
@@ -113,6 +117,8 @@ Visualizing the commute patterns among the cities clarified their close connecti
 Another way to shift focus to assets is to visualize outcomes and system impacts instead of inputs and outputs. Too often, visualizations simply depict what is happening, rather than telling a story about what it really means. For example, here’s a map of shooting incidents in Champaign, Illinois. A map like this helps raise awareness about the prevalence of violence in certain neighbourhoods. However, it leaves several questions unanswered: What exactly is going on in those areas without the red dots? What are the assets in those areas, and why can’t we get more of them in the other neighborhoods? And, why should we care about shooting incidents?
 
 ![](img/shooting-incidents.png)
+
+<small>Source: City of Champaign, IL.</small>
 
 A different way to tell the story focuses attention on the deaths that resulted and the number of years of life stolen from the victims. Like the first figure, this is providing evidence that gun deaths are a threat, but it reframes the problem around an emotion: loss -- the loss of the remaining time on earth. The story is simple: leaving gun violence unresolved leads to more lives being cut short. Revisiting the elements of data storytelling, this story presents a strong moral tension that demands action to protect our greatest asset: human life. 
 
@@ -145,6 +151,8 @@ Finally, examining trends thoughtfully can help point towards abundance while al
 Trends are a powerful reminder of where we are headed. Yet, those lines often seem to imply the inevitability of the future, rather than allowing for agency and intervention to change the future. A line chart that maps alternative future trajectories can help people to think about the future and inspire action.
 
 ![](img/canada-rental-prices.png)
+
+<small>Source: Urbanation Inc., accessed June 6, 2024.</small>
 
 ### Conclusion
 

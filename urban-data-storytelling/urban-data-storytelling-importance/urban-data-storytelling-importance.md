@@ -42,6 +42,8 @@ When storytelling has a purpose, planning professor (and former Iowa City mayor!
 
 ![](img/alberta-budget.png)
 
+<small>Source: [School of Cities](https://schoolofcities.github.io/eddit/wood-buffalo-ab).</small>
+
 ## Elements of a good data story
 
 As Professor Leonie Sandercock explains in her classic 2004 article, an effective story has five elements:
@@ -66,6 +68,8 @@ And then, the comeback afterwards, though downtown still isn’t doing as great 
 
 ![](img/activity-3.png)
 
+<small>Source: Michael Leong.</small>
+
 The map series demonstrates  the five ingredients of a compelling data story: (1) change over time, (2) a coherent story about changing activity, (3) findings that are generalizable to other cities and  speak to a value most people share about having vibrant urban spaces, (4) us as protagonists  against the villain of the pandemic, and (5) moral tension that gets resolved as the activity comes back.
 
 
@@ -80,6 +84,8 @@ To build an effective data story, first identify your goals and your audience (S
 2. *Map your stakeholders and their positions.* Identify the people or organizations who have an interest in your work, or whom you wish had a stake in your work. What are their interests, and how do these interests relate to your project goals? What is the extent of their involvement in your work? What is your timeline for involving/engaging them?
 
 ![](img/goals-stakeholders.png)
+
+<small>Source: Karen Chapple.</small>
 
 3. *Prioritize an audience for your story.* From your list of stakeholders, identify which specific audience you want to engage with for this story, and why. 
 
