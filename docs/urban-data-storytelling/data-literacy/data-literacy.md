@@ -48,6 +48,8 @@ In the U.S. and Canada, the gold standard for analyzing communities and neighbor
 
 ![](img/displacement.png)
 
+<small>Source: [Urban Displacement Project](https://www.urbandisplacement.org/maps/new-york-gentrification-and-displacement/).</small>
+
 ![](img/gentrification.png)
 
 <small>Source: [Gentry.io](https://github.com/Devonte202/gentry.io).</small>

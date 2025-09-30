@@ -13,21 +13,21 @@ This section examines the diversity of audiences and how they experience data st
 
 People are diverse in terms of age, class, ability, race/ethnicity, gender, education, beliefs, culture, faith, experience, and many other characteristics. This is particularly true of cities. Each person may have their own story about their community, and some of these stories likely conflict. How, then, can we create data stories that speak to everyone?
 
-The first strategy is to meet audiences where they are. To Sandercock, this means telling more inclusive stories of cities by developing a “multicultural literacy,” or deep familiarity with the histories of different social groups, leading to storytelling that acknowledges diverse experiences. Starting the conversation from a familiar place helps our audience integrate new knowledge into their existing belief systems.
+The first strategy is to meet audiences where they are. To Sandercock, this means telling more inclusive stories of cities by developing a “multicultural literacy,” or deep familiarity with the histories of different social groups, leading to storytelling that acknowledges diverse experiences.<sup>1</sup> Starting the conversation from a familiar place helps our audience integrate new knowledge into their existing belief systems.<sup>2</sup>
 
-We often feel like if we just had the data, we could change people’s minds. This idea is called the *information deficit model* – the belief that all our audience needs to come around to our point of view is more complete information. But it’s not that simple. When we present evidence that challenges people’s current beliefs, they often double down – a phenomenon psychologists call the *backfire effect*. The backfire can be particularly extreme in the context of urban data, since people may be incredulous if they can’t envision themselves in the data.
+We often feel like if we just had the data, we could change people’s minds. This idea is called the *information deficit model* – the belief that all our audience needs to come around to our point of view is more complete information.<sup>3</sup> But it’s not that simple. When we present evidence that challenges people’s current beliefs, they often double down – a phenomenon psychologists call the *backfire effect*.<sup>4</sup> The backfire can be particularly extreme in the context of urban data, since people may be incredulous if they can’t envision themselves in the data.
 
-In contrast, when people see new data or a visualization that confirms their existing views, they are less skeptical. This confirmation can actually produce a rush of dopamine, a neurotransmitter made by the brain that acts as a hormone, stimulating attention, motivation, and pleasure.
+In contrast, when people see new data or a visualization that confirms their existing views, they are less skeptical. This confirmation can actually produce a rush of dopamine, a neurotransmitter made by the brain that acts as a hormone, stimulating attention, motivation, and pleasure.<sup>5</sup>
 
-The second strategy is to be engaging! Agreement on facts is not the only way to produce a dopamine rush. The same effect occurs when stories are told, particularly with a data visualization. Unlike dry facts, stories engage regions of the brain associated with smell, touch, and movement. This not only grabs audience attention, but also improves their concentration and thus learning. In other words, stories create an opportunity to engage audiences and create buy-in.
+The second strategy is to be engaging! Agreement on facts is not the only way to produce a dopamine rush. The same effect occurs when stories are told, particularly with a data visualization. Unlike dry facts, stories engage regions of the brain associated with smell, touch, and movement.<sup>6</sup> This not only grabs audience attention, but also improves their concentration and thus learning.<sup>7</sup> In other words, stories create an opportunity to engage audiences and create buy-in.<sup>8</sup>
 
-When a storyteller and a listener communicate successfully, neural coupling, or sort of a synchronization of brains, occurs. This alignment creates understanding and often agreement and empathy. In other words, it can create a sense of shared ground.
+When a storyteller and a listener communicate successfully, neural coupling, or sort of a synchronization of brains, occurs.<sup>9</sup> This alignment creates understanding and often agreement and empathy.<sup>10</sup> In other words, it can create a sense of shared ground.
 
-Stories also generate emotional reactions, which aids audience retention of the story and thus can motivate action. As listeners become immersed in a narrative, they can be “transported” – and in the process, realign their beliefs to accord with the story.
+Stories also generate emotional reactions, which aids audience retention of the story and thus can motivate action.<sup>11</sup> As listeners become immersed in a narrative, they can be “transported” – and in the process, realign their beliefs to accord with the story.<sup>12</sup>
 
 ## Types of stories
 
-There are three types of stories that we can tell to create shared ground: Core stories, foundational stories, and future stories.
+There are three types of stories that we can tell to create shared ground: Core stories, foundational stories, and future stories.<sup>13</sup>
 
 Each one of us has a core story: We're actually creating a story with our own life. Communities and nation states also have core stories that give shape to their collective life.
 
@@ -42,6 +42,8 @@ A second type of story is a foundational story of how we came into being, or wha
 
 ![](img/vancouver.png)
 
+<small>Source: [School of Cities](https://schoolofcities.github.io/yellowbelt-canadian-cities-2022/).</small>
+
 Future stories catalyze change, helping us to imagine different alternatives, as well as our own agency in the service of change. Future stories may evoke success in order to counter the dominant narrative or culture and show a different way forward.
 
 For example, here is a map of the sites that could accommodate infill housing in Berkeley, California. In purple are the sites potentially for apartment buildings (called conventional infill development on the map). In red are the sites that have potential for backyard cottages. This shows a future story in which more backyard cottages are possible than conventional infill units. It’s meant to both tell a story about the potential of backyard cottages and inspire individual homeowners to take action.
@@ -52,7 +54,7 @@ For example, here is a map of the sites that could accommodate infill housing in
 
 ## Shifting from a deficit- to an abundance or asset-based mindset
 
-A key obstacle to finding shared ground is the perception that there aren’t enough resources for everybody (time, money, expertise, and so forth). For example, if you build your house, I’ll lose my view (or my parking spot!). TheCaseMade calls this the scarcity narrative (or a deficit mindset), and suggests that to enable change, we need to refocus people on the abundance of choices we actually have. This idea is not actually new in urban studies: asset-based community development means looking inward to draw upon existing strengths.
+A key obstacle to finding shared ground is the perception that there aren’t enough resources for everybody (time, money, expertise, and so forth). For example, if you build your house, I’ll lose my view (or my parking spot!). TheCaseMade calls this the scarcity narrative (or a deficit mindset), and suggests that to enable change, we need to refocus people on the abundance of choices we actually have.<sup>14</sup> This idea is not actually new in urban studies: asset-based community development means looking inward to draw upon existing strengths.<sup>15</sup>
 
 Data can reinforce deficit thinking. We often categorize data about people or communities, defining groups by what they have (or have not). Data is divisive, creating false binaries that obscure the grey areas. This is particularly problematic with urban data since sample sizes for many urban phenomena are very small (e.g., number of pedestrians on a block). Census data are often partly imputed (meaning many values are estimated rather than real), and survey data may not be representative. When we create categories from this data with large (and sometimes unknown) error, it suggests a kind of scientific certainty that actually doesn’t exist.
 
@@ -76,7 +78,7 @@ A simple shift to visualizing median income across neighbourhoods, rather than j
 
 <small>Source: [School of Cities](https://schoolofcities.github.io/neighbourhood-income-toronto-2020/).</small>
 
-Sometimes the categories chosen can be inappropriate reflections of life on the ground. A classic example of deficit thinking is mapping food deserts, which reveal long distances to the nearest grocery store from disadvantaged neighbourhoods. This deficit thinking is reflected in the language we use, in terms like “food desert,” which fails to acknowledge that communities may have an abundance of places, such as convenience stores, where healthy food choices could be made available. In some cases the “desert” may actually contain lots of food options but for either junk food or ethnic products not readily available in chain grocery stores. The naturalistic desert metaphor also minimizes the role that planners and retailers have played – in the context of the racial and economic inequities in the U.S. – in reducing access to food in some communities. But counting just the number of grocery stores doesn’t capture that complexity. To illustrate this, we created a map of where residents of East Greensboro, North Carolina, shop, using cell phone data to record their activity. It turns out that even though the neighbourhood doesn’t have as many stores as West Greensboro, its two large chain stores, Walmart and Food Lion, receive far more visits than other stores in the city.
+Sometimes the categories chosen can be inappropriate reflections of life on the ground. A classic example of deficit thinking is mapping food deserts, which reveal long distances to the nearest grocery store from disadvantaged neighbourhoods. This deficit thinking is reflected in the language we use, in terms like “food desert,” which fails to acknowledge that communities may have an abundance of places, such as convenience stores, where healthy food choices could be made available. In some cases the “desert” may actually contain lots of food options but for either junk food or ethnic products not readily available in chain grocery stores.<sup>16</sup> The naturalistic desert metaphor also minimizes the role that planners and retailers have played – in the context of the racial and economic inequities in the U.S. – in reducing access to food in some communities.<sup>17</sup> But counting just the number of grocery stores doesn’t capture that complexity. To illustrate this, we created a map of where residents of East Greensboro, North Carolina, shop, using cell phone data to record their activity. It turns out that even though the neighbourhood doesn’t have as many stores as West Greensboro, its two large chain stores, Walmart and Food Lion, receive far more visits than other stores in the city.
 
 ![](img/greensboro-food.png)
 
@@ -85,6 +87,8 @@ Sometimes the categories chosen can be inappropriate reflections of life on the 
 Sometimes the categories where we see ourselves belonging do not even exist in the data. Many datasets are constructed from a mainstream point of view that doesn’t take into account culturally-specific norms. For example, the U.S. census collects data on families and sex with categories that might not work for everyone: the standard decennial census form (from 2020) asks about stepdaughters but not stepmothers, and only allows a binary choice for sex. Another oft-cited example is the census categories for race and ethnicity (or visible minorities in Canada), which include rich detail on some ethnic groups while omitting others.
 
 ![](img/person-2.png)
+
+<small>Source: American Community Survey.</small>
 
 ### Refocusing on system impacts
 
@@ -113,6 +117,8 @@ Visualizing the commute patterns among the cities clarified their close connecti
 Another way to shift focus to assets is to visualize outcomes and system impacts instead of inputs and outputs. Too often, visualizations simply depict what is happening, rather than telling a story about what it really means. For example, here’s a map of shooting incidents in Champaign, Illinois. A map like this helps raise awareness about the prevalence of violence in certain neighbourhoods. However, it leaves several questions unanswered: What exactly is going on in those areas without the red dots? What are the assets in those areas, and why can’t we get more of them in the other neighborhoods? And, why should we care about shooting incidents?
 
 ![](img/shooting-incidents.png)
+
+<small>Source: City of Champaign, IL.</small>
 
 A different way to tell the story focuses attention on the deaths that resulted and the number of years of life stolen from the victims. Like the first figure, this is providing evidence that gun deaths are a threat, but it reframes the problem around an emotion: loss -- the loss of the remaining time on earth. The story is simple: leaving gun violence unresolved leads to more lives being cut short. Revisiting the elements of data storytelling, this story presents a strong moral tension that demands action to protect our greatest asset: human life. 
 
@@ -146,6 +152,45 @@ Trends are a powerful reminder of where we are headed. Yet, those lines often se
 
 ![](img/canada-rental-prices.png)
 
+<small>Source: Urbanation Inc., accessed June 6, 2024.</small>
+
 ### Conclusion
 
 It remains important to understand deficits, or where people and places lack the basic services and opportunities they need to thrive. However, only highlighting deficits may be divisive and fail to create shared ground. Using data stories to reframe the conversation towards assets helps to remind stakeholders of the values they hold in common. Asset-based data stories suggest situations where we can all win, and thus can inspire communities to work together towards a brighter future.
+
+## Footnotes
+
+<sup>1</sup> Sandercock, L. (2004). Out of the closet: The importance of stories and storytelling in planning practice. In *Dialogues in urban and regional planning* (pp. 315-337). Routledge.
+
+<sup>2</sup> Andrews, op.cit.
+
+<sup>3</sup> Dykes, B. (2019). *Effective data storytelling: how to drive change with data, narrative and visuals*. John Wiley & Sons.
+
+<sup>4</sup> Ibid.
+
+<sup>5</sup> Ibid.
+
+<sup>6</sup> Dykes, op.cit.
+
+<sup>7</sup> Dykes, op.cit. Vora, S. (2019). *The power of data storytelling*. Sage Publications Pvt. Ltd.
+
+<sup>8</sup> Vora, op.cit.
+
+<sup>9</sup> Stephens, G. J., Silbert, L. J., & Hasson, U. (2010). Speaker–listener neural coupling underlies successful communication. *Proceedings of the national academy of sciences*, 107(32), 14425-14430.
+
+<sup>10</sup> Dykes, op.cit; Vora, op.cit.
+
+<sup>11</sup> Vora, op.cit.
+
+<sup>12</sup> Green, M. C., & Brock, T. C. (2000). The role of transportation in the persuasiveness of public narratives. *Journal of personality and social psychology*, 79(5), 701.
+
+<sup>13</sup> Sandercock, 2004, op.cit.
+
+<sup>14</sup> TheCaseMade, 2023.  Navigate Zero-Sum Thinking and Get More Buy-in by Shifting the Narrative to Abundance. https://www.thecasemade.com/_files/ugd/8a3358_ce2f06fcdec84c36b48c1aa1d0752156.pdf
+
+<sup>15</sup> Kretzmann, J., & McKnight, J. P. (1996). Assets-based community development. Nat'l Civic Rev., 85, 23.
+
+<sup>16</sup> Short, A., Guthman, J., & Raskin, S. (2007). Food deserts, oases, or mirages? Small markets and community food security in the San Francisco Bay Area. *Journal of planning education and research*, 26(3), 352-364.
+
+<sup>17</sup> Widener, M. J. (2018). Spatial access to food: Retiring the food desert metaphor. *Physiology & behavior*, 193, 257-260.
+

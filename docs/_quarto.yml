@@ -15,6 +15,9 @@ website:
   sidebar:
     style: floating
     contents: 
+      - text: "Introduction 📊📈🏙️"
+        href: index.md
+
       - section: "Urban Data Storytelling"
         contents:
           - urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.md
@@ -22,8 +25,8 @@ website:
           - urban-data-storytelling/data-literacy/data-literacy.md
           - urban-data-storytelling/data-ethics-and-equity/data-ethics-and-equity.md
           - urban-data-storytelling/communicating-data-in-presentations/communicating-data-in-presentations.md
+
       - section: "Urban Data Analytics"
-        # href: urban-data-analytics/index.md
         contents:
           - urban-data-analytics/what-and-where-of-data/what-and-where-of-data.md
           - urban-data-analytics/measuring-the-city/measuring-the-city.md
