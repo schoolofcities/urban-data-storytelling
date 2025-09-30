@@ -68,11 +68,11 @@ This online textbook was compiled by [Jeff Allen](https://jamaps.github.io) and 
 
 If you want to cite this online textbook, here is the recommended citation:
 
-**Allen, J., Greenberg, J., St-Louis, E., Zhang, M., & Chapple, K. (Eds.). (2025). *Urban Data Storytelling, Analytics, and Visualization*. School of Cities, University of Toronto.**
+**Allen, J., Greenberg, J., St-Louis, E., Zhang, M., Kali, A., & Chapple, K. (Eds.). (2025). *Urban Data Storytelling, Analytics, and Visualization*. School of Cities, University of Toronto.**
 
 ```latex
 @book{allen2025urbandatastorytelling,
-  editor    = {Allen, Jeff and Greenberg, Julia and St-Louis, Evelyne and Zhang, Michelle and Chapple, Karen},
+  editor    = {Allen, Jeff and Greenberg, Julia and St-Louis, Evelyne and Zhang, Michelle and Kali, Aniket and Chapple, Karen},
   title     = {Urban Data Storytelling, Analytics, and Visualization},
   year      = {2025},
   publisher = {School of Cities, University of Toronto},
@@ -82,14 +82,14 @@ If you want to cite this online textbook, here is the recommended citation:
 
 If you want to cite a specific page, here is an example of a recommended citation:
 
-**Greenberg, J. & St-Louis, E. (2025). Exploratory data visualization. In Allen, J., Greenberg, J., St-Louis, E., Zhang, M., & Chapple, K. (Eds.), *Urban Data Storytelling, Analytics, and Visualization*. School of Cities, University of Toronto.**
+**Greenberg, J. & St-Louis, E. (2025). Exploratory data visualization. In Allen, J., Greenberg, J., St-Louis, E., Zhang, M., Kali, A., & Chapple, K. (Eds.), *Urban Data Storytelling, Analytics, and Visualization*. School of Cities, University of Toronto.**
 
 ```latex
 @incollection{greenberg2021dataviz,
   author    = {Greenberg, Julia and St-Louis, Evelyne},
   title     = {Exploratory data visualization},
   booktitle = {Urban Data Storytelling, Analytics, and Visualization},
-  editor    = {Allen, Jeff and Greenberg, Julia and St-Louis, Evelyne and Zhang, Michelle and Chapple, Karen},
+  editor    = {Allen, Jeff and Greenberg, Julia and St-Louis, Evelyne and Zhang, Michelle and Kali, Aniket and Chapple, Karen},
   publisher = {School of Cities, University of Toronto},
   year      = {2025},
   url		= {https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.html}
