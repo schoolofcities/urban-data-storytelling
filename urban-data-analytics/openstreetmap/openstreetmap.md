@@ -1,6 +1,6 @@
 ---
 title: "OpenStreetMap"
-author: "Nate Wessel"
+author: "Nate Wessel, Aniket Kali"
 ---
 
 [📥 Click here to download this document and any associated data and images](/downloads/openstreetmap.zip)
@@ -79,9 +79,7 @@ OSM seems like the kind of thing you might either love or hate, but are unlikely
 
 ![A user has misused the `name=*` tag, filling it with a description and some kind of identifier. No one walking past this building would recognize that as its "name".](./images/misuse-of-name-tag.png)
 
-## Access the data and contribute edits
-
-OSM is just a big online database and you can connect to it to both read (download) data and edit (contribute) data. 
+## Access the data
 
 ### Downloading data
 
@@ -111,7 +109,7 @@ The file structure directly mirrors the OSM database structure described above. 
 
 What OSM itself can give you is limited since they want to conserve server resources for contributors. Fortunately, the OSM community offers additional resources - kind Internet strangers who've downloaded the whole planet file, keep their copies synchronized with the main database, and offer additional ways of downloading larger chunks of data with some lag from the main database.
 
-#### The Overpass API
+### The Overpass API
 
 Perhaps the most versatile of these community sources is the [Overpass API](https://overpass-turbo.eu/). Overpass allows you to query the database using its own [OSM-specific query language](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL). This can quickly get complicated, but it's powerful if you're willing to learn it. Here's a simple example:
 
@@ -138,7 +136,32 @@ Click "export" to download in various formats. GeoJSON works well for desktop GI
 
 Downloaded a big XML file? You'll need tools to parse it. I use [`osm2pgsql`](https://osm2pgsql.org/) for PostgreSQL, but many others exist: [`osmium`](https://osmcode.org/osmium-tool/) for format conversion, [`ogr2ogr`](https://wiki.openstreetmap.org/wiki/OGR) for other spatial formats, or [OSRM](https://project-osrm.org/) for routing.
 
-#### GeoFabrik Regional downloads
+### Querying with Python
+
+The Overpass API is great for one-off queries, but sometimes you need to run a set of repetitive queries across many locations or with different variables. In that case, we can use Python.
+
+```python
+import json
+import geojson
+import requests
+from osm2geojson import json2geojson
+
+QUERY_STATION = """[out:json];
+nwr[railway=station]["construction:railway"!~"station"](around:50000.00,{lat},{lon});
+out center;
+"""
+OVERPASS_URL = 'https://overpass-api.de/api/interpreter'
+
+for lat, lon in [(43.7, -79.4), (51.5, -0.1)]:  # Toronto, London
+    response = requests.get(OVERPASS_URL, params={'data': QUERY_STATION.format(lat=lat, lon=lon)})
+    result = json2geojson(response.json())
+```
+
+Extending queries into Python is pretty straightforward: all you have to do is apply the OSM query language and fill in the blanks (like latitude and longitude). Before you write up your code in Python, it's a good idea to test your query in Overpass, and to think about what different variables you want to run multiple queries for. These could be locations, but they could also be different tags or kinds of geographic data.
+
+Here, we select for railway stations within 50km of a list of points corresponding to the cities of Toronto and London - but we could do this for as many cities as we want. Once we retrieve those results, we use the Python library [`osm2geojson`](https://github.com/aspectumapp/osm2geojson) to convert the geometric data into the GeoJSON format.
+
+### GeoFabrik Regional downloads
 
 Another handy resource is [GeoFabrik](https://www.geofabrik.de/), a German geospatial company offering OSM [downloads](https://download.geofabrik.de/) in compressed XML (`.osm.pbf`) and _shapefile_ format, split by major regional boundaries like [North America](https://download.geofabrik.de/north-america.html), [Canada](https://download.geofabrik.de/north-america/canada.html) or [Ontario](https://download.geofabrik.de/north-america/canada/ontario.html).
 
@@ -147,6 +170,14 @@ Shapefiles are a common spatial data format which, like Ginkgo trees and horsesh
 These downloads are a good entry point if you're comfortable with shapefiles, though the format limits what you can do. If you want a quick map of common features without worrying about OSM's data structure nuances, this is probably what you want.
 
 ![I was able to quickly make this map of the 2.9 million buildings mapped in Ontario so far](./images/QGIS-Ontario-buildings.png)
+
+## Concluding thoughts
+
+OSM is a whole world unto itself, I guess quite literally. Over the last decade or so its millions of users around the world, spanning many languages and cultures have developed a shared representation of the entire world. Like that world, it's big and complex and messy and still very much a work in progress. But it's also filled to the brim with useful, and indeed fascinating information. OSM can take a while to familiarize yourself with, and indeed you'll never know everything about it. It's just too big and it's always changing. But I hope I've enticed you here to look a little more into it and consider OSM data as a potentially valuable resource in your various endeavors.
+
+Welcome to the OSM community!
+
+## Appendix
 
 ### Contributing edits
 
@@ -197,9 +228,3 @@ While iD is the most popular OSM editor, and the best for beginners, you should 
 For confident and experienced editors JOSM is a great tool but it can also be overwhelming and it counts on the user to know what they're doing to a pretty large degree. While most individual OSM editors use iD, most actual map edits are made in JOSM.
 
 To give an example, one important way of using JOSM is for [data imports](https://wiki.openstreetmap.org/wiki/Import). Now first of all, one does not simply import data into OSM from other sources. Imports are a long, arduous journey of a process involving much discussion with the community, whose consensus and approval is required, and a very thorough review of data licensing and permissions. But once an import process is underway, JOSM could be used to bring in hundreds or even thousands of features at a time, while checking for conflicts with preexisting data.
-
-## Concluding thoughts
-
-OSM is a whole world unto itself, I guess quite literally. Over the last decade or so its millions of users around the world, spanning many languages and cultures have developed a shared representation of the entire world. Like that world, it's big and complex and messy and still very much a work in progress. But it's also filled to the brim with useful, and indeed fascinating information. OSM can take a while to familiarize yourself with, and indeed you'll never know everything about it. It's just too big and it's always changing. But I hope I've enticed you here to look a little more into it and consider OSM data as a potentially valuable resource in your various endeavors.
-
-Welcome to the OSM community!
