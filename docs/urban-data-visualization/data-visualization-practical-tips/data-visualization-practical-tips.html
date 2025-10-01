@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Isabeaux Graham, Jeff Allen">
+<meta name="author" content="Karen Chapple, Jeff Allen, Isabeaux Graham">
 
-<title>Data visualization – Urban Data Analytics, Visualization, &amp; Storytelling 📊📈🏙️</title>
+<title>Ten practical tips for effective data visualization – Urban Data Analytics, Visualization, &amp; Storytelling 📊📈🏙️</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="description" content="Notebooks on urban data analysis and visualization">
 <meta name="author" content="School of Cities">
 
-<meta property="og:title" content="Data visualization – Urban Data Analytics, Visualization, &amp; Storytelling 📊📈🏙️">
+<meta property="og:title" content="Ten practical tips for effective data visualization – Urban Data Analytics, Visualization, &amp; Storytelling 📊📈🏙️">
 <meta name="og:description" content="Notebooks on urban data analysis and visualization">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://schoolofcities.github.io/urban-data-storytelling">
@@ -88,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="https://schoolofcities.github.io/urban-data-storytelling">
 <meta name="twitter:creator" content="@UofTCities">
-<meta name="twitter:title" content="Data visualization – Urban Data Analytics, Visualization, &amp; Storytelling 📊📈🏙️">
+<meta name="twitter:title" content="Ten practical tips for effective data visualization – Urban Data Analytics, Visualization, &amp; Storytelling 📊📈🏙️">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/urban-data-storytelling/refs/heads/main/assets/web-card.png">
 
@@ -105,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Data visualization</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization-overview/data-visualization-overview.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization-practical-tips/data-visualization-practical-tips.html">Ten practical tips for effective data visualization</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -295,8 +295,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../urban-data-visualization/data-visualization/data-visualization.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Data visualization</span></a>
+  <a href="../../urban-data-visualization/data-visualization-overview/data-visualization-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../urban-data-visualization/data-visualization-practical-tips/data-visualization-practical-tips.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Ten practical tips for effective data visualization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -365,223 +371,33 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-visualize-data" id="toc-why-visualize-data" class="nav-link active" data-scroll-target="#why-visualize-data">Why visualize data?</a></li>
-  <li><a href="#data-visualization-for-exploratory-analysis" id="toc-data-visualization-for-exploratory-analysis" class="nav-link" data-scroll-target="#data-visualization-for-exploratory-analysis">Data visualization for exploratory analysis</a></li>
-  <li><a href="#data-visualization-for-communication-and-storytelling" id="toc-data-visualization-for-communication-and-storytelling" class="nav-link" data-scroll-target="#data-visualization-for-communication-and-storytelling">Data visualization for communication and storytelling</a>
-  <ul class="collapse">
-  <li><a href="#designing-for-specific-audiences" id="toc-designing-for-specific-audiences" class="nav-link" data-scroll-target="#designing-for-specific-audiences">Designing for specific audiences</a></li>
-  </ul></li>
-  <li><a href="#data-visualization-theory" id="toc-data-visualization-theory" class="nav-link" data-scroll-target="#data-visualization-theory">Data visualization theory</a>
-  <ul class="collapse">
-  <li><a href="#visual-variables" id="toc-visual-variables" class="nav-link" data-scroll-target="#visual-variables">Visual variables</a></li>
-  <li><a href="#perception-and-cognition" id="toc-perception-and-cognition" class="nav-link" data-scroll-target="#perception-and-cognition">Perception and cognition</a></li>
-  <li><a href="#perceptual-rankings" id="toc-perceptual-rankings" class="nav-link" data-scroll-target="#perceptual-rankings">Perceptual Rankings</a></li>
-  <li><a href="#visual-accessibility" id="toc-visual-accessibility" class="nav-link" data-scroll-target="#visual-accessibility">Visual accessibility</a></li>
-  </ul></li>
-  <li><a href="#chart-components" id="toc-chart-components" class="nav-link" data-scroll-target="#chart-components">Chart components</a></li>
-  <li><a href="#practical-tips-for-effective-data-visualization" id="toc-practical-tips-for-effective-data-visualization" class="nav-link" data-scroll-target="#practical-tips-for-effective-data-visualization">Practical tips for effective data visualization</a>
-  <ul class="collapse">
-  <li><a href="#hierarchy-in-graphics-and-stories" id="toc-hierarchy-in-graphics-and-stories" class="nav-link" data-scroll-target="#hierarchy-in-graphics-and-stories">Hierarchy in graphics and stories</a></li>
-  <li><a href="#de-clutter-and-high-data-ink-ratio" id="toc-de-clutter-and-high-data-ink-ratio" class="nav-link" data-scroll-target="#de-clutter-and-high-data-ink-ratio">De-clutter and high data-ink ratio</a></li>
-  <li><a href="#design-for-your-output" id="toc-design-for-your-output" class="nav-link" data-scroll-target="#design-for-your-output">Design for your output</a></li>
-  <li><a href="#brand-guidelines" id="toc-brand-guidelines" class="nav-link" data-scroll-target="#brand-guidelines">Brand guidelines</a></li>
-  <li><a href="#annotations" id="toc-annotations" class="nav-link" data-scroll-target="#annotations">Annotations</a></li>
-  <li><a href="#choosing-charts-based-on-your-data" id="toc-choosing-charts-based-on-your-data" class="nav-link" data-scroll-target="#choosing-charts-based-on-your-data">Choosing charts based on your data</a></li>
-  </ul></li>
+  <li><a href="#de-clutter-and-high-data-ink-ratio" id="toc-de-clutter-and-high-data-ink-ratio" class="nav-link active" data-scroll-target="#de-clutter-and-high-data-ink-ratio">1) De-clutter and high data-ink ratio</a></li>
+  <li><a href="#start-with-monochrome" id="toc-start-with-monochrome" class="nav-link" data-scroll-target="#start-with-monochrome">2) Start with monochrome</a></li>
+  <li><a href="#design-for-your-output" id="toc-design-for-your-output" class="nav-link" data-scroll-target="#design-for-your-output">3) Design for your output</a></li>
+  <li><a href="#make-graphics-accessible" id="toc-make-graphics-accessible" class="nav-link" data-scroll-target="#make-graphics-accessible">4) Make graphics accessible</a></li>
+  <li><a href="#hierarchy-in-graphics-and-stories" id="toc-hierarchy-in-graphics-and-stories" class="nav-link" data-scroll-target="#hierarchy-in-graphics-and-stories">5) Hierarchy in graphics and stories</a></li>
+  <li><a href="#choosing-charts-based-on-your-data" id="toc-choosing-charts-based-on-your-data" class="nav-link" data-scroll-target="#choosing-charts-based-on-your-data">6) Choosing charts based on your data</a></li>
+  <li><a href="#annotations" id="toc-annotations" class="nav-link" data-scroll-target="#annotations">7) Annotations</a></li>
+  <li><a href="#consolidate-categories-strategically" id="toc-consolidate-categories-strategically" class="nav-link" data-scroll-target="#consolidate-categories-strategically">8) Consolidate categories strategically</a></li>
+  <li><a href="#data-standardization" id="toc-data-standardization" class="nav-link" data-scroll-target="#data-standardization">9) Data standardization</a></li>
+  <li><a href="#brand-guidelines" id="toc-brand-guidelines" class="nav-link" data-scroll-target="#brand-guidelines">10) Brand guidelines</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization/data-visualization.html">Data visualization</a></li></ol></nav><h1 class="title display-7">Data visualization</h1></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization-overview/data-visualization-overview.html">Urban Data Visualization</a></li><li class="breadcrumb-item"><a href="../../urban-data-visualization/data-visualization-practical-tips/data-visualization-practical-tips.html">Ten practical tips for effective data visualization</a></li></ol></nav><h1 class="title display-7">Ten practical tips for effective data visualization</h1></header>
 
 <header id="title-block-header">
 
-<p class="author">Isabeaux Graham, Jeff Allen</p>
+<p class="author">Karen Chapple, Jeff Allen, Isabeaux Graham</p>
 
 </header>
 
 
-<p><a href="../../downloads/data-visualization.zip" target="_blank">📥 Click here to download this document and any associated data and images</a></p>
-<p>This section will cover:</p>
-<ul>
-<li>why you might want to visualize data: to explore internally or communicate to an external audience</li>
-<li>data visualization theory, including elements that make visualizations effective</li>
-<li>the different components that make up a plot</li>
-<li>practical guidance for creating good data visualizations</li>
-</ul>
-<p>Data visualization is the graphical representation of information and data. By using visual elements like charts, graphs, and maps, data visualization tools help people understand patterns, trends, and outliers in data. At its core, data visualization translates abstract numbers into something visible and intuitive, helping our audiences better understand what the data is telling us.</p>
-<p>We live in a world increasingly shaped by data – from climate change and public health to business performance and social media behavior – however, raw numbers alone are difficult to interpret. Visualizations help bridge that gap by making data more accessible, understandable, and actionable. It’s not just about making things look good, it’s about making data make sense.</p>
-<p>“The simple graph has brought more information to the data analyst’s mind than any other device. It specializes in providing indications of unexpected phenomena.” – <a href="https://en.wikipedia.org/wiki/John_Tukey" target="_blank">John Tukey</a></p>
-<section id="why-visualize-data" class="level2">
-<h2 data-anchor-id="why-visualize-data">Why visualize data?</h2>
-<p>We visualize data to help us understand it better. When we turn numbers into pictures like charts or graphs, it becomes easier to see patterns, trends, or problems. Broadly speaking, visualization can serve two major goals:</p>
-<ol type="1">
-<li><em>Exploration</em> – Using charts to help make sense of the data. It helps you find interesting things or answer questions.</li>
-<li><em>Communication</em> – Using visuals to help other people understand what you found in the data.</li>
-</ol>
-<p>These goals are not mutually exclusive. The best data work is iterative. We often begin by visualizing data to explore patterns, test ideas, and uncover insights. Once we have made sense of the data ourselves, we can use visualizations to communicate key findings, tell a compelling story, or make a case for action. Whether the goal is understanding, persuasion, or advocacy, good data visualization helps bridge the gap between raw information and meaningful insight.</p>
-<p>Visualizing data is ultimately about communication and striking the right balance between analysis, design, and narrative. To share data in a clear and meaningful way, it helps to think through this data storytelling framework:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/framework-diagram.png" class="img-fluid figure-img"></p>
-<figcaption>Framework for data storytelling</figcaption>
-</figure>
-</div>
-<ol type="1">
-<li><p><em>Data Analysis</em>: What does the data tell us? What patterns or relationships matter?</p></li>
-<li><p><em>Visualization</em>: How can this data be represented graphically to communicate findings effectively?</p></li>
-<li><p><em>Narrative</em>: What story does the data tell? What’s your argument or takeaway? Who is your target audience?</p></li>
-</ol>
-<p>This framework helps situate visualization as part of a broader storytelling or decision-making process. Whether you are creating a data story with multiple visuals or a single chart for a report, it is important to keep all of these things in mind. The purpose behind your visualization determines everything from the chart type you use to the level of detail, annotation, and tone you adopt.</p>
-</section>
-<section id="data-visualization-for-exploratory-analysis" class="level2">
-<h2 data-anchor-id="data-visualization-for-exploratory-analysis">Data visualization for exploratory analysis</h2>
-<p>Before we share our findings with others, we often need to make sense of the data ourselves. This is where exploratory data analysis comes in. This is the process of visually investigating datasets to uncover trends, spot anomalies, test hypotheses, and surface insights that might otherwise be hidden in raw numbers or tables.</p>
-<p>Visualization during this stage can reveal unexpected patterns and outliers, correlations and clusters, distribution shapes, and data quality issues.</p>
-<p>It also helps uncover relationships that summary statistics alone might obscure. The exploratory process is typically iterative and often messy, with charts not needing to be beautiful, but instead, informative. Quick plots, heatmaps, and scatterplots are all useful tools in this phase, enabling a deeper understanding of the data before any formal analysis or presentation.</p>
-<p>Even datasets with identical statistical properties can convey vastly different stories when visualized. A perfect example of this is <a href="https://en.wikipedia.org/wiki/Anscombe%27s_quartet" target="_blank">Anscombe’s Quartet</a>, a set of four datasets that have nearly identical means, variances, and correlation coefficients, yet their graphical representations reveal dramatic differences. This illustrates the importance of visualizing data, rather than solely relying on summary statistics, as the true patterns and relationships may be hidden within the numbers themselves.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/AnscombeQuartet.png" class="img-fluid figure-img"></p>
-<figcaption>Ansecombe’s Quartet, for datasets with almost identical summary statistics, but widely different patterns when charted</figcaption>
-</figure>
-</div>
-</section>
-<section id="data-visualization-for-communication-and-storytelling" class="level2">
-<h2 data-anchor-id="data-visualization-for-communication-and-storytelling">Data visualization for communication and storytelling</h2>
-<p>Once we’ve explored the data and identified key findings, the next step is to share these insights with others. Data visualization becomes a powerful tool for communication, helping us inform, engage, and persuade different audiences. In this context, visualization is not just about showing data, it’s about <em>shaping understanding</em> and sometimes even <em>inspiring action</em>.</p>
-<p>Data stories combine charts and text to walk the audience through a narrative arc. These stories often include:</p>
-<ol type="1">
-<li><em>Context</em> – What’s the issue or question?</li>
-<li><em>Data</em> – What patterns or evidence are we seeing?</li>
-<li><em>Insight</em> – Why does it matter?</li>
-<li><em>Action</em> – What should happen next?</li>
-</ol>
-<p>Good data visualizations and stories often zoom in and out to show both the big picture and key details while guiding the audience with clear visual hierarchy and annotations.</p>
-<p>In advocacy contexts, data visualizations are used to support arguments, influence policy, and raise awareness. The visual design here should support the clarity and urgency of the message while still being transparent and truthful.</p>
-<section id="designing-for-specific-audiences" class="level3">
-<h3 data-anchor-id="designing-for-specific-audiences">Designing for specific audiences</h3>
-<p>Not all data visualizations are created for the same audience or communication goals. Some are meant to be read in detail (like charts in a policy report), while others are intended to create an emotional impact at a glance (like a billboard or social media graphic).</p>
-<p>For example, a line chart depicting global temperatures over time provides nuance and precision, making it an excellent choice for scientists and analysts.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/GlobalTemp.png" class="img-fluid figure-img"></p>
-<figcaption>Global Temperatures Over Time (Source: NASA/GISS)</figcaption>
-</figure>
-</div>
-<p>Alternatively, <a href="https://en.wikipedia.org/wiki/Warming_stripes" target="_blank">warming stripes</a>, a minimalist visualization uses a simple color gradient to represent temperature changes. This approach communicates the same pattern but in a more striking and emotionally impactful way, making it highly effective for public engagement and advocacy.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/WarmingStripes.png" class="img-fluid figure-img"></p>
-<figcaption>Warming strips</figcaption>
-</figure>
-</div>
-</section>
-</section>
-<section id="data-visualization-theory" class="level2">
-<h2 data-anchor-id="data-visualization-theory">Data visualization theory</h2>
-<p>A well-designed visualization isn’t just about making data look good – it’s about making it understandable, accurate, and accessible. This often requires a base understanding of how we encode data visually, how the human brain processes that information, and how to make charts function well across different audiences and mediums.</p>
-<section id="visual-variables" class="level3">
-<h3 data-anchor-id="visual-variables">Visual variables</h3>
-<p>At the heart of every chart or graph is visual encoding: the transformation of data into visual elements. Each variable in your dataset must be “mapped” to a visual channel, often called a <em>visual variable</em>. The effectiveness of these visual encodings depends on what type of data you’re working with.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/BertinVariables.png" class="img-fluid figure-img"></p>
-<figcaption>Bertin’s Visual Variables via <a href="https://www.axismaps.com/guide/visual-variables" target="_blank">Axis Maps</a></figcaption>
-</figure>
-</div>
-</section>
-<section id="perception-and-cognition" class="level3">
-<h3 data-anchor-id="perception-and-cognition">Perception and cognition</h3>
-<p>Effective data visualization leverages our brain’s innate ability to rapidly process certain visual elements. This phenomenon, known as <em>preattentive processing</em>, allows viewers to quickly and effortlessly identify certain patterns, contrasts, and structures without conscious effort.</p>
-<p>This allows us to instantly spot outliers, notice trends and clusters, and recognize visual hierarchies.</p>
-<p>Key preattentive features include color, form, orientation, and size. For example, we can quickly distinguish a red circle among blue circles (color) and identify a square amidst a group of circles (form). These features are processed so swiftly and effortlessly that they can influence our perception and understanding of visual information without conscious effort.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/PreattentiveProcessing.png" class="img-fluid figure-img"></p>
-<figcaption>Example of preattentive processing. Source: www.csc2.ncsu.edu/faculty/healey/PP/</figcaption>
-</figure>
-</div>
-<p>Even when designing a table for a slide deck or a report, you can use the theory of preattentive processing to pick a visual variable to focus your readers attention on specific data points that are important to your story.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/PreattentiveProcessingTable.png" class="img-fluid figure-img"></p>
-<figcaption>Example of preattentive processing to highlight rows in a table (Source: <a href="https://www.cnn.com/us/maps-damage-los-angeles-wildfires-dg/index.html" target="_blank">CNN</a>)</figcaption>
-</figure>
-</div>
-<p>Via preattentive processing, we can guide viewers’ attention efficiently, enhance comprehension, and reduce cognitive load.</p>
-</section>
-<section id="perceptual-rankings" class="level3">
-<h3 data-anchor-id="perceptual-rankings">Perceptual Rankings</h3>
-<p><em>Perceptual Rankings</em> help explain why some encodings are easier to interpret than others. Not all visual variables are equally effective.</p>
-<p>You may have noticed that in the scatter-plot example in the previous section, that it is generally easier to pick out a red circle among a group of blue circles rather than a blue square among a group of blue circles.</p>
-<p>Research has established a hierarchy of visual channels based on their accuracy and ease of interpretation:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/PerceptualRankings.png" class="img-fluid figure-img"></p>
-<figcaption>Perceptual Rankings (Source: Visualization Analysis and Design by Tamara Munzner)</figcaption>
-</figure>
-</div>
-<p>Understanding these perceptual principles ensures that visualizations communicate information clearly and intuitively, aligning with how viewers naturally process visual stimuli.</p>
-<p>For example, based on this research, position on a common scale is easier to interpret than size or area for quantitative data. Comparing volumes is also relatively difficult. This leads to two recommendations:</p>
-<ul>
-<li>Avoid pie charts (especially for more than 3 categories) since they can be less effective than alternatives (e.g.&nbsp;bar charts).</li>
-<li>Avoid 3D charts in most cases because they tend to over-complicate, be difficult to read, and add extra visual clutter compared to 2D alternatives.</li>
-</ul>
-</section>
-<section id="visual-accessibility" class="level3">
-<h3 data-anchor-id="visual-accessibility">Visual accessibility</h3>
-<p>Your data visualizations should be readable by everyone, which means thinking beyond aesthetics and into the realm of inclusive design.</p>
-<p>For charts and maps, there are two main things to consider:</p>
-<ol type="1">
-<li><p>Using colourblind safe colours. Tools, such as <a href="https://colorbrewer2.org" target="_blank">ColorBrewer</a> can be used to pick safe colours. There are also <a href="https://www.color-blindness.com/coblis-color-blindness-simulator/" target="_blank">tools for uploading images</a> (e.g.&nbsp;of a chart or a map), and test how it is viewed for different types of colourblindness. Highly recommend using this for any graphics that will appear in publications.</p></li>
-<li><p>Using adequate font sizes and making sure there is adequate level of contrast between foreground and background, especially with text. The greater the contrast between the foreground and background, the easier it is to read. For text, keep in mind that font size plays a significant role: smaller fonts require even higher contrast between the text color and background to maintain readability. There are online <a href="https://webaim.org/resources/contrastchecker/" target="_blank">tools for checking contrast ratios</a> between background and foreground that are useful for design.</p></li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/VisualAccessibility.png" class="img-fluid figure-img"></p>
-<figcaption>Examples of different text on a background at different contrast ratios</figcaption>
-</figure>
-</div>
-</section>
-</section>
-<section id="chart-components" class="level2">
-<h2 data-anchor-id="chart-components">Chart components</h2>
-<p>Strong visualizations depend not just on the data and encodings, but on thoughtful framing. The supporting elements of a chart provide clarity and context.</p>
-<p>Thinking about and directly designing each of the different components of a chart, rather than just using the defaults of a software (e.g.&nbsp;what a chart in <code>Excel</code> or a <code>Python</code> library will give you initially), will go a long way in making effective graphics. The graphic below shows the components commonly used when constructing a chart. Try to think about the design of each of these components in your own charts. If it doesn’t clarify the data and story, it probably distracts, and it’s probably best to either remove or de-emphasize it.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/ChartComponents.png" class="img-fluid figure-img"></p>
-<figcaption>Chart components (Source: data.europa.eu/apps/data-visualisation-guide)</figcaption>
-</figure>
-</div>
-</section>
-<section id="practical-tips-for-effective-data-visualization" class="level2">
-<h2 data-anchor-id="practical-tips-for-effective-data-visualization">Practical tips for effective data visualization</h2>
-<p>A strong visualization can make complex data accessible; however, without care, the message can get lost. Great visualizations balance clarity, precision, and aesthetics. This section offers practical tips and guiding principles to elevate your data visualizations.</p>
-<p>The Financial Times also has a <a href="https://ft-interactive.github.io/visual-vocabulary/" target="_blank">“visual vocabulary” guide</a> for which approach to take to visualizing data.</p>
+<p>A strong visualization can make complex data accessible; however, without care, the message can get lost. Great visualizations balance clarity, precision, and aesthetics. This chapter offers practical tips and guiding principles to elevate your data visualizations.</p>
 <p>Note that these are general recommendations and rules of thumb, not rules that you must follow 100% of the time! Data visualization is a combination of technical, design, and artistic skills, and there are often exceptions to the rules :)</p>
-<section id="hierarchy-in-graphics-and-stories" class="level3">
-<h3 data-anchor-id="hierarchy-in-graphics-and-stories">Hierarchy in graphics and stories</h3>
-<p>Guide the viewer’s eye by creating a hierarchy between background and foreground. Your key message should be the focus and highlighted while everything else (axes, grid-lines, background elements) should support and not compete with it.</p>
-<ul>
-<li>Bold or highlight key data points.</li>
-<li>Use size, contrast, and colour to signal importance.</li>
-<li>De-emphasize secondary elements like gridlines, minor tick marks, or axis labels.</li>
-</ul>
-<p>For example, the line chart in the image above has a strong visual hierarchy between the key data points it wants to show (e.g.&nbsp;the lines for Sweden, the E.U., and Ireland) relative to the rest of the chart components.</p>
-<p>When guiding your readers through a story with a series of visualizations, sometimes it is useful to follow a Data Visualization Sandwich metaphor:</p>
-<p><img src="img/Sandwich.png" class="img-fluid"></p>
-<p>This is very similar to journalistic styles of writing, “don’t bury the lead” and “bottom line up-front”.</p>
-<p>Let’s look at an example. This is a map of the United States from an article by the <a href="www.theguardian.com/environment/2022/feb/05/americans-above-average-temperature-increase-climate-crisis" target="_blank">Guardian</a> on how the USA is facing above average rises in temperatures. This map acts as the Patty – it draws the attention of the reader and introduces the topic of the article.</p>
-<p><img src="img/Sandwich_EX1.png" class="img-fluid"></p>
-<p>The article then takes a deeper look at specific counties that have experienced significant temperature increases via a table:</p>
-<p><img src="img/Sandwich_EX2.png" class="img-fluid"></p>
-<p>Finally, this visual, which could be considered a patty or bun, helps illustrate the temperatures across U.S. states. It also includes a “topping” – an annotation over California that highlights how the entire population has experienced a temperature increase since 1895.</p>
-<p><img src="img/Sandwich_EX3.png" class="img-fluid"></p>
-</section>
-<section id="de-clutter-and-high-data-ink-ratio" class="level3">
-<h3 data-anchor-id="de-clutter-and-high-data-ink-ratio">De-clutter and high data-ink ratio</h3>
+<section id="de-clutter-and-high-data-ink-ratio" class="level2">
+<h2 data-anchor-id="de-clutter-and-high-data-ink-ratio">1) De-clutter and high data-ink ratio</h2>
 <p>Coined by <a href="https://en.wikipedia.org/wiki/Edward_Tufte" target="_blank">Edward Tufte</a>, the data-ink ratio refers to the proportion of visual elements that represent actual data, rather than decoration, relative to all ‘ink’ on the chart.</p>
 <p>In other words, this is about reducing clutter and focusing graphical elements of a chart on the data.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -604,8 +420,13 @@ ul.task-list li input[type="checkbox"] {
 <p>Here’s an example of a visualization of COVID-19 deaths from <a href="https://www.theguardian.com/us-news/2022/mar/13/how-covid-shook-the-us-charts-graphs" target="_blank">The Guardian</a> that has limited visual clutter and strong hierarchy.</p>
 <p><img src="img/DataInk_EX1.png" class="img-fluid"></p>
 </section>
-<section id="design-for-your-output" class="level3">
-<h3 data-anchor-id="design-for-your-output">Design for your output</h3>
+<section id="start-with-monochrome" class="level2">
+<h2 data-anchor-id="start-with-monochrome">2) Start with monochrome</h2>
+<p>Sometimes it’s hard to figure out the story you want to tell. There are many potential data stories in any chart! But starting with grey makes it easier to foreground the data points that matter most to your story.</p>
+<p>For example, in the line chart below, we started with a mass of grey spaghetti representing all the large metropolitan areas in the US, with the idea of highlighting the post-recession dip in income in San Francisco, as compared to the US average. We then decided to highlight the Washington D.C. area as another point of comparison. But we labeled the San Francisco story in order to keep the reader’s attention focused on it.</p>
+</section>
+<section id="design-for-your-output" class="level2">
+<h2 data-anchor-id="design-for-your-output">3) Design for your output</h2>
 <p>Effective visualization isn’t one-size-fits-all. Always consider where and how your work will be seen. Tailor your design choices to the medium and the audience:</p>
 <ul>
 <li><p><em>Print vs digital</em>: Pick fonts, line weights, and colors that are clear at the specific resolution and/or paper size that you are designing for. What works on a low-resolution screen may not translate well to paper.</p></li>
@@ -615,14 +436,49 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>If you design a chart to fit within a specific medium (e.g.&nbsp;mobile view on a screen), it’s recommended you redesign the chart if you want to have it in a different context (e.g.&nbsp;printed in a report). This is to prevent fonts being resized so they are no longer legible, graphics losing resolution and becoming fuzzy, or distorted if they are resized.</p>
 </section>
-<section id="brand-guidelines" class="level3">
-<h3 data-anchor-id="brand-guidelines">Brand guidelines</h3>
-<p>If you’re creating visualizations within an organization or for a specific campaign, it’s important to follow established brand guidelines.</p>
-<p>This includes using approved typefaces, colors, and logos, and aligning your visuals with the tone and messaging of the broader content.</p>
-<p>Maintaining visual consistency across all charts, graphics, and reports reinforces brand identity, leads to more cohesive products, and builds recognition with your audience.</p>
+<section id="make-graphics-accessible" class="level2">
+<h2 data-anchor-id="make-graphics-accessible">4) Make graphics accessible</h2>
+<p>Your data visualizations should be readable by everyone, which means thinking beyond aesthetics and into the realm of inclusive design.</p>
+<p>For charts and maps, there are two main things to consider:</p>
+<ol type="1">
+<li><p>Using colourblind safe colours. Tools, such as <a href="https://colorbrewer2.org" target="_blank">ColorBrewer</a> can be used to pick safe colours. There are also <a href="https://www.color-blindness.com/coblis-color-blindness-simulator/" target="_blank">tools for uploading images</a> (e.g.&nbsp;of a chart or a map), and test how it is viewed for different types of colourblindness. Highly recommend using this for any graphics that will appear in publications.</p></li>
+<li><p>Using adequate font sizes and making sure there is adequate level of contrast between foreground and background, especially with text. The greater the contrast between the foreground and background, the easier it is to read. For text, keep in mind that font size plays a significant role: smaller fonts require even higher contrast between the text color and background to maintain readability. There are online <a href="https://webaim.org/resources/contrastchecker/" target="_blank">tools for checking contrast ratios</a> between background and foreground that are useful for design.</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/VisualAccessibility.png" class="img-fluid figure-img"></p>
+<figcaption>Examples of different text on a background at different contrast ratios</figcaption>
+</figure>
+</div>
 </section>
-<section id="annotations" class="level3">
-<h3 data-anchor-id="annotations">Annotations</h3>
+<section id="hierarchy-in-graphics-and-stories" class="level2">
+<h2 data-anchor-id="hierarchy-in-graphics-and-stories">5) Hierarchy in graphics and stories</h2>
+<p>Guide the viewer’s eye by creating a hierarchy between background and foreground. Your key message should be the focus and highlighted while everything else (axes, grid-lines, background elements) should support and not compete with it.</p>
+<ul>
+<li>Bold or highlight key data points.</li>
+<li>Use size, contrast, and colour to signal importance.</li>
+<li>De-emphasize secondary elements like gridlines, minor tick marks, or axis labels.</li>
+</ul>
+<p>For example, the line chart in the image above has a strong visual hierarchy between the key data points it wants to show (e.g.&nbsp;the lines for Sweden, the E.U., and Ireland) relative to the rest of the chart components.</p>
+<p>When guiding your readers through a story with a series of visualizations, sometimes it is useful to follow a Data Visualization Sandwich metaphor:</p>
+<p><img src="img/Sandwich.png" class="img-fluid"></p>
+<p>This is very similar to journalistic styles of writing, “don’t bury the lead” and “bottom line up-front”.</p>
+<p>Let’s look at an example. This is a map of the United States from an article by the <a href="www.theguardian.com/environment/2022/feb/05/americans-above-average-temperature-increase-climate-crisis" target="_blank">Guardian</a> on how the USA is facing above average rises in temperatures. This map acts as the Patty – it draws the attention of the reader and introduces the topic of the article.</p>
+<p><img src="img/Sandwich_EX1.png" class="img-fluid"></p>
+<p>The article then takes a deeper look at specific counties that have experienced significant temperature increases via a table:</p>
+<p><img src="img/Sandwich_EX2.png" class="img-fluid"></p>
+<p>Finally, this visual, which could be considered a patty or bun, helps illustrate the temperatures across U.S. states. It also includes a “topping” – an annotation over California that highlights how the entire population has experienced a temperature increase since 1895.</p>
+<p><img src="img/Sandwich_EX3.png" class="img-fluid"></p>
+</section>
+<section id="choosing-charts-based-on-your-data" class="level2">
+<h2 data-anchor-id="choosing-charts-based-on-your-data">6) Choosing charts based on your data</h2>
+<p>Match the visualization to the type of data and the message you’re trying to convey. Here’s a quick overview of very common charts for different types of data:</p>
+<p>Choosing the right chart type is essential to making your data clear, compelling, and truthful. While there’s no single “correct” choice for every scenario, understanding your data and communication goals will help you select a format that highlights the story you want to tell. Whether you’re comparing categories, showing trends over time, exploring distributions, or revealing relationships, each chart type has strengths and limitations.</p>
+<p>For a deeper dive into chart selection, visit <a href="https://www.data-to-viz.com/" target="_blank">From Data to Viz</a>, a comprehensive, visual guide that helps you choose the most appropriate chart based on your data structure and communication goals.</p>
+<p>The Financial Times also has a <a href="https://ft-interactive.github.io/visual-vocabulary/" target="_blank">“visual vocabulary” guide</a> for which approach to take to visualizing data.</p>
+</section>
+<section id="annotations" class="level2">
+<h2 data-anchor-id="annotations">7) Annotations</h2>
 <p>Great charts don’t always speak for themselves. Use clear titles, subtitles, and axis labels. Add callouts or annotations to highlight patterns or anomalies. You can guide the reader to your takeaway rather than leaving it to interpretation.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -631,15 +487,25 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 </section>
-<section id="choosing-charts-based-on-your-data" class="level3">
-<h3 data-anchor-id="choosing-charts-based-on-your-data">Choosing charts based on your data</h3>
-<p>Match the visualization to the type of data and the message you’re trying to convey. Here’s a quick overview of very common charts for different types of data:</p>
-<p><img src="img/ChartPurpose.png" class="img-fluid"></p>
-<p>Choosing the right chart type is essential to making your data clear, compelling, and truthful. While there’s no single “correct” choice for every scenario, understanding your data and communication goals will help you select a format that highlights the story you want to tell. Whether you’re comparing categories, showing trends over time, exploring distributions, or revealing relationships, each chart type has strengths and limitations.</p>
-<p>For a deeper dive into chart selection, visit <a href="https://www.data-to-viz.com/" target="_blank">From Data to Viz</a>, a comprehensive, visual guide that helps you choose the most appropriate chart based on your data structure and communication goals.</p>
-
-
+<section id="consolidate-categories-strategically" class="level2">
+<h2 data-anchor-id="consolidate-categories-strategically">8) Consolidate categories strategically</h2>
+<p>Many datasets offer rich detail. This can help answer interesting questions but once visualized may be TMI for your reader! Consider consolidating categories strategically in order to highlight elements that are key to the story. This means eliminating those that are more peripheral and could distract viewers. It also means limiting the number of categories.</p>
+<p>There is no set rule of thumb about the most effective number, and it can be complicated since there may be two dimensions to the data (e.g.&nbsp;two places and 8 types of housing or ethnicity). In general, we recommend aiming for no more than 16 sub-categories (3 x 5 categories, or 2 x 8). For pie charts, it is quite intuitive to limit the number of slices to 8, as you would with a good fruit pie!</p>
+<p>[add sample bar chart here]</p>
 </section>
+<section id="data-standardization" class="level2">
+<h2 data-anchor-id="data-standardization">9) Data standardization</h2>
+<p>Avoid presenting counts without accounting for population size (i.e.&nbsp;standardization). Absolute numbers are hard to compare across places of different size, so standardization is important for apples-to-apples comparisons. For bar charts, this means deploying the 100% option. But this is particularly true for maps with polygons of uneven sizes. For example, rural census tracts tend to be huge, and can dominate a map if variables are not standardized by population, area, housing units, or some other unit.</p>
+<p>[add sample map here]</p>
+<p>As with any rule, there are exceptions! There are times when it is important to see actual numbers. But if making a comparison, chances are standardization will help.</p>
+</section>
+<section id="brand-guidelines" class="level2">
+<h2 data-anchor-id="brand-guidelines">10) Brand guidelines</h2>
+<p>If you’re creating visualizations within an organization or for a specific campaign, it’s important to follow established brand guidelines.</p>
+<p>This includes using approved typefaces, colors, and logos, and aligning your visuals with the tone and messaging of the broader content.</p>
+<p>Maintaining visual consistency across all charts, graphics, and reports reinforces brand identity, leads to more cohesive products, and builds recognition with your audience.</p>
+
+
 </section>
 
 </main> <!-- /main -->

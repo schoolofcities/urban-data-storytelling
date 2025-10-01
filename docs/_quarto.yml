@@ -47,7 +47,8 @@ website:
 
       - section: "Urban Data Visualization"
         contents:
-          - urban-data-visualization/data-visualization/data-visualization.md
+          - urban-data-visualization/data-visualization-overview/data-visualization-overview.md
+          - urban-data-visualization/data-visualization-practical-tips/data-visualization-practical-tips.md
           - urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.ipynb
           - urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.md
           - urban-data-visualization/choropleth-maps/choropleth-maps.md
