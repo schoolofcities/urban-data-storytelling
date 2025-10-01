@@ -1,28 +1,33 @@
 ---
-title: "Urban Data Storytelling, Analytics, and Visualization"
+title: "Urban Data Analytics, Visualization, and Storytelling"
+author: "Jeff Allen, Julia Greenberg, Evelyne St-Louis, Michelle Zhang, Aniket Kali, and Karen Chapple"
 ---
 
-Welcome to the Urban Data Storytelling, Analytics, and Visualization online textbook, written and created by the [School of Cities](https://schoolofcities.utoronto.ca/) at the University of Toronto. 
 
-Urban data storytelling is the process and practice of using data to craft compelling narratives about cities, in order to communicate research and key insights, inform policy-making, build public will, or advocate for change. 
+Welcome to the *Urban Data Analytics, Visualization, and Storytelling* online textbook, written and created by the [School of Cities](https://schoolofcities.utoronto.ca/) at the University of Toronto. It is a combination of learning materials on data analytics, data visualization, and narrative techniques to make complex urban trends understandable and engaging for specific audiences, such as policymakers, funders, or community members.
 
-It combines data analytics, data visualization, and narrative techniques to make complex urban trends understandable and engaging for specific audiences, such as policymakers, funders, or community members.
+<!-- Urban data storytelling is the process and practice of using data to craft compelling narratives about cities, in order to communicate research and key insights, inform policy-making, build public will, or advocate for change.  -->
 
-This online textbook has several core modules, each composed of one or more notebooks or tutorials.
 
-- The importance of urban data storytelling  
-- Urban data analysis
-- Urban data visualization
+There are three core modules, each composed of several chapters and hands-on tutorials. 
 
-Note that this is a *living textbook* - we will likely be updating and adding new sections to it in the near future.
+- **Urban data storytelling:** Craft compelling narratives about cities, in order to communicate research and key insights, inform policy-making, build public will, or advocate for change. 
 
+- **Urban data analysis:** Find, process, and analyze data via Python, spreadsheet software, and GIS aimed at deriving key findings and answering research questions.
+
+- **Urban data visualization:** Learn a variety of strategies, methods, and practical tips for effective visual communication of urban data via a range of maps and charts.
 
 ![Framework for data storytelling](assets/uds-framework-diagram.png)
+
+This is a *living textbook*, we will be updating and adding new sections to it in the near future.
+
+The entirety of this textbook lives on [GitHub](https://github.com/schoolofcities/urban-data-storytelling). 
+
 
 
 ## How to use this textbook
 
-The table below tells you which textbook section to reference based on what you want to learn or do. For example, if you're interested in learning how to do some basic analysis of your data in Python, go to the *Processing and analyzing data* section.
+This online textbook can be read in full, or you can select different sections depending on what you want to learn or do. 
 
 | What do you want to learn or do? | Textbook section |
 |----------------------------|--------|
@@ -64,7 +69,7 @@ The table below tells you which textbook section to reference based on what you 
 
 ## Contributors and citing
 
-This online textbook was compiled by [Jeff Allen](https://jamaps.github.io) and Julia Greenberg using [Quarto](https://quarto.org/) with content contributions from (in alphabetical order by last name) Jeff Allen, Karen Chapple, Isabeaux Graham, Julia Greenberg, Aniket Kali, Lindsey Smith, Evelyne St-Louis, Nate Wessel, and Michelle Zhang. Each page lists its authors.
+This online textbook was compiled using [Quarto](https://quarto.org/) with content contributions from (in alphabetical order by last name) Jeff Allen, Karen Chapple, Isabeaux Graham, Julia Greenberg, Aniket Kali, Lindsey Smith, Evelyne St-Louis, Nate Wessel, and Michelle Zhang. Each page lists its authors.
 
 If you want to cite this online textbook, here is the recommended citation:
 
