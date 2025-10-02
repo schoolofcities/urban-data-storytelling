@@ -6,6 +6,7 @@
 h1, h2, h3, h4, h5 {
 	font-family: TradeGothicBold, sans-serif;
 	color: #1E3765;
+	font-weight: normal;
 }
 
 h1 {
@@ -32,11 +33,13 @@ figcaption {
 
 em {
 	background-color: #f1c50069;
+	font-weight: normal;
 }
 
 strong {
 	background-color: #6fc7ea52;
 	opacity: 1;
+	font-weight: normal;
 }
 
 a {
