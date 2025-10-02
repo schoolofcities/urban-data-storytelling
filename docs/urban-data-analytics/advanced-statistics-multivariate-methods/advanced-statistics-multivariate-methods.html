@@ -133,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;width:270px;margin-left: -25px;"><br>Urban Data Analytics, Visualization, &amp; Storytelling 📊📈🏙️</a> 
+      <a href="../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;max-width:300px; width: calc(100% + 40px); margin-left: -25px;"><br>Urban Data Analytics, Visualization, &amp; Storytelling 📊📈🏙️</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -392,15 +392,15 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#cluster-analysis" id="toc-cluster-analysis" class="nav-link" data-scroll-target="#cluster-analysis">Cluster analysis</a>
   <ul class="collapse">
-  <li><a href="#partitioning-methods" id="toc-partitioning-methods" class="nav-link" data-scroll-target="#partitioning-methods">Partitioning Methods</a></li>
-  <li><a href="#density-based-methods" id="toc-density-based-methods" class="nav-link" data-scroll-target="#density-based-methods">Density-Based Methods</a></li>
-  <li><a href="#hierarchical-clustering" id="toc-hierarchical-clustering" class="nav-link" data-scroll-target="#hierarchical-clustering">Hierarchical Clustering</a></li>
-  <li><a href="#comparison-of-clustering-methods" id="toc-comparison-of-clustering-methods" class="nav-link" data-scroll-target="#comparison-of-clustering-methods">Comparison of Clustering Methods</a></li>
+  <li><a href="#partitioning-methods" id="toc-partitioning-methods" class="nav-link" data-scroll-target="#partitioning-methods">Partitioning methods</a></li>
+  <li><a href="#density-based-methods" id="toc-density-based-methods" class="nav-link" data-scroll-target="#density-based-methods">Density-based methods</a></li>
+  <li><a href="#hierarchical-clustering" id="toc-hierarchical-clustering" class="nav-link" data-scroll-target="#hierarchical-clustering">Hierarchical clustering</a></li>
+  <li><a href="#comparison-of-clustering-methods" id="toc-comparison-of-clustering-methods" class="nav-link" data-scroll-target="#comparison-of-clustering-methods">Comparison of clustering methods</a></li>
   </ul></li>
   <li><a href="#dimensionality-reduction" id="toc-dimensionality-reduction" class="nav-link" data-scroll-target="#dimensionality-reduction">Dimensionality reduction</a>
   <ul class="collapse">
-  <li><a href="#dimensionality-reduction-techniques" id="toc-dimensionality-reduction-techniques" class="nav-link" data-scroll-target="#dimensionality-reduction-techniques">Dimensionality Reduction Techniques</a></li>
-  <li><a href="#visualization-and-interpretation" id="toc-visualization-and-interpretation" class="nav-link" data-scroll-target="#visualization-and-interpretation">Visualization and Interpretation</a></li>
+  <li><a href="#dimensionality-reduction-techniques" id="toc-dimensionality-reduction-techniques" class="nav-link" data-scroll-target="#dimensionality-reduction-techniques">Dimensionality reduction techniques</a></li>
+  <li><a href="#visualization-and-interpretation" id="toc-visualization-and-interpretation" class="nav-link" data-scroll-target="#visualization-and-interpretation">Visualization and interpretation</a></li>
   </ul></li>
   <li><a href="#advanced-machine-learning" id="toc-advanced-machine-learning" class="nav-link" data-scroll-target="#advanced-machine-learning">Advanced machine learning</a></li>
   <li><a href="#choosing-the-right-tool" id="toc-choosing-the-right-tool" class="nav-link" data-scroll-target="#choosing-the-right-tool">Choosing the right tool</a></li>
@@ -419,9 +419,9 @@ ul.task-list li input[type="checkbox"] {
 
 <p>This section will cover:</p>
 <ul>
-<li>the utility and limitations of multivariate statistical models</li>
-<li>key statistical approaches including regression, clustering, and dimensionality reduction techniques</li>
-<li>a high-level introduction to advanced machine learning methods</li>
+<li>The utility and limitations of multivariate statistical models</li>
+<li>Key statistical approaches including regression, clustering, and dimensionality reduction techniques</li>
+<li>A high-level introduction to advanced machine learning methods</li>
 </ul>
 <p>In the previous section on statistical foundations, we provided a detailed overview with lots of practice. The content of this section is much more advanced; each subsection often ends up being weeks of university courses. Here, we’ll just be providing an overview of different methods, intuition, applications, and resources for you to learn more and apply these methods yourself.</p>
 <section id="why-use-more-advanced-models" class="level2">
@@ -510,7 +510,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-anchor-id="cluster-analysis">Cluster analysis</h2>
 <p>Clustering methods are ways of finding structure in data when we don’t have predefined categories. Instead of telling the model what groups exist, clustering lets the data speak for itself by revealing neighborhoods, patterns, or “types” of observations.</p>
 <section id="partitioning-methods" class="level3">
-<h3 data-anchor-id="partitioning-methods">Partitioning Methods</h3>
+<h3 data-anchor-id="partitioning-methods">Partitioning methods</h3>
 <section id="k-means" class="level4">
 <h4 data-anchor-id="k-means">K-Means</h4>
 <p>K-means is one of the simplest clustering algorithms. It works by guessing k centers, assigning each data point to the closest center, then shifting the centers to better fit their assigned points. This repeats until the clusters stabilize. The method is fast and intuitive but requires knowing k in advance - but you can always test multiple k-values.</p>
@@ -527,7 +527,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 <section id="density-based-methods" class="level3">
-<h3 data-anchor-id="density-based-methods">Density-Based Methods</h3>
+<h3 data-anchor-id="density-based-methods">Density-based methods</h3>
 <section id="dbscan-density-based-spatial-clustering-of-applications-with-noise" class="level4">
 <h4 data-anchor-id="dbscan-density-based-spatial-clustering-of-applications-with-noise">DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</h4>
 <p>DBSCAN finds clusters by looking for areas where points are densely packed together, separated by regions of lower density. It doesn’t require specifying the number of clusters and can handle irregular shapes. Importantly, it also identifies “noise” points that don’t belong to any cluster.</p>
@@ -539,14 +539,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 <section id="hierarchical-clustering" class="level3">
-<h3 data-anchor-id="hierarchical-clustering">Hierarchical Clustering</h3>
+<h3 data-anchor-id="hierarchical-clustering">Hierarchical clustering</h3>
 <p>Hierarchical clustering builds clusters step by step, either starting from individual points and merging them (agglomerative) or starting from the whole dataset and splitting it (divisive). The result is a tree (dendrogram) that shows groupings at different levels of granularity.</p>
 <p><img src="img/dendogram.png" class="img-fluid"></p>
 <p><small>Source: <a href="https://towardsdatascience.com/hierarchical-clustering-explained-e59b13846da8/" target="_blank">Towards Data Science</a></small></p>
 <p>An example of this is creating a hierarchy of neighborhood types, from very fine-grained (street blocks) to broad categories (inner city vs.&nbsp;suburbs).</p>
 </section>
 <section id="comparison-of-clustering-methods" class="level3">
-<h3 data-anchor-id="comparison-of-clustering-methods">Comparison of Clustering Methods</h3>
+<h3 data-anchor-id="comparison-of-clustering-methods">Comparison of clustering methods</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -584,7 +584,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-anchor-id="dimensionality-reduction">Dimensionality reduction</h2>
 <p>Considering the following problem: you have a large data set of neighborhoods in a city, each with information on demographics, housing characteristics, transit accessibility, pollution, and so on. It’s hard to just plot on one variable, and it’s also not clear which of these variables depend on each other. This is where dimensionality reduction comes in handy: we can summarize the most important information and relationships of a large multi-dimensional data set by looking at what patterns matter.</p>
 <section id="dimensionality-reduction-techniques" class="level3">
-<h3 data-anchor-id="dimensionality-reduction-techniques">Dimensionality Reduction Techniques</h3>
+<h3 data-anchor-id="dimensionality-reduction-techniques">Dimensionality reduction techniques</h3>
 <section id="principal-component-analysis-pca" class="level4">
 <h4 data-anchor-id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h4>
 <p>The goal of PCA is to capture the essence of the data; it creates a new (and smaller) set of axes based on what will capture the most variation in the high-dimensional data. The first component (or axis) captures the largest amount of variance, the second component captures the second largest, and so on. The goal is to preserve as much information as possible.</p>
@@ -599,14 +599,14 @@ ul.task-list li input[type="checkbox"] {
 <p><small>Source: <a href="https://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html#effect-of-rescaling-on-a-pca-dimensional-reduction" target="_blank">scikit-learn</a></small></p>
 </section>
 <section id="factor-analysis" class="level4">
-<h4 data-anchor-id="factor-analysis">Factor Analysis</h4>
+<h4 data-anchor-id="factor-analysis">Factor analysis</h4>
 <p>Instead of trying to capture the maximum variance - that is, preserve the most amount of information - factor analysis assumes the list of variables we know exist are influenced by a smaller set of latent factors.</p>
 <p>For example, census variables like income and education could be a proxy for economic class. Likewise, variables like housing size, age of building, and length of occupancy, could be grouped together as housing characteristics.</p>
 <p>The resulting factors show how strongly each variable relates to particular factors. The hope is that these latent factors capture major underlying trends and provide an interpretable and low dimensional method to understanding the data. <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FactorAnalysis.html" target="_blank">You can find an implementation here</a>.</p>
 </section>
 </section>
 <section id="visualization-and-interpretation" class="level3">
-<h3 data-anchor-id="visualization-and-interpretation">Visualization and Interpretation</h3>
+<h3 data-anchor-id="visualization-and-interpretation">Visualization and interpretation</h3>
 <section id="determinism-and-visual-clusters-in-pca" class="level4">
 <h4 data-anchor-id="determinism-and-visual-clusters-in-pca">Determinism and visual clusters in PCA</h4>
 <p>In the image above come out we saw a successful case of PCA neatly categorizing data. Sometimes, however, peculiarities in the higher dimensions of the data make it hard for PCA to categorize as easily. It can end up looking something like this:</p>

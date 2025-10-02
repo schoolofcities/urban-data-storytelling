@@ -14,25 +14,21 @@ This section will cover:
 
 ![](img/toronto-dot-map.png)
 
-<small>Source: [School of Cities](https://schoolofcities.github.io/dot-density/)</small>
+<small>Population density map of Toronto. Source: [School of Cities](https://schoolofcities.github.io/dot-density/)</small>
 
 Take a look at this map of Toronto: at first glance, it's obvious that some parts of the city are different than others. It's a map that tells you where people live and concentrate - equally, where they don't live, and don't concentrate. And it's pretty simple: just one dot per 10 individuals. 
 
 What density maps let us do is go beyond simple tables of numbers to understand how data is distributed geographically. We can get a feel for where events like traffic collisions 311 requests, or entities like trees, occur and exist - revealing clusters and gaps.
 
-## Methods for mapping density
-
 In this chapter, we will cover five different methods. The choice of map matters: different conclusions can be drawn from different representations.
 
 There's numerous ways to implement these, whether you feel more fluent in coding, or GIS software. Since there's no one size fits all approach, we're going to focus on the intuition and design choices for each method rather than technical implementation details.
 
-### Dot/Point Maps
+## Dot (or point) maps
 
-![](img/toronto-ethnicity-dot-map.png)
+![](img/toronto-housing-dot-map.png)
 
-<small>Source: [School of Cities](https://schoolofcities.github.io/dot-density/)</small>
-
-Dot maps are a method of seeing both concentration and distribution at the same time intuitively - each dot feels like a tangible "unit" of whatever we're measuring. In the example above, we've added colors to represent ethnicity. At first glance, you can get a feel of where different groups cluster and mix across Toronto. Beyond population, dot maps can also be used to show things like the distribution of trees, crime incidents, or service requests - anything that could be an object or entity in space. 
+Dot maps are a method of seeing both concentration and distribution at the same time intuitively - each dot feels like a tangible "unit" of whatever we're measuring. In the example above, we've added colors to represent ethnicity. At first glance, you can get a feel of where different groups cluster and mix across Toronto. Beyond population, dot maps can also be used to show things like the distribution of trees, crime incidents, or service requests - anything that could be an object or entity in space - and can be coloured by another variable to show spatial differences in categories (like housing for example)
 
 When designing a dot map, there are a few key choices to consider:
 
@@ -42,14 +38,21 @@ When designing a dot map, there are a few key choices to consider:
 | **Placement** | Whether dots are tied to precise locations or distributed randomly within areas. | Random placement can suggest false precision; exact placement may not always be available. |
 | **Color**     | Assigns categories (e.g., ethnicity, type of event, land use) to dots.           | Too many categories can overwhelm the map and obscure patterns.                            |
 
+Also, dot maps don't have to use small circles as their symbol, they can be based on other shapes as well (triangles, squares, emojis, etc.). For example, check out our ['Dog' density map of Toronto](https://schoolofcities.utoronto.ca/whats-the-poop-on-dogs-and-cities/).
 
-### Binning Data to Grids/Hexagons
+![](img/dog-density.jpg)
 
-![](img/toronto-activity-grid-bins.png)
 
-<small>Source: [School of Cities](https://schoolofcities.github.io/urban-activity-atlas/exploring-hourly-activity-toronto)</small>
 
-Grids and hexagons are a way of summarizing many individual points into manageable spatial units by counting or averaging the number of "items" inside of them to create manageable spatial units. The example above shows traces of mobile activity in Toronto at 5PM on a weekday - notice that at this time, rush hour, the 401 highway visibly lights up. Beyond mobility data, binning can be used to map noise complaints, restaurant locations, or air quality sensor readings, offering a way to turn scattered data into recognizable spatial patterns.
+
+
+
+
+## Binning data to grids
+
+![Hexagon grid visualization of Glasgow](img/glasgow.png)
+
+Grids are a way of summarizing many individual points into manageable spatial units by counting or averaging the number of "items" inside of them to create manageable spatial units. These grids can be squares, rectangles, hexagons, triangles, or other more complex shapes that tesselate. Binning can be used, for example, to map noise complaints, restaurant locations, population density, mobile phone ping, or air quality sensor readings.
 
 | Design Choice                         | What it means                                                                                                                                      | Consideration                                                                                                                 |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -58,13 +61,13 @@ Grids and hexagons are a way of summarizing many individual points into manageab
 | **Aggregation metric**                | What you count or average within each bin (e.g., number of activities, average income).                                                                 | Different metrics highlight different aspects of density; totals may exaggerate large bins, while averages may hide extremes. |
 | **Color scale**                       | How bin values are represented visually.                                                                                                                | Poorly chosen scales can exaggerate or flatten variation, misleading interpretation.                                          |
 
-### 3D Binning
+## 3D visualizations
 
 ![](img/toronto-activity-3d-bins.png)
 
 <small>Source: [School of Cities](https://schoolofcities.github.io/urban-activity-atlas/?metro=toronto_on)</small>
 
-3D binning is really just an extension of what we just covered in 2D. At its most basic form, it lets us visualize the data differently and observe a pattern in a way that might feel more physically tangible to what we see in the real world. The example above illustrates this: it takes activity data (generalize to all times of the day) and shows clearly different peaks and troughs across the Greater Toronto Area.
+3D is really just an extension of what we just covered in 2D. At its most basic form, it lets us visualize the data differently and observe a pattern in a way that might feel more physically tangible to what we see in the real world. The example above illustrates this: it takes activity data (generalize to all times of the day) and shows clearly different peaks and troughs across the Greater Toronto Area.
 
 It doesn't just need to be an added perk though: we can also add another third variable. For example, instead of using colour and height to represent the same variable (amount of activity), perhaps we could instead represent something like population, access to transit, car ownership, or peak time of day. The point is, a third dimension lets us say more as long as we're smart about it.
 
@@ -76,7 +79,7 @@ It doesn't just need to be an added perk though: we can also add another third v
 | **Smoothing / interpolation**     | How abrupt or gradual transitions between bins appear                                     | Excessive smoothing can hide local peaks; too little can exaggerate noise       |
 
 
-### Contour Maps
+## Contour Maps
 
 ![](img/cbc-contour.png)
 
@@ -92,7 +95,7 @@ Contour maps show continuous spatial patterns by segmenting sections of equal va
 | Smoothing               | How “soft” or “rough” the transitions between lines look                      | Too smooth can hide local bumps; too rough can make it look noisy            |
 
 
-### Heat Maps
+## Heat Maps
 
 ![](img/pop-soda-heat.png)
 

@@ -112,6 +112,7 @@ Even when designing a table for a slide deck or a report, you can use the theory
 Via preattentive processing, we can guide viewers’ attention efficiently, enhance comprehension, and reduce cognitive load.
 
 
+
 ### Perceptual Rankings
 
 *Perceptual Rankings* help explain why some encodings are easier to interpret than others. Not all visual variables are equally effective.
@@ -141,7 +142,26 @@ Thinking about and directly designing each of the different components of a char
 
 
 
+## Hierarchy in data stories
 
+When guiding your readers through a story with a series of visualizations, sometimes it is useful to follow a Data Visualization Sandwich metaphor:
+
+![](img/Sandwich.png)
+
+This is very similar to journalistic styles of writing, “don’t bury the lead” and “bottom line up-front”.
+
+Let’s look at an example. This is a map of the United States from an article by the [Guardian](www.theguardian.com/environment/2022/feb/05/americans-above-average-temperature-increase-climate-crisis) on how the USA is facing above average rises in temperatures. This map acts as the Patty – it draws the attention of the reader and introduces the topic of the article.
+
+![](img/Sandwich_EX1.png)
+
+The article then takes a deeper look at specific counties that have experienced significant temperature increases via a table:
+
+![](img/Sandwich_EX2.png)
+
+
+Finally, this visual, which could be considered a patty or bun, helps illustrate the temperatures across U.S. states. It also includes a “topping” – an annotation over California that highlights how the entire population has experienced a temperature increase since 1895.
+
+![](img/Sandwich_EX3.png)
 
 
 

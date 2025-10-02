@@ -133,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;width:270px;margin-left: -25px;"><br>Urban Data Analytics, Visualization, &amp; Storytelling 📊📈🏙️</a> 
+      <a href="../../"><img src="https://raw.githubusercontent.com/schoolofcities/gta-immigration/refs/heads/main/src/assets/top-logo-full.svg" style="height:auto;max-width:300px; width: calc(100% + 40px); margin-left: -25px;"><br>Urban Data Analytics, Visualization, &amp; Storytelling 📊📈🏙️</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -388,7 +388,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#start-with-monochrome" id="toc-start-with-monochrome" class="nav-link" data-scroll-target="#start-with-monochrome">2) Start with monochrome</a></li>
   <li><a href="#design-for-your-output" id="toc-design-for-your-output" class="nav-link" data-scroll-target="#design-for-your-output">3) Design for your output</a></li>
   <li><a href="#make-graphics-accessible" id="toc-make-graphics-accessible" class="nav-link" data-scroll-target="#make-graphics-accessible">4) Make graphics accessible</a></li>
-  <li><a href="#hierarchy-in-graphics-and-stories" id="toc-hierarchy-in-graphics-and-stories" class="nav-link" data-scroll-target="#hierarchy-in-graphics-and-stories">5) Hierarchy in graphics and stories</a></li>
+  <li><a href="#visual-hierarchy" id="toc-visual-hierarchy" class="nav-link" data-scroll-target="#visual-hierarchy">5) Visual hierarchy</a></li>
   <li><a href="#choosing-charts-based-on-your-data" id="toc-choosing-charts-based-on-your-data" class="nav-link" data-scroll-target="#choosing-charts-based-on-your-data">6) Choosing charts based on your data</a></li>
   <li><a href="#annotations" id="toc-annotations" class="nav-link" data-scroll-target="#annotations">7) Annotations</a></li>
   <li><a href="#consolidate-categories-strategically" id="toc-consolidate-categories-strategically" class="nav-link" data-scroll-target="#consolidate-categories-strategically">8) Consolidate categories strategically</a></li>
@@ -464,31 +464,38 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 </section>
-<section id="hierarchy-in-graphics-and-stories" class="level2">
-<h2 data-anchor-id="hierarchy-in-graphics-and-stories">5) Hierarchy in graphics and stories</h2>
+<section id="visual-hierarchy" class="level2">
+<h2 data-anchor-id="visual-hierarchy">5) Visual hierarchy</h2>
 <p>Guide the viewer’s eye by creating a hierarchy between background and foreground. Your key message should be the focus and highlighted while everything else (axes, grid-lines, background elements) should support and not compete with it.</p>
 <ul>
 <li>Bold or highlight key data points.</li>
 <li>Use size, contrast, and colour to signal importance.</li>
-<li>De-emphasize secondary elements like gridlines, minor tick marks, or axis labels.</li>
+<li>De-emphasize secondary elements like gridlines, minor tick marks, axis labels, or base maps.</li>
 </ul>
-<p>For example, the line chart in the image above has a strong visual hierarchy between the key data points it wants to show (e.g.&nbsp;the lines for Sweden, the E.U., and Ireland) relative to the rest of the chart components.</p>
-<p>When guiding your readers through a story with a series of visualizations, sometimes it is useful to follow a Data Visualization Sandwich metaphor:</p>
-<p><img src="img/Sandwich.png" class="img-fluid"></p>
-<p>This is very similar to journalistic styles of writing, “don’t bury the lead” and “bottom line up-front”.</p>
-<p>Let’s look at an example. This is a map of the United States from an article by the <a href="www.theguardian.com/environment/2022/feb/05/americans-above-average-temperature-increase-climate-crisis" target="_blank">Guardian</a> on how the USA is facing above average rises in temperatures. This map acts as the Patty – it draws the attention of the reader and introduces the topic of the article.</p>
-<p><img src="img/Sandwich_EX1.png" class="img-fluid"></p>
-<p>The article then takes a deeper look at specific counties that have experienced significant temperature increases via a table:</p>
-<p><img src="img/Sandwich_EX2.png" class="img-fluid"></p>
-<p>Finally, this visual, which could be considered a patty or bun, helps illustrate the temperatures across U.S. states. It also includes a “topping” – an annotation over California that highlights how the entire population has experienced a temperature increase since 1895.</p>
-<p><img src="img/Sandwich_EX3.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/PreattentiveProcessingTable.png" class="img-fluid figure-img"></p>
+<figcaption>Example of preattentive processing to highlight rows in a table (Source: <a href="https://www.cnn.com/us/maps-damage-los-angeles-wildfires-dg/index.html" target="_blank">CNN</a>)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/evacuation.png" class="img-fluid figure-img"></p>
+<figcaption>Example of visual hierarchy on a map, where the key data story is in a bold colour while the background is in a faded grey-scale (Source: Jeff Allen)</figcaption>
+</figure>
+</div>
 </section>
 <section id="choosing-charts-based-on-your-data" class="level2">
 <h2 data-anchor-id="choosing-charts-based-on-your-data">6) Choosing charts based on your data</h2>
 <p>Match the visualization to the type of data and the message you’re trying to convey. Here’s a quick overview of very common charts for different types of data:</p>
 <p>Choosing the right chart type is essential to making your data clear, compelling, and truthful. While there’s no single “correct” choice for every scenario, understanding your data and communication goals will help you select a format that highlights the story you want to tell. Whether you’re comparing categories, showing trends over time, exploring distributions, or revealing relationships, each chart type has strengths and limitations.</p>
-<p>For a deeper dive into chart selection, visit <a href="https://www.data-to-viz.com/" target="_blank">From Data to Viz</a>, a comprehensive, visual guide that helps you choose the most appropriate chart based on your data structure and communication goals.</p>
-<p>The Financial Times also has a <a href="https://ft-interactive.github.io/visual-vocabulary/" target="_blank">“visual vocabulary” guide</a> for which approach to take to visualizing data.</p>
+<p>For a deeper dive into chart selection, visit <a href="https://www.data-to-viz.com/" target="_blank">From Data to Viz</a>, a comprehensive, visual guide that helps you choose the most appropriate chart based on your data structure and communication goals. The Financial Times also has a <a href="https://ft-interactive.github.io/visual-vocabulary/" target="_blank">“visual vocabulary” guide</a> for which approach to take to visualizing data. For a wider range of charts, including types of infographics, check out <a href="https://datavizproject.com/" target="_blank">Data Viz Project</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/DataVizProject.png" class="img-fluid figure-img"></p>
+<figcaption>Examples of types of charts from https://datavizproject.com/</figcaption>
+</figure>
+</div>
 </section>
 <section id="annotations" class="level2">
 <h2 data-anchor-id="annotations">7) Annotations</h2>
@@ -503,14 +510,25 @@ ul.task-list li input[type="checkbox"] {
 <section id="consolidate-categories-strategically" class="level2">
 <h2 data-anchor-id="consolidate-categories-strategically">8) Consolidate categories strategically</h2>
 <p>Many datasets offer rich detail. This can help answer interesting questions but once visualized may be TMI for your reader! Consider consolidating categories strategically in order to highlight elements that are key to the story. This means eliminating those that are more peripheral and could distract viewers. It also means limiting the number of categories.</p>
-<p>There is no set rule of thumb about the most effective number, and it can be complicated since there may be two dimensions to the data (e.g.&nbsp;two places and 8 types of housing or ethnicity). In general, we recommend aiming for no more than 16 sub-categories (3 x 5 categories, or 2 x 8). For pie charts, it is quite intuitive to limit the number of slices to 8, as you would with a good fruit pie!</p>
-<p>[add sample bar chart here]</p>
+<p>For example, we plotted out travel mode share in Toronto, but instead of having categories for different types of public transit (bus, subway, regional rail), we combined all into one category since the story was focusing on all transit, not sub-types.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/ModeShareChart.png" class="img-fluid figure-img"></p>
+<figcaption>Source: “Who are streets for?” (School of Cities, 2025)</figcaption>
+</figure>
+</div>
+<p>There is no set rule of thumb about the most effective number, and it can be complicated since there may be two dimensions to the data (e.g.&nbsp;two places and 8 types of housing or ethnicity). In general, we recommend aiming for no more than 16 sub-categories (3 x 5 categories, or 2 x 8). For donut or pie charts, it is quite intuitive to limit the number of slices to 4, 6, or 8, as you would with a good fruit pie!</p>
 </section>
 <section id="data-standardization" class="level2">
 <h2 data-anchor-id="data-standardization">9) Data standardization</h2>
-<p>Avoid presenting counts without accounting for population size (i.e.&nbsp;standardization). Absolute numbers are hard to compare across places of different size, so standardization is important for apples-to-apples comparisons. For bar charts, this means deploying the 100% option. But this is particularly true for maps with polygons of uneven sizes. For example, rural census tracts tend to be huge, and can dominate a map if variables are not standardized by population, area, housing units, or some other unit.</p>
-<p>[add sample map here]</p>
-<p>As with any rule, there are exceptions! There are times when it is important to see actual numbers. But if making a comparison, chances are standardization will help.</p>
+<p>Avoid presenting counts without accounting for population size (i.e.&nbsp;standardization). Absolute numbers are hard to compare across places of different size, so standardization is important for apples-to-apples comparisons. For bar charts, this means deploying the 100% option. But this is particularly true for maps with polygons of uneven sizes. For example, rural census tracts tend to be huge, and can dominate a map if variables are not standardized by population, areas, housing units, or some other unit.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/toronto-density.png" class="img-fluid figure-img"></p>
+<figcaption>Population density map of Toronto</figcaption>
+</figure>
+</div>
+<p>As with any rule, there are exceptions! There are times when it is important to see actual numbers. But if making a comparison of relative amounts, chances are standardization will help. If you do want to show absolute numbers, <a href="../../urban-data-visualization/proportional-symbol-maps/proportional-symbol-maps.html" target="_blank">proportional symbol maps</a> or <a href="../../urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.html" target="_blank">dot density maps</a>, might be a better choice.</p>
 </section>
 <section id="brand-guidelines" class="level2">
 <h2 data-anchor-id="brand-guidelines">10) Brand guidelines</h2>

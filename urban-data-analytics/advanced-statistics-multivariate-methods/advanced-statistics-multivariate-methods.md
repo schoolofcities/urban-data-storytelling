@@ -5,9 +5,9 @@ author: "Aniket Kali"
 
 This section will cover:
  
-- the utility and limitations of multivariate statistical models
-- key statistical approaches including regression, clustering, and dimensionality reduction techniques
-- a high-level introduction to advanced machine learning methods
+- The utility and limitations of multivariate statistical models
+- Key statistical approaches including regression, clustering, and dimensionality reduction techniques
+- A high-level introduction to advanced machine learning methods
 
 In the previous section on statistical foundations, we provided a detailed overview with lots of practice. The content of this section is much more advanced; each subsection often ends up being weeks of university courses. Here, we'll just be providing an overview of different methods, intuition, applications, and resources for you to learn more and apply these methods yourself.
 
@@ -59,7 +59,7 @@ Spatial regression is just an extension of the classical models. It recognizes t
 
 Clustering methods are ways of finding structure in data when we don’t have predefined categories. Instead of telling the model what groups exist, clustering lets the data speak for itself by revealing neighborhoods, patterns, or “types” of observations.
 
-### Partitioning Methods
+### Partitioning methods
 
 #### K-Means
 
@@ -81,7 +81,7 @@ Expectation-Maximization is a softer alternative. Instead of assigning each poin
 
 For example, classifying areas of a city into “residential,” “commercial,” and “mixed” land-use types when some zones share characteristics of both
 
-### Density-Based Methods
+### Density-based methods
 
 #### DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
 
@@ -92,7 +92,7 @@ Two examples could be:
  - detecting hotspots of nightlife venues in a city, where bars and clubs naturally cluster.
  - identifying clusters of traffic accidents along a road network.
 
-### Hierarchical Clustering
+### Hierarchical clustering
 
 Hierarchical clustering builds clusters step by step, either starting from individual points and merging them (agglomerative) or starting from the whole dataset and splitting it (divisive). The result is a tree (dendrogram) that shows groupings at different levels of granularity.
 
@@ -102,7 +102,7 @@ Hierarchical clustering builds clusters step by step, either starting from indiv
 
 An example of this is creating a hierarchy of neighborhood types, from very fine-grained (street blocks) to broad categories (inner city vs. suburbs).
 
-### Comparison of Clustering Methods
+### Comparison of clustering methods
 
 | Method | Advantage / Purpose | Limitation |
 |--------|---------------------|------------|
@@ -115,7 +115,7 @@ An example of this is creating a hierarchy of neighborhood types, from very fine
 
 Considering the following problem: you have a large data set of neighborhoods in a city, each with information on demographics, housing characteristics, transit accessibility, pollution, and so on. It's hard to just plot on one variable, and it's also not clear which of these variables depend on each other. This is where dimensionality reduction comes in handy: we can summarize the most important information and relationships of a large multi-dimensional data set by looking at what patterns matter.
 
-### Dimensionality Reduction Techniques
+### Dimensionality reduction techniques
 
 #### Principal Component Analysis (PCA)
 
@@ -133,7 +133,7 @@ Below, we can see an example of how PCA groups similar data points, and the risk
 
 <small>Source: [scikit-learn](https://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html#effect-of-rescaling-on-a-pca-dimensional-reduction)</small>
 
-#### Factor Analysis
+#### Factor analysis
 
 Instead of trying to capture the maximum variance - that is, preserve the most amount of information - factor analysis assumes the list of variables we know exist are influenced by a smaller set of latent factors.
 
@@ -141,7 +141,7 @@ For example, census variables like income and education could be a proxy for eco
 
 The resulting factors show how strongly each variable relates to particular factors. The hope is that these latent factors capture major underlying trends and provide an interpretable and low dimensional method to understanding the data. [You can find an implementation here](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FactorAnalysis.html).
 
-### Visualization and Interpretation
+### Visualization and interpretation
 
 #### Determinism and visual clusters in PCA
 

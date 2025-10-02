@@ -58,7 +58,6 @@ If you design a chart to fit within a specific medium (e.g. mobile view on a scr
 
 ## 4) Make graphics accessible
 
-
 Your data visualizations should be readable by everyone, which means thinking beyond aesthetics and into the realm of inclusive design. 
 
 For charts and maps, there are two main things to consider:
@@ -70,34 +69,19 @@ For charts and maps, there are two main things to consider:
 ![Examples of different text on a background at different contrast ratios](img/VisualAccessibility.png)
 
 
-## 5) Hierarchy in graphics and stories
+
+## 5) Visual hierarchy
 
 Guide the viewer’s eye by creating a hierarchy between background and foreground. Your key message should be the focus and highlighted while everything else (axes, grid-lines, background elements) should support and not compete with it.
 
 - Bold or highlight key data points.
 - Use size, contrast, and colour to signal importance.
-- De-emphasize secondary elements like gridlines, minor tick marks, or axis labels.
+- De-emphasize secondary elements like gridlines, minor tick marks, axis labels, or base maps.
 
-For example, the line chart in the image above has a strong visual hierarchy between the key data points it wants to show (e.g. the lines for Sweden, the E.U., and Ireland) relative to the rest of the chart components.
+![Example of preattentive processing to highlight rows in a table (Source: [CNN](https://www.cnn.com/us/maps-damage-los-angeles-wildfires-dg/index.html))](img/PreattentiveProcessingTable.png)
 
-When guiding your readers through a story with a series of visualizations, sometimes it is useful to follow a Data Visualization Sandwich metaphor:
+![Example of visual hierarchy on a map, where the key data story is in a bold colour while the background is in a faded grey-scale (Source: Jeff Allen)](img/evacuation.png)
 
-![](img/Sandwich.png)
-
-This is very similar to journalistic styles of writing, “don’t bury the lead” and “bottom line up-front”.
-
-Let’s look at an example. This is a map of the United States from an article by the [Guardian](www.theguardian.com/environment/2022/feb/05/americans-above-average-temperature-increase-climate-crisis) on how the USA is facing above average rises in temperatures. This map acts as the Patty – it draws the attention of the reader and introduces the topic of the article.
-
-![](img/Sandwich_EX1.png)
-
-The article then takes a deeper look at specific counties that have experienced significant temperature increases via a table:
-
-![](img/Sandwich_EX2.png)
-
-
-Finally, this visual, which could be considered a patty or bun, helps illustrate the temperatures across U.S. states. It also includes a “topping” – an annotation over California that highlights how the entire population has experienced a temperature increase since 1895.
-
-![](img/Sandwich_EX3.png)
 
 
 ## 6) Choosing charts based on your data
@@ -106,9 +90,11 @@ Match the visualization to the type of data and the message you’re trying to c
 
 Choosing the right chart type is essential to making your data clear, compelling, and truthful. While there’s no single “correct” choice for every scenario, understanding your data and communication goals will help you select a format that highlights the story you want to tell. Whether you’re comparing categories, showing trends over time, exploring distributions, or revealing relationships, each chart type has strengths and limitations. 
 
-For a deeper dive into chart selection, visit [From Data to Viz](https://www.data-to-viz.com/), a comprehensive, visual guide that helps you choose the most appropriate chart based on your data structure and communication goals.
+For a deeper dive into chart selection, visit [From Data to Viz](https://www.data-to-viz.com/), a comprehensive, visual guide that helps you choose the most appropriate chart based on your data structure and communication goals. The Financial Times also has a ["visual vocabulary" guide](https://ft-interactive.github.io/visual-vocabulary/) for which approach to take to visualizing data. For a wider range of charts, including types of infographics, check out [Data Viz Project](https://datavizproject.com/)
 
-The Financial Times also has a ["visual vocabulary" guide](https://ft-interactive.github.io/visual-vocabulary/) for which approach to take to visualizing data.
+
+![Examples of types of charts from https://datavizproject.com/](img/DataVizProject.png)
+
 
 
 ## 7) Annotations
@@ -118,22 +104,28 @@ Great charts don’t always speak for themselves. Use clear titles, subtitles, a
 ![Example of how simple text labels and titles can help tell an effective visual story (Source: Wall Street Journal 2015)](img/MeaslesExample.png)
 
 
+
 ## 8) Consolidate categories strategically
 
 Many datasets offer rich detail. This can help answer interesting questions but once visualized may be TMI for your reader! Consider consolidating categories strategically in order to highlight elements that are key to the story. This means eliminating those that are more peripheral and could distract viewers. It also means limiting the number of categories. 
 
-There is no set rule of thumb about the most effective number, and it can be complicated since there may be two dimensions to the data (e.g. two places and 8 types of housing or ethnicity). In general, we recommend aiming for no more than 16 sub-categories (3 x 5 categories, or 2 x 8). For pie charts, it is quite intuitive to limit the number of slices to 8, as you would with a good fruit pie!
+For example, we plotted out travel mode share in Toronto, but instead of having categories for different types of public transit (bus, subway, regional rail), we combined all into one category since the story was focusing on all transit, not sub-types.
 
-[add sample bar chart here]
+![Source: "Who are streets for?" (School of Cities, 2025)](img/ModeShareChart.png)
+
+There is no set rule of thumb about the most effective number, and it can be complicated since there may be two dimensions to the data (e.g. two places and 8 types of housing or ethnicity). In general, we recommend aiming for no more than 16 sub-categories (3 x 5 categories, or 2 x 8). For donut or pie charts, it is quite intuitive to limit the number of slices to 4, 6, or 8, as you would with a good fruit pie!
+
+
 
 
 
 ## 9) Data standardization
-Avoid presenting counts without accounting for population size (i.e. standardization). Absolute numbers are hard to compare across places of different size, so standardization is important for apples-to-apples comparisons. For bar charts, this means deploying the 100% option. But this is particularly true for maps with polygons of uneven sizes. For example, rural census tracts tend to be huge, and can dominate a map if variables are not standardized by population, area, housing units, or some other unit.
 
-[add sample map here]
+Avoid presenting counts without accounting for population size (i.e. standardization). Absolute numbers are hard to compare across places of different size, so standardization is important for apples-to-apples comparisons. For bar charts, this means deploying the 100% option. But this is particularly true for maps with polygons of uneven sizes. For example, rural census tracts tend to be huge, and can dominate a map if variables are not standardized by population, areas, housing units, or some other unit.
 
-As with any rule, there are exceptions! There are times when it is important to see actual numbers. But if making a comparison, chances are standardization will help.
+![Population density map of Toronto](img/toronto-density.png)
+
+As with any rule, there are exceptions! There are times when it is important to see actual numbers. But if making a comparison of relative amounts, chances are standardization will help. If you do want to show absolute numbers, [proportional symbol maps](../proportional-symbol-maps/proportional-symbol-maps.md) or [dot density maps](../categorical-dot-maps/categorical-random-dot-maps.ipynb), might be a better choice.
 
 
 
