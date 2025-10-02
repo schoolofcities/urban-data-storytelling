@@ -19,7 +19,7 @@ OpenStreetMap (OSM) is a world-wide, collaborative mapping project spanning a hu
 
 ![The homepage of OpenStreetMap.org](./images/OpenStreetMap.org.png)
 
-You might think of it as Wikipedia, if Wikipedia were a map instead of a written body of text. Anyone with a computer can contribute edits and can also download and use that data, along with the contributions of millions of others, for a wide range of uses. [Specifically](https://www.openstreetmap.org/copyright):
+At the technical level, OSM is a big spatial database. You might think of it as Wikipedia, if Wikipedia were a map instead of a written body of text. Anyone with a computer can contribute edits and can also download and use that data, along with the contributions of millions of others, for a wide range of uses. [Specifically](https://www.openstreetmap.org/copyright):
 
 > You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same licence. The full [legal code](https://opendatacommons.org/licenses/odbl/1.0/) explains your rights and responsibilities.
 
@@ -28,9 +28,10 @@ This openness has led to a huge number of applications based on OSM, ranging fro
 
 ## What's on the map?
 
-The types of things included on the map range widely, from the [glaciers](https://wiki.openstreetmap.org/wiki/Tag:natural%3Dglacier) of Greenland to the [cafe](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dcafe) around the corner from you. [Train routes](https://wiki.openstreetmap.org/wiki/Tag:route%3Dtrain) are on there, as are [buildings](https://wiki.openstreetmap.org/wiki/Buildings), hundreds of millions of them, all the way down to your [apartment](https://wiki.openstreetmap.org/wiki/Tag:building%3Dapartments) or your mom's garden [shed](https://wiki.openstreetmap.org/wiki/Tag:building%3Dshed). You could map that a [restaurant](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Drestaurant) exists and serves [Tibetan food](https://wiki.openstreetmap.org/wiki/Key:cuisine) (that's probably spelled out on their menu, along with their hours and address), or whether there is or is not a [bus stop](https://wiki.openstreetmap.org/wiki/Tag:highway%3Dbus_stop) in a given spot. However OpenStreetMap does not cover all subject matter - the basic rule is that data should be, in some sense, [verifiable](https://wiki.openstreetmap.org/wiki/Verifiability) by a person on the ground in a real tangible way.
+The types of things included on the map range widely, from the [glaciers](https://wiki.openstreetmap.org/wiki/Tag:natural%3Dglacier) of Greenland to the [cafe](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dcafe) around the corner from you. [Train routes](https://wiki.openstreetmap.org/wiki/Tag:route%3Dtrain) are on there, as are [buildings](https://wiki.openstreetmap.org/wiki/Buildings), hundreds of millions of them, all the way down to your [apartment](https://wiki.openstreetmap.org/wiki/Tag:building%3Dapartments) or your mom's garden [shed](https://wiki.openstreetmap.org/wiki/Tag:building%3Dshed). You could map that a [restaurant](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Drestaurant) exists and serves [Tibetan food](https://wiki.openstreetmap.org/wiki/Key:cuisine) (that's probably spelled out on their menu, along with their hours and address), or whether there is or is not a [bus stop](https://wiki.openstreetmap.org/wiki/Tag:highway%3Dbus_stop) in a given spot. 
 
-This verifiability requirement leads OSM to a sort of discreteness that not all mapping efforts share. Something does or does not exist, is this type of thing or that type of thing - OSM doesn't allow things to kind of exist or exist to a degree, and it doesn't allow us to have competing versions of reality. You can map sidewalks if they're there, but not census data about language spoken at home, because the latter isn't independently verifiable. One important exception to the verifiability rule is [political](https://wiki.openstreetmap.org/wiki/Tag:boundary%3Dpolitical) or [administrative boundaries](https://wiki.openstreetmap.org/wiki/Tag:boundary%3Dadministrative), which often have no tangible existence in the real world but are included for completeness. OSM also doesn't include private or identifiable information - you can map a house, but not say who lives there, and you won't find property lines unless they're marked by some physical boundary like a [fence](https://wiki.openstreetmap.org/wiki/Tag:barrier%3Dfence). It's [not a map of everything](https://wiki.openstreetmap.org/wiki/Scope).
+However OpenStreetMap does not cover all subject matter - the basic rule is that data should be, in some sense, [verifiable](https://wiki.openstreetmap.org/wiki/Verifiability) by a person on the ground in a real tangible way. This verifiability requirement leads OSM to a sort of discreteness that not all mapping efforts share. Something does or does not exist, is this type of thing or that type of thing - OSM doesn't allow things to kind of exist or exist to a degree, and it doesn't allow us to have competing versions of reality. You can map sidewalks if they're there, but not census data about language spoken at home, because the latter isn't independently verifiable. One important exception to the verifiability rule is [political](https://wiki.openstreetmap.org/wiki/Tag:boundary%3Dpolitical) or [administrative boundaries](https://wiki.openstreetmap.org/wiki/Tag:boundary%3Dadministrative), which often have no tangible existence in the real world but are included for completeness. OSM also doesn't include private or identifiable information - you can map a house, but not say who lives there, and you won't find property lines unless they're marked by some physical boundary like a [fence](https://wiki.openstreetmap.org/wiki/Tag:barrier%3Dfence). It's [not a map of everything](https://wiki.openstreetmap.org/wiki/Scope).
+
 
 ## How is the data structured?
 
@@ -38,13 +39,13 @@ There are two aspects to pretty much any spatial dataset: the geometries and the
 
 ### Spatial data
 
-OSM uses a _vector_ data model, not a _raster_ model. Rasters are pixels covering an area with a gradation of values. Vectors are discrete points and lines in space. In OSM, the fundamental types of spatial data are *nodes*, *ways*, and *relations*.
+OSM uses a *vector* data model, not a *raster* model. Rasters are pixels covering an area with a gradation of values. Vectors are discrete points and lines in space. In OSM, the fundamental types of spatial data are *nodes*, *ways*, and *relations*.
 
 | Data Type | Definition | Example |
 |-----------|------------|---------|
 | **Nodes** | Points with a single coordinate location. They may exist on their own or be members of other types. | A [post box](https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dpost_box) mapped as a single point |
 | **Ways** | An ordered series of two or more nodes. Open ways (different start/end nodes) form lines, while closed ways (same start/end node) typically form polygons. | A [street](https://wiki.openstreetmap.org/wiki/Key:highway) as an open way (line), or a [cemetery](https://wiki.openstreetmap.org/wiki/Tag:landuse%3Dcemetery) as a closed way (polygon) |
-| **Relations** | Grouped collections of any data types, including other relations. The most complex type for describing multi-part features. | A tram route with tracks (ways) and stops/platforms (nodes or polygons), or breaking up large features like the [Great Lakes](https://wiki.openstreetmap.org/wiki/Great_Lakes) to prevent computer overheating |
+| **Relations** | Grouped collections of any data types, including other relations. The most complex type for describing multi-part features. | A tram route with tracks (ways) and stops/platforms (nodes or polygons), or breaking up large features like the [Great Lakes](https://wiki.openstreetmap.org/wiki/Great_Lakes) |
 
 ### Attributes (tags)
 
@@ -52,13 +53,12 @@ The way OSM handles attributes, "[tags](https://wiki.openstreetmap.org/wiki/Tags
 
 OSM is always a work in progress - there's no real concept of completeness for tagging, and it's rife with idiosyncrasies. Often the first person to add something to the map does something very simple: saying "there's a restaurant here" (`amenity=restaurant`), then later someone adds `cuisine=tibetan`, then someone may add the name, web address, phone number, payment methods, accessibility info, hours... any combination of these tags may be found together. Just when you think you've tagged every conceivable attribute, someone will point out that the building has a grey, slate, Mansard style roof ([`roof:colour=gray`](https://wiki.openstreetmap.org/wiki/Key:roof:colour), [`roof:material=slate`](https://wiki.openstreetmap.org/wiki/Key:roof:material), [`roof:shape=mansard`](https://wiki.openstreetmap.org/wiki/Tag:roof:shape%3Dmansard)). It's truly never done.
 
-### Spatial Data + Tags
+### Spatial data + tags
 
 Tags can be applied to nodes, ways, or relations, and there's not always a prescribed spatial type needed to define a given feature - a restaurant might be mapped as a node if it shares a building, as a way if it has its own building, or as a relation if that building has complex geometry like an interior courtyard. This enormous flexibility in OSM's data structure is both a huge strength for describing the variety of real things in the world and an equal liability for those wanting to answer "simple" questions like "How many Tibetan restaurants are there in Toronto?"
 
-## Strengths and Weaknesses of OSM as a dataset
 
-OSM seems like the kind of thing you might either love or hate, but are unlikely to have ambivalent feelings about, at least if you're a geospatial nerd like me. Its great for some applications and for others might just drive you insane.
+## Strengths and weaknesses of OSM as a dataset
 
 | Strength | Explanation |
 |----------|-------------|
@@ -74,16 +74,18 @@ OSM seems like the kind of thing you might either love or hate, but are unlikely
 |----------|-------------|
 | **Inconsistency** | OSM data quality varies wildly - from central European areas with detailed street tree data, to much of rural Africa and South America that look hastily sketched with major features like roadways or rivers missing or misaligned by dozens of meters. |
 | **Strong selection biases in the data coverage** | The inconsistency follows contributor interests and biases, like paid editors from navigation companies who quickly fix road errors but ignore pedestrian infrastructure. |
-| **OSM is always changing** | The nature of OSM as a community driven project means that it’s always growing and evolving. Tags change, and to keep my project up to date I must find ways to adapt my code. |
+| **OSM is always changing** | The nature of OSM as a community driven project means that it’s always growing and evolving. Tags change, for example, and to keep a project up to date, we sometimes need to update which tags to use to query. |
 | **It accepts your edits** | Just as wise cartographers can add wisdom, any fool can add foolishness - the map is always full of small mistakes from beginners who haven't yet learned community norms. |
 
 ![A user has misused the `name=*` tag, filling it with a description and some kind of identifier. No one walking past this building would recognize that as its "name".](./images/misuse-of-name-tag.png)
 
 ## Access the data
 
+OSM is just a big online database and you can connect to it to both read (download) data and edit (contribute) data.
+
 ### Downloading data
 
-OpenStreetMap itself offers fairly limited ways of downloading data: you can download all the data within a fairly small bounding box as an XML file, or download a compressed version (`.pbf`) of the entire planet. Unless you're a professional database administrator with some time to kill (and disk space!), I wouldn't recommend the latter option. The XML file format looks something like this:
+The main [OpenStreetMap website](https://openstreetmap.org) offers fairly limited ways of downloading data: you can download all the data within a fairly small bounding box as an XML file, or download a compressed version (`.pbf`) of the entire planet. Unless you're a professional database administrator with some time to kill (and disk space!), I wouldn't recommend the latter option. The XML file format looks something like this:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -107,7 +109,8 @@ OpenStreetMap itself offers fairly limited ways of downloading data: you can dow
 
 The file structure directly mirrors the OSM database structure described above. There are four nodes with unique IDs and coordinates, plus a way that references those nodes with tags describing what it is. You can see this is a rectangular building mapped as a closed polygon - note the five node references with the first and last being the same node ID, which tells us it's closed.
 
-What OSM itself can give you is limited since they want to conserve server resources for contributors. Fortunately, the OSM community offers additional resources - kind Internet strangers who've downloaded the whole planet file, keep their copies synchronized with the main database, and offer additional ways of downloading larger chunks of data with some lag from the main database.
+While OSM itself can give you is limited since they want to conserve server resources for contributors. Fortunately, the OSM community offers additional resources - kind Internet strangers who've downloaded the entire planet file, keep their copies synchronized with the main database, and offer additional ways of downloading larger chunks of data with some lag from the main database.
+
 
 ### The Overpass API
 
@@ -136,9 +139,11 @@ Click "export" to download in various formats. GeoJSON works well for desktop GI
 
 Downloaded a big XML file? You'll need tools to parse it. I use [`osm2pgsql`](https://osm2pgsql.org/) for PostgreSQL, but many others exist: [`osmium`](https://osmcode.org/osmium-tool/) for format conversion, [`ogr2ogr`](https://wiki.openstreetmap.org/wiki/OGR) for other spatial formats, or [OSRM](https://project-osrm.org/) for routing.
 
+
+
 ### Querying with Python
 
-The Overpass API is great for one-off queries, but sometimes you need to run a set of repetitive queries across many locations or with different variables. In that case, we can use Python.
+The Overpass API website is great for one-off queries, but sometimes you need to run a set of repetitive queries across many locations or with different variables. In that case, we can use Python.
 
 ```python
 import json
@@ -161,6 +166,9 @@ Extending queries into Python is pretty straightforward: all you have to do is a
 
 Here, we select for railway stations within 50km of a list of points corresponding to the cities of Toronto and London - but we could do this for as many cities as we want. Once we retrieve those results, we use the Python library [`osm2geojson`](https://github.com/aspectumapp/osm2geojson) to convert the geometric data into the GeoJSON format.
 
+
+
+
 ### GeoFabrik Regional downloads
 
 Another handy resource is [GeoFabrik](https://www.geofabrik.de/), a German geospatial company offering OSM [downloads](https://download.geofabrik.de/) in compressed XML (`.osm.pbf`) and _shapefile_ format, split by major regional boundaries like [North America](https://download.geofabrik.de/north-america.html), [Canada](https://download.geofabrik.de/north-america/canada.html) or [Ontario](https://download.geofabrik.de/north-america/canada/ontario.html).
@@ -169,7 +177,28 @@ Shapefiles are a common spatial data format which, like Ginkgo trees and horsesh
 
 These downloads are a good entry point if you're comfortable with shapefiles, though the format limits what you can do. If you want a quick map of common features without worrying about OSM's data structure nuances, this is probably what you want.
 
-![I was able to quickly make this map of the 2.9 million buildings mapped in Ontario so far](./images/QGIS-Ontario-buildings.png)
+![I was able to quickly make this map of the 2.9 million buildings mapped in Ontario (so far)](./images/QGIS-Ontario-buildings.png)
+
+
+
+### Other useful OSM tools
+
+Here are a few other OSM tools that we've found useful for different projects and applications
+
+- [BBBike extracts](https://extract.bbbike.org/): similar to GeoFabrick, but for smaller geographies by allowing you to select bounding boxes for querying data
+
+- [`osm2pgsql`](https://osm2pgsql.org/): import OSM into a PostgresSQL database
+
+- [`osmium`](https://osmcode.org/osmium-tool/): extract and filter data, or convert between OSM formats like PBF, XML, and JSON
+
+- [`ogr2ogr`](https://wiki.openstreetmap.org/wiki/OGR): convert between OSM and many other spatial formats like GeoJSON or shapefile
+
+- [Open Source Routing Machine (ORSM)](https://project-osrm.org/): parse the street network and set up an efficient and customizable routing engine
+
+- [`osmnx`](https://osmnx.readthedocs.io/en/stable/): Python package to download, analyze, and visualize street networks and other geospatial features from OpenStreetMap
+
+- [`pyrosm`](https://pyrosm.readthedocs.io/en/latest/): Python package for reading OSM data in PBF format into `geopandas` GeoDataFrames
+
 
 ## Concluding thoughts
 
@@ -177,11 +206,11 @@ OSM is a whole world unto itself, I guess quite literally. Over the last decade 
 
 Welcome to the OSM community!
 
-## Appendix
 
-### Contributing edits
 
-To make edits, you'll need to create an OSM account. You can sign up or log in using the buttons on the top right of the page at [openstreetmap.org](https://www.openstreetmap.org).
+## Appendix: Contributing edits
+
+To make edits to the OpenStreetMap database, you'll need to create an OSM account. You can sign up or log in using the buttons on the top right of the page at [openstreetmap.org](https://www.openstreetmap.org).
 
 Once you have an account, there are a few different ways of making edits. The most accessible and beginner friendly is the *iD editor*, which is built right into [openstreetmap.org](https://www.openstreetmap.org). It has a lot of useful features that help you find good descriptive tags for whatever you're adding, but it can be pretty limited in its ability to make larger or more complex edits. It's definitely the best place to start.
 
@@ -189,7 +218,7 @@ I'll also talk briefly about the *JOSM editor*, which is my usual go-to. It's a 
 
 These aren't the only editors though. Just as there are many ways to download data, contributed by the OSM community, there are many ways to edit it.
 
-#### The ID editor
+### The ID editor
 
 The iD editor is the beginner-friendly editor built right into the page at [openstreetmap.org](https://www.openstreetmap.org). Just click "edit" in the top menu and you'll be able to edit the contents of your current map view.
 
@@ -219,7 +248,7 @@ You can see there's a bit of extra information added by the editor, such as the 
 
 As for your edit, if you wanted to confirm that your changes were saved, you could edit the map again in the same spot and you should see your modified data there since the editors all pull data, hot and fresh, from the main OSM database.
 
-#### JOSM
+### JOSM
 
 While iD is the most popular OSM editor, and the best for beginners, you should also be aware that editors like [JOSM](https://josm.openstreetmap.de/) are out there too. JOSM is basically a fully-featured desktop GIS specific to OSM. It has numerous plugins and a range of powerful (and potentially dangerous) features, like allowing the editing of many features at once. It you want to do some specific thing, but iD doesn't seem to have a feature to support that, JOSM probably has three different ways of doing it.
 
