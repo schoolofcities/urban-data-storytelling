@@ -1,6 +1,6 @@
 ---
 title: "OpenStreetMap"
-author: "Nate Wessel, Aniket Kali"
+author: "Nate Wessel, Aniket Kali, Jeff Allen"
 ---
 
 [📥 Click here to download this document and any associated data and images](/downloads/openstreetmap.zip)
