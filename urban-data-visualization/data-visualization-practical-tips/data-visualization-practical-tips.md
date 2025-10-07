@@ -40,6 +40,9 @@ Sometimes it’s hard to figure out the story you want to tell. There are many p
 For example, in the line chart below, we started with a mass of grey spaghetti representing all the large metropolitan areas in the US, with the idea of highlighting the post-recession dip in income in San Francisco, as compared to the US average. We then decided to highlight the Washington D.C. area as another point of comparison. But we labeled the San Francisco story in order to keep the reader’s attention focused on it.
 
 
+![Source: Carolina Reid](img/us-income-line-chart.png)
+
+
 
 ## 3) Design for your output
 

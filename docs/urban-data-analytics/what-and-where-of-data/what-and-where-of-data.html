@@ -510,7 +510,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-anchor-id="data-availability">Data availability</h2>
 <p>Data availability refers to how accessible data is and the conditions under which it can be used. Key categories include:</p>
 <p><em>Public / Open data</em> - Data that is freely accessible to anyone and can be reused without restrictions. Open data is often provided by governments, research institutions, and public organizations. It is typically non-sensitive and available in machine-readable formats. Examples include aggregated census data, municipal open data, and OpenStreetMap.</p>
-<p><em>Restricted data</em> Data that is available but comes with limitations due to privacy, security, or legal concerns. This includes sensitive datasets such as health data, dis-aggregate census data, and government records with personal identifiers that are redacted or protected.</p>
+<p><em>Restricted data</em> - Data that is available but comes with limitations due to privacy, security, or legal concerns. This includes sensitive datasets such as health data, dis-aggregate census data, and government records with personal identifiers that are redacted or protected.</p>
 <p><em>Proprietary data</em> - Data that is owned by a specific entity (e.g., a corporation or private organization) and is not freely available. Access is typically granted through licenses, paid subscriptions, or agreements. For example, cell phone mobility data from <a href="https://docs.spectus.ai/" target="_blank">Spectus</a> can be used to measure <a href="https://downtownrecovery.com/charts/trends" target="_blank">post-pandemic downtown recovery trends</a>, real estate data from <a href="https://www.costar.com/home/demo?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=8362819905&amp;utm_content=85421354763&amp;utm_term=costar%20data&amp;utm_campaign_id=7013p000002MUoNAAW&amp;gad_source=1&amp;gclid=Cj0KCQjwna6_BhCbARIsALId2Z2fd8KIEBhSXancChMwmCO0cA0j-R7r_1hNQu85JD7SXKO78atAMFAaAp-lEALw_wcB" target="_blank">Costar</a> can be used to assess vacancy rates or rent prices, and consumer data from <a href="https://www.data-axle.com/" target="_blank">Data Axle</a> can be used to study <a href="https://www.urbandisplacement.org/maps/housing-by-block/" target="_blank">the impact of new housing on migration patterns</a>.</p>
 <p><br></p>
 <div class="quarto-figure quarto-figure-center">
@@ -554,7 +554,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>Land use and built environment</td>
 <td>- <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> <br>- <a href="https://github.com/gboeing/osmnx" target="_blank">OSMNx</a> - tool for extracting Open Street Map data for anywhere in the world <br>- <a href="https://developers.google.com/maps/apis-by-platform" target="_blank">Google Maps data access</a></td>
-<td>- <a href="https://open.canada.ca/data/en/dataset/ee1580ab-a23d-4f86-a09b-79763677eb47" target="_blank">Land cover of Canada</a> <br>- Municipal-level zoning maps (e.g., in <a href="https://map.toronto.ca/maps/map.jsp?app%3DZBL_CONSULT" target="_blank">Toronto</a>)</td>
+<td>- <a href="https://open.canada.ca/data/en/dataset/ee1580ab-a23d-4f86-a09b-79763677eb47" target="_blank">Land cover of Canada</a> <br>- Municipal-level zoning maps (e.g., in <a href="https://open.toronto.ca/dataset/zoning-by-law/" target="_blank">Toronto</a>)</td>
 <td>- <a href="https://dataverse.harvard.edu/dataverse/osmnx-street-networks" target="_blank">OSMNx-derived downloads for the U.S.</a> <br>- <a href="https://github.com/microsoft/USBuildingFootprints" target="_blank">Building footprints for the entire U.S. <br></a>- <a href="https://www.zoningatlas.org/" target="_blank">National Zoning Atlas</a> <br>- <a href="http://gif.berkeley.edu/resources/data.html" target="_blank">U.C. Berkeley Geospatial Innovation Facility</a></td>
 </tr>
 <tr class="odd">
@@ -702,7 +702,7 @@ Montreal,1780000,Canada</code></pre>
 <h2 data-anchor-id="levels-of-measurement">Levels of measurement</h2>
 <p>While <em>data types</em> specify what kind of data a variable can hold, <em>levels of measurement</em> describe how data is structured and the relationships between different values. They refer to how we can classify and interpret the data in terms of its inherent ordering, spacing, and possible mathematical operations.</p>
 <ul>
-<li><p><em>Nominal</em>: Categorical data with no inherent order (e.g., colors, countries, land-use types e.g.&nbsp;<code>Urban</code>, <code>Wetlands</code>, <code>Forest</code>, etc.).</p></li>
+<li><p><em>Nominal</em>: Categorical data with no inherent order (e.g., colours, countries, land-use types e.g.&nbsp;<code>Urban</code>, <code>Wetlands</code>, <code>Forest</code>, etc.).</p></li>
 <li><p><em>Ordinal</em>: Data with a meaningful order, but unknown or not always equal differences between values (e.g., movie ratings like <code>Good</code>,<code>Okay</code>, or <code>Bad</code>, or levels of education e.g.&nbsp;<code>High School</code>, <code>Bachelors</code>, <code>Masters</code> ).</p></li>
 <li><p><em>Interval</em>: Ordered data with equal intervals between values but no true zero (e.g., temperature in Celsius or Fahrenheit, datetime).</p></li>
 <li><p><em>Ratio</em>: Ordered data with equal intervals and a true zero point, allowing for meaningful ratios (e.g., length, area, income).</p></li>
@@ -739,7 +739,7 @@ Montreal,1780000,Canada</code></pre>
 <tbody>
 <tr class="odd">
 <td>Analyzing and visualizing data</td>
-<td><a href="https://www.python.org/" target="_blank">Python</a>, <a href="https://www.r-project.org/" target="_blank">R</a>, <a href="https://en.wikipedia.org/wiki/SQL,%20%5BQGIS%5D(https://qgis.org/)%20(for%20spatial%20data)" target="_blank">SQL</a></td>
+<td><a href="https://www.python.org/" target="_blank">Python</a>, <a href="https://www.r-project.org/" target="_blank">R</a>, <a href="https://en.wikipedia.org/wiki/SQL" target="_blank">SQL</a>, <a href="https://qgis.org/" target="_blank">QGIS</a> (for spatial data))</td>
 </tr>
 <tr class="even">
 <td>Making pretty graphics</td>
@@ -762,7 +762,7 @@ Montreal,1780000,Canada</code></pre>
 </section>
 <section id="data-analysis-process" class="level2">
 <h2 data-anchor-id="data-analysis-process">Data analysis process</h2>
-<p>While is no set of specific step-by-step instructions for data analysis – each project involves unique data sources, variables, methodologies, and outputs – there is a general <a href="https://www.geeksforgeeks.org/six-steps-of-data-analysis-process/" target="_blank">framework</a> that we recommend following:</p>
+<p>While there is no set of specific step-by-step instructions for data analysis – each project involves unique data sources, variables, methodologies, and outputs – there is a general <a href="https://www.geeksforgeeks.org/six-steps-of-data-analysis-process/" target="_blank">framework</a> that we recommend following:</p>
 <ol type="1">
 <li><em>Define the problem or research question.</em> What question are you trying to answer with data? Is data analysis the best way to answer that question? Who is the audience for your data analysis, and what do they want to know?</li>
 <li><em>Collect data.</em> What kind of data do you need to answer your research question, and where can you find it? Does it exist? In what format?</li>

@@ -18,7 +18,7 @@ This section will cover:
 
 Take a look at this map of Toronto: at first glance, it's obvious that some parts of the city are different than others. It's a map that tells you where people live and concentrate - equally, where they don't live, and don't concentrate. And it's pretty simple: just one dot per 10 individuals. 
 
-What density maps let us do is go beyond simple tables of numbers to understand how data is distributed geographically. We can get a feel for where events like traffic collisions 311 requests, or entities like trees, occur and exist - revealing clusters and gaps.
+What density maps let us do is go beyond simple tables of numbers to understand how data is distributed geographically. We can get a feel for where events like traffic collisions, 311 requests, or entities like trees, occur and exist - revealing clusters and gaps.
 
 In this chapter, we will cover five different methods. The choice of map matters: different conclusions can be drawn from different representations.
 
@@ -28,7 +28,7 @@ There's numerous ways to implement these, whether you feel more fluent in coding
 
 ![](img/toronto-housing-dot-map.png)
 
-Dot maps are a method of seeing both concentration and distribution at the same time intuitively - each dot feels like a tangible "unit" of whatever we're measuring. In the example above, we've added colors to represent ethnicity. At first glance, you can get a feel of where different groups cluster and mix across Toronto. Beyond population, dot maps can also be used to show things like the distribution of trees, crime incidents, or service requests - anything that could be an object or entity in space - and can be coloured by another variable to show spatial differences in categories (like housing for example)
+Dot maps are a method of seeing both concentration and distribution at the same time intuitively - each dot feels like a tangible "unit" of whatever we're measuring. In the example above, we've added colours to represent different types of housing tenure. At first glance, you can get a feel of where different groups cluster and mix across Toronto. Beyond population or household characteristics, dot maps can also be used to show things like the distribution of trees, crime incidents, or service requests - anything that could be an object or entity in space - and can be coloured by another variable to show spatial differences in categories (like housing for example)
 
 When designing a dot map, there are a few key choices to consider:
 

@@ -496,7 +496,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>Coding/programming</td>
-<td>The act of giving a computer written instructions for a task or set of tasks using a “language” like Python, R, Javascript, SQL, etc.</td>
+<td>The act of giving a computer written instructions for a task or set of tasks using a “language” like Python, R, JavaScript, SQL, etc.</td>
 </tr>
 <tr class="even">
 <td>Python</td>
@@ -519,7 +519,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>An environment to write code in (also known as a “code editor”)</td>
 </tr>
 <tr class="odd">
-<td>Visual Studio Code</td>
+<td>Visual Studio Code (VS Code)</td>
 <td>Popular code editor (IDE)</td>
 </tr>
 <tr class="even">
@@ -583,7 +583,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="why-learn-python" class="level2">
 <h2 data-anchor-id="why-learn-python">Why learn Python?</h2>
-<p><a href="https://www.python.org/doc/essays/blurb/" target="_blank">Python</a> is a widely used programming language, especially in urban and spatial analysis, because it’s easy to learn relative to other languages and has a strong ecosystem of libraries for working with data, maps, and models. Plus, it’s open source and has a huge community of people that use and develop it, which means lots of learning resources and support. While we’ll mostly be exploring Python, the same concepts are applicable across many other languages and software.</p>
+<p><a href="https://www.python.org/doc/essays/blurb/" target="_blank">Python</a> is a widely used programming language, especially in urban and spatial analysis, because it’s easy to learn relative to other languages and has a strong ecosystem of libraries for working with data, maps, and models. Plus, it’s open source which has a huge community of people that use and develop it, which means lots of learning resources and support. While we’ll mostly be exploring Python, the same concepts are applicable across many other languages and software.</p>
 </section>
 <section id="download-python" class="level2">
 <h2 data-anchor-id="download-python">Download Python</h2>
@@ -677,7 +677,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Example of a Jupyter notebook that creates a map</figcaption>
 </figure>
 </div>
-<p>While you can choose to work with code editors like <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a> or notebooks via <a href="https://jupyterlab.readthedocs.io/en/latest/" target="_blank">Jupyter Lab</a> (a web-based environment for Jupyter Notebooks), we recommend using Jupyter Notebooks in VS Code via the <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks" target="_blank">Jupyter Notebook “extension”</a>. In other words, you’re using a Jupyter Notebook format (which has the <code>.ipynb</code> file extension, just like how basic Python scripts have the <code>.py</code> extension) in the VS Code IDE. We’ll discuss this in the next sections.</p>
+<p>While you can choose to work with code editors like <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a> or notebooks via <a href="https://jupyterlab.readthedocs.io/en/latest/" target="_blank">JupyterLab</a> (a web-based environment for Jupyter Notebooks), we recommend using Jupyter Notebooks in VS Code via the <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks" target="_blank">Jupyter Notebook “extension”</a>. In other words, you’re using a Jupyter Notebook format (which has the <code>.ipynb</code> file extension, just like how basic Python scripts have the <code>.py</code> extension) in the VS Code IDE. We’ll discuss this in the next sections.</p>
 </section>
 <section id="vs-code-python" class="level3">
 <h3 data-anchor-id="vs-code-python">VS Code + Python</h3>
@@ -769,28 +769,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-anchor-id="variables">Variables</h3>
 <p>A variable is like a labeled entity that stores information (numbers, text, etc.). You can create a variable, give it a name, and assign it a value.</p>
 <p>Note that in the below code, some of the lines are written with a <code>#</code> at the beginning - these are <em>comments</em>. Putting a <code>#</code> in front of a line of code tells the computer not to execute it. You should use comments often to explain what your code is doing, either for someone else who might need to understand it or for your future self.</p>
-<div id="cell-9" class="cell" data-execution_count="7">
+<div id="cell-9" class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign a value to a variable</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>city <span class="op">=</span> <span class="st">"Toronto"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In the above cell, we created two variables, one called <code>city</code> and another called <code>population</code>. The <code>city</code> variable is a <em>string</em> because it is a sequence of characters. The computer knows this is a string because we enclosed the text, Toronto, in quotes. Single or double quotes both work here.</p>
 <p>The <code>population</code> variable is an <em>integer</em> because it is a numeric value without decimals. You can see the data type with <code>type([name of object])</code> like below:</p>
-<div id="cell-11" class="cell" data-execution_count="8">
+<div id="cell-11" class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>int</code></pre>
 </div>
 </div>
 <p>If we <em>print</em> the variable, it will show us the variable’s value:</p>
-<div id="cell-13" class="cell" data-execution_count="9">
+<div id="cell-13" class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>100</code></pre>
 </div>
 </div>
 <p>We can also re-assign variables, which will change their value. Now when we print the value of <code>population</code>, it will show 101 instead of 100:</p>
-<div id="cell-15" class="cell" data-execution_count="11">
+<div id="cell-15" class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Re-assign `population` variable with a new value</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> <span class="dv">101</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -803,20 +803,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="simple-math" class="level3">
 <h3 data-anchor-id="simple-math">Simple math</h3>
 <p>Python can do simple math, like a calculator:</p>
-<div id="cell-19" class="cell" data-execution_count="5">
+<div id="cell-19" class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="op">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>7</code></pre>
 </div>
 </div>
-<div id="cell-20" class="cell" data-execution_count="6">
+<div id="cell-20" class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="op">/</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>3.3333333333333335</code></pre>
 </div>
 </div>
 <p>You can also use the <a href="https://docs.python.org/3/library/math.html" target="_blank"><code>math</code></a> module to access more advanced functions, like taking the square root. To use this module, you have to import it first:</p>
-<div id="cell-22" class="cell" data-execution_count="7">
+<div id="cell-22" class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math <span class="co"># import module</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>math.sqrt(<span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
@@ -828,7 +828,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-anchor-id="lists">Lists</h3>
 <p>A list is a collection of elements which can be accessed by their position. Python uses something called <a href="https://en.wikipedia.org/wiki/Zero-based_numbering" target="_blank">zero-based indexing</a>, which means the first element of a sequence has an index (position) of 0 instead of 1.</p>
 <p>In the below example, <code>transport_modes</code> is a <em>variable</em> whose type is a <em>list</em>.</p>
-<div id="cell-25" class="cell" data-execution_count="21">
+<div id="cell-25" class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign list to variable called 'transport_modes'</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>transport_modes <span class="op">=</span> [<span class="st">"train"</span>, <span class="st">"car"</span>, <span class="st">"bus"</span>]</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(transport_modes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -836,14 +836,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>list</code></pre>
 </div>
 </div>
-<div id="cell-26" class="cell" data-execution_count="22">
+<div id="cell-26" class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access first item in list</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(transport_modes[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>train</code></pre>
 </div>
 </div>
-<div id="cell-27" class="cell" data-execution_count="23">
+<div id="cell-27" class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access second item in list</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(transport_modes[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -851,7 +851,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Items can be appended to lists:</p>
-<div id="cell-29" class="cell" data-execution_count="24">
+<div id="cell-29" class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add "streetcar" to the list</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>transport_modes.append(<span class="st">"streetcar"</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(transport_modes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -860,7 +860,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We can check the length of the new list to see how many elements it has:</p>
-<div id="cell-31" class="cell" data-execution_count="25">
+<div id="cell-31" class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(transport_modes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>4</code></pre>
@@ -870,19 +870,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="dictionaries" class="level3">
 <h3 data-anchor-id="dictionaries">Dictionaries</h3>
-<p>A dictionary is a type of object that stores information in pairs: each “entry” in the dictionary has both a <em>key</em> and a <em>value</em>. In the example below, <code>housing_unit</code> is a dictionary that contains characteristics – specifically the address and age – of a housing unit.</p>
-<div id="cell-35" class="cell" data-execution_count="26">
+<p>A dictionary is a type of object that stores information in pairs: each “entry” in the dictionary has both a <em>key</em> and a <em>value</em>. In the example below, <code>housing_unit</code> is a dictionary that contains characteristics, specifically the address and age, of a housing unit.</p>
+<div id="cell-35" class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>housing_unit <span class="op">=</span> {<span class="st">"address"</span>: <span class="st">"605 Main St"</span>, <span class="st">"age"</span>: <span class="dv">70</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can access the value associated with the <code>address</code> of the housing unit:</p>
-<div id="cell-37" class="cell" data-execution_count="27">
+<div id="cell-37" class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(housing_unit[<span class="st">"address"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>605 Main St</code></pre>
 </div>
 </div>
 <p>We can also add a new key-value pair to the dictionary that represents, in this case, the housing unit type:</p>
-<div id="cell-39" class="cell" data-execution_count="28">
+<div id="cell-39" class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>housing_unit[<span class="st">"type"</span>] <span class="op">=</span> <span class="st">"condominium"</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(housing_unit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -894,7 +894,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="if-statements" class="level3">
 <h3 data-anchor-id="if-statements">If statements</h3>
 <p>If statements let your code make decisions. You check a condition (e.g., whether income &lt; 30,000), and run different code depending on whether it’s true or false.</p>
-<div id="cell-43" class="cell" data-execution_count="29">
+<div id="cell-43" class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> <span class="dv">50000</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> income <span class="op">&lt;</span> <span class="dv">30000</span>:</span>
@@ -910,14 +910,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="for-loops" class="level3">
 <h3 data-anchor-id="for-loops">For loops</h3>
 <p>A for loop repeats code for each item in a list or range. For example:</p>
-<div id="cell-47" class="cell" data-execution_count="30">
+<div id="cell-47" class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reminder of what items are in the 'transport_modes' list:</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>transport_modes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>['train', 'car', 'bus', 'streetcar']</code></pre>
 </div>
 </div>
-<div id="cell-48" class="cell" data-execution_count="31">
+<div id="cell-48" class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> transport_mode <span class="kw">in</span> transport_modes:</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(transport_mode)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -932,7 +932,7 @@ streetcar</code></pre>
 <section id="while-loops" class="level3">
 <h3 data-anchor-id="while-loops">While loops</h3>
 <p>A while loop repeats code as long as a condition is true. In the below example, we start with 0 and keep adding 1 until we get to 3, after which we stop counting:</p>
-<div id="cell-52" class="cell" data-execution_count="18">
+<div id="cell-52" class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> count <span class="op">&lt;=</span> <span class="dv">3</span>:</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Counting:"</span>, count)</span>
@@ -949,7 +949,7 @@ Counting: 3</code></pre>
 <section id="functions" class="level3">
 <h3 data-anchor-id="functions">Functions</h3>
 <p>A function is a reusable block of code that performs a task. You “define” it (write the code that performs the task) once and “call” it (run that pre-defined code) whenever you want. In the below example, we define the function <code>zoning</code> so that when it is called, it prints “This parcel is zoned as [land_use]!” where <code>land_use</code> is an <em>argument</em> (also known as a <em>parameter</em>) that’s passed into the function.</p>
-<div id="cell-56" class="cell" data-execution_count="33">
+<div id="cell-56" class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> zoning(land_use):</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"This parcel is zoned as </span><span class="sc">{</span>land_use<span class="sc">}</span><span class="ss">."</span>)</span>
@@ -961,10 +961,10 @@ Counting: 3</code></pre>
 </div>
 </div>
 <p>Not all functions need arguments. For example:</p>
-<div id="cell-58" class="cell" data-execution_count="34">
+<div id="cell-58" class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> largest_cities():</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Toronto, Montreal, and Calgary are the largest cities in Canada by population."</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Toronto, Montreal, and Vancouver are the largest cities in Canada by population."</span>)</span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the function</span></span>
 <span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>largest_cities()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -973,7 +973,7 @@ Counting: 3</code></pre>
 </div>
 </div>
 <p>Some functions have more than one argument. For example:</p>
-<div id="cell-60" class="cell" data-execution_count="21">
+<div id="cell-60" class="cell">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_numbers(a, b):</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> a <span class="op">+</span> b</span>
@@ -990,11 +990,15 @@ Counting: 3</code></pre>
 </section>
 <section id="libraries" class="level3">
 <h3 data-anchor-id="libraries">Libraries</h3>
-<p>Libraries are collections of related functions that do things like analyze data, draw charts, or work with maps.</p>
-<p>Many libraries like <code>math</code> for a variety of mathematical operations, <code>os</code> for interacting with files on your computer, and <code>random</code> for generating random numbers, typically come automatically installed with Python.</p>
+<p>Libraries are collections of related functions that do things like analyze data, draw charts, or work with maps. Here are some common examples</p>
+<ul>
+<li><p><code>math</code> is used for a variety of mathematical operations</p></li>
+<li><p><code>os</code> for interacting with files on your computer</p></li>
+<li><p><code>random</code> for generating random numbers, typically come automatically installed with Python.</p></li>
+</ul>
 <p>There are many popular freely available libraries available—like <code>pandas</code> for working with data tables, <code>matplotlib</code> for plotting, and <code>geopandas</code> for spatial data—that can help you do a lot with just a few lines of code.</p>
 <p>To include functions that are part of a library, we use <code>import</code> at the top of our script. For example, let’s import a function for a random number generator, and use it to create our own <a href="https://en.wikipedia.org/wiki/Regular_icosahedron" target="_blank">d20</a> dice rolling function.</p>
-<div id="cell-63" class="cell" data-execution_count="11">
+<div id="cell-63" class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to roll a 20-sided dice</span></span>
