@@ -11,15 +11,15 @@ The audience response will depend on both their background (their “priors”) 
  
 But much will depend also on how persuasive the data visualization is. A good data story will have organized knowledge around the moral need to take action, integrating an understanding of what happened with a hint of what’s possible. It will need to convey some drama that inspires agency in the audience – even if that means sacrificing scientific precision.
  
-Here are four simple rules for communicating data using PowerPoint. (Keep in mind also the [Practical tips for effective data visualization](https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/data-visualization/data-visualization.html) outlined earlier.)
+Here are four simple rules for communicating data using slide decks such as those built in PowerPoint or Google slides. (Keep in mind also the [Practical tips for effective data visualization](https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/data-visualization-practical-tips/data-visualization-practical-tips.html) outlined earlier.)
 
 ## Make people listen, not read.
 
-Often PowerPoint presentations use bullet points with many words, and we lose people’s attention as they start reading. A few simple tricks can keep the audience focused on the message:
+Often slide deck presentations use bullet points with many words, and we lose people’s attention as they start reading. A few simple tricks can keep the audience focused on the message:
  
 **Use headlines**. Title the visual with the punchline. This will pique the curiosity of the audience and ensure that they understand the takeaway.
 
-**Highlight points**. Keep the audience focused on the point you are making, rather than the rest of the slide. Two complementary ways to do this are animation and fading. One is to have a bullet point appear only when you are speaking about it (using the animation feature in PowerPoint). The second is to fade out the text that you have already spoken to, so that it does not distract listeners. (Still, you will want to keep it on the page so the audience can refer to it.)
+**Highlight points**. Keep the audience focused on the point you are making, rather than the rest of the slide. Two complementary ways to do this are animation and fading. One is to have a bullet point appear only when you are speaking about it (e.g. using the animation feature in PowerPoint). The second is to fade out the text that you have already spoken to, so that it does not distract listeners. (Still, you will want to keep it on the page so the audience can refer to it.)
 
 **Minimize text**. Don’t give people text to read! If you want to provide more detail, offer a handout. One rule of thumb is no more than 7 words per bullet point.
 
