@@ -41,6 +41,8 @@ Here’s an example. A city councilmember in Berkeley, California put together a
 
 ![](img/median-household.png)
 
+<small>Source: Lori Droste.</small>
+
 This table may not be very persuasive as a data story. It shows so much data – 25 data points – that people might just see the evidence they want to see, which confirms their prior beliefs. Also, the table emphasizes divisions.
  
 Here’s one solution that simplifies the table, reducing it to the absolutely necessary information, with a headline. It eliminates the data on homes built before 2005, since the focus was supposed to be on new housing supply. It also gets rid of the detached versus attached housing categories, since the distinction is not important to the point.  Hopefully this is now a story that creates shared ground – and can be understood quickly in the context of a presentation.
@@ -48,6 +50,8 @@ Here’s one solution that simplifies the table, reducing it to the absolutely n
 **Every family should have a choice of what type of home to live in. Upzoning will create that choice.**
 
 ![](img/housing-type.png)
+
+<small>Source: Karen Chapple.</small>
 
 ## Use maps! People see themselves in a map.
 

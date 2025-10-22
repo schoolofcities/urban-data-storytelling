@@ -181,7 +181,7 @@ A powerful feature of  tools such as QGIS or Python to make maps is that we can 
 - Style street network data based on quality and safety of cycling infrastructure
 - Many more!
 
-Many of these options use *visual variables* like size, hue, saturation, orientation, etc. as shown in our [data visualization](../../urban-data-visualization/data-visualization/data-visualization.md) notebook.
+Many of these options use *visual variables* like size, hue, saturation, orientation, etc. as shown in our [data visualization](../../urban-data-visualization/data-visualization-overview/data-visualization-overview.md) notebook.
 
 Let's look at a couple examples in QGIS! (If you haven't worked with QGIS before, check out our [intro to spatial data and GIS](../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.md) notebook)
 
