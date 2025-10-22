@@ -32,7 +32,7 @@ This online textbook can be read in full, or you can select different sections d
 | What do you want to learn or do? | Textbook section |
 |----------------------------|--------|
 | **Urban Data Storytelling** |
-| - How can I start creating a "data story"?<br>- What are the overall steps involved and what should I be thinking about as I do this work? | [The importance of urban data storytelling](urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.md) |
+| - How can I start creating a "data story"?<br>- What are the overall steps involved and what should I be thinking about as I do this work? | [Introduction to urban data storytelling](urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.md) |
 | - How do I create narratives that bring people together around shared values?<br>- What are different types of stories I can tell with data?<br>- How do I shift from highlighting problems to showcasing community assets? | [Creating shared ground through data storytelling](urban-data-storytelling/creating-shared-ground-data-storytelling/creating-shared-ground-data-storytelling.md) |
 | - How do I critically evaluate data sources and their limitations?<br>- What questions should I ask before using any dataset?<br>- How do I avoid common pitfalls in data interpretation? | [Data literacy](urban-data-storytelling/data-literacy/data-literacy.md) |
 | - How can I use data ethically and responsibly?<br>- How do I center equity and justice in my data work?<br>- What are the potential harms of data analysis and how do I avoid them? | [Data ethics and equity](urban-data-storytelling/data-ethics-and-equity/data-ethics-and-equity.md) |
@@ -56,7 +56,8 @@ This online textbook can be read in full, or you can select different sections d
 | - How do I manage and interact with spatial databases? | [Spatial databases and PostGIS](urban-data-analytics/spatialdb-postgis/spatialdb-postgis.md) |
 | - How do I access a spatial database using Python? | [Accessing PostGIS with Python](urban-data-analytics/spatialdb-python/spatialdb-python.ipynb) |
 | **Urban Data Visualization** |
-| - What are some ways I can visualize my non-spatial data (in a plot, for example)?<br>- What should I be thinking about as I create my data visualizations? | [Data visualization](urban-data-visualization/data-visualization/data-visualization.md) |
+| - Why should I visualize data and what makes visualizations effective?<br>- What are the key components and theory behind data visualization? | [Introduction to visualization](urban-data-visualization/data-visualization-overview/data-visualization-overview.md) |
+| - What are practical tips for creating clear and effective data visualizations?<br>- How do I improve the design and accessibility of my charts and maps? | [Ten practical tips for effective data visualization](urban-data-visualization/data-visualization-practical-tips/data-visualization-practical-tips.md) |
 | - How do I create some basic plots to explore my data in Python? | [Exploratory data visualization](urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.ipynb) |
 | - What kinds of maps can I make?<br>- What are the different elements of an effective map? | [Maps and visualizing spatial data](urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.md) |
 | - How do I make a map that shows... | |
@@ -65,6 +66,7 @@ This online textbook can be read in full, or you can select different sections d
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...symbols whose sizes correspond to some value? | [Proportional symbol maps](urban-data-visualization/proportional-symbol-maps/proportional-symbol-maps.md) |
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...lines representing travel between locations? | [Flow maps](urban-data-visualization/flow-maps/flow-maps.ipynb) |
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...dots whose colors represent some value? | [Categorical dot maps](urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.ipynb) |
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...density and concentration patterns? | [Visualizing and mapping density](urban-data-visualization/visualizing-and-mapping-density/visualizing-and-mapping-density.md) |
 - How do I make an interactive online map? | [Web map development](urban-data-visualization/webmaps/webmaps.md) |
 
 

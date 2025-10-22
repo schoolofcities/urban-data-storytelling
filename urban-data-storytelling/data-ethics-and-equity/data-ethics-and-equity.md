@@ -38,6 +38,8 @@ There is a high correlation between today’s patterns of gentrification and exc
 
 ![](img/historical-neighbourhoods.png)
 
+<small>Source: [Mapping Inequality](https://dsl.richmond.edu/panorama/redlining/).</small>
+
 Another example is the data from the Census on race and ethnicity. Race is a social construct, and each country talks about it in its own way, based on societal norms and history. For example, in Brazil people can classify themselves as white, black, yellow, brown, indigenous, or undeclared, while in England the choice is between white, mixed, Asian/Asian British, Black/Black British, or Chinese or other ethnic group.
 
 But the growing availability of microdata allows us to examine dimensions of group and individual identity together, or their intersectionality. This then helps to expose how forces of oppression and privilege work differently across income, race, gender, ability, sexuality, and immigrant status, among other characteristics.
