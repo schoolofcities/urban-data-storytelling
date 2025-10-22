@@ -13,7 +13,7 @@ Florence Nightingale arrived as a nurse in late 1854 during the Crimean War. She
 
 We often hear that “data speaks for itself,” but all of us have been swayed by a striking graphic or shocking number far more than the drab table behind it. These impressions are always shaped by human choices - collection, classification, analysis, visualization, dissemination. Each stage involves forks in the road: some personal (axis scales, colours), others systemic (whose lives are counted, and whose aren’t). Nightingale, for instance, placed preventable disease deaths (in blue) on the outermost ring of her diagram - where circumference was the greatest. The data didn’t change, but the argument became more forceful.
 
-Data isn’t useless, but how it’s shaped and wielded matters. The same figures can support opposing claims. That’s why rigour and context are essential whenever we encounter data.
+The way we shape and wield data matters. The same figures can support opposing claims. That’s why rigour and context are essential whenever we encounter data.
 
 ## Visual Tricks and Misleading Mathematics
 
@@ -27,6 +27,8 @@ Even the simplest graph involves choices: where the axes begin and end, what sca
 
 During COVID-19, some jurisdictions plotted cases on a linear scale, others on a logarithmic one. The very same numbers could suggest either that “the curve is flattening” or that cases were still rising rapidly. Researchers found laypeople had [difficulty judging severity](https://behavioralpolicy.org/wp-content/uploads/2021/02/BSP_02Ryan_galley.pdf) on logarithmic charts. While such charts did show the rate of change, the choice of scale also had political consequences: one reading heightened alarm, the other downplayed urgency.
 
+It's always important to consider the audience of different works and what context they'll bring. Sometimes, this might mean additional annotation on a graph, while other times, it means using a different scale more suited to a technical audience. 
+
 ### Measures and Statistics
 
 We’ve all seen it: a politician touts a statistic, a headline trumpets a finding, only for it to crumble under closer scrutiny. What counts as an “average,” a “percentage,” or a “rate” depends heavily on what’s included, what’s excluded, and how it’s calculated.
@@ -37,7 +39,7 @@ Take income. If ten people are in a room, one with a million dollars and the res
 
 <small>Source: [Vox, via Our World In Data](https://www.vox.com/future-perfect/2019/2/12/18215534/bill-gates-global-poverty-chart).</small>
 
-In a case from a few years back, researchers from Our World in Data published a graph showing extreme poverty declining since the 1800s. The narrative was that modernity lifted billions out of destitution. But what counts as “extreme poverty”? As [Sullivan & Hickel (2023)](https://www.sciencedirect.com/science/article/pii/S0305750X22002169) argued, the World Bank’s $1.90/day threshold fails to capture whether basic needs like food, clothing, shelter are met. Using broader definitions and looking back a few hundred years, many people had their needs met, and “extreme poverty” was not the universal norm. Instead, colonialism, privatization, enslavement, and dispossession created poverty crises and maintained them. 
+In a case from a few years back, researchers from Our World in Data published a graph showing extreme poverty declining since the 1800s. The narrative was that modernity lifted billions out of destitution. But what counts as “extreme poverty”? As [Sullivan & Hickel (2023)](https://www.sciencedirect.com/science/article/pii/S0305750X22002169) argued, the World Bank’s $1.90/day threshold fails to capture whether basic needs like food, clothing, shelter are met. Using broader definitions and looking back a few hundred years, many people had their needs met, and “extreme poverty” was not the universal norm. Instead, colonialism, privatization, enslavement, and dispossession created poverty crises and maintained them. It was thanks to progressive social movements in the 20th century that social welfare was expanded.
 
 The underlying methods matter. Small definitional tweaks can reverse entire conclusions.
 
@@ -78,6 +80,8 @@ In Canada, mapping land was also a tool for dispossession. Surveys of the late 1
 <small>Source: [CBC](https://www.cbc.ca/news/indigenous/residential-school-children-deaths-numbers-1.6182456 ).</small>
 
 What’s omitted matters too. The deaths of Indigenous children in residential schools went largely unrecorded. For decades, these children were absent from official data, their lives excluded from the statistical ledger. Even now, unmarked graves remain undocumented, showing how structural choices about data reinforce whose lives are counted as worthy.
+
+It might have been the case that select individuals disagreed with these methods and saw racism for what it was. But in a system, these decisions are already made and passed down. It's not so much about being purist or always right, but when we think about the data we obtain and how its structured, we also have to ask who is discounted, and whether there's an opportunity to change that inside or outside a given system.
 
 ### Media and Narratives
 
