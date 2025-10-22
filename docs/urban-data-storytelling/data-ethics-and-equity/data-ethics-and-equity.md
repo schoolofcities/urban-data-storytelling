@@ -42,6 +42,34 @@ Another example is the data from the Census on race and ethnicity. Race is a soc
 
 But the growing availability of microdata allows us to examine dimensions of group and individual identity together, or their intersectionality. This then helps to expose how forces of oppression and privilege work differently across income, race, gender, ability, sexuality, and immigrant status, among other characteristics.
 
+## Data Governance and Data Sovereignty
+
+Related to data ethics and equity are the governance and control of data. Data sovereignty and data governance describe who gets to control data, how, and who will benefit from the data when it is used. 
+
+**Data sovereignty** is the principle that those who generate data – defined usually as the nation-state – should have full ownership, control, and governance over their data across its full lifecycle. In a narrow sense, that means data should be governed in accordance with the laws of the country from which it originates. In a broader sense, data sovereignty relates to data equity in its assertion that a people have the right to own, control, and benefit from data from and about them. From this broad concept comes Indigenous data sovereignty (IDS or IDSov), which we will discuss on the next page.  
+
+**Data governance** deals with the specific ways in which that control is exercised within an organization across the full life cycle of data. It refers to the policies, processes, and principles that control: how data is stored and/or disposed of, how it can be used to support decision-making, and who is accountable at each stage. A strong data governance framework ensures that ethical issues such as privacy, confidentiality, and responsible use are enforceable and traceable, and ensures compliance according to the principles of data sovereignty. 
+
+Within many city building professions, you may not need to interact with these terms from a technical level. However, understanding what they are and how they relate to the data you are accessing and using can help you develop a more conscientious, informed, and equitable data storytelling practice. 
+
+### Indigenous Data Sovereignty 
+
+**Indigenous Data Sovereignty** is about the rights of Indigenous peoples and Nations to govern the collection, management, and use of data from and about them, their lands, and their cultures.  
+
+The Indigenous Data Sovereignty (IDS) movement began in Canada, growing out of the [1996 Report of the Royal Commission on Aboriginal Peoples](https://www.bac-lac.gc.ca/eng/discover/aboriginal-heritage/royal-commission-aboriginal-peoples/Pages/final-report.aspx), within which a key principle was Indigenous self-governance. Over time, self-governance began to include Indigenous data, stories, and knowledge, with the [First Nations principles of ownership, control, access, and possession (OCAP®)](https://fnigc.ca/ocap-training/) published in 2016 by the First Nations Information Governance Centre. You can [watch more here](https://youtu.be/y32aUFVfCM0).   
+
+While different Nations have different approaches to IDSov, many see it as part of self-governance efforts, sometimes requiring repatriation of data from the Crown in order to facilitate effective decision-making about local needs, community services for and by Indigenous peoples, and ongoing land claims. 
+
+You can read about Indigenous Data Sovereignty in Canada through the [story of the Nishnawbe Aski Nation here](https://www.csps-efpc.gc.ca/tools/articles/indigenous-data-sovereignty-eng.aspx).  
+
+Today, Indigenous Data Sovereignty networks and efforts have sprung up all over the world, including the [Te Mana Raraunga (the Māori Data Sovereignty Network)](https://www.temanararaunga.maori.nz/)) in Aotearoa (New Zealand), and the [United States Indigenous Data Sovereignty Network (USIDSN)](https://usindigenousdatanetwork.org/about-2/).  
+
+For many of these networks, data sovereignty is the first step. Many of these networks are working towards CARE Principles for Indigenous data governance that focus on how data can be used by Indigenous peoples to further the purpose of Indigenous self-determination, thriving, and justice. 
+
+![](img/care.png)
+
+<small>Source: [Carroll et al. 2020](https://static1.squarespace.com/static/5d3799de845604000199cd24/t/6397b1aff7a6fb54defdf687/1670885815820/dsj-1158_carroll.pdf).</small>
+
 ## Additional readings
 
 The videos and content above represent a brief introduction to the topics of data ethics and centering equity in data. To learn more or dive in deeper, we encourage you to check out the following additional readings:
@@ -49,6 +77,13 @@ The videos and content above represent a brief introduction to the topics of dat
  - [Schwabish, J. (2018)](https://urban-institute.medium.com/form-and-function-let-your-audiences-needs-drive-your-data-visualization-choices-3c0603745822). Form and Function: Let Your Audience’s Needs Drive Your Visualization Choices. The Urban Institute, Data@Urban Medium. Retrieved from:
  - [Schwabish, J., & Feng, A. (2020)](https://osf.io/preprints/osf/x8tbw). Applying Racial Equity Awareness in Data Visualization.
  - [Schwabish, J. & Feng, A. (2021)](https://www.urban.org/research/publication/do-no-harm-guide-applying-equity-awareness-data-visualization). Do No Harm Guide: Applying Racial Equity Awareness in Data Visualization. The Urban Institute. Retrieved from:
+
+Additionally, you can take a look at these extra resources for indigenous data sovereignty.
+
+ - [What is Indigenous data sovereignty and why does it matter?](https://beyond.ubc.ca/what-is-indigenous-data-sovereignty-and-why-does-it-matter/)
+ - [CARE Principles for Indigenous Data Governance](https://www.gida-global.org/care)
+ - [Carroll et al. 2020](https://static1.squarespace.com/static/5d3799de845604000199cd24/t/6397b1aff7a6fb54defdf687/1670885815820/dsj-1158_carroll.pdf)
+ - [The History of the Indigenous Data Sovereignty Movement](https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1BKf-MtNpahaqe2Yc_QKx7fvcE6N_RNvnIa2zRtTipZQ&font=Lustria-Lato&lang=en&initial_zoom=0&height=1000)
 
 ## Footnotes
 
