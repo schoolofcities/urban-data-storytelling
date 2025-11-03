@@ -1,6 +1,6 @@
 ---
 title: "Data ethics and equity"
-author: "Karen Chapple"
+author: "Karen Chapple, Michelle Zhang"
 ---
 
 This section first examines ethical practices with data, and then how to centre equity in data.
