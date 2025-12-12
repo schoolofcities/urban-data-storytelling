@@ -85,6 +85,7 @@ If you want to cite this online textbook, here is the recommended citation:
   year      = {2025},
   publisher = {School of Cities, University of Toronto},
   url		= {https://schoolofcities.github.io/urban-data-storytelling/}
+  doi   = {https://doi.org/10.5281/zenodo.17912387}
 }
 ```
 
@@ -101,6 +102,7 @@ If you want to cite a specific page, here is an example of a recommended citatio
   publisher = {School of Cities, University of Toronto},
   year      = {2025},
   url		= {https://schoolofcities.github.io/urban-data-storytelling/urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.html}
+  doi   = {https://doi.org/10.5281/zenodo.17912387}
 }
 ```
 
