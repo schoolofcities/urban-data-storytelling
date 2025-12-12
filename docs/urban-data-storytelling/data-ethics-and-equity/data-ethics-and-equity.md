@@ -3,6 +3,8 @@ title: "Data ethics and equity"
 author: "Karen Chapple, Michelle Zhang"
 ---
 
+[📥 Click here to download this document and any associated data and images](/downloads/data-ethics-and-equity.zip)
+
 This section first examines ethical practices with data, and then how to centre equity in data.
 
 ## Data ethics

@@ -3,7 +3,7 @@ title: "Introduction to visualization"
 author: "Isabeaux Graham, Jeff Allen"
 ---
 
-[📥 Click here to download this document and any associated data and images](/downloads/data-visualization.zip)
+[📥 Click here to download this document and any associated data and images](/downloads/data-visualization-overview.zip)
 
 This section will cover:
 

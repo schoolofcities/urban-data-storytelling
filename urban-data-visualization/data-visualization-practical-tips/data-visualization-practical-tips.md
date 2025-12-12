@@ -3,6 +3,8 @@ title: "Ten practical tips for effective data visualization"
 author: "Karen Chapple, Jeff Allen, Isabeaux Graham"
 ---
 
+[📥 Click here to download this document and any associated data and images](/downloads/data-visualization-practical-tips.zip)
+
 
 A strong visualization can make complex data accessible; however, without care, the message can get lost. Great visualizations balance clarity, precision, and aesthetics. This chapter offers practical tips and guiding principles to elevate your data visualizations.
 
