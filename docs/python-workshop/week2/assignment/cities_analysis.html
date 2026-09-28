@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.23">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Assignment: Exploring Canadian municipalities with pandas – Urban Data Analytics, Visualization, &amp; Storytelling 📊📈🏙️</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../assets/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-37d396b9bd9d8499210613c9f6c50fd5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XB09CWTEWB"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-XB09CWTEWB');
+</script>
+
+<meta name="description" content="Textbook chapters and tutorials on urban data analysis, visualization, and storytelling">
+<meta name="author" content="School of Cities">
+<meta rel="canonical" href="https://schoolofcities.github.io/urban-data-storytelling">
+
+<meta property="og:title" content="Assignment: Exploring Canadian municipalities with pandas – Urban Data Analytics, Visualization, &amp; Storytelling 📊📈🏙️">
+<meta name="og:description" content="Textbook chapters and tutorials on urban data analysis, visualization, and storytelling">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://schoolofcities.github.io/urban-data-storytelling">
+<meta property="og:image" content="https://raw.githubusercontent.com/schoolofcities/urban-data-storytelling/refs/heads/main/assets/web-card.png">
+<meta property="og:locale" content="en_CA">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="https://schoolofcities.github.io/urban-data-storytelling">
+<meta name="twitter:creator" content="@UofTCities">
+<meta name="twitter:title" content="Assignment: Exploring Canadian municipalities with pandas – Urban Data Analytics, Visualization, &amp; Storytelling 📊📈🏙️">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/urban-data-storytelling/refs/heads/main/assets/web-card.png">
+
+<meta name="citation_title" content="Urban data analysis, visualization, and storytelling">
+<meta name="citation_author" content="Jeff Allen">
+<meta name="citation_author" content="Julia Greenberg">
+<meta name="citation_author" content="Evelyne St-Louis">
+<meta name="citation_author" content="Michelle Zhang">
+<meta name="citation_author" content="Aniket Kali">
+<meta name="citation_author" content="Karen Chapple">
+<meta name="citation_publication_date" content="2025/10/01">
+<meta name="citation_journal_title" content="School of Cities">
+<meta name="citation_doi" content="https://doi.org/10.5281/zenodo.17912387">
+<!-- <meta name="citation_pdf_url" content="https://schoolofcities.utoronto.ca/research-paper.pdf"> -->
+<meta name="citation_abstract_html_url" content="https://schoolofcities.github.io/urban-data-storytelling">
+</head><body class="nav-sidebar floating quarto-light"><div class="top-header-logo">
+    <a class="header-logo-link" href="https://schoolofcities.utoronto.ca/">
+        <img class="header-logo-image" src="https://raw.githubusercontent.com/schoolofcities/urban-data-storytelling/refs/heads/main/assets/sofc-uoft-logo-blue-colour.svg" alt="School of Cities logo">
+    </a>
+    <!-- <a class="header-title-link" href="index.html">
+        <span class="header-title" style="color: #1E3765; font-size: 17px; font-weight: normal; padding-left: 5px; padding-top: 0px; padding-bottom: 0px;">
+          Urban Data Analytics, Visualization, & Storytelling 
+        </span>
+    </a> -->
+</div>
+
+
+<link rel="stylesheet" href="../../../assets/styles.css">
+
+
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Assignment: Exploring Canadian municipalities with pandas</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Storytelling</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-storytelling/urban-data-storytelling-importance/urban-data-storytelling-importance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to urban data storytelling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-storytelling/creating-shared-ground-data-storytelling/creating-shared-ground-data-storytelling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Creating shared ground through data storytelling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-storytelling/data-literacy/data-literacy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data literacy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-storytelling/data-ethics-and-equity/data-ethics-and-equity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data ethics and equity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-storytelling/subjectivity-and-objectivity-in-data/subjectivity-and-objectivity-in-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Subjectivity and objectivity in data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-storytelling/communicating-data-in-presentations/communicating-data-in-presentations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Communicating data in presentations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Analytics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/what-and-where-of-data/what-and-where-of-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to urban data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/measuring-the-city/measuring-the-city.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Measuring the city: metrics and indicators</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/intro-to-python-and-jupyter/intro-to-python-and-jupyter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Programming with Python and computational notebooks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/organizing-reproducible-workflows/organizing-reproducible-workflows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Organizing reproducible Python workflows</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Processing and analyzing data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/statistical-foundations/statistical-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical foundations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/advanced-statistics-multivariate-methods/advanced-statistics-multivariate-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Advanced statistics and multivariate methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/spatial-data-and-gis/spatial-data-and-gis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial data and GIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/spatial-data-in-python/spatial-data-in-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial data in Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/spatial-data-processing/spatial-data-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial data processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/openstreetmap/openstreetmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OpenStreetMap</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/canadian-census-data/canadian-census-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of Canadian census data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/us-census-data/us-census-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of U.S. census data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/intro-to-spatialdb/intro-to-spatialdb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to spatial databases</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/sql-basics/sql-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL fundamentals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/spatialdb-postgis/spatialdb-postgis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial databases and PostGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-analytics/spatialdb-python/spatialdb-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accessing PostGIS with Python</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Urban Data Visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-visualization/data-visualization-overview/data-visualization-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-visualization/data-visualization-practical-tips/data-visualization-practical-tips.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ten practical tips for effective data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-visualization/exploratory-data-visualization/exploratory-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploratory data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-visualization/maps-and-spatial-data-visualization/maps-and-spatial-data-visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Maps and visualizing spatial data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-visualization/choropleth-maps/choropleth-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Choropleth maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-visualization/bivariate-choropleth-maps/bivariate-choropleth-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bivariate choropleth maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-visualization/proportional-symbol-maps/proportional-symbol-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Proportional symbol maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-visualization/flow-maps/flow-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flow maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-visualization/categorical-dot-maps/categorical-random-dot-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Categorical dot maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-visualization/visualizing-and-mapping-density/visualizing-and-mapping-density.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing and mapping density</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../urban-data-visualization/webmaps/webmaps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Web map development</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#purpose" id="toc-purpose" class="nav-link active" data-scroll-target="#purpose">Purpose</a>
+  <ul class="collapse">
+  <li><a href="#required-outputs" id="toc-required-outputs" class="nav-link" data-scroll-target="#required-outputs">Required outputs</a></li>
+  </ul></li>
+  <li><a href="#import-pandas" id="toc-import-pandas" class="nav-link" data-scroll-target="#import-pandas">1. Import pandas</a></li>
+  <li><a href="#load-the-source-data" id="toc-load-the-source-data" class="nav-link" data-scroll-target="#load-the-source-data">2. Load the source data</a></li>
+  <li><a href="#inspect-the-dataset" id="toc-inspect-the-dataset" class="nav-link" data-scroll-target="#inspect-the-dataset">3. Inspect the dataset</a></li>
+  <li><a href="#rename-the-columns" id="toc-rename-the-columns" class="nav-link" data-scroll-target="#rename-the-columns">4. Rename the columns</a></li>
+  <li><a href="#inspect-and-handle-missing-values" id="toc-inspect-and-handle-missing-values" class="nav-link" data-scroll-target="#inspect-and-handle-missing-values">5. Inspect and handle missing values</a></li>
+  <li><a href="#create-population-change-columns" id="toc-create-population-change-columns" class="nav-link" data-scroll-target="#create-population-change-columns">6. Create population-change columns</a></li>
+  <li><a href="#compute-summary-statistics" id="toc-compute-summary-statistics" class="nav-link" data-scroll-target="#compute-summary-statistics">7. Compute summary statistics</a></li>
+  <li><a href="#create-the-first-filtered-subset" id="toc-create-the-first-filtered-subset" class="nav-link" data-scroll-target="#create-the-first-filtered-subset">8. Create the first filtered subset</a></li>
+  <li><a href="#create-the-second-filtered-subset" id="toc-create-the-second-filtered-subset" class="nav-link" data-scroll-target="#create-the-second-filtered-subset">9. Create the second filtered subset</a></li>
+  <li><a href="#create-a-simple-chart" id="toc-create-a-simple-chart" class="nav-link" data-scroll-target="#create-a-simple-chart">10. Create a simple chart</a></li>
+  <li><a href="#save-the-cleaned-data" id="toc-save-the-cleaned-data" class="nav-link" data-scroll-target="#save-the-cleaned-data">11. Save the cleaned data</a></li>
+  <li><a href="#verify-your-work" id="toc-verify-your-work" class="nav-link" data-scroll-target="#verify-your-work">12. Verify your work</a>
+  <ul class="collapse">
+  <li><a href="#submission-checklist" id="toc-submission-checklist" class="nav-link" data-scroll-target="#submission-checklist">Submission checklist</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">Assignment: Exploring Canadian municipalities with pandas</h1></header>
+
+<header id="title-block-header">
+
+
+</header>
+
+
+<section id="purpose" class="level2">
+<h2 data-anchor-id="purpose">Purpose</h2>
+<p>Use pandas to clean, explore, filter, summarize, and visualize a dataset of Canadian municipalities.</p>
+<p>The source file is <code>../data/cities.csv</code>. Your completed notebook should run successfully from top to bottom using <strong>Restart Kernel and Run All</strong>.</p>
+<section id="required-outputs" class="level3">
+<h3 data-anchor-id="required-outputs">Required outputs</h3>
+<p>By the end, you will create:</p>
+<ul>
+<li>a cleaned DataFrame;</li>
+<li>at least two summary statistics;</li>
+<li>two filtered subsets;</li>
+<li>a population-change column;</li>
+<li>one bar chart; and</li>
+<li>a cleaned CSV file saved as <code>cities_clean.csv</code> in this assignment folder.</li>
+</ul>
+</section>
+</section>
+<section id="import-pandas" class="level2">
+<h2 data-anchor-id="import-pandas">1. Import pandas</h2>
+<p>Import pandas using the alias <code>pd</code>.</p>
+<div id="f53953e6" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write your import below.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="load-the-source-data" class="level2">
+<h2 data-anchor-id="load-the-source-data">2. Load the source data</h2>
+<p>Read <code>../data/cities.csv</code> and store it in a DataFrame called <code>cities</code>.</p>
+<div id="d9a97ebc" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data below.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="inspect-the-dataset" class="level2">
+<h2 data-anchor-id="inspect-the-dataset">3. Inspect the dataset</h2>
+<p>Display the first five rows, its shape, its column names, and its data types. Use separate cells so each result is easy to read.</p>
+<div id="0d826ca6" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first five rows.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="f21cf953" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the number of rows and columns.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="33d5c7cd" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the column names.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="67397a94" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the data types.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Write two or three sentences describing the dataset. Include what one row represents, the number of rows, and the meaning of the population columns.</p>
+<p><strong>Your description:</strong></p>
+</section>
+<section id="rename-the-columns" class="level2">
+<h2 data-anchor-id="rename-the-columns">4. Rename the columns</h2>
+<p>Rename the columns using the mapping below. Store the result back in <code>cities</code>.</p>
+<div id="e7a05c2c" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename the columns:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Name -&gt; city</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Prov/terr -&gt; province</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Population, 2021 -&gt; population_2021</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Population, 2016 -&gt; population_2016</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>After renaming, display the first five rows to confirm that the names changed.</p>
+<div id="7741fe34" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Confirm the renamed columns.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="inspect-and-handle-missing-values" class="level2">
+<h2 data-anchor-id="inspect-and-handle-missing-values">5. Inspect and handle missing values</h2>
+<p>Use <code>isna().sum()</code> to count missing values in each column.</p>
+<div id="ceffc555" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count missing values.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Create a new DataFrame called <code>cities_clean</code> by removing only rows missing either population value.</p>
+<p>Use <code>dropna()</code> with the <code>subset</code> argument. Do not remove rows merely because another column is missing.</p>
+<div id="0334bda2" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create cities_clean below.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Print the original and cleaned shapes so you can see how many rows were removed.</p>
+<div id="f2ebe836" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print both shapes with clear labels.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="create-population-change-columns" class="level2">
+<h2 data-anchor-id="create-population-change-columns">6. Create population-change columns</h2>
+<p>Create <code>population_change</code>, equal to 2021 population minus 2016 population.</p>
+<div id="7f156cbd" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create population_change below.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Create <code>population_change_pct</code>, equal to the population change divided by the 2016 population, multiplied by 100.</p>
+<div id="c6bf02a9" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create population_change_pct below.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Display the city and both new columns for the first five rows.</p>
+<div id="01dc525b" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect your new columns.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="compute-summary-statistics" class="level2">
+<h2 data-anchor-id="compute-summary-statistics">7. Compute summary statistics</h2>
+<p>Calculate and display at least two of the following for <code>population_2021</code>: mean, median, minimum, maximum, or count. Store each result in a clearly named variable and print it with a label.</p>
+<div id="40692909" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute and print at least two summary statistics.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Use <code>value_counts()</code> to count how many municipalities appear for each province or territory.</p>
+<div id="e4dc4c2a" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count municipalities by province or territory.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="create-the-first-filtered-subset" class="level2">
+<h2 data-anchor-id="create-the-first-filtered-subset">8. Create the first filtered subset</h2>
+<p>Create <code>large_ontario_cities</code>, containing Ontario municipalities with a 2021 population of at least 100,000. Sort the result from largest to smallest.</p>
+<div id="2cb02eea" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter and sort large Ontario municipalities.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Display only the city, province, and 2021 population columns from this subset.</p>
+<div id="b2b19db8" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display selected columns.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="create-the-second-filtered-subset" class="level2">
+<h2 data-anchor-id="create-the-second-filtered-subset">9. Create the second filtered subset</h2>
+<p>Create <code>fast_growing_cities</code>, containing municipalities whose population grew by at least 10 percent between 2016 and 2021. Sort from the highest to lowest percentage change.</p>
+<div id="70d847d8" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter and sort fast-growing municipalities.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Display the first ten rows using the city, province, and percentage-change columns.</p>
+<div id="00213482" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the top ten fast-growing municipalities.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="create-a-simple-chart" class="level2">
+<h2 data-anchor-id="create-a-simple-chart">10. Create a simple chart</h2>
+<p>Create <code>largest_cities</code> by sorting <code>cities_clean</code> by 2021 population and retaining the ten largest municipalities.</p>
+<div id="1e6573d1" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare the ten largest municipalities.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Create a vertical bar chart with city on the x-axis and 2021 population on the y-axis. Give it a descriptive title. You may set <code>legend=False</code>.</p>
+<div id="64353b64" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the chart below.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Write two or three sentences describing what the chart shows. Mention at least one noticeable comparison.</p>
+<p><strong>Your interpretation:</strong></p>
+</section>
+<section id="save-the-cleaned-data" class="level2">
+<h2 data-anchor-id="save-the-cleaned-data">11. Save the cleaned data</h2>
+<p>Save <code>cities_clean</code> as <code>cities_clean.csv</code> in this assignment folder. Use <code>index=False</code> so pandas does not add an extra index column.</p>
+<div id="f68492ee" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the cleaned DataFrame below.</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># HINT: cities_clean.to_csv(...)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="verify-your-work" class="level2">
+<h2 data-anchor-id="verify-your-work">12. Verify your work</h2>
+<p>Run the complete notebook from the beginning, then check that <code>cities_clean.csv</code> appears beside this notebook.</p>
+<div id="3c6c03f0" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional final checks:</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - print the cleaned shape</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - print the number of rows in each subset</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - print a completion message</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="submission-checklist" class="level3">
+<h3 data-anchor-id="submission-checklist">Submission checklist</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">The notebook runs from top to bottom without errors.</label></li>
+<li><label><input type="checkbox">Column names were cleaned.</label></li>
+<li><label><input type="checkbox">Missing population values were handled.</label></li>
+<li><label><input type="checkbox">Two population-change columns were created.</label></li>
+<li><label><input type="checkbox">At least two summary statistics were computed.</label></li>
+<li><label><input type="checkbox">Two filtered and sorted subsets were created.</label></li>
+<li><label><input type="checkbox">One labelled chart was produced.</label></li>
+<li><label><input type="checkbox"><code>cities_clean.csv</code> was saved without an index column.</label></li>
+<li><label><input type="checkbox">Written descriptions and interpretations were completed.</label></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

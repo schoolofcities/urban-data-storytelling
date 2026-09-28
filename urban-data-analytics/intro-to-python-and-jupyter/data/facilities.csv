@@ -1,0 +1,7 @@
+facility_id,facility_name,facility_type,neighbourhood,ward,accessible,year_opened
+1,Fort York Library,Library,Fort York–Liberty Village,10,Yes,2014
+2,Wychwood Library,Library,Humewood–Cedarvale,12,Yes,1916
+3,Regent Park Community Centre,Community Centre,Regent Park,13,Yes,2016
+4,High Park Outdoor Pool,Pool,High Park–Swansea,4,No,1965
+5,Amesbury Arena,Arena,Brookhaven–Amesbury,6,Yes,1974
+6,Scarborough Civic Centre,Civic Centre,Scarborough City Centre,21,Yes,1973

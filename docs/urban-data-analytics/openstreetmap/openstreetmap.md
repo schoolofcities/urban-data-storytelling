@@ -167,6 +167,20 @@ Extending queries into Python is pretty straightforward: all you have to do is a
 Here, we select for railway stations within 50km of a list of points corresponding to the cities of Toronto and London - but we could do this for as many cities as we want. Once we retrieve those results, we use the Python library [`osm2geojson`](https://github.com/aspectumapp/osm2geojson) to convert the geometric data into the GeoJSON format.
 
 
+### Querying with `osmnx`
+
+For repeated or programmatic work like this, [`osmnx`](https://osmnx.readthedocs.io/) offers a more convenient interface than writing Overpass QL by hand. It downloads OSM features directly into a `geopandas` GeoDataFrame from a place name and a dictionary of tags, with no manual query-writing or JSON-parsing required (though it still queries the Overpass API behind the scenes).
+
+```python
+import osmnx as ox
+
+libraries = ox.features_from_place("Toronto, Ontario, Canada", tags={"amenity": "library"})
+libraries.shape
+```
+
+This single call returns every feature tagged `amenity=library` within Toronto's boundary, ready to filter, join, or map with the same `geopandas` tools used in [Spatial data in Python](../spatial-data-in-python/spatial-data-in-python.ipynb) and [Spatial data processing](../spatial-data-processing/spatial-data-processing.ipynb). The result is a mix of Points and Polygons, since different contributors have mapped libraries differently (some as a single point, others as a full building outline), and it typically returns more features than an official dataset would, since it also picks up university and other institutional libraries tagged the same way.
+
+The same pattern works for any tag, just by changing the dictionary passed to `tags=`: for example `{"amenity": "school"}` for schools, `{"leisure": "park"}` for parks, or a list like `{"amenity": ["library", "school"]}` for either. Since a single query can return a large amount of data, it's worth starting narrow and saving the result locally rather than re-querying every time (see [Organizing reproducible Python workflows](../organizing-reproducible-workflows/organizing-reproducible-workflows.md)).
 
 
 ### GeoFabrik Regional downloads

@@ -32,6 +32,7 @@ website:
           - urban-data-analytics/what-and-where-of-data/what-and-where-of-data.md
           - urban-data-analytics/measuring-the-city/measuring-the-city.md
           - urban-data-analytics/intro-to-python-and-jupyter/intro-to-python-and-jupyter.ipynb
+          - urban-data-analytics/organizing-reproducible-workflows/organizing-reproducible-workflows.md
           - urban-data-analytics/data-analytics-and-processing/data-analytics-and-processing.ipynb
           - urban-data-analytics/statistical-foundations/statistical-foundations.ipynb
           - urban-data-analytics/advanced-statistics-multivariate-methods/advanced-statistics-multivariate-methods.md
